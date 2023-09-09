@@ -1,0 +1,98 @@
+@import './../../style.scss';
+
+.wordbuzz {
+  width: 420px;
+  height: 330px;
+  border: 1px solid #eaeaea;
+  &_title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 27px auto 0;
+    h3 {
+      color: #eaeaea;
+      @include mabry;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      margin-right: 3px;
+    }
+  }
+}
+
+.apimap {
+  width: 530px;
+  height: 331px;
+  background: #649d77;
+  white-space: pre-wrap;
+}
+
+.discovercities {
+  position: relative;
+  width: 310px;
+  height: 331px;
+  background: #b9b5ff;
+  white-space: pre-wrap;
+  &_title {
+    display: flex;
+    margin: 22px 19px 0;
+    h2 {
+      color: #000;
+      @include serif;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 500;
+    }
+  }
+  &_title-list {
+    display: flex;
+    margin-left: auto;
+    li {
+      list-style: none;
+      margin-right: 8px;
+      &:last-child {
+        margin: 0;
+      }
+      &:hover button {
+        color: #736de3;
+      }
+      button {
+        color: #736de380;
+        @include serif;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+      }
+    }
+  }
+  &_cities {
+    position: absolute;
+    top: 98px;
+    left: 38px;
+    width: 186px;
+    height: 190px;
+  }
+  &_city {
+    position: absolute;
+    p {
+      color: #000;
+      font-family: Value Serif Pro;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      width: max-content;
+    }
+    svg {
+      cursor: pointer;
+      stroke: #fff;
+      &:hover {
+        stroke: #2a69f1;
+      }
+    }
+  }
+}
+
+.cityslide {
+  display: flex;
+  overflow: hidden;
+}

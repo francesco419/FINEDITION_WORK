@@ -1,0 +1,41 @@
+@import './../../style.scss';
+
+.megazineCard {
+  position: relative;
+  min-width: 310px;
+  height: 424px;
+  margin-right: 20px;
+  &:last-child {
+    margin-right: 0;
+  }
+  &_bookmark {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  &_detail {
+    position: absolute;
+    bottom: 0;
+    width: 310px;
+    height: 98px;
+    background-color: #b9b5ff;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    p {
+      color: $black;
+      font-family: Value Serif Pro;
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 500;
+      letter-spacing: 0.42px;
+      &:first-child {
+        color: #736de3;
+        font-family: Value Serif Pro;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        letter-spacing: 0.26px;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import './../../style.scss';
+
+.cardSlide {
+  display: flex;
+  margin: 0 0 32px;
+  width: 1300px;
+  height: 424px;
+  overflow: hidden;
+  img {
+    pointer-events: none;
+  }
+  &_group {
+    display: flex;
+    width: max-content;
+    cursor: grab;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

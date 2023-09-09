@@ -1,0 +1,16 @@
+$black: #161616;
+$fff: #ffffff;
+
+/*-----------------------*/
+
+@mixin mabry {
+  font-family: Mabry Pro;
+}
+
+@mixin serif {
+  font-family: Value Serif Pro;
+}
+
+@mixin sfpro {
+  font-family: SF Pro Display;
+}

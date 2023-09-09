@@ -1,0 +1,79 @@
+import lotte from '../assets/image/lotte-tower.png';
+import food from '../assets/image/food.png';
+import street from '../assets/image/street.png';
+import hanoak from '../assets/image/hanoak.png';
+import bump from '../assets/image/bump.png';
+import pharmacy from '../assets/image/pharmacy.png';
+import castle from '../assets/image/castle.png';
+import weed from '../assets/image/weed.png';
+import { MegazineCardType } from '../page/home/megazineCard';
+
+export const data: MegazineCardType[] = [
+  {
+    img: lotte,
+    color: '#B9B5FF'
+  },
+  {
+    img: food,
+    color: '#fff'
+  },
+  {
+    img: street,
+    color: '#A8B77F'
+  },
+  {
+    img: hanoak,
+    color: '#F87D36'
+  },
+  {
+    img: pharmacy,
+    color: '#fff'
+  },
+  {
+    img: castle,
+    color: '#EAEAEA'
+  },
+  {
+    img: weed,
+    color: '#627BD6'
+  },
+  {
+    img: bump,
+    color: '#000'
+  }
+];
+
+export const data1: MegazineCardType[] = [
+  {
+    img: pharmacy,
+    color: '#fff'
+  },
+  {
+    img: castle,
+    color: '#EAEAEA'
+  },
+  {
+    img: weed,
+    color: '#627BD6'
+  },
+  {
+    img: bump,
+    color: '#000'
+  },
+  {
+    img: lotte,
+    color: '#B9B5FF'
+  },
+  {
+    img: food,
+    color: '#fff'
+  },
+  {
+    img: street,
+    color: '#A8B77F'
+  },
+  {
+    img: hanoak,
+    color: '#F87D36'
+  }
+];

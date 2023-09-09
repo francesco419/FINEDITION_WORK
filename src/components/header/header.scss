@@ -1,0 +1,34 @@
+@import '../../style.scss';
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  color: $fff;
+  margin: 0 0 25px;
+  &_locate {
+    display: flex;
+    margin: 0 40px;
+    font-family: Mabry Pro;
+    p {
+      margin-right: 40px;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+    }
+  }
+  &_menu {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    button {
+      display: flex;
+      align-items: center;
+      height: min-content;
+      margin-right: 9px;
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
