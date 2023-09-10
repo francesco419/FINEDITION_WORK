@@ -1,8 +1,7 @@
 import './myProfile.scss';
 import profileImg from '../../assets/image/profile.png';
-import { ReactComponent as Arrow } from '../../assets/svg/Arrow back.svg';
-import { ReactComponent as Plane } from '../../assets/svg/airplane.svg';
 import { ReactComponent as ArrowDown } from '../../assets/svg/Arrow down.svg';
+import ProfileJourney from '../../components/profile/profileJourney';
 
 export default function MyProfile() {
   return (
@@ -19,20 +18,7 @@ export default function MyProfile() {
           <img src={profileImg} />
           <p>Sophie</p>
         </div>
-        <ul className='myProfile_detail'>
-          <li>
-            <p>D-42 days to Seoul</p>
-          </li>
-          <li>
-            <Arrow />
-            <Plane />
-            <p>Upcoming Journey</p>
-            <p>24.02.08 Wed ~ 02.21 Thu</p>
-          </li>
-          <li>
-            <p>18 Days l 17 Nights</p>
-          </li>
-        </ul>
+        <ProfileJourney type={false} />
       </div>
     </div>
   );

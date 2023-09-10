@@ -10,12 +10,13 @@ import NewsHome from './news';
 import WordBuzz from './wordBuzz';
 import DiscoverCities from './discover';
 import ApiMap from './apiMap';
+import Footer from '../../components/footer/footer';
 
 export default function Home() {
   return (
     <div className='home'>
       <header>
-        <Header />
+        <Header type='default' />
       </header>
       <section>
         <CardSlide data={data} />
@@ -42,6 +43,7 @@ export default function Home() {
         </div>
       </section>
       {/* <div className='homll'>a</div> */}
+      <Footer />
     </div>
   );
 }
