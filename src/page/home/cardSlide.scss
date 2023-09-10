@@ -1,6 +1,7 @@
 @import './../../style.scss';
 
 .cardSlide {
+  //position: relative;
   display: flex;
   margin: 0 0 32px;
   width: 1300px;
@@ -10,13 +11,23 @@
     pointer-events: none;
   }
   &_group {
+    // position: absolute;
+    //top: 0;
     display: flex;
     width: max-content;
-    cursor: grab;
+    cursor: pointer;
     overflow-x: scroll;
     overflow-y: hidden;
+    transition: all 0.2s;
     &::-webkit-scrollbar {
       display: none;
     }
+    ::selection {
+      background: none;
+    }
   }
+}
+
+.active {
+  cursor: grabbing;
 }

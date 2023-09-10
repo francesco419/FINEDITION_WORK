@@ -1,8 +1,11 @@
 @import '../../style.scss';
 
 .festivalHome {
+  position: relative;
+  display: flex;
   width: 605px;
   height: 391px;
+  transition: all 1s;
   &_detail {
     position: relative;
     display: flex;
@@ -24,7 +27,7 @@
     }
     h3 {
       font-weight: 600;
-      margin: 0 0 10px;
+      margin: 0 0 8px;
     }
     p {
       line-height: 20px;
@@ -32,6 +35,14 @@
       font-weight: 400;
     }
   }
+}
+
+.festivalSlider {
+  position: relative;
+  display: flex;
+  width: 605px;
+  height: 391px;
+  overflow: hidden;
   &_count {
     position: absolute;
     bottom: 15px;

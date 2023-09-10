@@ -21,10 +21,48 @@
 }
 
 .apimap {
-  width: 530px;
-  height: 331px;
-  background: #649d77;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 530px;
+  max-height: 331px;
+  //background: #649d77;
   white-space: pre-wrap;
+  img {
+    flex-grow: 1;
+    width: calc(530px / 5);
+    height: calc(331px / 2);
+    //filter: blur(1px);
+    transition: all 0.5s;
+    &:hover {
+      //width: calc(530px / 5) * 1.5;
+      //height: calc(331px / 3) * 1.5;
+      transform: scale(1.5);
+      filter: blur(0);
+    }
+  }
+}
+
+.popup {
+  position: fixed;
+  animation: pop 3s linear forwards;
+}
+
+@keyframes pop {
+  0% {
+    top: 0%;
+    left: 0%;
+    transform: scale(1.5) translate(0, 0);
+  }
+  60% {
+    top: 25%;
+    left: 25%;
+    transform: scale(2) translate(-50%, -50%);
+  }
+  100% {
+    top: 50%;
+    left: 50%;
+    transform: scale(1) translate(-50%, -50%);
+  }
 }
 
 .discovercities {

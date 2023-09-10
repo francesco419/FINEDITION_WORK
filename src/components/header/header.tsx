@@ -6,9 +6,11 @@ import HeaderMenu from './menu';
 export default function Header() {
   return (
     <div className='header'>
-      <LogoLetter />
-      <HeaderLocate />
-      <HeaderMenu />
+      <div className='header_container'>
+        <LogoLetter />
+        <HeaderLocate />
+        <HeaderMenu />
+      </div>
     </div>
   );
 }

@@ -1,16 +1,27 @@
 @import '../../style.scss';
 
 .header {
-  display: flex;
-  align-items: center;
-  height: 22px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   color: $fff;
-  margin: 0 0 25px;
+  padding: 40px 0 26px;
+  z-index: 99;
+  background-color: $black;
+  &_container {
+    display: flex;
+    align-items: center;
+    height: 22px;
+    margin: 0 auto;
+    width: 1300px;
+  }
   &_locate {
     display: flex;
     margin: 0 40px;
     font-family: Mabry Pro;
     p {
+      color: #fff;
       margin-right: 40px;
       font-size: 14px;
       font-style: normal;

@@ -8,7 +8,7 @@ import Recommend from './recommned';
 import FestivalHome from './festival';
 import NewsHome from './news';
 import WordBuzz from './wordBuzz';
-import DiscoverCities from './Discover';
+import DiscoverCities from './discover';
 import ApiMap from './apiMap';
 
 export default function Home() {

@@ -14,7 +14,7 @@ export default function MegazineCard({ img, color }: MegazineCardType) {
     <div
       className='megazineCard'
       onClick={() => {
-        if (click === false) console.log('to meg page');
+        console.log('to meg page');
       }}
     >
       <img src={img} />

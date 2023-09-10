@@ -40,6 +40,70 @@ export const data: MegazineCardType[] = [
   {
     img: bump,
     color: '#000'
+  },
+  {
+    img: lotte,
+    color: '#B9B5FF'
+  },
+  {
+    img: food,
+    color: '#fff'
+  },
+  {
+    img: street,
+    color: '#A8B77F'
+  },
+  {
+    img: hanoak,
+    color: '#F87D36'
+  },
+  {
+    img: weed,
+    color: '#627BD6'
+  },
+  {
+    img: bump,
+    color: '#000'
+  },
+  {
+    img: lotte,
+    color: '#B9B5FF'
+  },
+  {
+    img: food,
+    color: '#fff'
+  },
+  {
+    img: street,
+    color: '#A8B77F'
+  },
+  {
+    img: hanoak,
+    color: '#F87D36'
+  },
+  {
+    img: weed,
+    color: '#627BD6'
+  },
+  {
+    img: bump,
+    color: '#000'
+  },
+  {
+    img: lotte,
+    color: '#B9B5FF'
+  },
+  {
+    img: food,
+    color: '#fff'
+  },
+  {
+    img: street,
+    color: '#A8B77F'
+  },
+  {
+    img: hanoak,
+    color: '#F87D36'
   }
 ];
 
