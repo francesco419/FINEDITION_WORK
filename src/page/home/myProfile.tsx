@@ -2,19 +2,22 @@ import './myProfile.scss';
 import profileImg from '../../assets/image/profile.png';
 import { ReactComponent as Arrow } from '../../assets/svg/Arrow back.svg';
 import { ReactComponent as Plane } from '../../assets/svg/airplane.svg';
+import { ReactComponent as ArrowDown } from '../../assets/svg/Arrow down.svg';
 
 export default function MyProfile() {
   return (
     <div className='myProfile'>
       <div className='myProfile_head'>
-        <p>My Finedition</p>
+        <h3>My Edition</h3>
+        <ArrowDown />
       </div>
       <div className='myProfile_container'>
         <div className='myProfile_imgbox'>
           <div className='myProfile_imgbox-tag'>
-            <p>Collector</p>
+            <p>collector</p>
           </div>
           <img src={profileImg} />
+          <p>Sophie</p>
         </div>
         <ul className='myProfile_detail'>
           <li>

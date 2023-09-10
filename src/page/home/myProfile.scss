@@ -1,40 +1,49 @@
 @import '../../style.scss';
 
 .myProfile {
-  width: 378px;
-  height: 248px;
-  margin-right: 20px;
-  //232,32
+  margin-right: 48px;
   &_head {
     display: flex;
     align-items: center;
-    width: 232px;
-    height: 32px;
-    background-color: #b9b5ff;
-    p {
-      color: #000;
-      @include serif;
-      font-size: 12px;
+    margin: 0 0 16px;
+    h3 {
+      color: var(--white, #fff);
+      font-family: Mabry Pro;
+      font-size: 21px;
       font-style: normal;
-      font-weight: 500;
-      margin: 0 auto;
+      font-weight: 400;
+      margin: 0 8px 0 0;
     }
   }
   &_container {
     display: flex;
     align-items: center;
+    width: 371px;
     height: 216px;
     background-color: #b9b5ff;
+    padding: 16px;
+    box-sizing: border-box;
   }
   &_imgbox {
     position: relative;
     width: 107px;
-    height: 107px;
-    margin: 0 37px 0 19px;
+    margin: 0 40px 0 3px;
     img {
+      height: 107px;
       border-radius: 50%;
       width: inherit;
       height: inherit;
+    }
+    p {
+      &:nth-child(3) {
+        color: #736de3;
+        text-align: center;
+        font-family: Mabry Pro;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        width: inherit;
+      }
     }
   }
   &_imgbox-tag {

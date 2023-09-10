@@ -9,28 +9,24 @@ import yLogo from '../../assets/image/Youtube-logo.png';
 
 const NEWSTITLE: NewsBoxType[] = [
   {
-    title: 'Festivals coming up on autumn',
-    link: 'http://www.naver.com'
+    title: `Byeongsan Seowon offers relaxation for\nthe body and soul in Andong`,
+    link: 'https://koreajoongangdaily.joins.com/news/2023-09-06/culture/foodTravel/Byeongsan-Seowon-offers-relaxation-for-the-body-and-soul-in-Andong/1863255'
   },
   {
-    title: 'Gwanghamun open to visitors',
-    link: 'http://www.naver.com'
+    title: `Creator of superhero webtoon 'Moving'\ngoes all in for Disney+ adaptation`,
+    link: 'https://en.yna.co.kr/view/AEN20230828006400315?section=culture/entertainment'
   },
   {
-    title: 'Will be rainning all day long',
-    link: 'http://www.naver.com'
+    title: `Seoul releases list of city's must-try\neateries, bars ahead of Taste of Seoul week`,
+    link: 'https://koreajoongangdaily.joins.com/news/2023-08-31/culture/foodTravel/Seoul-releases-list-of-citys-musttry-eateries-bars-ahead-of-Taste-of-Seoul-week/1859461'
   },
   {
-    title: 'Shopping week is on your way',
-    link: 'http://www.naver.com'
+    title: `When life gets tedious, set course for\nthese three islands in Sinan`,
+    link: 'https://english.hani.co.kr/arti/english_edition/e_entertainment/1095381.html'
   },
   {
-    title: 'Spaces between things are unbalanced!',
-    link: 'http://www.naver.com'
-  },
-  {
-    title: 'Autumn is coming, be prepared!',
-    link: 'http://www.naver.com'
+    title: `Korean teachers use leave for collective\naction, heightening tensions with government`,
+    link: 'https://english.hani.co.kr/arti/english_edition/e_national/1107056.html'
   }
 ];
 
@@ -40,26 +36,12 @@ const DISCOVERIMG = [
   },
   {
     src: insta
-  },
-  {
-    src: facebook
   }
 ];
 
 export default function NewsHome() {
   return (
     <div className='newsHome'>
-      <div className='newsHome_left'>
-        <div className='newsHome_title'>
-          <h2>Latest News in Korea</h2>
-          <button>
-            <Arrow />
-          </button>
-        </div>
-        {_.map(NEWSTITLE, (o) => {
-          return <NewsBox title={o.title} link={o.link} key={`${o.title}`} />;
-        })}
-      </div>
       <div className='newsHome_right'>
         <h2>{`Discover various \nways of Korea`}</h2>
         {_.map(DISCOVERIMG, (o, index) => {
@@ -75,6 +57,17 @@ export default function NewsHome() {
           <img src={yLogo} />
         </div>
         <p>{`Must know tips when exploring Seoul\n#Seoul #travel #Korea`}</p>
+      </div>
+      <div className='newsHome_left'>
+        <div className='newsHome_title'>
+          <h2>Latest News in Korea</h2>
+          <button>
+            <Arrow />
+          </button>
+        </div>
+        {_.map(NEWSTITLE, (o) => {
+          return <NewsBox title={o.title} link={o.link} key={`${o.title}`} />;
+        })}
       </div>
     </div>
   );

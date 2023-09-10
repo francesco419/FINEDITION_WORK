@@ -6,6 +6,7 @@ import { selectClick } from '../../redux/slices/clickSlice';
 export interface MegazineCardType {
   img: string;
   color: string;
+  click?: boolean;
 }
 
 export default function MegazineCard({ img, color }: MegazineCardType) {

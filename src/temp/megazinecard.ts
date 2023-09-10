@@ -7,8 +7,107 @@ import pharmacy from '../assets/image/pharmacy.png';
 import castle from '../assets/image/castle.png';
 import weed from '../assets/image/weed.png';
 import { MegazineCardType } from '../page/home/megazineCard';
+///
+import fixedCard from '../assets/image/fix/card.png';
 
 export const data: MegazineCardType[] = [
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  }
+  /*
   {
     img: lotte,
     color: '#B9B5FF'
@@ -104,11 +203,99 @@ export const data: MegazineCardType[] = [
   {
     img: hanoak,
     color: '#F87D36'
-  }
+  } */
 ];
 
 export const data1: MegazineCardType[] = [
   {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  },
+  {
+    img: fixedCard,
+    color: '#B9B5FF'
+  }
+  /*  {
     img: pharmacy,
     color: '#fff'
   },
@@ -139,5 +326,5 @@ export const data1: MegazineCardType[] = [
   {
     img: hanoak,
     color: '#F87D36'
-  }
+  } */
 ];

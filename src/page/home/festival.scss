@@ -63,10 +63,9 @@
   display: flex;
   width: 649px;
   height: 391px;
-  margin: 0 0 0 47px;
-  border-bottom: 1px solid #eaeaea33;
+  margin: 0 0 0 48px;
   &_left {
-    width: 319px;
+    width: 358px;
   }
   &_title {
     display: flex;
@@ -75,38 +74,36 @@
     h2 {
       color: var(--light-gray, #eaeaea);
       font-family: Value Serif Pro;
-      font-size: 22px;
+      font-size: 21px;
       font-style: normal;
       font-weight: 500;
+      margin: 0 0 30px;
+      line-height: 21px;
     }
   }
   &_textBox {
-    display: flex;
-    align-items: end;
-    border-bottom: 1px solid #eaeaea33;
-    padding-bottom: 10px;
+    border-top: 1px solid #eaeaea33;
     box-sizing: border-box;
-    height: 60px;
-    &:last-child {
-      border: 0;
-    }
+    padding-top: 11px;
+    height: 72px;
     a {
       color: var(--light-gray, #eaeaea);
-      @include mabry;
-      font-size: 16px;
+      font-family: SF Pro;
+      font-size: 14px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 274;
       text-decoration: none;
+      white-space: pre-wrap;
     }
   }
   &_right {
     width: 272px;
     padding: 7px 0 0;
-    margin-left: auto;
+    margin-right: 48px;
     box-sizing: border-box;
     white-space: pre-wrap;
     &_image {
-      transform: translateX(-10px);
+      margin: 15px 15px 15px 0;
     }
     h2 {
       color: #fff;

@@ -1,7 +1,7 @@
-import { ReactComponent as Menu } from '../../assets/svg/menu.svg';
-import { ReactComponent as Search } from '../../assets/svg/search.svg';
-import { ReactComponent as Person } from '../../assets/svg/person.svg';
-import { ReactComponent as Bookmark } from '../../assets/svg/bookmark.svg';
+import { ReactComponent as Bookmark } from '../../assets/svg/fixed menu/bookmark.svg';
+import { ReactComponent as Person } from '../../assets/svg/fixed menu/person.svg';
+import { ReactComponent as Search } from '../../assets/svg/fixed menu/search.svg';
+import { ReactComponent as Menu } from '../../assets/svg/fixed menu/menu.svg';
 
 export default function HeaderMenu() {
   return (

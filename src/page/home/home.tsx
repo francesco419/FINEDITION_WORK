@@ -20,7 +20,8 @@ export default function Home() {
       <section>
         <CardSlide data={data} />
         <CardSlide data={data1} />
-        <div style={{ display: 'flex', margin: '8px 0 40px' }}>
+        <hr style={{ margin: '62px 0 25px' }} />
+        <div style={{ display: 'flex', margin: '0 0 55px' }}>
           <MyProfile />
           <Recommend />
         </div>
@@ -28,10 +29,10 @@ export default function Home() {
           <FestivalHome />
           <NewsHome />
         </div>
+        <hr style={{ margin: '72px 0 32px' }} />
         <div
           style={{
             display: 'flex',
-            margin: '41px 0 0',
             justifyContent: 'space-between'
           }}
         >

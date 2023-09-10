@@ -12,16 +12,14 @@ type SlideType = {
 export default function CardSlide({ data }: SlideType) {
   const ref = useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
-
-  const [down, setDown] = useState<boolean>(false);
-  const [point, setPoint] = useState<number>(0);
-  const [x, setX] = useState<number>(0);
+  const [left, setLeft] = useState<number>(0);
 
   let isDown = false;
   let startX: number;
   let scrollLeft: number;
   let velX: number = 0;
   let momentumID: number;
+  let scrollL: number = 1;
 
   const mouseDownHandler = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -30,6 +28,7 @@ export default function CardSlide({ data }: SlideType) {
     if (ref.current) {
       dispatch(yesClick());
       const slider = ref.current;
+      scrollL = slider.scrollWidth - slider.offsetWidth;
       slider.classList.add('active');
       startX = e.pageX - slider.offsetLeft;
       scrollLeft = slider.scrollLeft;
@@ -62,6 +61,7 @@ export default function CardSlide({ data }: SlideType) {
       slider.classList.remove('active');
       dispatch(noClick());
     }
+    console.log(scrollL, left);
   };
 
   const upHandler = () => {
@@ -72,15 +72,16 @@ export default function CardSlide({ data }: SlideType) {
       dispatch(noClick());
       beginMomentumTracking();
     }
+    console.log(scrollL, left);
   };
 
   const mouseMoveHandler = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     if (!isDown) return;
-    debounceRedux();
     if (ref.current) {
       const slider = ref.current;
+      debounceRedux(slider);
       e.preventDefault();
       const x = e.pageX - slider.offsetLeft;
       const walk = (x - startX) * 1.8; //scroll-fast
@@ -90,9 +91,16 @@ export default function CardSlide({ data }: SlideType) {
     }
   };
 
-  const debounceRedux = _.debounce(() => dispatch(yesClick()), 1000, {
-    leading: true
-  });
+  const debounceRedux = _.debounce(
+    (m: HTMLDivElement) => {
+      dispatch(yesClick());
+      setLeft((left) => m.scrollLeft);
+    },
+    1000,
+    {
+      leading: true
+    }
+  );
 
   return (
     <div className='cardSlide'>
@@ -103,12 +111,17 @@ export default function CardSlide({ data }: SlideType) {
         onMouseLeave={downFalseHandler}
         onMouseUp={upHandler}
         onMouseMove={(e) => mouseMoveHandler(e)}
-        //style={{ left: `${x}px` }}
       >
         {_.map(data, (o) => {
           return <MegazineCard img={o.img} color={o.color} />;
         })}
       </div>
+      <div
+        className='cardSlide_blur'
+        style={{
+          backgroundColor: left >= scrollL ? '#00000000' : '#00000050'
+        }}
+      />
     </div>
   );
 }
