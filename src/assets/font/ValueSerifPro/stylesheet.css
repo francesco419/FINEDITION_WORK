@@ -1,7 +1,6 @@
 @font-face {
   font-family: 'Value Serif Pro';
   src: url('value-serif-bold-pro.otf');
-  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
@@ -9,7 +8,6 @@
 @font-face {
   font-family: 'Value Serif Pro';
   src: url('value-serif-regular-pro.otf');
-  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
@@ -17,7 +15,6 @@
 @font-face {
   font-family: 'Value Serif Pro';
   src: url('value-serif-medium-pro.otf');
-  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }

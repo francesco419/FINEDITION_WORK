@@ -1,8 +1,16 @@
 import './login.scss';
 import { ReactComponent as Google } from '../../assets/svg/google-login.svg';
+import { ReactComponent as Window } from '../../assets/svg/window.svg';
+import { ReactComponent as Apple } from '../../assets/svg/apple.svg';
 import { ReactComponent as Exit } from '../../assets/svg/exit.svg';
+import { useAppDispatch } from '../../redux/hooks';
+import { setLoginFormFalse } from '../../redux/slices/loginSlice';
 
 export default function Login() {
+  const dispatch = useAppDispatch();
+  const changeLoginForm = () => {
+    dispatch(setLoginFormFalse());
+  };
   return (
     <div className='login'>
       <div className='login_container'>
@@ -10,8 +18,8 @@ export default function Login() {
           <h2>Log in</h2>
           <div className='login_snsLogin'>
             <Google />
-            <Google />
-            <Google />
+            <Window />
+            <Apple />
           </div>
           <fieldset>
             <legend>OR</legend>
@@ -29,7 +37,7 @@ export default function Login() {
             Reset Password
           </button>
         </form>
-        <button className='login_exit'>
+        <button className='login_exit' onClick={changeLoginForm}>
           <Exit />
         </button>
       </div>

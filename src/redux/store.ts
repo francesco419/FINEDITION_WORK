@@ -4,9 +4,11 @@ import { combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { persistReducer } from 'redux-persist';
 import clickReducer from './slices/clickSlice';
+import logInReducer from './slices/loginSlice';
 
 const rootReducer = combineReducers({
-  click: clickReducer
+  click: clickReducer,
+  login: logInReducer
 });
 
 const persistConfig = {
