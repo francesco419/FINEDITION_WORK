@@ -51,14 +51,9 @@
       width: 166px;
       height: 175px;
       margin-right: 20px;
-      &:first-child {
-        background-color: #d9d9d9;
-      }
-      &:nth-child(2) {
-        background-color: #b17e7e;
-      }
-      &:nth-child(3) {
-        background: #d45151;
+      img {
+        width: inherit;
+        height: inherit;
       }
       &:last-child {
         background: #e9b7b7;

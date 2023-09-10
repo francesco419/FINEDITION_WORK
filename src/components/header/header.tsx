@@ -2,6 +2,7 @@ import './header.scss';
 import { ReactComponent as LogoLetter } from '../../assets/svg/logo_letter.svg';
 import HeaderLocate from './locate';
 import HeaderMenu from './menu';
+import Login from '../login/login';
 
 export default function Header() {
   return (
@@ -11,6 +12,7 @@ export default function Header() {
         <HeaderLocate />
         <HeaderMenu />
       </div>
+      <Login />
     </div>
   );
 }

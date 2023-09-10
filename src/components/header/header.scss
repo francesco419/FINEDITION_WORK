@@ -6,22 +6,26 @@
   left: 0;
   width: 100%;
   color: $fff;
+  height: 68px;
   z-index: 99;
   background-color: $black;
+  padding: 26px 0 20px;
+  box-sizing: border-box;
   &_container {
     display: flex;
     align-items: center;
-    height: 68px;
     margin: 0 auto;
     width: 1300px;
   }
   &_locate {
     display: flex;
-    margin: 0 40px;
+    margin: 0 0 0 40px;
     font-family: Mabry Pro;
+    button {
+      margin-right: 24px;
+    }
     p {
       color: #fff;
-      margin-right: 40px;
       font-size: 14px;
       font-style: normal;
       font-weight: 400;
@@ -41,4 +45,15 @@
       }
     }
   }
+}
+
+.homll {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  width: 420px;
+  height: 550px;
+  background-color: #fff;
+  border-radius: 10px;
+  transform: translateX(-50%);
 }

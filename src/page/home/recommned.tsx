@@ -2,6 +2,52 @@ import './recommend.scss';
 import { useState } from 'react';
 import _ from 'lodash';
 import { ReactComponent as ArrowRight } from '../../assets/svg/Arrow right.svg';
+import image from '../../assets/image/hanoak.png';
+import image2 from '../../assets/image/castle.png';
+import image3 from '../../assets/image/street.png';
+
+const temp = [
+  {
+    img: image
+  },
+  {
+    img: image
+  },
+  {
+    img: image
+  },
+  {
+    img: image
+  }
+];
+const temp1 = [
+  {
+    img: image2
+  },
+  {
+    img: image2
+  },
+  {
+    img: image2
+  },
+  {
+    img: image2
+  }
+];
+const temp2 = [
+  {
+    img: image3
+  },
+  {
+    img: image3
+  },
+  {
+    img: image3
+  },
+  {
+    img: image3
+  }
+];
 
 export default function Recommend() {
   const [choose, setChoose] = useState<number>(0);
@@ -46,15 +92,31 @@ export default function Recommend() {
             );
           })}
         </ul>
-        <div className='recommend_card' style={{ backgroundColor: color }}>
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
+        <PicksofWeek num={choose} color={color} />
       </div>
+    </div>
+  );
+}
+
+type NumType = {
+  num: number;
+  color: string;
+};
+
+function PicksofWeek({ num, color }: NumType) {
+  const pick = num === 0 ? temp : num === 1 ? temp1 : temp2;
+
+  return (
+    <div className='recommend_card' style={{ backgroundColor: color }}>
+      <ul>
+        {_.map(pick, (o) => {
+          return (
+            <li>
+              <img src={o.img} />
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
