@@ -5,28 +5,57 @@ import HeaderMenu from './menu';
 import Login from '../login/login';
 import { useAppSelector } from '../../redux/hooks';
 import { selectLogin } from '../../redux/slices/loginSlice';
+import { useEffect, useState } from 'react';
 
 type HeaderType = {
   type: string;
 };
 
-const temp = {
-  backgroundColor: '#b9e155'
-};
-
 export default function Header({ type }: HeaderType) {
   const login = useAppSelector(selectLogin);
+  const [backColor, setBackColor] = useState<string>('');
+  const [fontColor, setFontColor] = useState<string>('');
+  useEffect(() => {
+    chooseColor(type);
+  }, []);
+
+  const chooseColor = (type: string) => {
+    switch (type) {
+      case 'black':
+        changeColor('#000');
+        return;
+      case 'yellow':
+        changeColor('#b9e155');
+        return;
+      case 'gray':
+        changeColor('#eaeaea');
+        return;
+      default:
+        changeColor('#ff0000');
+        return;
+    }
+  };
+
+  const changeColor = (color: string) => {
+    if (color === '#000') {
+      setFontColor((fontColor) => '#fff');
+    } else {
+      setFontColor((fontColor) => '#000');
+    }
+    setBackColor((backColor) => color);
+  };
+
   return (
     <div className='header'>
       <div
         className='header_container'
         style={{
-          backgroundColor: type === 'profile' ? '#b9e155' : '#000',
-          color: type === 'profile' ? '#000' : '#fff'
+          backgroundColor: backColor,
+          color: fontColor
         }}
       >
-        <LogoLetter style={{ fill: type === 'profile' ? '#000' : '#fff' }} />
-        <HeaderLocate />
+        <LogoLetter style={{ fill: fontColor }} />
+        <HeaderLocate color={fontColor} />
         <HeaderMenu />
       </div>
       {login.value.login && <Login />}

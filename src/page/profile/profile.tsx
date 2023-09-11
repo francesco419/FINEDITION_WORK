@@ -9,7 +9,7 @@ export default function Profile() {
   return (
     <div style={{ width: '100%', height: '100%', backgroundColor: '#eaeaea' }}>
       <div className='profile'>
-        <Header type='profile' />
+        <Header type='yellow' />
         <div className='profile_container'>
           <div className='profile_head'>
             <h2 style={{ opacity: '0.3' }}>My Page</h2>

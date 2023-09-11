@@ -1,0 +1,74 @@
+@import '../../style.scss';
+
+.background-full {
+  width: 100%;
+  height: 100%;
+  background-color: #eaeaea;
+}
+
+.citie {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  &_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 350px;
+    height: 206px;
+  }
+  svg {
+    fill: #cccccc;
+  }
+}
+
+.citie-checkbox {
+  width: 160px;
+  margin-bottom: 13px;
+  &_check {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 1.368px;
+    background: #fff;
+    margin-right: 8px;
+  }
+  &_label {
+    color: var(--black, #161616);
+    font-family: SF Pro;
+    font-size: 13px;
+  }
+}
+
+#KR-45 {
+  &:hover {
+    fill: #e67d40;
+  }
+}
+/* #KR-46 {
+  &:hover {
+    fill: #e67d40;
+  }
+} */
+#KR-47 {
+  &:hover {
+    fill: #e67d40;
+  }
+}
+#KR-48 {
+  &:hover {
+    fill: #e67d40;
+  }
+}
+#KR-49 {
+  &:hover {
+    fill: #e67d40;
+  }
+}
+#KR-50 {
+  &:hover {
+    fill: #e67d40;
+  }
+}

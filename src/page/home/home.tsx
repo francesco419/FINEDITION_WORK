@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className='home'>
       <header>
-        <Header type='default' />
+        <Header type='black' />
       </header>
       <section>
         <CardSlide data={data} />

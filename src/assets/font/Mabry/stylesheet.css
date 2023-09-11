@@ -1,12 +1,12 @@
 @font-face {
-  font-family: 'Mabry Pro';
+  font-family: 'Mabry Pro Med';
   src: url('mabry-medium-pro.otf');
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Mabry Pro';
+  font-family: 'Mabry Pro Reg';
   src: url('mabry-regular-pro.otf');
   font-style: normal;
   font-display: swap;

@@ -12,17 +12,18 @@
     position: absolute;
     top: 10%;
     left: 50%;
-    width: 420px;
-    height: 550px;
+    width: 450px;
+    height: 600px;
     border-radius: 5px;
     background-color: #eaeaea;
     transform: translateX(-50%);
     h2 {
-      font-family: Value Serif Pro;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 700;
-      margin-bottom: 40px;
+      &:first-child {
+        font-family: Value Serif Pro Bold;
+        font-size: 28px;
+        font-style: normal;
+        margin-bottom: 40px;
+      }
     }
     fieldset {
       height: 0px;
@@ -37,7 +38,7 @@
   }
   &_snsLogin {
     svg {
-      margin-right: 15px;
+      //margin-right: 15px;
       &:last-child {
         margin: 0;
       }
@@ -120,4 +121,29 @@
     top: 25px;
     right: 25px;
   }
+}
+
+.a {
+  //font-family: Value Serif Pro Reg;
+  //font-family: 'SF Pro Display Reg';
+  font-family: 'Mabry Pro Reg';
+  font-size: 28px;
+  font-style: normal;
+  margin-bottom: 40px;
+}
+.b {
+  //font-family: Value Serif Pro Bold;
+  //font-family: 'SF Pro Display Bold';
+  font-family: 'Mabry Pro Med';
+  font-size: 28px;
+  font-style: normal;
+  margin-bottom: 40px;
+}
+.c {
+  //font-family: Value Serif Pro Med;
+  //font-family: 'SF Pro Display Med';
+  font-family: 'Mabry Pro Med';
+  font-size: 28px;
+  font-style: normal;
+  margin-bottom: 40px;
 }

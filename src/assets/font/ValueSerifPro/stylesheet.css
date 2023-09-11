@@ -1,20 +1,22 @@
 @font-face {
-  font-family: 'Value Serif Pro';
+  font-family: 'Value Serif Pro Bold';
   src: url('value-serif-bold-pro.otf');
-  font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
-  font-family: 'Value Serif Pro';
+  font-family: 'Value Serif Pro Reg';
   src: url('value-serif-regular-pro.otf');
-  font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
+  font-family: 'Value Serif Pro Med';
+  src: url('value-serif-medium-pro.otf');
+}
+
+/* @font-face {
   font-family: 'Value Serif Pro';
   src: url('value-serif-medium-pro.otf');
+
   font-style: normal;
   font-display: swap;
-}
+} */
