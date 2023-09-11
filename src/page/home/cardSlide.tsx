@@ -113,7 +113,7 @@ export default function CardSlide({ data }: SlideType) {
         onMouseMove={(e) => mouseMoveHandler(e)}
       >
         {_.map(data, (o) => {
-          return <MegazineCard img={o.img} color={o.color} />;
+          return <MegazineCard img={o.img} color={o.color} type={true} />;
         })}
       </div>
       <div

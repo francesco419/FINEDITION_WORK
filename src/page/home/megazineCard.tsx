@@ -7,16 +7,10 @@ export interface MegazineCardType {
   img: string;
   color: string;
   click?: boolean;
+  type?: boolean;
 }
 
-type ChooseType = {
-  type: boolean;
-};
-
-export default function MegazineCard(
-  { img, color }: MegazineCardType,
-  { type }: ChooseType
-) {
+export default function MegazineCard({ img, color, type }: MegazineCardType) {
   const click = useAppSelector(selectClick);
   return (
     <div

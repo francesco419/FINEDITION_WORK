@@ -122,7 +122,7 @@ export default function Cities() {
         </div>
         <div className='citie_list'>
           {_.map(data, (o) => {
-            return <MegazineCard img={o.img} color={o.color} />;
+            return <MegazineCard img={o.img} color={o.color} type={false} />;
           })}
         </div>
         <Footer />
@@ -130,6 +130,8 @@ export default function Cities() {
     </div>
   );
 }
+
+/**일단 해당 페이지 어느정도 완료. 페이지 업데이트 할테니, 웹페이지 접속해서 검토 부탁함. 헤더의 [Mega ... ] 등을 클릭하면 해당페이지로 이동 가. */
 
 type CheckBoxType = {
   id: string;
