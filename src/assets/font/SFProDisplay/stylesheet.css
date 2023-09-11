@@ -1,18 +1,27 @@
 @font-face {
   font-family: 'SF Pro Display Bold';
-  src: url('SFPRODISPLAYBOLD.OTF');
+  src: url('SF-Pro-Display-Bold.otf');
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'SF Pro Display Med';
-  src: url('SFPRODISPLAYMEDIUM.OTF');
+  src: url('SF-Pro-Display-Medium.otf');
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'SF Pro Display Reg';
-  src: url('SFPRODISPLAYREGULAR.OTF');
+  src: url('SF-Pro-Display-Regular.otf');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display Light';
+  src: url('SF-Pro-Display-Light.otf');
   font-style: normal;
   font-display: swap;
 }

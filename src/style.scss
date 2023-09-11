@@ -17,3 +17,18 @@ $yellow: #b9e155;
 @mixin sfpro {
   font-family: SF Pro Display;
 }
+
+@mixin noInputDeco($color) {
+  background: none;
+  border: 0;
+  &::placeholder {
+    color: $color;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+/*
+폰트 사이즈가 20보다 작을 경우, SF Pro TEXT / 20보다 클 경우, SF Pro DISPLAY
+*/

@@ -9,17 +9,28 @@ export interface MegazineCardType {
   click?: boolean;
 }
 
-export default function MegazineCard({ img, color }: MegazineCardType) {
+type ChooseType = {
+  type: boolean;
+};
+
+export default function MegazineCard(
+  { img, color }: MegazineCardType,
+  { type }: ChooseType
+) {
   const click = useAppSelector(selectClick);
   return (
     <div
-      className='megazineCard'
+      className={type ? 'megazineCard-small' : 'megazineCard-big'}
       onClick={() => {
         console.log('to meg page');
       }}
     >
       <img src={img} />
-      <div className='megazineCard_bookmark'>
+      <div
+        className={
+          type ? 'megazineCard-small_bookmark' : 'megazineCard-big_bookmark'
+        }
+      >
         <BookMark style={{ stroke: color }} />
       </div>
     </div>
