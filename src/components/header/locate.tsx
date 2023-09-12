@@ -7,7 +7,7 @@ type HeaderLocateType = {
 
 const arr = [
   { name: 'Megazine', to: '/cities' },
-  { name: 'Seoul', to: '/cities' },
+  { name: 'Seoul', to: '/info/123/76' },
   { name: 'Cities', to: '/cities' }
 ];
 

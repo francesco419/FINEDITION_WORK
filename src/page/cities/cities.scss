@@ -43,14 +43,13 @@
     &_drop {
       position: absolute;
       top: 100%;
-      left: -72px;
+      left: 0;
       width: 380px;
       height: 416px;
       padding: 22px 38px 38px;
       background-color: #eaeaea;
       z-index: 5;
       color: #736de3;
-      border: 1px solid #736de3;
       box-sizing: border-box;
       button {
         display: block;
@@ -124,9 +123,8 @@
     color: var(--black, #161616);
     font-family: Mabry Pro Reg;
     font-size: 18px;
-    line-height: 1;
+    line-height: 0.7;
     margin: 0 0 17px;
-    height: 13px;
   }
   &_city_region-check {
     display: flex;

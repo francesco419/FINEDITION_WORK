@@ -1,0 +1,114 @@
+@import '../../style.scss';
+
+.info {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 68px 0;
+  &_container {
+    width: 1300px;
+    margin: 97px auto 0;
+    color: #fff;
+  }
+  &_about {
+    width: 880px;
+    &-title {
+      display: flex;
+      align-items: end;
+      font-family: Value Serif Pro Med;
+      h1 {
+        font-size: 29px;
+        font-weight: 500;
+        margin: 0 19px 0 0;
+      }
+      p {
+        color: #828282;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+      }
+    }
+    &-detail {
+      width: 880px;
+      margin: 19px 0 52px;
+    }
+    &-frontimg {
+      height: 440px;
+      img {
+        width: inherit;
+        height: inherit;
+      }
+    }
+    &-text {
+      padding: 25px 27px 39px;
+      background-color: #eaeaea;
+      color: #6962e1;
+      div {
+        display: flex;
+        align-items: end;
+        margin: 0 0 13px;
+      }
+      h3 {
+        font-family: Mabry Pro Med;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 0.7;
+        margin-left: 9px;
+      }
+      p {
+        font-family: SF Pro Text Reg;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 160%; /* 22.4px */
+        letter-spacing: -0.14px;
+        white-space: pre-line;
+        &:last-child {
+          font-weight: 400;
+          color: #161616;
+          margin-top: 27px;
+        }
+      }
+    }
+    &-highlights {
+      width: 880px;
+      height: 48px;
+      background-color: #1d1d1d;
+      padding: 0 27px;
+      box-sizing: border-box;
+      p {
+        margin-right: 12px;
+        color: #6f6f6f;
+        font-family: Mabry Pro Reg;
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+    &-map {
+      height: 285px;
+      opacity: 0.2;
+      background-color: #d9d9d9;
+      margin: 0 0 43px;
+    }
+    &-imgbox {
+      display: flex;
+      justify-content: space-between;
+      div {
+        width: 396px;
+        height: 285px;
+        opacity: 0.2;
+        background-color: #d9d9d9;
+      }
+    }
+  }
+  &_infomation {
+    display: flex;
+    &-view {
+    }
+    &-megazine {
+    }
+  }
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}

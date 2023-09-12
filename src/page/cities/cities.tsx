@@ -131,8 +131,6 @@ export default function Cities() {
   );
 }
 
-/**일단 해당 페이지 어느정도 완료. 페이지 업데이트 할테니, 웹페이지 접속해서 검토 부탁함. 헤더의 [Mega ... ] 등을 클릭하면 해당페이지로 이동 가. */
-
 type CheckBoxType = {
   id: string;
   name: string;

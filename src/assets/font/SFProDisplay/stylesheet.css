@@ -25,3 +25,31 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'SF Pro Text Bold';
+  src: url('SF-Pro-Text-Bold.otf');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Text Med';
+  src: url('SF-Pro-Text-Medium.otf');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Text Reg';
+  src: url('SF-Pro-Text-Regular.otf');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Text Light';
+  src: url('SF-Pro-Text-Light.otf');
+  font-style: normal;
+  font-display: swap;
+}
