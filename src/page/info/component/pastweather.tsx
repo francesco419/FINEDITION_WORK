@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import storm from '../assets/Storm.png';
 import DatePickerComp from './datepicker';
 
-const API = '3946877476b241f0ae1133959231409';
+const API_KEY = process.env.REACT_APP_WEATHER_KEY;
 
 interface WeatherType {
   avghumidity: number;
@@ -59,7 +59,7 @@ export default function PastWeather({ mapx, mapy }: LocationType) {
   const getdata = async (day: string) => {
     await axios
       .get(
-        `http://api.weatherapi.com/v1/history.json?key=${API}&q=${mapy},${mapx}&dt=${day}`
+        `http://api.weatherapi.com/v1/history.json?key=${API_KEY}&q=${mapy},${mapx}&dt=${day}`
       )
       .then((e) => {
         if (e.data) {

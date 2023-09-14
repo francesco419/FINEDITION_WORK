@@ -5,8 +5,12 @@ import '../info.scss';
 import _, { forEach, set } from 'lodash';
 import { Link } from 'react-router-dom';
 import storm from '../assets/Storm.png';
+import dotenv from 'dotenv';
+//dotenv.config({ path: '../.env', encoding: 'utf8' });
 
-const API = '3946877476b241f0ae1133959231409';
+const API_KEY = process.env.REACT_APP_WEATHER_KEY;
+
+console.log(process.env);
 
 type WEATHER_FORMAT_TYPE = {
   latitude: number;
@@ -86,7 +90,7 @@ export default function Weather({ mapx, mapy }: LocationType) {
     mapx
   )}&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=3`; */
 
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=${API}&q=${mapy},${mapx}&days=3&aqi=no&alerts=no`;
+  const url = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${mapy},${mapx}&days=3&aqi=no&alerts=no`;
 
   useEffect(() => {
     getdata();
