@@ -10,8 +10,6 @@ import dotenv from 'dotenv';
 
 const API_KEY = process.env.REACT_APP_WEATHER_KEY;
 
-console.log(process.env);
-
 type WEATHER_FORMAT_TYPE = {
   latitude: number;
   longitude: number;
@@ -101,10 +99,8 @@ export default function Weather({ mapx, mapy }: LocationType) {
     await axios
       .get(url)
       .then((e) => {
-        console.log(e.data.forecast.forecastday);
         if (e.data) {
           e.data.forecast.forecastday.forEach((o: WEATHER_TYPE) => {
-            console.log(o);
             setWeather((weather) => [
               ...weather,
               {
@@ -124,8 +120,6 @@ export default function Weather({ mapx, mapy }: LocationType) {
       });
   };
 
-  console.log(weather);
-
   return (
     <div className='recent-weather'>
       {loading ? (
@@ -135,10 +129,10 @@ export default function Weather({ mapx, mapy }: LocationType) {
               return (
                 <li>
                   <h4>{o}</h4>
-                  <div>
-                    <p>{weather[index].avgtemp_c + '°C'}</p>
-                    <img src={weather[index].icon} />
-                  </div>
+                  <WeatherCard
+                    temp={weather[index].avgtemp_c}
+                    icon={weather[index].icon}
+                  />
                 </li>
               );
             }
@@ -158,6 +152,20 @@ export default function Weather({ mapx, mapy }: LocationType) {
           })}
         </ul>
       )}
+    </div>
+  );
+}
+
+type WEATHER_CARD_TYPE = {
+  temp: number;
+  icon: string;
+};
+
+export function WeatherCard({ temp, icon }: WEATHER_CARD_TYPE) {
+  return (
+    <div className='weather-card'>
+      <p>{temp + ' °C'}</p>
+      <img src={icon} />
     </div>
   );
 }

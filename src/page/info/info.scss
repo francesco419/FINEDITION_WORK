@@ -256,61 +256,62 @@
   }
 }
 
-.past-weather {
-  width: 267px;
-  height: 142px;
-  h3 {
-    color: #8c8c8c;
-    font-family: Mabry Pro Reg;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 140%; /* 18.2px */
-  }
-  &_container {
-    display: flex;
-    margin: 10px 0 0;
-  }
-  &_calender {
-    position: relative;
-    width: 170px;
-    height: 122px;
-    border-radius: 3.4px;
-    padding: 10px;
-    box-sizing: border-box;
-    background-color: #252525e6;
-  }
-  &_absolute {
-    position: absolute;
-    top: 50%;
-    left: 0;
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  height: 97px;
+  border-radius: 3px;
+  background-color: #2e2e2e;
+  padding: 11px;
+  box-sizing: border-box;
+  p {
+    align-self: baseline;
+    color: #848484;
     height: 20px;
-    width: 170px;
-    transform: translateY(-50%);
-    border-radius: 4px;
-    background-color: rgb(63, 62, 62);
+    margin: 0;
   }
-  &_weather {
+}
+
+.past-weather {
+  width: 264px;
+  height: 97px;
+  ul {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px 13px 0;
-    width: 75px;
-    height: 122px;
-    border-radius: 2.794px;
-    background: #2e2e2e;
-    box-sizing: border-box;
-    p {
-      margin-bottom: auto;
-      color: #848484;
+  }
+  li {
+    &:last-child {
+      margin: 0 0 0 15px;
+    }
+    h3 {
+      width: 168px;
+      height: 25px;
+      color: #8c8c8c;
       font-family: Mabry Pro Reg;
       font-size: 13px;
       font-style: normal;
-      font-weight: 500;
-      line-height: 150%; /* 19.5px */
+      font-weight: 400;
     }
-    img {
-      margin-bottom: 32px;
+  }
+  &_calender {
+    width: 171.5px;
+    height: 45px;
+    border: 1px solid #8c8c8c;
+    border-radius: 3px;
+    margin: 9px 0 0;
+    display: flex;
+    align-items: center;
+    padding: 0 11px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    p {
+      color: #8c8c8c;
+      font-family: SF Pro Text Reg;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 210%; /* 27.3px */
     }
   }
 }
@@ -322,3 +323,120 @@
 .kakaomap {
   color: #ff0000;
 }
+
+/* @mixin hideScrollbars {
+  -ms-overflow-style: none; // IE 10+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+$blue: darken(cornflowerblue, 10);
+$cool-gray: #eff1f1;
+$factory-yellow: #f3e033;
+
+* {
+  box-sizing: border-box;
+}
+.picker-window {
+  position: absolute;
+  border-top: 1px solid darken($cool-gray, 10);
+  border-bottom: 1px solid darken($cool-gray, 10);
+  height: 1.4em;
+  left: 0;
+  top: 50%;
+  transform: translateY(-65%);
+  width: 100%;
+  pointer-events: none;
+}
+.triangle {
+  content: '';
+  background: white;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  display: block;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.picker {
+  display: inline-grid;
+  box-shadow: 0 0.5vw 2vw -5px rgba(black, 0.2);
+  border-radius: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 700px;
+  border-top: 2rem solid white;
+  border-bottom: 2rem solid white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: white;
+  grid-template-columns: repeat(4, fit-content(500px));
+  font-size: calc(0.5rem + 2.4vw);
+  font-feature-settings: 'tnum';
+  font-weight: 400;
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2.2em;
+    pointer-events: none;
+  }
+  &:before {
+    top: -0.2em;
+    background: linear-gradient(white, rgba(white, 0.7));
+  }
+  &:after {
+    bottom: -0.2em;
+    height: 2.4em;
+    background: linear-gradient(rgba(white, 0.7), white);
+  }
+
+  ul {
+    display: block;
+    @include hideScrollbars();
+    max-height: 4em;
+    overflow-y: scroll;
+    margin-right: 1em;
+    scroll-snap-type: y mandatory;
+    padding-bottom: 3em;
+    padding-top: 3em;
+  }
+  li {
+    scroll-snap-align: center;
+    height: 1.4em;
+    text-align: right;
+    word-spacing: 0.2em;
+    color: #161616;
+  }
+}
+
+.picker-day {
+  padding-right: 0.5em;
+  span {
+    padding-left: 0.56em;
+  }
+}
+
+.button-container {
+  text-align: center;
+  padding-top: 3rem;
+  width: 100%;
+}
+button {
+  display: inline-block;
+  appearance: none;
+  border: 1px solid $blue;
+  background: transparent;
+  color: $blue;
+  border-radius: 15px;
+  font-weight: 500;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-family: 'San Francisco Text', sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+} */

@@ -141,7 +141,11 @@ and pavilion was constructed on the site in order to revive the classical feel o
               </div>
             </div> */}
           </div>
-          <LocationMapCom mapx='126.8999035848' mapy='37.5523989260' />
+          <LocationMapCom
+            mapx='126.8999035848'
+            mapy='37.5523989260'
+            place='망원한강공원'
+          />
           <div className='info_about-imgbox'>
             <div></div>
             <div></div>

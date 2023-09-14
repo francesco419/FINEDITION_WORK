@@ -6,6 +6,8 @@ import _ from 'lodash';
 import { Link } from 'react-router-dom';
 import storm from '../assets/Storm.png';
 import DatePickerComp from './datepicker';
+import CalenderComp from './calender';
+import { WeatherCard } from './weather';
 
 const API_KEY = process.env.REACT_APP_WEATHER_KEY;
 
@@ -75,25 +77,23 @@ export default function PastWeather({ mapx, mapy }: LocationType) {
   return (
     <div className='past-weather'>
       {loading && weather ? (
-        <>
-          <h3>Select date & find out weather in the past!</h3>
-          <div className='past-weather_container'>
-            <div className='past-weather_calender'>
-              <span className='past-weather_absolute'></span>
-            </div>
-            <div className='past-weather_weather'>
-              <p>{weather.avgtemp_c + '°C'}</p>
-              <img src={weather.condition.icon} />
-            </div>
-          </div>
-        </>
+        <ul>
+          <li>
+            <h3>Forecast the future weather based on past :</h3>
+            <CalenderComp />
+          </li>
+          <li>
+            <WeatherCard
+              temp={weather.avgtemp_c}
+              icon={weather.condition.icon}
+            />
+          </li>
+        </ul>
       ) : (
         <>
           <h3>Select date & find out weather in the past!</h3>
           <div className='past-weather_container'>
-            <div className='past-weather_calender'>
-              <span className='past-weather_absolute'></span>
-            </div>
+            <CalenderComp />
             <div className='past-weather_weather'>
               <p>No</p>
               <img src={''} />
