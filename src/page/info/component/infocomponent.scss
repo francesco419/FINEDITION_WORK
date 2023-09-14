@@ -1,0 +1,31 @@
+@import '../../../style.scss';
+
+.info-hover {
+  position: relative;
+  display: flex;
+  align-items: center;
+  &:hover &_content {
+    display: block;
+  }
+  &_content {
+    display: none;
+    position: absolute;
+    top: 75%;
+    right: 75%;
+    width: 300px;
+    content: 'aaa';
+    background-color: #eaeaea;
+    color: #161616;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 90;
+  }
+  pre {
+    white-space: pre-line;
+    word-break: keep-all;
+    color: #161616;
+    font-family: Inter Reg;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}

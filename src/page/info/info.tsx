@@ -21,11 +21,21 @@ import { ReactComponent as Homepage } from './assets/link.svg';
 import { ReactComponent as Transport } from './assets/stationsvg.svg';
 import { ReactComponent as Language } from './assets/language.svg';
 import { ReactComponent as Keyword } from './assets/keyword.svg';
-import axios from 'axios';
-import { useEffect } from 'react';
-import Weather from './component/weather';
 import _ from 'lodash';
-import { countReset } from 'console';
+import UseTimeComp from './component/usetime';
+import RestTimeComp from './component/resttime';
+import ReservationComp from './component/reservation';
+import EntryFeeComp from './component/entryfee';
+import SpendTimeComp from './component/spendtime';
+import HomepageComp from './component/homepage';
+import NearbyComp from './component/nearby';
+import LanguageComp from './component/language';
+import KeyWordComp from './component/keyword';
+import MayLike from './component/maylike';
+import RelatedMegazine from './component/relatemegazine';
+import Weather from './component/weather';
+import PastWeather from './component/pastweather';
+import LocationMapCom from './component/map';
 
 const TAG_LIST = [
   { tag: 'Traditional', svg: <Traditional /> },
@@ -39,90 +49,38 @@ const TAG_LIST = [
 
 const tagcount = ['Traditional', 'Highlight', 'Recommend'];
 
-const qq = `[Palace]<br>Feb-May, Sep-Oct 09:00-18:00<br>Jun-Aug 09:00-18:30<br>Nov-Jan 09:00-17:30<br>* Last admission: 1 hour before closing<br><br>
-[Secret Garden Tour (Guided tour only)]<br>Mar-May, Sep-Oct 10:00-17:30<br>Jun-Aug 10:00-18:00<br>Feb, Nov 10:00-17:00<br>Dec-Jan 10:00-16:30<br>* Last tour: 1 hr 30 min before closing<BR> * Secret Garden Tour has limited space and must travel with a guide`;
-
-const twst = '09:00-18:0019:00-18:00';
-
-//const REG_USETIME: RegExp = `/^[0-9]{2}:[0-9]{2}-[0-9]{2}:[0-9]{2}$/`;
-
-const REG_USETIME: RegExp = new RegExp(/[0-9]{2}:[0-9]{2}-[0-9]{2}:[0-9]{2}/);
-
-const REG_USETIME2: RegExp = new RegExp(
-  /([A-Z][a-z]{2}-[A-Z][a-z]{2},\s)?[A-Z][a-z]{2}-[A-Z][a-z]{2}\s[0-9]{2}:[0-9]{2}-[0-9]{2}:[0-9]{2}/,
-  'g'
-);
-
-const COUNTRY = [
-  { code: 'EN', country: 'English' },
-  { code: 'AE', country: 'Arabic' },
-  { code: 'CN', country: 'Chinese' },
-  { code: 'CZ', country: 'Czech' },
-  { code: 'DK', country: 'Danish' },
-  { code: 'ID', country: 'Indonesian' },
-  { code: 'MY', country: 'Malaysian' },
-  { code: 'NL', country: 'Dutch' },
-  { code: 'FR', country: 'French' },
-  { code: 'FI', country: 'Finnish' },
-  { code: 'DE', country: 'German' },
-  { code: 'IT', country: 'Italian' },
-  { code: 'JP', country: 'Japanese' },
-  { code: 'KR', country: 'Korean' },
-  { code: 'NO', country: 'Norwegian' },
-  { code: 'PL', country: 'Polish' },
-  { code: 'BR', country: 'Portuguese' },
-  { code: 'RO', country: 'Romanian' },
-  { code: 'RU', country: 'Russian' },
-  { code: 'ES', country: 'Spanish' },
-  { code: 'SE', country: 'Swedish' },
-  { code: 'TH', country: 'Thai' },
-  { code: 'PH', country: 'Filipino' },
-  { code: 'TR', country: 'Turkish' }
-];
-
 const DETAIL_LIST = [
   {
     name: 'usetime',
     svg: <UseTime />,
     text: `[Palace]<br>Feb-May, Sep-Oct 09:00-18:00<br>Jun-Aug 09:00-18:30<br>Nov-Jan 09:00-17:30<br>* Last admission: 1 hour before closing<br><br>
-    [Secret Garden Tour (Guided tour only)]<br>Mar-May, Sep-Oct 10:00-17:30<br>Jun-Aug 10:00-18:00<br>Feb, Nov 10:00-17:00<br>Dec-Jan 10:00-16:30<br>* Last tour: 1 hr 30 min before closing<BR> * Secret Garden Tour has limited space and must travel with a guide`,
-    process: qq.match(REG_USETIME)
+    [Secret Garden Tour (Guided tour only)]<br>Mar-May, Sep-Oct 10:00-17:30<br>Jun-Aug 10:00-18:00<br>Feb, Nov 10:00-17:00<br>Dec-Jan 10:00-16:30<br>* Last tour: 1 hr 30 min before closing<BR> * Secret Garden Tour has limited space and must travel with a guide`
   },
   {
     name: 'restdate',
     svg: <RestDate />,
-    text: `Tuesdays`,
-    process: `Closed on Tuesday`
+    text: `Tuesdays`
   },
   {
     name: 'reservation',
     svg: <Reservation />,
-    text: `No reservation`,
-    process: 'No reservation'
+    text: `No reservation`
   },
   {
     name: 'fee',
     svg: <Fee />,
     text: `Individuals - Adults 1,000  won / Children 500 won<br>\n <br>\n* Adults (ages 19-64) / Children (ages 7-18)\n* Free admission (ID required): Preschoolers
-    (ages 6 & younger), senior citizens (ages 65 & older), visitors wearing hanbok`,
-    process: 'Yes'
+    (ages 6 & younger), senior citizens (ages 65 & older), visitors wearing hanbok`
   },
   {
     name: 'spendtime',
     svg: <SpendTime />,
-    text: `About 1h 30m`,
-    process: 'About 1h 30m'
+    text: `About 1h 30m`
   },
   {
     name: 'homepage',
     svg: <Homepage />,
-    text: `<a href=\"http://www.mdsd.or.kr/\" target=\"_blank\" title=\"새창  :명동대성당 홈페이지로 이동\">www.mdsd.or.kr</a>`,
-    process:
-      `<a href=\"http://www.mdsd.or.kr/\" target=\"_blank\" title=\"새창  :명동대성당 홈페이지로 이동\">www.mdsd.or.kr</a>`.match(
-        new RegExp(
-          /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&=]*)/
-        )
-      )
+    text: `<a href=\"http://www.mdsd.or.kr/\" target=\"_blank\" title=\"새창  :명동대성당 홈페이지로 이동\">www.mdsd.or.kr</a>`
   },
   {
     name: 'transport',
@@ -133,35 +91,16 @@ const DETAIL_LIST = [
   {
     name: 'language',
     svg: <Language />,
-    text: `[Guided Tours]<br>\n<br>\n * English - 10:00, 12:00, 14:00, 16:00<br>\n * Japanese - 09:00, 09:40, 10:40, 11:40, 12:40, 13:40, 14:40, 15:40, 16:40 (Mar-Sep)<br>\n * Chinese - 11:00, 13:00, 15:00<br>\n <br>\n<strong> </strong>* Reservation required via official website, except for Saturdays; up to 300 people per session<br>\n* Korean nationals may join a foreign language guided tour when accompanying international visitors.<br>\n* Guided tour in Japanese 16:40 session is only offered from March to September`,
-    process: ''
+    text: `[Guided Tours]<br>\n<br>\n * English - 10:00, 12:00, 14:00, 16:00<br>\n * Japanese - 09:00, 09:40, 10:40, 11:40, 12:40, 13:40, 14:40, 15:40, 16:40 (Mar-Sep)<br>\n * Chinese - 11:00, 13:00, 15:00<br>\n <br>\n<strong> </strong>* Reservation required via official website, except for Saturdays; up to 300 people per session<br>\n* Korean nationals may join a foreign language guided tour when accompanying international visitors.<br>\n* Guided tour in Japanese 16:40 session is only offered from March to September`
   },
   {
     name: 'keyword',
     svg: <Keyword />,
-    text: 'a',
-    process: [
-      '#namsangol',
-      '#hanok',
-      '#village',
-      '#jung-gu',
-      '#seoul',
-      '#chungmuro',
-      '#traditional',
-      '#experience'
-    ]
+    text: `#namsangol #hanok #village #jung-gu #seoul #chungmuro #traditional #experience`
   }
 ];
 
 export default function Info() {
-  useEffect(() => {
-    temple();
-  }, []);
-
-  const temple = () => {
-    const a = qq.replaceAll('<br>', '\n');
-  };
-
   const getTags = () => {
     const temp = _.filter(TAG_LIST, (o) => {
       return _.includes(tagcount, o.tag);
@@ -202,11 +141,11 @@ and pavilion was constructed on the site in order to revive the classical feel o
               </div>
             </div> */}
           </div>
+          <LocationMapCom mapx='126.8999035848' mapy='37.5523989260' />
           <div className='info_about-imgbox'>
             <div></div>
             <div></div>
           </div>
-          <div className='info_about-map'></div>
         </div>
         <div className='info_infomation'>
           <div className='info_infomation-view d-flex'>
@@ -228,69 +167,77 @@ and pavilion was constructed on the site in order to revive the classical feel o
               );
             })}
           </ul>
-          <ul className='info_infomation-detail'>
-            <li>
-              <p>00 Bookmarked</p>
-            </li>
-            <li>
-              <p>00 Liked</p>
-            </li>
-            <li>
-              <p>00 Reviewed</p>
-            </li>
-            <li></li>
-            <li>
-              {_.map(DETAIL_LIST, (o) => {
-                return (
-                  <ul>
-                    {o.svg}
-                    <div
-                      style={{
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        maxWidth: '200px'
-                      }}
-                    >
-                      {typeof o.process === 'string' ? (
-                        <p>{o.process}&nbsp;</p>
-                      ) : (
-                        _.map(o.process, (o) => {
-                          return <p>{o}</p>;
-                        })
-                      )}
-                    </div>
-                    {(o.name === 'fee' || o.name === 'usetime') && (
-                      <li style={{ position: 'relative' }}>
-                        <RestDate />
-                        <div
-                          style={{
-                            position: 'absolute',
-                            top: '100%',
-                            right: '50%',
-                            width: '300px'
-                          }}
-                        >
-                          <pre>
-                            {
-                              o.text.replaceAll(new RegExp(/<[bB][rR]>/g), '\n') //.replaceAll('*', '')
-                            }
-                          </pre>
-                        </div>
-                      </li>
-                    )}
-                  </ul>
-                );
-              })}
-            </li>
-          </ul>
-          <ul className='info_infomation-maylike'>
-            <li></li>
-          </ul>
-          <div className='info_infomation-megazine'></div>
-          <div className='info_infomation-weather'>
-            <div className='info_infomation-recent'></div>
-            <div className='info_infomation-calender'></div>
+          <div className='info_infomation-detail'>
+            <ul>
+              <li>
+                <p>00 Bookmarked</p>
+              </li>
+              <li>
+                <p>00 Liked</p>
+              </li>
+              <li>
+                <p>00 Reviewed</p>
+              </li>
+            </ul>
+            <hr
+              style={{
+                border: '0',
+                borderTop: '1px solid #000',
+                margin: '20px 0 18px'
+              }}
+            />
+            <ul>
+              <UseTimeComp
+                row={DETAIL_LIST[0].name}
+                svg={DETAIL_LIST[0].svg}
+                text={DETAIL_LIST[0].text}
+              />
+              <RestTimeComp
+                row={DETAIL_LIST[1].name}
+                svg={DETAIL_LIST[1].svg}
+                text={DETAIL_LIST[1].text}
+              />
+              <ReservationComp
+                row={DETAIL_LIST[2].name}
+                svg={DETAIL_LIST[2].svg}
+                text={DETAIL_LIST[2].text}
+              />
+              <EntryFeeComp
+                row={DETAIL_LIST[3].name}
+                svg={DETAIL_LIST[3].svg}
+                text={DETAIL_LIST[3].text}
+              />
+              <SpendTimeComp
+                row={DETAIL_LIST[4].name}
+                svg={DETAIL_LIST[4].svg}
+                text={DETAIL_LIST[4].text}
+              />
+              <HomepageComp
+                row={DETAIL_LIST[5].name}
+                svg={DETAIL_LIST[5].svg}
+                text={DETAIL_LIST[5].text}
+              />
+              <NearbyComp
+                row={DETAIL_LIST[6].name}
+                svg={DETAIL_LIST[6].svg}
+                text={DETAIL_LIST[6].text}
+              />
+              <LanguageComp
+                row={DETAIL_LIST[7].name}
+                svg={DETAIL_LIST[7].svg}
+                text={DETAIL_LIST[7].text}
+              />
+              <KeyWordComp
+                row={DETAIL_LIST[8].name}
+                svg={DETAIL_LIST[8].svg}
+                text={DETAIL_LIST[8].text}
+              />
+            </ul>
           </div>
+          <MayLike />
+          <RelatedMegazine />
+          <Weather mapx='126.8999035848' mapy='37.5523989260' />
+          <PastWeather mapx='126.8999035848' mapy='37.5523989260' />
         </div>
       </div>
     </div>
