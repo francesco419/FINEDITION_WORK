@@ -62,7 +62,7 @@ export default function PastWeather({ mapx, mapy }: LocationType) {
   const getdata = async (day: string) => {
     await axios
       .get(
-        `http://api.weatherapi.com/v1/history.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${mapy},${mapx}&dt=${day}`
+        `https://api.weatherapi.com/v1/history.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${mapy},${mapx}&dt=${day}`
       )
       .then((e) => {
         if (e.data) {

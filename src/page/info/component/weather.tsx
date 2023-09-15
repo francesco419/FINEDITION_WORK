@@ -82,13 +82,8 @@ export default function Weather({ mapx, mapy }: LocationType) {
   const [weather, setWeather] = useState<NEW_WEATHER_TYPE[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const day = ['Today', 'Tomorrow', 'Day After'];
-  /*   const url = `https://api.open-meteo.com/v1/forecast?latitude=${parseFloat(
-    mapy
-  )}&longitude=${parseFloat(
-    mapx
-  )}&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=3`; */
 
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${mapy},${mapx}&days=3&aqi=no&alerts=no`;
+  const url = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${mapy},${mapx}&days=3&aqi=no&alerts=no`;
 
   useEffect(() => {
     getdata();
@@ -112,7 +107,6 @@ export default function Weather({ mapx, mapy }: LocationType) {
               }
             ]);
           });
-          setLoading((loading) => true);
         }
       })
       .catch((e) => {

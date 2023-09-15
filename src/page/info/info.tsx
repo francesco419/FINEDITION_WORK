@@ -279,7 +279,7 @@ export default function Info() {
   console.log(apidata);
 
   return (
-    <div className='info'>
+    <div className={loading ? 'info' : ''}>
       {loading ? (
         <>
           <Header type='black' />
