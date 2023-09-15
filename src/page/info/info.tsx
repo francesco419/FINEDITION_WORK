@@ -42,6 +42,7 @@ import { APIInterceptor } from '../../func/interceptor';
 import { API_TYPE } from '../../func/interface';
 import { useParams } from 'react-router';
 import { useState } from 'react';
+import LoadingSpinner from '../../components/common/loadingspinner';
 
 const TAG_LIST = [
   { tag: 'Traditional', svg: <Traditional /> },
@@ -187,9 +188,6 @@ export default function Info() {
 
   useEffect(() => {
     getAPIDataCommon(apidata);
-    getAPIDataIntro(apidata);
-    getAPIDataInfo(apidata);
-    getAPIDataImage(apidata);
     //setLoading((loading) => true);
   }, []);
 
@@ -209,7 +207,9 @@ export default function Info() {
         temp.mapy = response.mapy;
         temp.homepage = response.homepage;
         temp.overview = response.overview;
-        setApiData(temp);
+        //setApiData(temp);
+        console.log(o);
+        getAPIDataIntro(temp);
       }
     };
     APIInterceptor(interceptor);
@@ -225,8 +225,9 @@ export default function Info() {
         temp.infocenter = response.infocenter;
         temp.restdate = response.restdate;
         temp.usetime = response.usetime;
-        setApiData(temp);
-        setLoading((loading) => true);
+        //setApiData(temp);
+        console.log(o);
+        getAPIDataInfo(temp);
       }
     };
     APIInterceptor(apidata);
@@ -239,7 +240,7 @@ export default function Info() {
         //console.log(o.data);
         const response = o.data.response.body.items.item;
         response.forEach((o: INFO_TYPE, index: number) => {
-          if (o.infoname === 'Parking Fees') {
+          if (o.infoname === 'Admission Fees') {
             temp.fee = o;
             return;
           }
@@ -247,8 +248,9 @@ export default function Info() {
             temp.Interpretation = o;
           return;
         });
-        //setApiData(temp);
-        //setLoading((loading) => true);
+        console.log(o);
+        setApiData(temp);
+        setLoading((loading) => true);
       }
     };
     APIInterceptor(apidata);
@@ -361,8 +363,16 @@ export default function Info() {
           <Footer />
         </>
       ) : (
-        <div>
-          <h1>1111111</h1>
+        <div
+          style={{
+            width: '100vw',
+            height: '100vh',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <LoadingSpinner />
         </div>
       )}
     </div>

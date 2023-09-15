@@ -29,13 +29,13 @@ export default function LoadingSpinner() {
     setColor(colorArr);
   }, []);
 
-  /* useInterval(() => {
+  useInterval(() => {
     const present = color;
     const popped = present.pop();
     if (popped) present.unshift(popped);
     setColor((color) => [...present]);
     console.log(color);
-  }, 100); */
+  }, 100);
 
   return (
     <div className='lo'>

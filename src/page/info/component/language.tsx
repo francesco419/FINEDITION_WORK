@@ -55,7 +55,7 @@ export default function LanguageComp({ text }: LiType) {
   return (
     <li className='usetime'>
       <Language />
-      <p>{code.join(', ')}</p>
+      {text !== '' ? <p>{code.join(', ')}</p> : <p>No Language Service</p>}
     </li>
   );
 }

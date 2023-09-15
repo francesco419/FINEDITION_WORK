@@ -1,5 +1,6 @@
 import '../info.scss';
 import { ReactComponent as Pick } from '../assets/Storytelling.svg';
+import { useEffect } from 'react';
 
 //title,addr1,firstimage -
 //overview
@@ -16,11 +17,14 @@ export default function InfoDetail({
   firstimage,
   overview
 }: AAType) {
+  let add: string;
+  let titl: string;
+  useEffect(() => {}, []);
   return (
     <>
       <div className='info_about-title'>
         <h1>{title}</h1>
-        <p>{addr1}</p>
+        <p>{addr1.split(',')}</p>
       </div>
       <div className='info_about-detail'>
         <div className='info_about-frontimg'>
