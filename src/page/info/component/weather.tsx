@@ -107,6 +107,7 @@ export default function Weather({ mapx, mapy }: LocationType) {
               }
             ]);
           });
+          console.log('fetching weather success');
         }
       })
       .catch((e) => {

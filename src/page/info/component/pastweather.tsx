@@ -67,6 +67,7 @@ export default function PastWeather({ mapx, mapy }: LocationType) {
       .then((e) => {
         if (e.data) {
           setWeather(e.data.forecast.forecastday[0].day);
+          console.log('fetching past weather success');
           setLoading((loading) => true);
         }
       })

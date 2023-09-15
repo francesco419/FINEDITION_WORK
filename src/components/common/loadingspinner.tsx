@@ -34,7 +34,6 @@ export default function LoadingSpinner() {
     const popped = present.pop();
     if (popped) present.unshift(popped);
     setColor((color) => [...present]);
-    console.log(color);
   }, 100);
 
   return (

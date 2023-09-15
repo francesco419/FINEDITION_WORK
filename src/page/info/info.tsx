@@ -195,7 +195,6 @@ export default function Info() {
     const interceptor: API_TYPE = {
       url: `https://apis.data.go.kr/B551011/EngService1/detailCommon1?serviceKey=${process.env.REACT_APP_TOUR_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&contentId=${param.id}&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&contentTypeId=${param.typeid}`,
       callback: (o: any) => {
-        //console.log(o.data);
         const response = o.data.response.body.items.item[0];
         //console.log(response);
         temp.addr1 = response.addr1;
@@ -208,7 +207,8 @@ export default function Info() {
         temp.homepage = response.homepage;
         temp.overview = response.overview;
         //setApiData(temp);
-        console.log(o);
+        //console.log(o);
+        console.log('fetching (1) common success');
         getAPIDataIntro(temp);
       }
     };
@@ -226,7 +226,8 @@ export default function Info() {
         temp.restdate = response.restdate;
         temp.usetime = response.usetime;
         //setApiData(temp);
-        console.log(o);
+        //console.log(o);
+        console.log('fetching (2) intro success');
         getAPIDataInfo(temp);
       }
     };
@@ -248,7 +249,8 @@ export default function Info() {
             temp.Interpretation = o;
           return;
         });
-        console.log(o);
+        //console.log(o);
+        console.log('fetching (3) info success');
         setApiData(temp);
         setLoading((loading) => true);
       }
