@@ -12,20 +12,20 @@
     position: absolute;
     top: 75%;
     right: 75%;
-    width: 300px;
+    width: max-content;
     content: 'aaa';
-    background-color: #eaeaea;
-    color: #161616;
+    background-color: #dfdfdf;
     padding: 10px;
-    border-radius: 10px;
     z-index: 90;
   }
   pre {
     white-space: pre-line;
     word-break: keep-all;
-    color: #161616;
     font-family: Inter Reg;
-    font-size: 14px;
-    font-weight: 400;
+    color: #000;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 160%; /* 16px */
   }
 }

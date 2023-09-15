@@ -22,7 +22,7 @@ export default function MayLike() {
       <ul>
         {_.map(temp, (o) => {
           return (
-            <li>
+            <li key={`${o.name}_${o.contentid}`}>
               <Link to={`/info/${o.contentid}/76`}>{o.name}</Link>
             </li>
           );

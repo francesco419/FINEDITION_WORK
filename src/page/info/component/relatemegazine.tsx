@@ -22,7 +22,7 @@ export default function RelatedMegazine() {
       <ul>
         {_.map(temp, (o) => {
           return (
-            <li>
+            <li key={`${o.name}_${o.contentid}`}>
               <Link to={`/info/${o.contentid}/76`}>
                 <img src={img} />
               </Link>

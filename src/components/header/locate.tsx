@@ -7,8 +7,9 @@ type HeaderLocateType = {
 
 const arr = [
   { name: 'Megazine', to: '/cities' },
-  { name: 'Seoul', to: '/info/123/76' },
-  { name: 'Cities', to: '/cities' }
+  { name: 'Seoul', to: '/info/264337/76' },
+  { name: 'Cities', to: '/cities' },
+  { name: 'Info', to: '/infolist' }
 ];
 
 export default function HeaderLocate({ color }: HeaderLocateType) {
@@ -20,9 +21,13 @@ export default function HeaderLocate({ color }: HeaderLocateType) {
 
   return (
     <div className='header_locate'>
-      {_.map(arr, (o) => {
+      {_.map(arr, (o, index) => {
         return (
-          <button onClick={() => onClickHandler(o.to)} style={{ color: color }}>
+          <button
+            onClick={() => onClickHandler(o.to)}
+            style={{ color: color }}
+            key={`${index}_locate`}
+          >
             {o.name}
           </button>
         );

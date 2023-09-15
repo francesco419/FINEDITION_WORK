@@ -8,6 +8,7 @@ import storm from '../assets/Storm.png';
 import DatePickerComp from './datepicker';
 import CalenderComp from './calender';
 import { WeatherCard } from './weather';
+import LoadingSpinner from '../../../components/common/loadingspinner';
 
 const API_KEY = process.env.REACT_APP_WEATHER_KEY;
 

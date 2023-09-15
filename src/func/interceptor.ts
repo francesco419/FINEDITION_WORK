@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { API_TYPE } from './interface';
 
 interface AxiosCustomRequestConfig extends AxiosRequestConfig {
   retryCount: number;
@@ -91,6 +92,17 @@ export const putInterceptor = async (data: sendAxiosState) => {
     .put(data.url, data.data)
     .then((response: AxiosResponse) => {
       //data.callback(response);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
+
+export const APIInterceptor = async (data: API_TYPE) => {
+  return await axios
+    .get(data.url)
+    .then((response: any) => {
+      data.callback(response);
     })
     .catch((e) => {
       console.log(e);

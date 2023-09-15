@@ -2,12 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../info.scss';
 import { ReactComponent as Language } from '../assets/language.svg';
 import _ from 'lodash';
-
-type LiType = {
-  row: string;
-  svg: React.ReactNode;
-  text: string;
-};
+import { LiType } from './usetime';
 
 const COUNTRY = [
   { code: 'EN', country: 'English' },
@@ -35,10 +30,11 @@ const COUNTRY = [
   { code: 'TR', country: 'Turkish' }
 ];
 
-export default function LanguageComp({ row, svg, text }: LiType) {
+export default function LanguageComp({ text }: LiType) {
   const [code, setCode] = useState<string[]>([]);
 
   useEffect(() => {
+    console.log(text);
     division();
   }, []);
 

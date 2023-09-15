@@ -10,7 +10,12 @@ type AAType = {
   firstimage: string;
   overview: string;
 };
-export default function ({ title, addr1, firstimage, overview }: AAType) {
+export default function InfoDetail({
+  title,
+  addr1,
+  firstimage,
+  overview
+}: AAType) {
   return (
     <>
       <div className='info_about-title'>

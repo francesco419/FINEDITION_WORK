@@ -1,8 +1,7 @@
 import Header from '../../components/header/header';
 import './info.scss';
 import frontimg from './assets/frontimg.png';
-import { ReactComponent as Pick } from './assets/Storytelling.svg';
-import { ReactComponent as Down } from './assets/arrow-down.svg';
+import _, { set } from 'lodash';
 import { ReactComponent as Like } from './assets/like.svg';
 import { ReactComponent as Bookmark } from './assets/bookmark.svg';
 import { ReactComponent as Traditional } from './assets/tags/flag.svg';
@@ -21,7 +20,6 @@ import { ReactComponent as Homepage } from './assets/link.svg';
 import { ReactComponent as Transport } from './assets/stationsvg.svg';
 import { ReactComponent as Language } from './assets/language.svg';
 import { ReactComponent as Keyword } from './assets/keyword.svg';
-import _ from 'lodash';
 import UseTimeComp from './component/usetime';
 import RestTimeComp from './component/resttime';
 import ReservationComp from './component/reservation';
@@ -36,6 +34,14 @@ import RelatedMegazine from './component/relatemegazine';
 import Weather from './component/weather';
 import PastWeather from './component/pastweather';
 import LocationMapCom from './component/map';
+import Footer from '../../components/footer/footer';
+import InfoDetail from './component/infodetail';
+import axios from 'axios';
+import { useEffect } from 'react';
+import { APIInterceptor } from '../../func/interceptor';
+import { API_TYPE } from '../../func/interface';
+import { useParams } from 'react-router';
+import { useState } from 'react';
 
 const TAG_LIST = [
   { tag: 'Traditional', svg: <Traditional /> },
@@ -51,40 +57,26 @@ const tagcount = ['Traditional', 'Highlight', 'Recommend'];
 
 const DETAIL_LIST = [
   {
-    name: 'usetime',
-    svg: <UseTime />,
     text: `[Palace]<br>Feb-May, Sep-Oct 09:00-18:00<br>Jun-Aug 09:00-18:30<br>Nov-Jan 09:00-17:30<br>* Last admission: 1 hour before closing<br><br>
     [Secret Garden Tour (Guided tour only)]<br>Mar-May, Sep-Oct 10:00-17:30<br>Jun-Aug 10:00-18:00<br>Feb, Nov 10:00-17:00<br>Dec-Jan 10:00-16:30<br>* Last tour: 1 hr 30 min before closing<BR> * Secret Garden Tour has limited space and must travel with a guide`
   },
   {
-    name: 'restdate',
-    svg: <RestDate />,
     text: `Tuesdays`
   },
   {
-    name: 'reservation',
-    svg: <Reservation />,
     text: `No reservation`
   },
   {
-    name: 'fee',
-    svg: <Fee />,
     text: `Individuals - Adults 1,000  won / Children 500 won<br>\n <br>\n* Adults (ages 19-64) / Children (ages 7-18)\n* Free admission (ID required): Preschoolers
     (ages 6 & younger), senior citizens (ages 65 & older), visitors wearing hanbok`
   },
   {
-    name: 'spendtime',
-    svg: <SpendTime />,
     text: `About 1h 30m`
   },
   {
-    name: 'homepage',
-    svg: <Homepage />,
     text: `<a href=\"http://www.mdsd.or.kr/\" target=\"_blank\" title=\"새창  :명동대성당 홈페이지로 이동\">www.mdsd.or.kr</a>`
   },
   {
-    name: 'transport',
-    svg: <Transport />,
     text: `Chungmuro Station (Line3)`,
     process: 'Chungmuro Station (Line3)'
   },
@@ -100,7 +92,181 @@ const DETAIL_LIST = [
   }
 ];
 
+/* 
+addr1
+contentid
+contenttypeid : 76번으로 동일
+firstimage
+title
+mapx
+mapy
+--
+infocenter restdate
+usetime
+--
+infoname : "Admission Fees" - infotext
+infoname: "Interpretation Services Offered” - infotext
+--
+homepage
+overview
+--
+originimgurl 
+
+-----------------------------------------------------------------------------
+*/
+interface API_DATA_TYPE {
+  addr1: string;
+  contentid: string;
+  contenttypeid: string;
+  firstimage: string;
+  title: string;
+  mapx: string;
+  mapy: string;
+  homepage: string;
+  overview: string;
+  infocenter: string;
+  restdate: string;
+  usetime: string;
+  fee: INFO_TYPE;
+  Interpretation: INFO_TYPE;
+  originimgurl: imgurlTYPE[];
+}
+
+interface imgurlTYPE {
+  contentid: string;
+  originimgurl: string;
+  imgname: string;
+  smallimageurl: string;
+  cpyrhtDivCd: string;
+  serialnum: string;
+}
+
+interface INFO_TYPE {
+  contentid: string;
+  contenttypeid: string;
+  fldgubun: string;
+  infoname: string;
+  infotext: string;
+  serialnum: string;
+}
+
 export default function Info() {
+  const param = useParams();
+  const [apidata, setApiData] = useState<API_DATA_TYPE>({
+    addr1: '',
+    contentid: '',
+    contenttypeid: '',
+    firstimage: '',
+    title: '',
+    mapx: '',
+    mapy: '',
+    homepage: '',
+    overview: '',
+    infocenter: '',
+    restdate: '',
+    usetime: '',
+    fee: {
+      contentid: '',
+      contenttypeid: '',
+      fldgubun: '',
+      infoname: '',
+      infotext: '',
+      serialnum: ''
+    },
+    Interpretation: {
+      contentid: '',
+      contenttypeid: '',
+      fldgubun: '',
+      infoname: '',
+      infotext: '',
+      serialnum: ''
+    },
+    originimgurl: []
+  });
+  const [loading, setLoading] = useState<boolean>();
+
+  useEffect(() => {
+    getAPIDataCommon(apidata);
+    getAPIDataIntro(apidata);
+    getAPIDataInfo(apidata);
+    getAPIDataImage(apidata);
+    //setLoading((loading) => true);
+  }, []);
+
+  const getAPIDataCommon = async (temp: API_DATA_TYPE) => {
+    const interceptor: API_TYPE = {
+      url: `https://apis.data.go.kr/B551011/EngService1/detailCommon1?serviceKey=${process.env.REACT_APP_TOUR_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&contentId=${param.id}&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&contentTypeId=${param.typeid}`,
+      callback: (o: any) => {
+        //console.log(o.data);
+        const response = o.data.response.body.items.item[0];
+        //console.log(response);
+        temp.addr1 = response.addr1;
+        temp.contentid = response.contentid;
+        temp.contenttypeid = response.contenttypeid;
+        temp.firstimage = response.firstimage;
+        temp.title = response.title;
+        temp.mapx = response.mapx;
+        temp.mapy = response.mapy;
+        temp.homepage = response.homepage;
+        temp.overview = response.overview;
+        setApiData(temp);
+      }
+    };
+    APIInterceptor(interceptor);
+  };
+
+  const getAPIDataIntro = async (temp: API_DATA_TYPE) => {
+    const apidata: API_TYPE = {
+      url: `https://apis.data.go.kr/B551011/EngService1/detailIntro1?serviceKey=${process.env.REACT_APP_TOUR_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&contentId=${param.id}&contentTypeId=${param.typeid}&_type=json`,
+      callback: (o: any) => {
+        //console.log(o.data);
+        const response = o.data.response.body.items.item[0];
+        //console.log(response);
+        temp.infocenter = response.infocenter;
+        temp.restdate = response.restdate;
+        temp.usetime = response.usetime;
+        setApiData(temp);
+        setLoading((loading) => true);
+      }
+    };
+    APIInterceptor(apidata);
+  };
+
+  const getAPIDataInfo = async (temp: API_DATA_TYPE) => {
+    const apidata: API_TYPE = {
+      url: `https://apis.data.go.kr/B551011/EngService1/detailInfo1?serviceKey=${process.env.REACT_APP_TOUR_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&contentId=${param.id}&contentTypeId=${param.typeid}&_type=json`,
+      callback: (o: any) => {
+        //console.log(o.data);
+        const response = o.data.response.body.items.item;
+        response.forEach((o: INFO_TYPE, index: number) => {
+          if (o.infoname === 'Parking Fees') {
+            temp.fee = o;
+            return;
+          }
+          if (o.infoname === 'Interpretation Services Offered')
+            temp.Interpretation = o;
+          return;
+        });
+        //setApiData(temp);
+        //setLoading((loading) => true);
+      }
+    };
+    APIInterceptor(apidata);
+  };
+
+  const getAPIDataImage = async (temp: API_DATA_TYPE) => {
+    const apidata: API_TYPE = {
+      url: `https://apis.data.go.kr/B551011/EngService1/detailImage1?serviceKey=${process.env.REACT_APP_TOUR_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&contentId=${param.id}&imageYN=Y&subImageYN=Y`,
+      callback: (o: any) => {
+        //console.log(o.data);
+        //const response = o.data.response.body.items.item[0];
+        //setApiData(temp);
+      }
+    };
+    APIInterceptor(apidata);
+  };
+  /* const REG = new RegExp(/\(.*\)/gi); */
+
   const getTags = () => {
     const temp = _.filter(TAG_LIST, (o) => {
       return _.includes(tagcount, o.tag);
@@ -108,142 +274,97 @@ export default function Info() {
     return temp;
   };
 
+  console.log(apidata);
+
   return (
     <div className='info'>
-      <Header type='black' />
-      <div className='info_container'>
-        <div className='info_about'>
-          <div className='info_about-title'>
-            <h1>Namsangol Hanok Village</h1>
-            <p>Jung-gu, Seoul</p>
-          </div>
-          <div className='info_about-detail'>
-            <div className='info_about-frontimg'>
-              <img src={frontimg} />
-            </div>
-            <div className='info_about-text'>
-              <div>
-                <Pick />
-                <h3>Finedition Pick</h3>
+      {loading ? (
+        <>
+          <Header type='black' />
+          <div className='info_container'>
+            <div className='info_about'>
+              <InfoDetail
+                title={apidata.title}
+                addr1={apidata.addr1}
+                firstimage={
+                  apidata.firstimage !== '' ? apidata.firstimage : frontimg
+                }
+                overview={apidata.overview}
+              />
+              <LocationMapCom
+                mapx={apidata.mapx}
+                mapy={apidata.mapy}
+                place={apidata.title}
+              />
+              <div className='info_about-imgbox'>
+                <div></div>
+                <div></div>
               </div>
-              <p>{`Situated in the heart of Seoul, this Hanok village is very near from metro and unique surroundings of Jung-gu.
-As it is surrounded by Namsan park, you can enjoy hanok village and the nature at the same time.
-There are some unique performances and classes held, so make sure to reserve it before you visit!`}</p>
-              <p>{`The Namsangol Hanok Village offers one the opportunity to experience a wide cross-section of Joseon-eracitizenry
-and activities, from royalty to commoners. A great effort has been made to accurately furnish each dwelling with
-appropriate era and social status appointments. A traditional Korean style garden, complete with a flowing stream
-and pavilion was constructed on the site in order to revive the classical feel of the Joseon-era. `}</p>
             </div>
-            {/* <div className='info_about-highlights d-flex'>
-              <div className='d-flex'>
-                <p>Surrounding Highlights</p>
-                <Down />
+            <div className='info_infomation'>
+              <div className='info_infomation-view d-flex'>
+                <Like />
+                <Bookmark />
               </div>
-            </div> */}
-          </div>
-          <LocationMapCom
-            mapx='126.8999035848'
-            mapy='37.5523989260'
-            place='망원한강공원'
-          />
-          <div className='info_about-imgbox'>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-        <div className='info_infomation'>
-          <div className='info_infomation-view d-flex'>
-            <Like />
-            <Bookmark />
-          </div>
-          <ul className='info_infomation-tags'>
-            {_.map(getTags(), (o, index) => {
-              return (
-                <li
-                  key={o.tag}
+              <ul className='info_infomation-tags'>
+                {_.map(getTags(), (o, index) => {
+                  return (
+                    <li
+                      key={o.tag}
+                      style={{
+                        backgroundColor: index % 2 === 1 ? '#C2E56C' : '#B9B5FF'
+                      }}
+                    >
+                      {o.svg}
+                      <p>{o.tag}</p>
+                    </li>
+                  );
+                })}
+              </ul>
+              <div className='info_infomation-detail'>
+                <ul>
+                  <li>
+                    <p>00 Bookmarked</p>
+                  </li>
+                  <li>
+                    <p>00 Liked</p>
+                  </li>
+                  <li>
+                    <p>00 Reviewed</p>
+                  </li>
+                </ul>
+                <hr
                   style={{
-                    backgroundColor: index % 2 === 1 ? '#C2E56C' : '#B9B5FF'
+                    border: '0',
+                    borderTop: '1px solid #000',
+                    margin: '20px 0 18px'
                   }}
-                >
-                  {o.svg}
-                  <p>{o.tag}</p>
-                </li>
-              );
-            })}
-          </ul>
-          <div className='info_infomation-detail'>
-            <ul>
-              <li>
-                <p>00 Bookmarked</p>
-              </li>
-              <li>
-                <p>00 Liked</p>
-              </li>
-              <li>
-                <p>00 Reviewed</p>
-              </li>
-            </ul>
-            <hr
-              style={{
-                border: '0',
-                borderTop: '1px solid #000',
-                margin: '20px 0 18px'
-              }}
-            />
-            <ul>
-              <UseTimeComp
-                row={DETAIL_LIST[0].name}
-                svg={DETAIL_LIST[0].svg}
-                text={DETAIL_LIST[0].text}
-              />
-              <RestTimeComp
-                row={DETAIL_LIST[1].name}
-                svg={DETAIL_LIST[1].svg}
-                text={DETAIL_LIST[1].text}
-              />
-              <ReservationComp
-                row={DETAIL_LIST[2].name}
-                svg={DETAIL_LIST[2].svg}
-                text={DETAIL_LIST[2].text}
-              />
-              <EntryFeeComp
-                row={DETAIL_LIST[3].name}
-                svg={DETAIL_LIST[3].svg}
-                text={DETAIL_LIST[3].text}
-              />
-              <SpendTimeComp
-                row={DETAIL_LIST[4].name}
-                svg={DETAIL_LIST[4].svg}
-                text={DETAIL_LIST[4].text}
-              />
-              <HomepageComp
-                row={DETAIL_LIST[5].name}
-                svg={DETAIL_LIST[5].svg}
-                text={DETAIL_LIST[5].text}
-              />
-              <NearbyComp
-                row={DETAIL_LIST[6].name}
-                svg={DETAIL_LIST[6].svg}
-                text={DETAIL_LIST[6].text}
-              />
-              <LanguageComp
-                row={DETAIL_LIST[7].name}
-                svg={DETAIL_LIST[7].svg}
-                text={DETAIL_LIST[7].text}
-              />
-              <KeyWordComp
-                row={DETAIL_LIST[8].name}
-                svg={DETAIL_LIST[8].svg}
-                text={DETAIL_LIST[8].text}
-              />
-            </ul>
+                />
+                <ul>
+                  <UseTimeComp text={apidata.usetime} />
+                  <RestTimeComp text={apidata.restdate} />
+                  <ReservationComp text={DETAIL_LIST[2].text} />
+                  <EntryFeeComp text={apidata.fee.infotext} />
+                  <SpendTimeComp text={DETAIL_LIST[4].text} />
+                  <HomepageComp text={apidata.homepage} />
+                  <NearbyComp text={DETAIL_LIST[6].text} />
+                  <LanguageComp text={apidata.Interpretation.infotext} />
+                  <KeyWordComp text={DETAIL_LIST[8].text} />
+                </ul>
+              </div>
+              <MayLike />
+              <RelatedMegazine />
+              <Weather mapx='126.8999035848' mapy='37.5523989260' />
+              <PastWeather mapx='126.8999035848' mapy='37.5523989260' />
+            </div>
           </div>
-          <MayLike />
-          <RelatedMegazine />
-          <Weather mapx='126.8999035848' mapy='37.5523989260' />
-          <PastWeather mapx='126.8999035848' mapy='37.5523989260' />
+          <Footer />
+        </>
+      ) : (
+        <div>
+          <h1>1111111</h1>
         </div>
-      </div>
+      )}
     </div>
   );
 }

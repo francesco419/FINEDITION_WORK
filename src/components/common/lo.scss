@@ -1,0 +1,11 @@
+.lo {
+  height: min-content;
+  animation: lotate 2.5s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes lotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

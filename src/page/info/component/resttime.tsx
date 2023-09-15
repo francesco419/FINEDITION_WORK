@@ -1,14 +1,9 @@
 import React from 'react';
 import '../info.scss';
 import { ReactComponent as Closed } from '../assets/closed.svg';
+import { LiType } from './usetime';
 
-type LiType = {
-  row: string;
-  svg: React.ReactNode;
-  text: string;
-};
-
-export default function RestTimeComp({ row, svg, text }: LiType) {
+export default function RestTimeComp({ text }: LiType) {
   return (
     <li className='usetime'>
       <Closed />

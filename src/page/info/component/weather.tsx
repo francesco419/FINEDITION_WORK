@@ -127,7 +127,7 @@ export default function Weather({ mapx, mapy }: LocationType) {
           {_.map(day, (o, index) => {
             if (weather) {
               return (
-                <li>
+                <li key={`${o}_${index}`}>
                   <h4>{o}</h4>
                   <WeatherCard
                     temp={weather[index].avgtemp_c}
@@ -142,7 +142,7 @@ export default function Weather({ mapx, mapy }: LocationType) {
         <ul>
           {_.map(day, (o, index) => {
             return (
-              <li>
+              <li key={`${o}_${index}`}>
                 <h4>{o}</h4>
                 <div style={{ justifyContent: 'center' }}>
                   <img src={storm} />

@@ -1,14 +1,9 @@
 import React from 'react';
 import '../info.scss';
 import { ReactComponent as Reservation } from '../assets/reservation.svg';
+import { LiType } from './usetime';
 
-type LiType = {
-  row: string;
-  svg: React.ReactNode;
-  text: string;
-};
-
-export default function ReservationComp({ row, svg, text }: LiType) {
+export default function ReservationComp({ text }: LiType) {
   return (
     <li className='usetime'>
       <Reservation />

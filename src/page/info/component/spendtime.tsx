@@ -2,14 +2,9 @@ import React from 'react';
 import '../info.scss';
 import { ReactComponent as SpendTime } from '../assets/spend-time.svg';
 import InfoHover from './infohover';
+import { LiType } from './usetime';
 
-type LiType = {
-  row: string;
-  svg: React.ReactNode;
-  text: string;
-};
-
-export default function SpendTimeComp({ row, svg, text }: LiType) {
+export default function SpendTimeComp({ text }: LiType) {
   return (
     <li className='usetime'>
       <SpendTime />
