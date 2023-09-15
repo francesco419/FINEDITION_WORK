@@ -88,7 +88,7 @@ export default function Weather({ mapx, mapy }: LocationType) {
     mapx
   )}&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=3`; */
 
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${mapy},${mapx}&days=3&aqi=no&alerts=no`;
+  const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${mapy},${mapx}&days=3&aqi=no&alerts=no`;
 
   useEffect(() => {
     getdata();

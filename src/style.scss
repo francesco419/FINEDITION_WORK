@@ -1,8 +1,35 @@
-$black: #000;
+$black: #000; //system black 0
 $black-16: #161616;
 $fff: #ffffff;
 $gray: #eaeaea;
 $yellow: #b9e155;
+
+$System-White-0: #ffffff;
+$System-White-1: #efeff4;
+$System-White-2: #e5e5ea;
+
+$System-Light-Gray-0: #dbdbe0;
+$System-Light-Gray-1: #c7c7cd;
+$System-Light-Gray-0: #aeaeb2;
+
+$System-Dark-Gray-0: #8d8d90;
+$System-Dark-Gray-1: #69696b;
+$System-Dark-Gray-2: #474749;
+$System-Dark-Gray-3: #323234;
+
+$System-Black-0: #000000;
+$System-Black-1: #1d1d1d;
+
+$Brand-Light-Green-0: #bceb49;
+$Brand-Light-Green-1: #a8de22;
+$Brand-Light-Green-2: #65a80f;
+
+$Brand-Purple-0: #b6b2f8;
+$Brand-Purple-1: #8763ed;
+
+$Brand-Nautral-0: #d1c8b5;
+
+$Brand-Orange-0: #f87b36;
 
 /*-----------------------*/
 
@@ -32,3 +59,49 @@ $yellow: #b9e155;
 /*
 폰트 사이즈가 20보다 작을 경우, SF Pro TEXT / 20보다 클 경우, SF Pro DISPLAY
 */
+
+/*----------*/
+
+$font-size-small: 11px;
+$line-height-small: 11px;
+$font-size-middle: 16px;
+$line-height-middle: 16px;
+$font-size-big: 24px;
+$line-height-big: 24px;
+//letter-spacing: $letter-spacing-12;
+
+@mixin font-style-small() {
+  font-size: $font-size-small;
+  line-height: $line-height-small;
+}
+@mixin font-style-middle() {
+  font-size: $font-size-middle;
+  line-height: $line-height-middle;
+}
+@mixin font-style-big() {
+  font-size: $font-size-big;
+  line-height: $line-height-big;
+}
+@mixin font-style-custom($size) {
+  font-size: #{$size}px;
+  line-height: #{$size}px;
+}
+
+@mixin font-style($size, $color: false) {
+  @if ($size==small) {
+    @include font-style-small;
+  }
+  @if ($size==middle) {
+    @include font-style-middle;
+  }
+  @if ($size==big) {
+    @include font-style-big;
+  }
+  @if (type-of($size) ==number) {
+    @include font-style-custom($size);
+  }
+
+  @if (type-of($color) ==color) {
+    color: $color;
+  }
+}
