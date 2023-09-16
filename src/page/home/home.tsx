@@ -41,11 +41,6 @@ export default function Home() {
           <WordBuzz />
           <DiscoverCities />
           <ApiMap />
-          <LocationMapCom
-            place='경희궁'
-            mapx='"126.9685079323"'
-            mapy='"37.5704425020"'
-          />
         </div>
       </section>
       {/* <div className='homll'>a</div> */}

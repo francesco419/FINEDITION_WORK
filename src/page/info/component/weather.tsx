@@ -83,14 +83,13 @@ export default function Weather({ mapx, mapy }: LocationType) {
   const [loading, setLoading] = useState<boolean>(false);
   const day = ['Today', 'Tomorrow', 'Day After'];
 
-  const url = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${mapy},${mapx}&days=3&aqi=no&alerts=no`;
+  const url = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${mapy},${mapx}&days=3&aqi=no&alerts=no`;
 
   useEffect(() => {
     getdata();
   }, []);
 
   const getdata = async () => {
-    //setWeather((weather) => []);
     await axios
       .get(url)
       .then((e) => {
@@ -107,6 +106,7 @@ export default function Weather({ mapx, mapy }: LocationType) {
               }
             ]);
           });
+          setLoading((loading) => true);
           console.log('fetching weather success');
         }
       })

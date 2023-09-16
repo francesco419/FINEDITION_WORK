@@ -4,22 +4,6 @@ import frontimg from './assets/frontimg.png';
 import _, { set } from 'lodash';
 import { ReactComponent as Like } from './assets/like.svg';
 import { ReactComponent as Bookmark } from './assets/bookmark.svg';
-import { ReactComponent as Traditional } from './assets/tags/flag.svg';
-import { ReactComponent as Hightlight } from './assets/tags/highlights.svg';
-import { ReactComponent as OnTrend } from './assets/tags/trend.svg';
-import { ReactComponent as Recommend } from './assets/tags/recommend.svg';
-import { ReactComponent as GoodforKids } from './assets/tags/kids.svg';
-import { ReactComponent as PhotoSpot } from './assets/tags/photo_spot.svg';
-import { ReactComponent as NatureLovers } from './assets/tags/nature.svg';
-import { ReactComponent as UseTime } from './assets/time.svg';
-import { ReactComponent as RestDate } from './assets/info.svg';
-import { ReactComponent as Reservation } from './assets/reservation.svg';
-import { ReactComponent as Fee } from './assets/fee.svg';
-import { ReactComponent as SpendTime } from './assets/time.svg';
-import { ReactComponent as Homepage } from './assets/link.svg';
-import { ReactComponent as Transport } from './assets/stationsvg.svg';
-import { ReactComponent as Language } from './assets/language.svg';
-import { ReactComponent as Keyword } from './assets/keyword.svg';
 import UseTimeComp from './component/usetime';
 import RestTimeComp from './component/resttime';
 import ReservationComp from './component/reservation';
@@ -36,62 +20,14 @@ import PastWeather from './component/pastweather';
 import LocationMapCom from './component/map';
 import Footer from '../../components/footer/footer';
 import InfoDetail from './component/infodetail';
-import axios from 'axios';
 import { useEffect } from 'react';
 import { APIInterceptor } from '../../func/interceptor';
 import { API_TYPE } from '../../func/interface';
 import { useParams } from 'react-router';
 import { useState } from 'react';
 import LoadingSpinner from '../../components/common/loadingspinner';
-
-const TAG_LIST = [
-  { tag: 'Traditional', svg: <Traditional /> },
-  { tag: 'Highlight', svg: <Hightlight /> },
-  { tag: 'On-trend', svg: <OnTrend /> },
-  { tag: 'Recommend', svg: <Recommend /> },
-  { tag: 'Good for kids', svg: <GoodforKids /> },
-  { tag: 'Photo spot', svg: <PhotoSpot /> },
-  { tag: 'Nature lovers', svg: <NatureLovers /> }
-];
-
-const tagcount = ['Traditional', 'Highlight', 'Recommend'];
-
-const DETAIL_LIST = [
-  {
-    text: `[Palace]<br>Feb-May, Sep-Oct 09:00-18:00<br>Jun-Aug 09:00-18:30<br>Nov-Jan 09:00-17:30<br>* Last admission: 1 hour before closing<br><br>
-    [Secret Garden Tour (Guided tour only)]<br>Mar-May, Sep-Oct 10:00-17:30<br>Jun-Aug 10:00-18:00<br>Feb, Nov 10:00-17:00<br>Dec-Jan 10:00-16:30<br>* Last tour: 1 hr 30 min before closing<BR> * Secret Garden Tour has limited space and must travel with a guide`
-  },
-  {
-    text: `Tuesdays`
-  },
-  {
-    text: `No reservation`
-  },
-  {
-    text: `Individuals - Adults 1,000  won / Children 500 won<br>\n <br>\n* Adults (ages 19-64) / Children (ages 7-18)\n* Free admission (ID required): Preschoolers
-    (ages 6 & younger), senior citizens (ages 65 & older), visitors wearing hanbok`
-  },
-  {
-    text: `About 1h 30m`
-  },
-  {
-    text: `<a href=\"http://www.mdsd.or.kr/\" target=\"_blank\" title=\"새창  :명동대성당 홈페이지로 이동\">www.mdsd.or.kr</a>`
-  },
-  {
-    text: `Chungmuro Station (Line3)`,
-    process: 'Chungmuro Station (Line3)'
-  },
-  {
-    name: 'language',
-    svg: <Language />,
-    text: `[Guided Tours]<br>\n<br>\n * English - 10:00, 12:00, 14:00, 16:00<br>\n * Japanese - 09:00, 09:40, 10:40, 11:40, 12:40, 13:40, 14:40, 15:40, 16:40 (Mar-Sep)<br>\n * Chinese - 11:00, 13:00, 15:00<br>\n <br>\n<strong> </strong>* Reservation required via official website, except for Saturdays; up to 300 people per session<br>\n* Korean nationals may join a foreign language guided tour when accompanying international visitors.<br>\n* Guided tour in Japanese 16:40 session is only offered from March to September`
-  },
-  {
-    name: 'keyword',
-    svg: <Keyword />,
-    text: `#namsangol #hanok #village #jung-gu #seoul #chungmuro #traditional #experience`
-  }
-];
+import ImgBox from './component/imgbox';
+import InfoTag from './component/infotag';
 
 /* 
 addr1
@@ -153,6 +89,7 @@ interface INFO_TYPE {
 
 export default function Info() {
   const param = useParams();
+  const [loading, setLoading] = useState<boolean>();
   const [apidata, setApiData] = useState<API_DATA_TYPE>({
     addr1: '',
     contentid: '',
@@ -184,7 +121,6 @@ export default function Info() {
     },
     originimgurl: []
   });
-  const [loading, setLoading] = useState<boolean>();
 
   useEffect(() => {
     getAPIDataCommon(apidata);
@@ -271,13 +207,6 @@ export default function Info() {
   };
   /* const REG = new RegExp(/\(.*\)/gi); */
 
-  const getTags = () => {
-    const temp = _.filter(TAG_LIST, (o) => {
-      return _.includes(tagcount, o.tag);
-    });
-    return temp;
-  };
-
   console.log(apidata);
 
   return (
@@ -300,31 +229,14 @@ export default function Info() {
                 mapy={apidata.mapy}
                 place={apidata.title}
               />
-              <div className='info_about-imgbox'>
-                <div></div>
-                <div></div>
-              </div>
+              <ImgBox img={apidata.title.match(new RegExp(/[가-힣]+\s?/))} />
             </div>
             <div className='info_infomation'>
               <div className='info_infomation-view d-flex'>
                 <Like />
                 <Bookmark />
               </div>
-              <ul className='info_infomation-tags'>
-                {_.map(getTags(), (o, index) => {
-                  return (
-                    <li
-                      key={o.tag}
-                      style={{
-                        backgroundColor: index % 2 === 1 ? '#C2E56C' : '#B9B5FF'
-                      }}
-                    >
-                      {o.svg}
-                      <p>{o.tag}</p>
-                    </li>
-                  );
-                })}
-              </ul>
+              <InfoTag />
               <div className='info_infomation-detail'>
                 <ul>
                   <li>
@@ -347,13 +259,15 @@ export default function Info() {
                 <ul>
                   <UseTimeComp text={apidata.usetime} />
                   <RestTimeComp text={apidata.restdate} />
-                  <ReservationComp text={DETAIL_LIST[2].text} />
+                  <ReservationComp text={'`No reservation`'} />
                   <EntryFeeComp text={apidata.fee.infotext} />
-                  <SpendTimeComp text={DETAIL_LIST[4].text} />
+                  <SpendTimeComp text={'`About 1h 30m`'} />
                   <HomepageComp text={apidata.homepage} />
-                  <NearbyComp text={DETAIL_LIST[6].text} />
+                  <NearbyComp text={'Chungmuro Station (Line3)'} />
                   <LanguageComp text={apidata.Interpretation.infotext} />
-                  <KeyWordComp text={DETAIL_LIST[8].text} />
+                  <KeyWordComp
+                    text={`#namsangol #hanok #village #jung-gu #seoul #chungmuro #traditional #experience`}
+                  />
                 </ul>
               </div>
               <MayLike />

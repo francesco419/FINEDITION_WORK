@@ -89,11 +89,16 @@
       display: flex;
       justify-content: space-between;
       margin: 40px 0 0;
+      height: 285px;
+      width: 880px;
       div {
         width: 396px;
         height: 285px;
-        opacity: 0.2;
-        background-color: #d9d9d9;
+        color: #fff;
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
     &-map {
@@ -107,7 +112,7 @@
     &-view {
       margin: 0 0 15px;
       svg {
-        margin-left: 13px;
+        margin-right: 13px;
       }
     }
     &-tags {
@@ -158,6 +163,7 @@
 
 .d-flex {
   display: flex;
+  height: 30px;
   align-items: center;
 }
 

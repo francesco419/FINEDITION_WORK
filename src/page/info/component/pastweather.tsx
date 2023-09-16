@@ -40,13 +40,17 @@ interface LocationType {
 }
 
 export default function PastWeather({ mapx, mapy }: LocationType) {
+  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
   const [weather, setWeather] = useState<WeatherType>();
   const [loading, setLoading] = useState<boolean>(false);
-  const [day, setDay] = useState<string>();
 
   useEffect(() => {
     setDate();
   }, []);
+
+  useEffect(() => {
+    setNewDate(selectedDate);
+  }, [selectedDate]);
 
   const setDate = () => {
     const days = new Date();
@@ -57,6 +61,17 @@ export default function PastWeather({ mapx, mapy }: LocationType) {
       days.getMonth() < 10 ? '0' + (days.getMonth() + 1) : days.getMonth() + 1
     }-${days.getDate() < 10 ? '0' + days.getDate() : days.getDate()}`; */
     getdata(today);
+  };
+
+  const setNewDate = (o: Date | null) => {
+    const days = new Date();
+    if (o) {
+      let today = `${o.getFullYear()}-${o.getMonth() + 1}-${o.getDate()}`;
+      getdata(today);
+    }
+    /* `${days.getFullYear()}-${
+      days.getMonth() < 10 ? '0' + (days.getMonth() + 1) : days.getMonth() + 1
+    }-${days.getDate() < 10 ? '0' + days.getDate() : days.getDate()}`; */
   };
 
   const getdata = async (day: string) => {
@@ -76,13 +91,20 @@ export default function PastWeather({ mapx, mapy }: LocationType) {
       });
   };
 
+  const getSelectedDate = (o: Date | null) => {
+    setSelectedDate(o);
+  };
+
   return (
     <div className='past-weather'>
       {loading && weather ? (
         <ul>
           <li>
             <h3>Forecast the future weather based on past :</h3>
-            <CalenderComp />
+            <CalenderComp
+              selectedDate={selectedDate}
+              change={getSelectedDate}
+            />
           </li>
           <li>
             <WeatherCard
@@ -95,7 +117,10 @@ export default function PastWeather({ mapx, mapy }: LocationType) {
         <>
           <h3>Select date & find out weather in the past!</h3>
           <div className='past-weather_container'>
-            <CalenderComp />
+            <CalenderComp
+              selectedDate={selectedDate}
+              change={getSelectedDate}
+            />
             <div className='past-weather_weather'>
               <p>No</p>
               <img src={''} />
