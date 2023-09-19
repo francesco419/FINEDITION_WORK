@@ -4,6 +4,8 @@ import frontimg from './assets/frontimg.png';
 import _, { set } from 'lodash';
 import { ReactComponent as Like } from './assets/like.svg';
 import { ReactComponent as Bookmark } from './assets/bookmark.svg';
+import { ReactComponent as Tele } from './assets/tele.svg';
+import { ReactComponent as Locate } from './assets/location.svg';
 import UseTimeComp from './component/usetime';
 import RestTimeComp from './component/resttime';
 import ReservationComp from './component/reservation';
@@ -229,6 +231,16 @@ export default function Info() {
                 mapy={apidata.mapy}
                 place={apidata.title}
               />
+              <div className='info_about-tele'>
+                <div>
+                  <Locate />
+                  <p>{apidata.addr1}</p>
+                </div>
+                <div>
+                  <Tele />
+                  <p>{apidata.infocenter}</p>
+                </div>
+              </div>
               <ImgBox img={apidata.title.match(new RegExp(/[가-힣]+\s?/))} />
             </div>
             <div className='info_infomation'>

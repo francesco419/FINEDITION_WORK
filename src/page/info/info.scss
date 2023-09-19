@@ -106,6 +106,21 @@
       opacity: 0.2;
       background-color: #d9d9d9;
     }
+    &-tele {
+      margin: 11px 0 0;
+      div {
+        display: flex;
+        svg {
+          margin: 0 6px 9px 0;
+        }
+        color: #8c8c8c;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%; /* 22.4px */
+      }
+    }
   }
   &_infomation {
     width: 300px;
