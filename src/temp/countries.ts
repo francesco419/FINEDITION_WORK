@@ -1,4 +1,6 @@
 export const COUNTRY_NAMES = [
+  'Nationality',
+  '------------------',
   'Afghanistan',
   'Albania',
   'Algeria',
@@ -195,4 +197,25 @@ export const COUNTRY_NAMES = [
   'Yemen',
   'Zambia',
   'Zimbabwe'
+];
+
+export const TASTE = [
+  'tradition',
+  'shopping',
+  'museum',
+  'nature',
+  'k-contents',
+  'cafe hopping',
+  'business',
+  'activity',
+  'performance',
+  'theme park',
+  'local food',
+  'historical site',
+  'night view',
+  'walking',
+  'gourmet',
+  'family',
+  'nightlife',
+  'instagrammable'
 ];

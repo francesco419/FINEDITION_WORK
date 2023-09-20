@@ -7,18 +7,37 @@ import { useAppDispatch } from '../../redux/hooks';
 import { setLoginFormFalse } from '../../redux/slices/loginSlice';
 import google from './assets/google.png';
 import { ReactComponent as Logo } from './assets/finedition.svg';
-import { useState } from 'react';
-import { COUNTRY_NAMES } from '../../temp/countries';
+import { useEffect, useState } from 'react';
+import { COUNTRY_NAMES, TASTE } from '../../temp/countries';
+import _ from 'lodash';
+import congrates_img from './assets/congrates.png';
+
+type LoginForm_type = {
+  toNext: (setNumber: number) => void;
+};
 
 export default function Login() {
+  const [changeForm, setChangeForm] = useState<number>(0);
   const dispatch = useAppDispatch();
   const changeLoginForm = () => {
     dispatch(setLoginFormFalse());
   };
+
+  const changeFormHandler = (setNumber: number) => {
+    setChangeForm((changeForm) => setNumber);
+  };
+
+  /*  useEffect(()=>{
+    setChangeForm(changeForm=>0);
+  },[]) */
+
   return (
     <div className='login'>
       <div className='login_container'>
-        <Curate />
+        {changeForm === 0 && <SignIn toNext={changeFormHandler} />}
+        {changeForm === 1 && <Curate toNext={changeFormHandler} />}
+        {changeForm === 2 && <PersonalTaste toNext={changeFormHandler} />}
+        {changeForm === 3 && <Congrates />}
         <button className='login_exit' onClick={changeLoginForm}>
           <Exit />
         </button>
@@ -27,12 +46,16 @@ export default function Login() {
   );
 }
 
-function SignIn() {
+function SignIn({ toNext }: LoginForm_type) {
   return (
     <div className='login_form'>
       <h2>Welcome on board</h2>
       <div className='login_snsLogin'>
-        <button type='button' className='login_snsLogin-self'>
+        <button
+          type='button'
+          className='login_snsLogin-self'
+          onClick={() => toNext(1)}
+        >
           <img src={google} />
           <p>Continue with Google</p>
         </button>
@@ -47,7 +70,7 @@ function SignIn() {
   );
 }
 
-function Curate() {
+function Curate({ toNext }: LoginForm_type) {
   const [searchresult, setSearchResult] = useState('');
   const searchChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setSearchResult(e.target.value);
@@ -61,7 +84,7 @@ function Curate() {
       <div className='login_curate-form'>
         <div className='login_curate-inputbox'>
           <label>Name</label>
-          <input type='text' />
+          <input type='text' placeholder='your name...' />
         </div>
         <div className='login_curate-inputbox'>
           <label htmlFor='Nationality'>Nationality</label>
@@ -76,20 +99,82 @@ function Curate() {
         <div style={{ display: 'flex' }}>
           <div className='login_curate-inputbox small-input margin14'>
             <label>Age</label>
-            <input type='number' />
+            <input type='number' placeholder='your age...' />
           </div>
           <div className='login_curate-inputbox small-input'>
             <label htmlFor='gender'>Gender</label>
             <select name='gender' id='gender'>
-              <option value='A'>A</option>
-              <option value='B'>B</option>
-              <option value='C'>C</option>
-              <option value='D'>D</option>
+              <option value='Gender'>Gender</option>
+              <option value='Gender'>------------------</option>
+              <option value='Male'>Male</option>
+              <option value='Female'>Female</option>
             </select>
           </div>
         </div>
       </div>
-      <div></div>
+      <button type='button' onClick={() => toNext(2)}>
+        Continue
+      </button>
+    </div>
+  );
+}
+
+function PersonalTaste({ toNext }: LoginForm_type) {
+  return (
+    <div className='login_taste'>
+      <div className='login-paragraph'>
+        <p>Click & get finest options</p>
+        <p style={{ float: 'left' }}>that fits your taste</p>
+      </div>
+      <div className='login_taste-form'>
+        {_.map(TASTE, (o, index) => {
+          return (
+            <div className='popo'>
+              <div>{o}</div>
+            </div>
+          );
+        })}
+      </div>
+      <div className='optional'>
+        <p>(optional)</p>
+      </div>
+      <button type='button' onClick={() => toNext(3)}>
+        Continue
+      </button>
+    </div>
+  );
+}
+
+function Congrates() {
+  const dispatch = useAppDispatch();
+  const changeLoginForm = () => {
+    dispatch(setLoginFormFalse());
+  };
+  return (
+    <div className='login_congrates'>
+      <div className='login-paragraph'>
+        <p style={{ color: '#161616' }}>Congratulation!</p>
+      </div>
+      <img src={congrates_img} />
+      <div className='login_congrates-discoverer'>
+        <h4>You are</h4>
+        <h3>Discoverer</h3>
+        <p>
+          Has a strong sense of curiosity that drives you to explore the unknown
+          and seek out new experiences.
+        </p>
+      </div>
+      <div className='optional2'>
+        <p>Already has a journey plan?</p>
+      </div>
+      <button type='button' onClick={changeLoginForm}>
+        Discover
+      </button>
+    </div>
+  );
+}
+
+/* 
       <div className='datalist'>
         <datalist id='nationality' role='listbox'>
           {COUNTRY_NAMES.map((item, index) => (
@@ -97,10 +182,8 @@ function Curate() {
           ))}
         </datalist>
       </div>
-    </div>
-  );
-}
-/* 
+
+
 function HeaderSearch() {
   const [searchresult, setSearchResult] = useState('');
   const searchChange = ({ target: { value } }) => setSearchResult(value);
