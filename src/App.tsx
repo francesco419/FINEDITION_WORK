@@ -3,16 +3,19 @@ import Home from './page/home/home';
 import Profile from './page/profile/profile';
 import Cities from './page/cities/cities';
 import Info from './page/info/info';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path={`/info/:id/:typeid`} element={<Info />} />
-        <Route path={`/profile/:id`} element={<Profile />} />
-        <Route path={`/cities/`} element={<Cities />} />
-        <Route path={`${process.env.PUBLIC_URL}/`} element={<Home />} />
-      </Routes>
+      <GoogleOAuthProvider clientId='680788977176-vgs0lulllqoi8jd2sjcbpn77f6vtml7k.apps.googleusercontent.com'>
+        <Routes>
+          <Route path={`/info/:id/:typeid`} element={<Info />} />
+          <Route path={`/profile/:id`} element={<Profile />} />
+          <Route path={`/cities/`} element={<Cities />} />
+          <Route path={`${process.env.PUBLIC_URL}/`} element={<Home />} />
+        </Routes>
+      </GoogleOAuthProvider>
     </BrowserRouter>
   );
 }
