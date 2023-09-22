@@ -3,18 +3,20 @@ import { ReactComponent as Person } from '../../assets/svg/fixed menu/person.svg
 import { ReactComponent as Search } from '../../assets/svg/fixed menu/search.svg';
 import { ReactComponent as Menu } from '../../assets/svg/fixed menu/menu.svg';
 import { ReactComponent as Not } from '../../assets/svg/temp.svg';
-import { useAppDispatch } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setLoginFormTrue } from '../../redux/slices/loginSlice';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { selectUserInfo, setDefault } from '../../redux/slices/userInfoSlice';
 
 export default function HeaderMenu() {
   const dispatch = useAppDispatch();
+  const user = useAppSelector(selectUserInfo);
   const nav = useNavigate();
   const [not, setNot] = useState<boolean>(false);
 
   const navTo = (to: string) => {
-    //useNavigate = nav(`./${to}`)
+    nav(`/profile/${to}`);
   };
 
   const navToLogIn = (to: string) => {
@@ -24,18 +26,25 @@ export default function HeaderMenu() {
       dispatch(setLoginFormTrue());
     }
   };
-  const temp = () => {
-    setNot((not) => !not);
-  };
+
   return (
     <div className='header_menu'>
       <HeaderSVG
         svg={<Not style={{ fill: not ? '#0849fd' : '#ff0000' }} />}
-        to={temp}
+        to={() => dispatch(setDefault())}
       />
       <HeaderSVG svg={<Search />} to={navTo} />
-      <HeaderSVG svg={<Person />} to={navToLogIn} />
-      <HeaderSVG svg={<Bookmark />} to={navTo} />
+      {user.id === null ? (
+        <HeaderSVG svg={<Person />} to={navToLogIn} />
+      ) : (
+        <HeaderSVG
+          svg={<Not style={{ fill: '#ff0000' }} />}
+          to={() => {
+            if (user.id) navTo(JSON.stringify(user.id));
+          }}
+        />
+      )}
+      <HeaderSVG svg={<Bookmark />} to={navToLogIn} />
       <HeaderSVG svg={<Menu />} to={navTo} />
     </div>
   );

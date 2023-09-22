@@ -1,13 +1,19 @@
 import { LoginForm_type } from '../login';
 import { useGoogleLogin } from '@react-oauth/google';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import google from '../assets/google.png';
 import { ReactComponent as Logo } from '../assets/finedition.svg';
 import { useAppDispatch } from '../../../redux/hooks';
+import { setLoginFormFalse } from '../../../redux/slices/loginSlice';
 import {
   UserInfoState,
   setUserInfo
 } from '../../../redux/slices/userInfoSlice';
+import {
+  getInterceptor,
+  postInterceptor,
+  sendAxiosState
+} from '../../../func/interceptor';
 
 export default function LoginFormGoogleAPI({ toNext }: LoginForm_type) {
   const url =
@@ -24,24 +30,49 @@ export default function LoginFormGoogleAPI({ toNext }: LoginForm_type) {
     await axios
       .get(url, { headers: { Authorization: 'Bearer ' + access_token } })
       .then((response) => {
-        const userInfo = {
-          value: {
-            id: response.data.resourceName,
-            username: response.data.names[0].displayName,
-            email: response.data.emailAddresses[0].value,
-            nationality: undefined,
-            photo: response.data.photos[0].url,
-            age: undefined,
-            gender: undefined,
-            keyword: undefined
-          }
+        const userInfo: UserInfoState = {
+          id: 78,
+          name: response.data.names[0].displayName,
+          email: response.data.emailAddresses[0].value,
+          nationality: null,
+          photo: response.data.photos[0].url,
+          age: null,
+          gender: null,
+          keyword: null
         };
-        dispatch(setUserInfo(userInfo));
-        toNext(1);
+        loginCheckHandler(userInfo);
       })
       .catch((e) => {
         console.log(e);
       });
+  };
+
+  const loginCheckHandler = (userInfo: UserInfoState) => {
+    const loginCheckData: sendAxiosState = {
+      url: 'http://localhost:8080/logincheck',
+      data: { email: userInfo.email },
+      config: undefined,
+      callback: (e: AxiosResponse) => {
+        if (e.data.result.length > 0) {
+          console.log('successs');
+          loginSuccess(e.data.result[0]);
+        } else {
+          console.log('fail');
+          loginFailed(userInfo);
+        }
+      }
+    };
+    postInterceptor(loginCheckData);
+  };
+
+  const loginFailed = (userInfo: UserInfoState) => {
+    dispatch(setUserInfo(userInfo));
+    toNext(1);
+  };
+
+  const loginSuccess = (userInfo: UserInfoState) => {
+    dispatch(setUserInfo(userInfo));
+    dispatch(setLoginFormFalse());
   };
 
   return (

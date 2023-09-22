@@ -6,6 +6,7 @@ import Login from '../login/login';
 import { useAppSelector } from '../../redux/hooks';
 import { selectLogin } from '../../redux/slices/loginSlice';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 
 type HeaderType = {
   type: string;
@@ -13,11 +14,16 @@ type HeaderType = {
 
 export default function Header({ type }: HeaderType) {
   const login = useAppSelector(selectLogin);
+  const nav = useNavigate();
   const [backColor, setBackColor] = useState<string>('');
   const [fontColor, setFontColor] = useState<string>('');
   useEffect(() => {
     chooseColor(type);
   }, []);
+
+  const navtoHome = () => {
+    nav('/');
+  };
 
   const chooseColor = (type: string) => {
     switch (type) {
@@ -54,7 +60,9 @@ export default function Header({ type }: HeaderType) {
           color: fontColor
         }}
       >
-        <LogoLetter style={{ fill: fontColor }} />
+        <button onClick={navtoHome}>
+          <LogoLetter style={{ fill: fontColor }} />
+        </button>
         <HeaderLocate color={fontColor} />
         <HeaderMenu />
       </div>

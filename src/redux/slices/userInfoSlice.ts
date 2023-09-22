@@ -3,30 +3,26 @@ import { RootState } from '../store';
 import _ from 'lodash';
 
 export interface UserInfoState {
-  value: {
-    id: string | undefined;
-    username: string | undefined;
-    email: string | undefined;
-    nationality: string | undefined;
-    photo: string | undefined;
-    age: number | undefined;
-    gender: string | undefined;
-    keyword: string[] | undefined;
-    [prop: string]: any;
-  };
+  id: number | null;
+  name: string | null;
+  email: string | null;
+  nationality: string | null;
+  photo: string | null;
+  age: string | number | null;
+  gender: string | null;
+  keyword: string[] | null;
   [prop: string]: any;
 }
+
 const initialState: UserInfoState = {
-  value: {
-    id: undefined,
-    username: undefined,
-    email: undefined,
-    nationality: undefined,
-    photo: undefined,
-    age: undefined,
-    gender: undefined,
-    keyword: undefined
-  }
+  id: null,
+  name: null,
+  email: null,
+  nationality: null,
+  photo: null,
+  age: null,
+  gender: null,
+  keyword: null
 };
 
 export const UserInfoSlice = createSlice({
@@ -34,17 +30,26 @@ export const UserInfoSlice = createSlice({
   initialState,
   reducers: {
     setUserInfo: (state, actions: PayloadAction<UserInfoState>) => {
-      const obj = state.value;
-      _.forEach(current(obj), (value, key) => {
-        const isValueExist = actions.payload.value[key];
-        if (isValueExist !== undefined) obj[key] = isValueExist;
+      console.log(actions.payload);
+      _.forEach(state, (value, key) => {
+        const isValueExist = actions.payload[key];
+        if (isValueExist !== null) {
+          if (key === 'keyword' && typeof isValueExist === 'string') {
+            state[key] = JSON.parse(isValueExist);
+          }
+          state[key] = isValueExist;
+        }
       });
-      state.value = obj;
+    },
+    setDefault: (state) => {
+      _.forEach(state, (value, key) => {
+        state[key] = initialState[key];
+      });
     }
   }
 });
 
-export const { setUserInfo } = UserInfoSlice.actions;
+export const { setUserInfo, setDefault } = UserInfoSlice.actions;
 
 export const selectUserInfo = (state: RootState) => state.userinfo;
 

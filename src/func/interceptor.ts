@@ -68,7 +68,7 @@ export const postInterceptor = async (data: sendAxiosState) => {
   return instance
     .post(data.url, data.data, data.config)
     .then((response: AxiosResponse) => {
-      //data.callback(response);
+      if (data.callback !== undefined) data.callback(response);
     })
     .catch((e) => {
       console.log(e);

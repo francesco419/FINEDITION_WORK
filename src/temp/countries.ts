@@ -1,6 +1,4 @@
 export const COUNTRY_NAMES = [
-  'Nationality',
-  '------------------',
   'Afghanistan',
   'Albania',
   'Algeria',

@@ -45,6 +45,17 @@
     top: 25px;
     right: 25px;
   }
+  &_loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000033;
+  }
 }
 
 .login-google {
@@ -174,7 +185,7 @@
   &_select {
     width: calc(100% / 3);
     margin: 0 0 21px;
-    div {
+    button {
       width: fit-content;
       height: min-content;
       box-sizing: border-box;
@@ -186,12 +197,15 @@
       font-weight: 400;
       background-color: #e3e3e3;
       border-radius: 263.521px;
-      background: var(--real-light-gray, #e3e3e3);
       line-height: 0.7;
       max-height: 26px;
+      cursor: pointer;
+      &:hover {
+        background-color: #c0c0c0;
+      }
     }
   }
-  button {
+  &_confirm {
     width: 110px;
     height: 40px;
     margin: 60px 0 0;
@@ -309,4 +323,8 @@
 
 .margin14 {
   margin-right: 14px;
+}
+
+.taste-toggle {
+  background-color: #c0c0c0;
 }
