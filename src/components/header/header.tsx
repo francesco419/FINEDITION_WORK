@@ -7,6 +7,7 @@ import { useAppSelector } from '../../redux/hooks';
 import { selectLogin } from '../../redux/slices/loginSlice';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
+import SearchDropDown from './search/search';
 
 type HeaderType = {
   type: string;
@@ -17,6 +18,7 @@ export default function Header({ type }: HeaderType) {
   const nav = useNavigate();
   const [backColor, setBackColor] = useState<string>('');
   const [fontColor, setFontColor] = useState<string>('');
+
   useEffect(() => {
     chooseColor(type);
   }, []);

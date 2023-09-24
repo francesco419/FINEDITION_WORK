@@ -101,9 +101,9 @@ export default function FestivalSlider() {
 function FestivalHome({ refer, num, click }: FestivalRefType) {
   return (
     <div className='festivalHome' ref={refer}>
-      {_.map(temp, (o) => {
+      {_.map(temp, (o, index) => {
         return (
-          <div className='festivalHome_part'>
+          <div className='festivalHome_part' key={`${o.name}_${index}`}>
             <img src={o.img} />
             <div className='festivalHome_detail'>
               <h3>{o.name}</h3>
@@ -122,7 +122,14 @@ function FestivalNav({ num, click }: FestivalClickType) {
     <div className='festivalHome_count'>
       {_.map([0, 1, 2, 3], (index) => {
         if (num !== undefined)
-          return <FestivalDot click={click} num={index} current={num} />;
+          return (
+            <FestivalDot
+              click={click}
+              num={index}
+              current={num}
+              key={`${index}`}
+            />
+          );
       })}
     </div>
   );

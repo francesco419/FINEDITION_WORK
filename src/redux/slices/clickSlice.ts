@@ -14,11 +14,9 @@ export const clickSlice = createSlice({
   reducers: {
     noClick: (state) => {
       state.click = false;
-      console.log('false');
     },
     yesClick: (state) => {
       state.click = true;
-      console.log('true');
     }
   }
 });

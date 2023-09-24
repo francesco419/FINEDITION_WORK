@@ -24,8 +24,6 @@ export default function LoginFormPersonalTaste({ toNext }: LoginForm_type) {
       data: inputInfo,
       config: undefined,
       callback: (e: AxiosResponse) => {
-        console.log(e);
-
         setLoading((loading) => false);
         if (e.data.flag) {
           toNext(3);
@@ -58,6 +56,7 @@ export default function LoginFormPersonalTaste({ toNext }: LoginForm_type) {
               str={o}
               del={onClickDeleteHandler}
               add={onClicAddkHandler}
+              key={`${o}_${index}`}
             />
           );
         })}

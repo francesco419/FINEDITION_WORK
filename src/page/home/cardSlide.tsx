@@ -61,7 +61,6 @@ export default function CardSlide({ data }: SlideType) {
       slider.classList.remove('active');
       dispatch(noClick());
     }
-    console.log(scrollL, left);
   };
 
   const upHandler = () => {
@@ -72,7 +71,6 @@ export default function CardSlide({ data }: SlideType) {
       dispatch(noClick());
       beginMomentumTracking();
     }
-    console.log(scrollL, left);
   };
 
   const mouseMoveHandler = (
@@ -112,8 +110,15 @@ export default function CardSlide({ data }: SlideType) {
         onMouseUp={upHandler}
         onMouseMove={(e) => mouseMoveHandler(e)}
       >
-        {_.map(data, (o) => {
-          return <MegazineCard img={o.img} color={o.color} type={true} />;
+        {_.map(data, (o, index) => {
+          return (
+            <MegazineCard
+              img={o.img}
+              color={o.color}
+              type={true}
+              key={`${o.img}_${index}`}
+            />
+          );
         })}
       </div>
       <div

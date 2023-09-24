@@ -9,7 +9,7 @@ export default function ApiMap() {
   return (
     <div className='apimap'>
       {_.map(data, (o, index) => {
-        if (index < 10) return <MapPop obj={o} />;
+        if (index < 10) return <MapPop obj={o} key={`${o.color}_${index}`} />;
       })}
     </div>
   );

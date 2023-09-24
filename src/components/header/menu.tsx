@@ -8,12 +8,14 @@ import { setLoginFormTrue } from '../../redux/slices/loginSlice';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { selectUserInfo, setDefault } from '../../redux/slices/userInfoSlice';
+import SearchDropDown from './search/search';
 
 export default function HeaderMenu() {
   const dispatch = useAppDispatch();
   const user = useAppSelector(selectUserInfo);
   const nav = useNavigate();
   const [not, setNot] = useState<boolean>(false);
+  const [dropDown, setDropDown] = useState<boolean>(false);
 
   const navTo = (to: string) => {
     nav(`/profile/${to}`);
@@ -28,25 +30,33 @@ export default function HeaderMenu() {
   };
 
   return (
-    <div className='header_menu'>
-      <HeaderSVG
-        svg={<Not style={{ fill: not ? '#0849fd' : '#ff0000' }} />}
-        to={() => dispatch(setDefault())}
-      />
-      <HeaderSVG svg={<Search />} to={navTo} />
-      {user.id === null ? (
-        <HeaderSVG svg={<Person />} to={navToLogIn} />
-      ) : (
+    <>
+      <div className='header_menu'>
         <HeaderSVG
-          svg={<Not style={{ fill: '#ff0000' }} />}
+          svg={<Not style={{ fill: not ? '#0849fd' : '#ff0000' }} />}
+          to={() => dispatch(setDefault())}
+        />
+        <HeaderSVG
+          svg={<Search />}
           to={() => {
-            if (user.id) navTo(JSON.stringify(user.id));
+            setDropDown((dropDown) => !dropDown);
           }}
         />
-      )}
-      <HeaderSVG svg={<Bookmark />} to={navToLogIn} />
-      <HeaderSVG svg={<Menu />} to={navTo} />
-    </div>
+        {user.id === null ? (
+          <HeaderSVG svg={<Person />} to={navToLogIn} />
+        ) : (
+          <HeaderSVG
+            svg={<Not style={{ fill: '#ff0000' }} />}
+            to={() => {
+              if (user.id) navTo(JSON.stringify(user.id));
+            }}
+          />
+        )}
+        <HeaderSVG svg={<Bookmark />} to={navToLogIn} />
+        <HeaderSVG svg={<Menu />} to={navTo} />
+      </div>
+      {dropDown && <SearchDropDown />}
+    </>
   );
 }
 

@@ -35,7 +35,7 @@ export default function DiscoverCities() {
         <ul className='discovercities_title-list'>
           {_.map(CITYLIST, (o, index) => {
             return (
-              <li>
+              <li key={`${o.cities}_${index}`}>
                 <button>{index + 1}</button>
               </li>
             );

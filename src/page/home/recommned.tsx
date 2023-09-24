@@ -79,6 +79,7 @@ export default function Recommend() {
                   backgroundColor: choose === s.num ? s.color : '#eaeaea',
                   opacity: choose === s.num ? '1' : '0.8'
                 }}
+                key={s.title}
               >
                 <button
                   style={{
@@ -109,9 +110,9 @@ function PicksofWeek({ num, color }: NumType) {
   return (
     <div className='recommend_card' style={{ backgroundColor: color }}>
       <ul>
-        {_.map(pick, (o) => {
+        {_.map(pick, (o, index) => {
           return (
-            <li>
+            <li key={`${o.img}_${index}`}>
               <img src={o.img} />
             </li>
           );
