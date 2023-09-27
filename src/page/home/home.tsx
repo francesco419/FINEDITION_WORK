@@ -7,9 +7,8 @@ import MyProfile from './myProfile';
 import Recommend from './recommned';
 import FestivalHome from './festival';
 import NewsHome from './news';
-import WordBuzz from './wordBuzz';
+import PhotoBuzz from './photoBuzz';
 import DiscoverCities from './discover';
-import ApiMap from './apiMap';
 import Footer from '../../components/footer/footer';
 import LocationMapCom from '../info/component/map';
 
@@ -38,9 +37,8 @@ export default function Home() {
             justifyContent: 'space-between'
           }}
         >
-          <WordBuzz />
           <DiscoverCities />
-          <ApiMap />
+          <PhotoBuzz />
         </div>
       </section>
       {/* <div className='homll'>a</div> */}

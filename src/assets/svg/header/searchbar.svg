@@ -1,6 +1,6 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="Group 146" opacity="0.3">
-<circle id="Ellipse 2" cx="11.36" cy="11.0977" r="6.63091" transform="rotate(-45 11.36 11.0977)" stroke="#161616" stroke-width="2.43283"/>
-<path id="Vector 9" d="M15.9834 15.7217L22.4571 22.1954" stroke="#161616" stroke-width="2.47045"/>
+<circle id="Ellipse 2" cx="11.36" cy="11.0977" r="6.63091" transform="rotate(-45 11.36 11.0977)" stroke="#000" stroke-width="2.43283"/>
+<path id="Vector 9" d="M15.9834 15.7217L22.4571 22.1954" stroke="#000" stroke-width="2.47045"/>
 </g>
 </svg>

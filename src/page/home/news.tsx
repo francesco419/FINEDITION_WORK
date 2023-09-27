@@ -61,9 +61,6 @@ export default function NewsHome() {
       <div className='newsHome_left'>
         <div className='newsHome_title'>
           <h2>Latest News in Korea</h2>
-          <button>
-            <Arrow />
-          </button>
         </div>
         {_.map(NEWSTITLE, (o) => {
           return <NewsBox title={o.title} link={o.link} key={`${o.title}`} />;

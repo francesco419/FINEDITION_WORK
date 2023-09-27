@@ -1,8 +1,8 @@
 @import './../../style.scss';
 
 .wordbuzz {
-  width: 420px;
-  height: 330px;
+  width: 639px;
+  height: 320px;
   border: 1px solid #eaeaea;
   &_title {
     display: flex;
@@ -23,19 +23,20 @@
 .apimap {
   display: flex;
   flex-wrap: wrap;
-  max-width: 530px;
-  max-height: 331px;
-  //background: #649d77;
+  justify-content: space-between;
+  gap: 20px 0;
+  padding: 30px;
   white-space: pre-wrap;
+  div {
+    width: calc(100% / 5);
+    height: 96px;
+  }
   img {
     flex-grow: 1;
-    width: calc(530px / 5);
-    height: calc(331px / 2);
-    //filter: blur(1px);
+    width: 96px;
+    height: 96px;
     transition: all 0.5s;
     &:hover {
-      //width: calc(530px / 5) * 1.5;
-      //height: calc(331px / 3) * 1.5;
       transform: scale(1.5);
       filter: blur(0);
     }

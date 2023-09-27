@@ -60,14 +60,24 @@ $Brand-Orange-0: #f87b36;
 폰트 사이즈가 20보다 작을 경우, SF Pro TEXT / 20보다 클 경우, SF Pro DISPLAY
 */
 
-/*----------*/
-
 $font-size-small: 11px;
 $line-height-small: 11px;
 $font-size-middle: 16px;
 $line-height-middle: 16px;
 $font-size-big: 24px;
 $line-height-big: 24px;
+
+$font-heading-big: 50px;
+$font-heading-small: 45px;
+$font-subHeading-big: 37px;
+$font-subHeading-small: 29px;
+
+$font-boxHeading: 29px;
+
+$font-big: 18px;
+$font-medium: 16px;
+$font-small: 13px;
+
 //letter-spacing: $letter-spacing-12;
 
 @mixin font-style-small() {
@@ -105,3 +115,5 @@ $line-height-big: 24px;
     color: $color;
   }
 }
+
+//1.2, 1.5

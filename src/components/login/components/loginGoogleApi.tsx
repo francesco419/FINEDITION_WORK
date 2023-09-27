@@ -82,7 +82,7 @@ export default function LoginFormGoogleAPI({ toNext }: LoginForm_type) {
         <button
           type='button'
           className='login-google_self'
-          onClick={() => login()}
+          onClick={() => toNext(1)}
         >
           <img src={google} />
           <p>Continue with Google</p>

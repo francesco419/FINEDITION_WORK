@@ -57,7 +57,7 @@ export const getInterceptor = async (data: sendAxiosState) => {
   return instance
     .get(data.url, { params: data.data })
     .then((response: AxiosResponse) => {
-      //data.callback(response);
+      if (data.callback !== undefined) data.callback(response);
     })
     .catch((e) => {
       console.log(e);

@@ -23,7 +23,11 @@ import LocationMapCom from './component/map';
 import Footer from '../../components/footer/footer';
 import InfoDetail from './component/infodetail';
 import { useEffect } from 'react';
-import { APIInterceptor } from '../../func/interceptor';
+import {
+  APIInterceptor,
+  getInterceptor,
+  sendAxiosState
+} from '../../func/interceptor';
 import { API_TYPE } from '../../func/interface';
 import { useParams } from 'react-router';
 import { useState } from 'react';
@@ -134,7 +138,6 @@ export default function Info() {
       url: `https://apis.data.go.kr/B551011/EngService1/detailCommon1?serviceKey=${process.env.REACT_APP_TOUR_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&contentId=${param.id}&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&contentTypeId=${param.typeid}`,
       callback: (o: any) => {
         const response = o.data.response.body.items.item[0];
-        //console.log(response);
         temp.addr1 = response.addr1;
         temp.contentid = response.contentid;
         temp.contenttypeid = response.contenttypeid;
@@ -144,8 +147,6 @@ export default function Info() {
         temp.mapy = response.mapy;
         temp.homepage = response.homepage;
         temp.overview = response.overview;
-        //setApiData(temp);
-        //console.log(o);
         console.log('fetching (1) common success');
         getAPIDataIntro(temp);
       }
@@ -157,9 +158,7 @@ export default function Info() {
     const apidata: API_TYPE = {
       url: `https://apis.data.go.kr/B551011/EngService1/detailIntro1?serviceKey=${process.env.REACT_APP_TOUR_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&contentId=${param.id}&contentTypeId=${param.typeid}&_type=json`,
       callback: (o: any) => {
-        //console.log(o.data);
         const response = o.data.response.body.items.item[0];
-        //console.log(response);
         temp.infocenter = response.infocenter;
         temp.restdate = response.restdate;
         temp.usetime = response.usetime;
@@ -187,13 +186,27 @@ export default function Info() {
             temp.Interpretation = o;
           return;
         });
-        //console.log(o);
-        console.log('fetching (3) info success');
-        setApiData(temp);
+        //console.log('fetching (3) info success');
+        //setApiData(temp);
+        getBakcData(temp.contentid);
         setLoading((loading) => true);
       }
     };
     APIInterceptor(apidata);
+  };
+
+  const getBakcData = (id: string) => {
+    const apidata: sendAxiosState = {
+      url: 'http://localhost:8080/getinfo',
+      data: { id: id },
+      callback: (o: any) => {
+        //console.log(o);
+        console.log(o);
+        //setApiData(temp);
+        //setLoading((loading) => true);
+      }
+    };
+    getInterceptor(apidata);
   };
 
   const getAPIDataImage = async (temp: API_DATA_TYPE) => {
@@ -208,8 +221,6 @@ export default function Info() {
     APIInterceptor(apidata);
   };
   /* const REG = new RegExp(/\(.*\)/gi); */
-
-  console.log(apidata);
 
   return (
     <div className={loading ? 'info' : ''}>
@@ -258,7 +269,7 @@ export default function Info() {
                     <p>00 Liked</p>
                   </li>
                   <li>
-                    <p>00 Reviewed</p>
+                    <p>00 Viewed</p>
                   </li>
                 </ul>
                 <hr
@@ -291,16 +302,20 @@ export default function Info() {
           <Footer />
         </>
       ) : (
-        <div
-          style={{
-            width: '100vw',
-            height: '100vh',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-        >
-          <LoadingSpinner />
+        <div className='skeleton'>
+          <div>
+            <div style={{ width: '879px', height: '39px' }}></div>
+            <div style={{ width: '879px', height: '693px' }}></div>
+            <div style={{ width: '879px', height: '39px' }}></div>
+            <div>
+              <div style={{ width: '879px', height: '39px' }}></div>
+              <div style={{ width: '879px', height: '39px' }}></div>
+            </div>
+          </div>
+          <div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
       )}
     </div>
@@ -310,3 +325,6 @@ export default function Info() {
 function ListElement() {
   return <div className='info-element'></div>;
 }
+
+// N/A (Open all year round)
+// 메인이미지 대체품

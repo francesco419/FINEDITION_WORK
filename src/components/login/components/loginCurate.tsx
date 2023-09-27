@@ -6,6 +6,7 @@ import { useAppDispatch } from '../../../redux/hooks';
 import { setUserInfo } from '../../../redux/slices/userInfoSlice';
 
 export default function LoginFormCurate({ toNext }: LoginForm_type) {
+  const genders = ['Male', 'Female'];
   let name: string = '',
     nation: string = '',
     age: string = '',
@@ -36,7 +37,7 @@ export default function LoginFormCurate({ toNext }: LoginForm_type) {
           <label>Name</label>
           <input
             type='text'
-            placeholder='your name...'
+            autoFocus
             onChange={(e) => {
               name = e.target.value;
             }}
@@ -49,9 +50,8 @@ export default function LoginFormCurate({ toNext }: LoginForm_type) {
             id='Nationality'
             onChange={(e) => nationChangeHandler(e)}
           >
-            <option value={undefined}>Nationality</option>
-            <option value={undefined}>------------------</option>
-            {COUNTRY_NAMES.map((item, index) => (
+            <option value='' disabled selected></option>
+            {_.shuffle(COUNTRY_NAMES).map((item, index) => (
               <option value={item} key={`data_${index}`}>
                 {item}
               </option>
@@ -60,10 +60,10 @@ export default function LoginFormCurate({ toNext }: LoginForm_type) {
         </div>
         <div style={{ display: 'flex' }}>
           <div className='login-curate_inputbox small-input margin14'>
-            <label>Age</label>
+            <label>Birth</label>
             <input
               type='number'
-              placeholder='your age...'
+              placeholder='DD/MM/YYYY'
               onChange={(e) => {
                 age = e.target.value;
               }}
@@ -74,14 +74,15 @@ export default function LoginFormCurate({ toNext }: LoginForm_type) {
             <select
               name='gender'
               id='gender'
+              placeholder='kr'
               onChange={(e) => {
                 gender = e.target.value;
               }}
             >
-              <option value={undefined}>Gender</option>
-              <option value={undefined}>------------------</option>
-              <option value='Male'>Male</option>
-              <option value='Female'>Female</option>
+              <option value='' disabled selected></option>
+              {_.shuffle(genders).map((item) => {
+                return <option value={item}>{item}</option>;
+              })}
             </select>
           </div>
         </div>

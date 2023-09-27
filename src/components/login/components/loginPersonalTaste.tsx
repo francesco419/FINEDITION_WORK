@@ -62,12 +62,12 @@ export default function LoginFormPersonalTaste({ toNext }: LoginForm_type) {
         })}
       </ul>
       <div className='optional'>
-        <p>(optional)</p>
+        <p>pick around 3 to 5</p>
       </div>
       <button
         className='login-taste_confirm'
         type='button'
-        onClick={postRegister}
+        onClick={() => toNext(3)}
       >
         Continue
       </button>
