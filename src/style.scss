@@ -1,3 +1,8 @@
+$selectors: '.module,body.alternate .module';
+
+$KRCODE: KR02, KR031, KR032, KR033, KR041, KR042, KR043, KR044, KR051, KR052,
+  KR053, KR054, KR055, KR061, KR062, KR063, KR064;
+
 $black: #000; //system black 0
 $black-16: #161616;
 $fff: #ffffff;
@@ -56,6 +61,46 @@ $Brand-Orange-0: #f87b36;
   }
 }
 
+@mixin containerWidth() {
+  width: 1300px;
+  margin: 0 auto;
+}
+
+@mixin headerPadding() {
+  padding: 70px 0 0;
+}
+
+@mixin center-align($column: row) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $column;
+}
+
+@mixin KR-Hover-Effect($selectors) {
+  $selectors: '.module,body.alternate .module';
+  #{$selectors} {
+    &_rect {
+      opacity: 0;
+    }
+    &:hover ~ &_rect {
+      opacity: 1;
+    }
+    &:hover ~ &_name {
+      opacity: 0;
+    }
+    &_name {
+      opacity: 1;
+    }
+    &_rect:hover {
+      opacity: 1;
+    }
+    &_rect:hover ~ &_name {
+      opacity: 0;
+    }
+  }
+}
+
 /*
 폰트 사이즈가 20보다 작을 경우, SF Pro TEXT / 20보다 클 경우, SF Pro DISPLAY
 */
@@ -78,27 +123,52 @@ $font-big: 18px;
 $font-medium: 16px;
 $font-small: 13px;
 
+//font-family
+
+$mabryreg: Mabry Pro Reg;
+$mabrymed: Mabry Pro Med;
+
+$serifbold: Value Serif Pro Bold;
+$serifreg: Value Serif Pro Reg;
+$serifmed: Value Serif Pro Med;
+
+$interbold: Inter Bold;
+$interlight: Inter Light;
+$intermed: Inter Med;
+$interreg: Inter Reg;
+$interthin: Inter Thin;
+$intersemibold: Inter SemiBold;
+
 //letter-spacing: $letter-spacing-12;
 
 @mixin font-style-small() {
   font-size: $font-size-small;
-  line-height: $line-height-small;
+  //line-height: $line-height-small;
 }
 @mixin font-style-middle() {
   font-size: $font-size-middle;
-  line-height: $line-height-middle;
+  //line-height: $line-height-middle;
 }
 @mixin font-style-big() {
   font-size: $font-size-big;
-  line-height: $line-height-big;
+  //line-height: $line-height-big;
 }
 @mixin font-style-custom($size) {
   font-size: #{$size}px;
-  line-height: #{$size}px;
+  //line-height: #{$size}px;
 }
 
-@mixin font-style($size, $color: false) {
-  @if ($size==small) {
+@mixin font-type() {
+}
+
+@mixin font-style(
+  $size,
+  $color: $black-16,
+  $lineHeight: 0.7,
+  $fontType: $interreg,
+  $fontWeigth: 500
+) {
+  /*   @if ($size==small) {
     @include font-style-small;
   }
   @if ($size==middle) {
@@ -106,14 +176,14 @@ $font-small: 13px;
   }
   @if ($size==big) {
     @include font-style-big;
-  }
+  } */
   @if (type-of($size) ==number) {
     @include font-style-custom($size);
   }
-
-  @if (type-of($color) ==color) {
+  @if (type-of($color) == color) {
     color: $color;
   }
+  line-height: $lineHeight;
+  font-family: $fontType;
+  font-weight: $fontWeigth;
 }
-
-//1.2, 1.5

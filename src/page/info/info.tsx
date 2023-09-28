@@ -296,7 +296,7 @@ export default function Info() {
               <MayLike />
               <RelatedMegazine />
               <Weather mapx='126.8999035848' mapy='37.5523989260' />
-              <PastWeather mapx='126.8999035848' mapy='37.5523989260' />
+              {/* <PastWeather mapx='126.8999035848' mapy='37.5523989260' /> */}
             </div>
           </div>
           <Footer />

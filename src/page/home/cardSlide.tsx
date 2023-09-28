@@ -1,9 +1,10 @@
 import MegazineCard, { MegazineCardType } from './megazineCard';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import _ from 'lodash';
 import './cardSlide.scss';
 import { useAppDispatch } from '../../redux/hooks';
 import { noClick, yesClick } from '../../redux/slices/clickSlice';
+import { useInterval } from 'usehooks-ts';
 
 type SlideType = {
   data: MegazineCardType[];
@@ -13,13 +14,26 @@ export default function CardSlide({ data }: SlideType) {
   const ref = useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
   const [left, setLeft] = useState<number>(0);
+  const [autoSlide, setAutoSlide] = useState<boolean>(true);
 
   let isDown = false;
   let startX: number;
-  let scrollLeft: number;
+  let scrollLeft: number = 0;
   let velX: number = 0;
   let momentumID: number;
   let scrollL: number = 1;
+
+  useInterval(
+    () => {
+      if (ref.current) {
+        const slider = ref.current;
+        slider.scrollLeft = scrollLeft++;
+        //console.log('slider.scrollLeft :' + slider.scrollLeft);
+        //console.log('moving');
+      }
+    },
+    autoSlide ? 20 : null
+  );
 
   const mouseDownHandler = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -55,6 +69,7 @@ export default function CardSlide({ data }: SlideType) {
   };
 
   const downFalseHandler = () => {
+    setAutoSlide((autoSlide) => true);
     if (ref.current) {
       const slider = ref.current;
       isDown = false;
@@ -109,6 +124,10 @@ export default function CardSlide({ data }: SlideType) {
         onMouseLeave={downFalseHandler}
         onMouseUp={upHandler}
         onMouseMove={(e) => mouseMoveHandler(e)}
+        onMouseOver={() => {
+          setAutoSlide((autoSlide) => false);
+          //console.log('false');
+        }}
       >
         {_.map(data, (o, index) => {
           return (

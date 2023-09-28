@@ -1,0 +1,39 @@
+.slideButton {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 20px;
+  width: 40px;
+  padding: 0 3px;
+  box-shadow: inset 2px 2px 4px 0 rgba(0, 0, 0, 0.7);
+  //border: inset 1px;
+  border-radius: 15px;
+  transition: all 1s;
+  div {
+    display: inline-block;
+    height: 13px;
+    width: 13px;
+    margin-left: 0px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    transition: all 0.3s;
+  }
+}
+
+.button {
+  &-light {
+    background-color: #323234;
+  }
+  &-dark {
+    background-color: #323234;
+  }
+}
+
+.core {
+  &-light {
+    background-color: #f87b36;
+  }
+  &-dark {
+    background-color: #d3d3d3;
+  }
+}
