@@ -5,12 +5,14 @@ import Cities from './page/cities/cities';
 import Info from './page/info/info';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Region from './page/region/region';
+import Administrator from './page/admin/administrator';
 
 function App() {
   return (
     <BrowserRouter>
       <GoogleOAuthProvider clientId='680788977176-vgs0lulllqoi8jd2sjcbpn77f6vtml7k.apps.googleusercontent.com'>
         <Routes>
+          <Route path={`/adminpageexe`} element={<Administrator />} />
           <Route path={`/region`} element={<Region />} />
           <Route path={`/info/:id/:typeid`} element={<Info />} />
           <Route path={`/profile/:id`} element={<Profile />} />

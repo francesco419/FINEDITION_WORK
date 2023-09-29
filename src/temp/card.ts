@@ -3,7 +3,7 @@ import { Card_Type } from '../page/region/components/card';
 export const CARDDATA: Card_Type[] = [
   {
     location: 'Seoul',
-    text: `Cultural heart of South Korea,\nfeatures historic palaces, temples, and a vibrant\nmodern culture. While it’s a bustling\nmetropolis, it also boasts beautiful nature\nscenery like Bukhansan Mountain and Han\nRiver, offering picturesque scenic views.`,
+    text: `Cultural heart of South Korea,\nfeatures historic palaces, temples, and a vibrant modern culture. While it’s a\nbustlingmetropolis, it also boasts beautiful\nnature scenery like Bukhansan Mountain and\nHan River, offering picturesque scenic views.`,
     to: 'd',
     xy: { x: 120, y: 510 },
     backColor: '#ED721D',
@@ -11,11 +11,7 @@ export const CARDDATA: Card_Type[] = [
   },
   {
     location: 'Gyeonggi-do',
-    text: `Surrounds the capital region and features
-  a mix of urban and rural landscapes,
-  including the scenic Yangpyeong area.
-  Dynamic hub of culture, economy, and
-  innovation going around.`,
+    text: `Surrounds the capital region and features\na mix of urban and rural landscapes,\nincluding the scenic Yangpyeong area.\nDynamic hub of culture, economy, and\ninnovation going around.`,
     to: null,
     xy: { x: -50, y: 680 },
     backColor: '#DDD1AF',
@@ -23,11 +19,7 @@ export const CARDDATA: Card_Type[] = [
   },
   {
     location: 'Incheon',
-    text: `Major international port city, it plays a
-  crucial role in South Korea's global trade
-  and cultural exchange. Coastal city with
-  beautiful shorelines and islands with scenic
-  views of the West Sea.`,
+    text: `Major international port city, it plays a\ncrucial role in South Korea's global trade\nand cultural exchange. Coastal city with\nbeautiful shorelines and islands with scenic\nviews of the West Sea.`,
     to: null,
     xy: { x: -110, y: 900 },
     backColor: '#ED721D',
@@ -35,11 +27,7 @@ export const CARDDATA: Card_Type[] = [
   },
   {
     location: 'Chungcheong Namdo',
-    text: `Offers a mix of mountains, plains, coastal
-  areas and historical sites like Gongju and
-  Buyeo, reflecting Korea's ancient history.
-  Taejosan Mountain and peaceful Seosan
-  Take are notable attractions.`,
+    text: `Offers a mix of mountains, plains, coastal\nareas and historical sites like Gongju and\nBuyeo, reflecting Korea's ancient history.\nTaejosan Mountain and peaceful Seosan\nTake are notable attractions.`,
     to: null,
     xy: { x: -110, y: 1060 },
     backColor: '#BDD18F',
@@ -47,11 +35,7 @@ export const CARDDATA: Card_Type[] = [
   },
   {
     location: 'Saejong',
-    text: `Famous for its traditional Korean cuisine,
-  including Jeonju Bibimbap, and its rich
-  cultural heritage. Offers picturesque rural
-  landscapes, including lush rice paddies
-  and the scenic Naejangsan National Park.`,
+    text: `Famous for its traditional Korean cuisine,\nincluding Jeonju Bibimbap, and its rich\ncultural heritage. Offers picturesque rural\nlandscapes, including lush rice paddies\nand the scenic Naejangsan National Park.`,
     to: null,
     xy: { x: -50, y: 1130 },
     backColor: '#D0DEB1',
@@ -59,12 +43,7 @@ export const CARDDATA: Card_Type[] = [
   },
   {
     location: 'Daejeon',
-    text: `Known for its scientific institutions and
-  educational facilities, it is at the forefront
-  of research and innovation. Nestled among
-  rolling hills and enjoys proximity to national
-  parks like Gyeryongsan, offering hiking and
-  outdoor activities.`,
+    text: `Known for its scientific institutions and\neducational facilities, it is at the forefront\nof research and innovation. Nestled among\nrolling hills and enjoys proximity to national\nparks like Gyeryongsan, offering hiking and\noutdoor activities.`,
     to: null,
     xy: { x: -50, y: 1200 },
     backColor: '#90C123',
@@ -72,11 +51,7 @@ export const CARDDATA: Card_Type[] = [
   },
   {
     location: 'Jeolla Bukdo',
-    text: `Famous for its traditional Korean cuisine,
-  including Jeonju Bibimbap, and its rich
-  cultural heritage. Offers picturesque rural
-  landscapes, including lush rice paddies
-  and the scenic Naejangsan National Park.`,
+    text: `Famous for its traditional Korean cuisine,\nincluding Jeonju Bibimbap, and its rich\ncultural heritage. Offers picturesque rural\nlandscapes, including lush rice paddies\nand the scenic Naejangsan National Park.`,
     to: null,
     xy: { x: -110, y: 1350 },
     backColor: '#DA9282',
@@ -84,11 +59,7 @@ export const CARDDATA: Card_Type[] = [
   },
   {
     location: 'Gwangju',
-    text: `Has a strong cultural identity, known for
-  its pro-democracy movements and vibrant
-  arts scene. Surrounded by mountains and
-  is known for its picturesque landscapes,
-  like Mudeung Mountain National Park.`,
+    text: `Has a strong cultural identity, known for\nits pro-democracy movements and vibrant\narts scene. Surrounded by mountains and\nis known for its picturesque landscapes,\nlike Mudeung Mountain National Park.`,
     to: null,
     xy: { x: -110, y: 1480 },
     backColor: '#FFCEA2',
@@ -96,11 +67,7 @@ export const CARDDATA: Card_Type[] = [
   },
   {
     location: 'Jeolla Namdo',
-    text: `Known for its traditional villages, including
-  Suncheon and Boseong, offering a glimpse
-  into Korea's rural heritage. Famous for its
-  coastal beauty , with stunning islands like
-  Geoje and Suncheon Bay Wetland Reserve.`,
+    text: `Known for its traditional villages, including\nSuncheon and Boseong, offering a glimpse\ninto Korea's rural heritage. Famous for its\ncoastal beauty , with stunning islands like\nGeoje and Suncheon Bay Wetland Reserve.`,
     to: null,
     xy: { x: -110, y: 1670 },
     backColor: '#F2AA6A',
@@ -108,12 +75,7 @@ export const CARDDATA: Card_Type[] = [
   },
   {
     location: 'Jeju',
-    text: `Has its own dialect, traditions, and iconic
-  haenyeo culture of female divers, preserving
-  its distinct cultural heritage. Here boasts
-  breathtaking landscapes, including Hallasan
-  volcano, pristine beaches, and unique
-  basalt formations.`,
+    text: `Has its own dialect, traditions, and iconic\nhaenyeo culture of female divers, preserving\nits distinct cultural heritage. Here boasts\nbreathtaking landscapes, including Hallasan\nvolcano, pristine beaches, and unique\nbasalt formations.`,
     to: null,
     xy: { x: 400, y: 1950 },
     backColor: '#67CF7E',
@@ -121,12 +83,7 @@ export const CARDDATA: Card_Type[] = [
   },
   {
     location: 'Gwangwon do',
-    text: `Region of breathtaking natural beauty,
-  encompasses the Taebaek Mountains and
-  is known for its pristine forests, crystal
-  -clear lakes, and stunning coastal areas.
-  Famous for skiing and sledding in the winter
-  and numerous traditional cultural events.`,
+    text: `Region of breathtaking natural beauty,\nencompasses the Taebaek Mountains and\nis known for its pristine forests, crystal\n-clear lakes, and stunning coastal areas.\nFamous for skiing and sledding in the winter\nand numerous traditional cultural events.`,
     to: null,
     xy: { x: 880, y: 530 },
     backColor: '#83BA63',
@@ -134,12 +91,7 @@ export const CARDDATA: Card_Type[] = [
   },
   {
     location: 'Chungcheong Bukdo',
-    text: `Boasts serene landscapes, including the
-  beautiful Daecheong Lake and Woraksan
-  National Park offering hiking opportunities
-  amid lush greenery. features historical sites
-  and traditional folk villages that provide
-  insights into Korea's rich heritage.`,
+    text: `Boasts serene landscapes, including the\nbeautiful Daecheong Lake and Woraksan\nNational Park offering hiking opportunities\namid lush greenery. features historical sites\nand traditional folk villages that provide\ninsights into Korea's rich heritage.`,
     to: null,
     xy: { x: 1000, y: 760 },
     backColor: '#8CCFD3',
@@ -147,13 +99,7 @@ export const CARDDATA: Card_Type[] = [
   },
   {
     location: 'Gyeongsang Bukdo',
-    text: `Characterized by picturesque mountains
-  like Mt. Palgongsan and scenic coastal
-  areas along the East Sea. Here is the home
-  to historical treasures like the Bulguksa
-  Temple and Seokguram Grotto, UNESCO
-  World Heritage Sites that represent
-  Korea's rich Buddhist heritage.`,
+    text: `Characterized by picturesque mountains\nlike Mt. Palgongsan and scenic coastal\nareas along the East Sea. Here is the home\nto historical treasures like the Bulguksa\nTemple and Seokguram Grotto, UNESCO\nWorld Heritage Sites that represent\nKorea's rich Buddhist heritage.`,
     to: null,
     xy: { x: 1030, y: 970 },
     backColor: '#D28D50',
@@ -161,11 +107,7 @@ export const CARDDATA: Card_Type[] = [
   },
   {
     location: 'Daegu',
-    text: `Known for its rich textile industry and
-  traditional markets like Seomun Market,
-  showcasing Korean craftsmanship and
-  culture. It is Surrounded by rolling hills
-  and picturesque countryside.`,
+    text: `Known for its rich textile industry and\ntraditional markets like Seomun Market,\nshowcasing Korean craftsmanship and\nculture. It is Surrounded by rolling hills\nand picturesque countryside.`,
     to: null,
     xy: { x: 1030, y: 1160 },
     backColor: '#CD7458',
@@ -173,12 +115,7 @@ export const CARDDATA: Card_Type[] = [
   },
   {
     location: 'Ulsan',
-    text: `Coastal city known for its beautiful beaches,
-    including Ilsan Beach, and scenic views of
-    the East Sea. The region plays a vital role
-    in South Korea's industrial development,
-    with a focus on shipbuilding and
-    petrochemical industries.`,
+    text: `Coastal city known for its beautiful beaches,\nincluding Ilsan Beach, and scenic views of\nthe East Sea. The region plays a vital role\nin South Korea's industrial development,\nwith a focus on shipbuilding and\npetrochemical industries.`,
     to: null,
     xy: { x: 1030, y: 1340 },
     backColor: '#EEC73E',
@@ -186,12 +123,7 @@ export const CARDDATA: Card_Type[] = [
   },
   {
     location: 'Busan',
-    text: `As a major port city, Busan is a melting
-pot of cultures and offers diverse festivals,
-including the Busan International Film
-Festival. Boasts stunning coastal scenery,
-with popular spots like Haeundae Beach
-and the rocky cliffs of Taejongdae Park.`,
+    text: `As a major port city, Busan is a melting\npot of cultures and offers diverse festivals,\nincluding the Busan International Film\nFestival. Boasts stunning coastal scenery,\nwith popular spots like Haeundae Beach\nand the rocky cliffs of Taejongdae Park.`,
     to: null,
     xy: { x: 900, y: 1530 },
     backColor: '#C8D250',
@@ -199,12 +131,7 @@ and the rocky cliffs of Taejongdae Park.`,
   },
   {
     location: 'Gyeongsang Namdo',
-    text: `Is steeped in ancient history, with numerous
-burial mounds, temples, and cultural
-artifacts that reflect Korea's past. Features
-coastal areas with pristine beaches, and
-historic sites like Gyeongju, known as the
-"Museum without Walls."`,
+    text: `Is steeped in ancient history, with numerous\nburial mounds, temples, and cultural\nartifacts that reflect Korea's past. Features\ncoastal areas with pristine beaches, and\nhistoric sites like Gyeongju, known as the\n"Museum without Walls."`,
     to: null,
     xy: { x: 670, y: 1650 },
     backColor: '#AFB5EE',

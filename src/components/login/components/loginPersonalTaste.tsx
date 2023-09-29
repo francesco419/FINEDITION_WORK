@@ -67,7 +67,7 @@ export default function LoginFormPersonalTaste({ toNext }: LoginForm_type) {
       <button
         className='login-taste_confirm'
         type='button'
-        onClick={() => toNext(3)}
+        onClick={() => postRegister()}
       >
         Continue
       </button>

@@ -1,0 +1,32 @@
+@import '../../style.scss';
+
+.admin {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 140px 70px;
+  &_container {
+    display: flex;
+    width: 1300px;
+    h2 {
+      color: white;
+      font-size: 32px;
+      margin: 0 0 50px;
+    }
+    p {
+      color: $Brand-Light-Green-2;
+      font-size: large;
+    }
+    input {
+      margin: 5px 0 20px;
+      width: 500px;
+    }
+    textarea {
+      width: 500px;
+      height: 200px;
+      margin: 5px 0 20px;
+    }
+  }
+  &_box {
+    width: 600px;
+  }
+}

@@ -31,23 +31,23 @@ export default function Card({
     setLocationIn(xy);
   }, [region.isRegionOn === false]);
 
-  const dragStartHandler = (e: React.DragEvent<HTMLButtonElement>) => {
+  const dragStartHandler = (e: React.DragEvent<HTMLDivElement>) => {
     e.stopPropagation();
     const img = new Image();
     e.dataTransfer.setDragImage(img, 0, 0);
     console.log(1);
   };
 
-  const dragHandler = (e: React.DragEvent<HTMLButtonElement>) => {
+  const dragHandler = (e: React.DragEvent<HTMLDivElement>) => {
     e.stopPropagation();
     const pos = { ...locationIn };
-    pos['x'] = e.pageX - 420 - (window.innerWidth - 1440) / 2.05; // - 650;
-    pos['y'] = e.pageY - 85; //- 80;
+    pos['x'] = e.pageX - 400 - (window.innerWidth - 1440) / 2.05; // - 650;
+    pos['y'] = e.pageY - 90; //- 80;
     setLocationIn((locationIn) => pos);
     console.log(pos);
   };
 
-  const dragOverHandler = (e: React.DragEvent<HTMLButtonElement>) => {
+  const dragOverHandler = (e: React.DragEvent<HTMLDivElement>) => {
     e.stopPropagation();
     e.preventDefault();
   };
@@ -62,7 +62,7 @@ export default function Card({
         backgroundColor: backColor
       }}
     >
-      <button
+      {/* <button
         draggable
         className='card_drag'
         onDragStart={(e) => dragStartHandler(e)}
@@ -70,9 +70,16 @@ export default function Card({
         onDragOver={(e) => dragOverHandler(e)}
       >
         +
-      </button>
-      <p>{location}</p>
-      <pre>{text}</pre>
+      </button> */}
+      <div
+        draggable
+        onDragStart={(e) => dragStartHandler(e)}
+        onDrag={(e) => dragHandler(e)}
+        onDragOver={(e) => dragOverHandler(e)}
+      >
+        <p>{location}</p>
+        <pre>{text}</pre>
+      </div>
       {to && (
         <button className='card_to'>
           Explore {location.toUpperCase()}
