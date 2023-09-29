@@ -31,7 +31,7 @@ export default function RegionSlideButton() {
   };
 
   const slideButtonHandler = (bool: boolean) => {
-    const result = domRegex(new RegExp(/KR0[0-9]*_[rect?card?name?]*/g));
+    const result = domRegex(new RegExp(/KR0[0-9]*_[card|rect]/g));
     if (!bool) {
       setOpacity(result, '1');
       dispatch(setRegionState(true));
