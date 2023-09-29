@@ -1,4 +1,8 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, {
+  AxiosRequestConfig,
+  AxiosResponse,
+  AxiosRequestHeaders
+} from 'axios';
 import { API_TYPE } from './interface';
 
 interface AxiosCustomRequestConfig extends AxiosRequestConfig {
@@ -10,13 +14,17 @@ const instance = axios.create({
   withCredentials: true
 });
 
+//https://finedition.kr/
+
 instance.interceptors.request.use(
   //요청보내기
   (config) => {
+    (config.headers as AxiosRequestHeaders)['Access-Control-Allow-Origin'] =
+      '*';
+    (config.headers as AxiosRequestHeaders)['Content-Type'] =
+      'application/json';
+    //config.headers['Access-Control-Allow-Origin'] = 'https://finedition.kr/';
     console.log(config);
-    config.headers['Content-Type'] = 'application/json';
-    config.headers['Access-Control-Allow-Origin'] = 'https://finedition.kr/';
-
     return config;
   },
   (error) => {

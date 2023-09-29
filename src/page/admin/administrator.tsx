@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios';
 import Header from '../../components/header/header';
 import { postInterceptor } from '../../func/interceptor';
 import './administrator.scss';
@@ -16,7 +17,13 @@ export default function Administrator() {
   const [summary, setSummary] = useState<string>('');
 
   const posttest = () => {
-    postInterceptor({ url: `${process.env.REACT_APP_PROXY}/test` });
+    postInterceptor({
+      url: `${process.env.REACT_APP_PROXY}/test`,
+      data: 'string',
+      callback: (e: AxiosResponse) => {
+        console.log(e);
+      }
+    });
   };
 
   return (
