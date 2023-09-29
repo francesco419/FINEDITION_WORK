@@ -49,7 +49,7 @@ export default function LoginFormGoogleAPI({ toNext }: LoginForm_type) {
 
   const loginCheckHandler = (userInfo: UserInfoState) => {
     const loginCheckData: sendAxiosState = {
-      url: 'http://localhost:8080/logincheck',
+      url: `${process.env.REACT_APP_PROXY}/logincheck`,
       data: { email: userInfo.email },
       config: undefined,
       callback: (e: AxiosResponse) => {

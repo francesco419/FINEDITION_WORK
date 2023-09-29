@@ -6,7 +6,9 @@ interface AxiosCustomRequestConfig extends AxiosRequestConfig {
 }
 
 const MAX_RETRY_COUNT = 2;
-const instance = axios.create();
+const instance = axios.create({
+  withCredentials: true
+});
 
 instance.interceptors.request.use(
   //요청보내기
