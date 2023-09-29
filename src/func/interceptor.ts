@@ -19,8 +19,11 @@ const instance = axios.create({
 instance.interceptors.request.use(
   //요청보내기
   (config) => {
+    (config.headers as AxiosRequestHeaders)['Access-Control-Allow-Origin'] =
+      'https://finedition.kr';
     (config.headers as AxiosRequestHeaders)['Content-Type'] =
       'application/json';
+    //config.headers['Access-Control-Allow-Origin'] = 'https://finedition.kr/';
     console.log(config);
     return config;
   },

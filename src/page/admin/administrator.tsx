@@ -16,7 +16,34 @@ export default function Administrator() {
   const [cover, setCover] = useState<string>('');
   const [summary, setSummary] = useState<string>('');
 
-  const posttest = () => {
+  const posttest1 = () => {
+    postInterceptor({
+      url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/test`,
+      data: 'string',
+      callback: (e: AxiosResponse) => {
+        console.log(e);
+      }
+    });
+  };
+  const posttest2 = () => {
+    postInterceptor({
+      url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app:8080/test`,
+      data: 'string',
+      callback: (e: AxiosResponse) => {
+        console.log(e);
+      }
+    });
+  };
+  const posttest3 = () => {
+    postInterceptor({
+      url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/test`,
+      data: 'string',
+      callback: (e: AxiosResponse) => {
+        console.log(e);
+      }
+    });
+  };
+  const posttest4 = () => {
     postInterceptor({
       url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/test`,
       data: 'string',
@@ -102,8 +129,17 @@ export default function Administrator() {
           ></textarea>
         </div>
       </div>
-      <button style={{ color: '#fff' }} onClick={posttest}>
-        서버통신테스트
+      <button style={{ color: '#fff' }} onClick={posttest1}>
+        서버통신테스트1
+      </button>
+      <button style={{ color: '#fff' }} onClick={posttest1}>
+        서버통신테스트 8080
+      </button>
+      <button style={{ color: '#fff' }} onClick={posttest1}>
+        서버통신테스트3
+      </button>
+      <button style={{ color: '#fff' }} onClick={posttest1}>
+        서버통신테스트4
       </button>
     </div>
   );
