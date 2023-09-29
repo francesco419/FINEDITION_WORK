@@ -1,7 +1,8 @@
 import './card.scss';
 import { ReactComponent as Arrow } from '../asset/arrow.svg';
+import { useState } from 'react';
 
-interface Card_Type {
+export interface Card_Type {
   location: string;
   text: string;
   to: string | null;
@@ -18,6 +19,7 @@ export default function Card({
   backColor,
   regionNum
 }: Card_Type) {
+  const [darg, setDrag] = useState<boolean>(false);
   return (
     <div
       id={`KR${regionNum}_card`}

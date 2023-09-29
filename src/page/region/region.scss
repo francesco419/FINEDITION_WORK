@@ -47,19 +47,24 @@
 @each $code in $KRCODE {
   ##{$code} {
     &_rect,
-    &:hover ~ &_name,
-    &_rect:hover ~ &_name {
+    &_card {
       opacity: 0;
     }
-    //&_card
 
-    &_name,
+    &:hover ~ &_name,
+    &_rect:hover ~ &_name {
+      display: none;
+    }
+
     &:hover ~ &_rect,
     &_rect:hover {
       opacity: 1;
     }
   }
   .region_container:has(> svg > ##{$code}:hover) > ##{$code}_card {
+    opacity: 1;
+  }
+  .region_container:has(> svg > ##{$code}_rect:hover) > ##{$code}_card {
     opacity: 1;
   }
 }
