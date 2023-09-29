@@ -6,10 +6,15 @@ import Card from './components/card';
 import _, { forEach } from 'lodash';
 import { CARDDATA } from '../../temp/card';
 import Footer from '../../components/footer/footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import RegionSlideButton from './components/regionSlideButton';
 
 export default function Region() {
+  useEffect(() => {
+    document.addEventListener('click', (e) => {
+      console.log(e.pageX, e.pageY, window.innerHeight);
+    });
+  });
   return (
     <div className='region'>
       <Header type='black' />
@@ -45,6 +50,12 @@ export default function Region() {
           );
         })}
       </div>
+      <button
+        onClick={(e) => console.log(e.pageX, e.pageY)}
+        style={{ color: '#fff' }}
+      >
+        adfdfsfsdfs
+      </button>
       <Footer />
     </div>
   );

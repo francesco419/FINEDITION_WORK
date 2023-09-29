@@ -75,8 +75,8 @@ export default function SlideButton({ click }: ButtonProps) {
         return;
       }
       if (!right) {
-        current.style.marginLeft = '21px';
         click(right);
+        current.style.marginLeft = '21px';
       }
     }
   };

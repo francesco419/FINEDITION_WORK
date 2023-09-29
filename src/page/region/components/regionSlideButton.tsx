@@ -26,7 +26,9 @@ export default function RegionSlideButton() {
 
   const setOpacity = (obj: (HTMLElement | SVGElement)[], opc: string) => {
     _.forEach(obj, (o) => {
-      o.style.opacity = opc;
+      //o.style.opacity = opc;
+      if (opc === '1') o.classList.add('opc1');
+      if (opc === '0') o.classList.remove('opc1');
     });
   };
 

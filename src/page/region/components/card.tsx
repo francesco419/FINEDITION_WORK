@@ -41,8 +41,8 @@ export default function Card({
   const dragHandler = (e: React.DragEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     const pos = { ...locationIn };
-    pos['x'] = e.pageX - 650;
-    pos['y'] = e.pageY - 80;
+    pos['x'] = e.pageX - 420 - (window.innerWidth - 1440) / 2.05; // - 650;
+    pos['y'] = e.pageY - 85; //- 80;
     setLocationIn((locationIn) => pos);
     console.log(pos);
   };
