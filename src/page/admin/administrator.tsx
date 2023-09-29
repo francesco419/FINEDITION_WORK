@@ -18,7 +18,7 @@ export default function Administrator() {
 
   const posttest = () => {
     postInterceptor({
-      url: `${process.env.REACT_APP_PROXY}/test`,
+      url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/test`,
       data: 'string',
       callback: (e: AxiosResponse) => {
         console.log(e);
