@@ -14,6 +14,9 @@ instance.interceptors.request.use(
   //요청보내기
   (config) => {
     console.log(config);
+    config.headers['Content-Type'] = 'application/json';
+    config.headers['Access-Control-Allow-Origin'] = 'https://finedition.kr/';
+
     return config;
   },
   (error) => {

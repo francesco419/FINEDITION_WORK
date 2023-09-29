@@ -16,7 +16,7 @@ export default function Administrator() {
   const [summary, setSummary] = useState<string>('');
 
   const posttest = () => {
-    postInterceptor({ url: `${process.env.REACT_APP_PROXY}/8080/test` });
+    postInterceptor({ url: `${process.env.REACT_APP_PROXY}/test` });
   };
 
   return (
