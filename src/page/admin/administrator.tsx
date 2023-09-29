@@ -1,4 +1,5 @@
 import Header from '../../components/header/header';
+import { postInterceptor } from '../../func/interceptor';
 import './administrator.scss';
 import { useState } from 'react';
 
@@ -13,6 +14,11 @@ export default function Administrator() {
   const [story, setStory] = useState<string[]>([]);
   const [cover, setCover] = useState<string>('');
   const [summary, setSummary] = useState<string>('');
+
+  const posttest = () => {
+    postInterceptor({ url: `${process.env.REACT_APP_PROXY}/8080/test` });
+  };
+
   return (
     <div className='admin'>
       <Header type='black' />
@@ -89,6 +95,9 @@ export default function Administrator() {
           ></textarea>
         </div>
       </div>
+      <button style={{ color: '#fff' }} onClick={posttest}>
+        서버통신테스트
+      </button>
     </div>
   );
 }

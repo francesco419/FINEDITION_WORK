@@ -8,6 +8,7 @@ import { selectLogin } from '../../redux/slices/loginSlice';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import SearchDropDown from './search/search';
+import { postInterceptor } from '../../func/interceptor';
 
 type HeaderType = {
   type: string;

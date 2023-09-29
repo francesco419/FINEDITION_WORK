@@ -13,6 +13,7 @@ const instance = axios.create({
 instance.interceptors.request.use(
   //요청보내기
   (config) => {
+    console.log(config);
     return config;
   },
   (error) => {
