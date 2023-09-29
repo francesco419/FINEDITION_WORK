@@ -132,13 +132,13 @@ export default function Administrator() {
       <button style={{ color: '#fff' }} onClick={posttest1}>
         서버통신테스트1
       </button>
-      <button style={{ color: '#fff' }} onClick={posttest1}>
+      <button style={{ color: '#fff' }} onClick={posttest2}>
         서버통신테스트 8080
       </button>
-      <button style={{ color: '#fff' }} onClick={posttest1}>
+      <button style={{ color: '#fff' }} onClick={posttest3}>
         서버통신테스트3
       </button>
-      <button style={{ color: '#fff' }} onClick={posttest1}>
+      <button style={{ color: '#fff' }} onClick={posttest4}>
         서버통신테스트4
       </button>
     </div>
