@@ -5,12 +5,14 @@ import thunk from 'redux-thunk';
 import { persistReducer } from 'redux-persist';
 import clickReducer from './slices/clickSlice';
 import logInReducer from './slices/loginSlice';
-import userinfoRecuer from './slices/userInfoSlice';
+import userinfoReducer from './slices/userInfoSlice';
+import regionReducer from './slices/regionSlice';
 
 const rootReducer = combineReducers({
   click: clickReducer,
   login: logInReducer,
-  userinfo: userinfoRecuer
+  userinfo: userinfoReducer,
+  region: regionReducer
 });
 
 const persistConfig = {

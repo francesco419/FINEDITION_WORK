@@ -1,8 +1,27 @@
 @import '../../style.scss';
 
 .footer {
+  display: flex;
+  gap: 40px;
   height: 134px;
   background-color: $black;
-  border: 1px solid #eaeaea;
+  //border: 1px solid #eaeaea;
   margin: 30px 0 0;
+  padding: 20px 70px;
+  box-sizing: border-box;
+  &_divide {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+  }
+  svg {
+    fill: $Brand-Light-Green-0;
+  }
+  button {
+    @include font-style(13, $System-Light-Gray-0, 0.7, mabryreg);
+  }
+  &_copyrights {
+    margin: 0 0 0 auto;
+    @include font-style(12, $System-Dark-Gray-1, 0.7, mabryreg);
+  }
 }

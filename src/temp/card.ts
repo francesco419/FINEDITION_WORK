@@ -211,3 +211,23 @@ historic sites like Gyeongju, known as the
     regionNum: '055'
   }
 ];
+
+export const KRCODE = [
+  'KR02',
+  'KR031',
+  'KR032',
+  'KR033',
+  'KR041',
+  'KR042',
+  'KR043',
+  'KR044',
+  'KR051',
+  'KR052',
+  'KR053',
+  'KR054',
+  'KR055',
+  'KR061',
+  'KR062',
+  'KR063',
+  'KR064'
+];

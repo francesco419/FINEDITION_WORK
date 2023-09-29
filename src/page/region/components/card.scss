@@ -12,7 +12,13 @@
     margin: 15px 0 0;
     @include font-style(16, #1a7219, 1.3, mabryreg, 500);
   }
-  button {
+  &_drag {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 32px;
+  }
+  &_to {
     display: flex;
     align-items: center;
     margin: 34px 0 0 auto;

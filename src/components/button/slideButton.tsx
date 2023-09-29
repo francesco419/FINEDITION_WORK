@@ -3,7 +3,8 @@ import React, { useRef, useState } from 'react';
 import './slideButton.scss';
 
 interface ButtonProps {
-  disabled: boolean;
+  //disabled: boolean;
+  click: (str: boolean) => void;
 }
 
 /* type btnColorType = {
@@ -55,7 +56,8 @@ const StyleDiv = styled.div<{ backColor: any }>`
   transition: all 0.3s;
 `;
  */
-export default function SlideButton() {
+
+export default function SlideButton({ click }: ButtonProps) {
   const [right, setRight] = useState<boolean>(false); //  boolean 상태
   //const [changeClass,setChangeClass]=useState<boolean>(false);
   const refs = useRef<HTMLDivElement>(null); // 원 ref
@@ -69,12 +71,18 @@ export default function SlideButton() {
     if (current !== null) {
       if (right) {
         current.style.marginLeft = '0';
+        click(right);
         return;
       }
       if (!right) {
         current.style.marginLeft = '21px';
+        click(right);
       }
     }
+  };
+
+  const onClickHandler = () => {
+    move();
   };
 
   return (

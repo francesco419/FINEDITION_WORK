@@ -1,6 +1,9 @@
 @import '../../style.scss';
 
 .region {
+  width: 1440px;
+  padding: 0 70px;
+  margin: 0 auto;
   @include headerPadding();
   &_container {
     position: relative;
@@ -8,6 +11,7 @@
     @include containerWidth();
     padding: 165px 0 0;
     white-space: pre-wrap;
+    margin: 0 auto 400px;
   }
   &_title {
     li {

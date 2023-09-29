@@ -3,9 +3,11 @@ import { ReactComponent as Hovers } from './asset/sample4.svg';
 import './region.scss';
 import SlideButton from '../../components/button/slideButton';
 import Card from './components/card';
-import _ from 'lodash';
+import _, { forEach } from 'lodash';
 import { CARDDATA } from '../../temp/card';
 import Footer from '../../components/footer/footer';
+import { useState } from 'react';
+import RegionSlideButton from './components/regionSlideButton';
 
 export default function Region() {
   return (
@@ -27,9 +29,7 @@ export default function Region() {
               accessible in 2024.01
             </p>
           </li>
-          <li>
-            <SlideButton />
-          </li>
+          <RegionSlideButton />
         </ul>
         <Hovers />
         {_.map(CARDDATA, (o) => {
@@ -45,7 +45,7 @@ export default function Region() {
           );
         })}
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
