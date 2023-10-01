@@ -49,7 +49,7 @@ export default function LoginFormGoogleAPI({ toNext }: LoginForm_type) {
 
   const loginCheckHandler = (userInfo: UserInfoState) => {
     const loginCheckData: sendAxiosState = {
-      url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/logincheck`,
+      url: `${process.env.REACT_APP_PROXY}/logincheck`,
       data: { email: userInfo.email },
       config: undefined,
       callback: (e: AxiosResponse) => {

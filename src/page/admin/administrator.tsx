@@ -18,7 +18,7 @@ export default function Administrator() {
 
   const posttest1 = () => {
     postInterceptor({
-      url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/test`,
+      url: `${process.env.REACT_APP_PROXY}/test`,
       data: 'string',
       callback: (e: AxiosResponse) => {
         console.log(e);
@@ -27,7 +27,7 @@ export default function Administrator() {
   };
   const posttest2 = () => {
     getInterceptor({
-      url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/getinfo`,
+      url: `${process.env.REACT_APP_PROXY}/getinfo`,
       data: { id: '264337' },
       callback: (e: AxiosResponse) => {
         console.log(e);
@@ -36,7 +36,7 @@ export default function Administrator() {
   };
   const posttest3 = () => {
     postInterceptor({
-      url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/test`,
+      url: `${process.env.REACT_APP_PROXY}/test`,
       data: 'string',
       callback: (e: AxiosResponse) => {
         console.log(e);
@@ -45,7 +45,7 @@ export default function Administrator() {
   };
   const posttest4 = () => {
     getInterceptor({
-      url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/getinfo`,
+      url: `${process.env.REACT_APP_PROXY}/getinfo`,
       data: { id: '264337' },
       callback: (e: AxiosResponse) => {
         console.log(e);

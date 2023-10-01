@@ -20,7 +20,7 @@ export default function LoginFormPersonalTaste({ toNext }: LoginForm_type) {
     inputInfo.keyword = tasteArr;
 
     const data: sendAxiosState = {
-      url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/register`,
+      url: `${process.env.REACT_APP_PROXY}/register`,
       data: inputInfo,
       config: undefined,
       callback: (e: AxiosResponse) => {
