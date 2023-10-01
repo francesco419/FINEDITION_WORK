@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 import Header from '../../components/header/header';
-import { postInterceptor } from '../../func/interceptor';
+import { postInterceptor, getInterceptor } from '../../func/interceptor';
 import './administrator.scss';
 import { useState } from 'react';
 
@@ -26,9 +26,9 @@ export default function Administrator() {
     });
   };
   const posttest2 = () => {
-    postInterceptor({
-      url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app:8080/test`,
-      data: 'string',
+    getInterceptor({
+      url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/getinfo`,
+      data: { id: '264337' },
       callback: (e: AxiosResponse) => {
         console.log(e);
       }
@@ -36,7 +36,7 @@ export default function Administrator() {
   };
   const posttest3 = () => {
     postInterceptor({
-      url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/test`,
+      url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app:3030/test`,
       data: 'string',
       callback: (e: AxiosResponse) => {
         console.log(e);
@@ -44,9 +44,9 @@ export default function Administrator() {
     });
   };
   const posttest4 = () => {
-    postInterceptor({
-      url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/test`,
-      data: 'string',
+    getInterceptor({
+      url: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app:8080/getinfo`,
+      data: { id: '264337' },
       callback: (e: AxiosResponse) => {
         console.log(e);
       }
