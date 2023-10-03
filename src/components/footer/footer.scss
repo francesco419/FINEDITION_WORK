@@ -4,7 +4,6 @@
   display: flex;
   gap: 40px;
   height: 134px;
-  background-color: $black;
   //border: 1px solid #eaeaea;
   margin: 30px 0 0;
   padding: 20px 70px;
@@ -18,10 +17,13 @@
     fill: $Brand-Light-Green-0;
   }
   button {
-    @include font-style(13, $System-Light-Gray-0, 0.7, mabryreg);
+    text-align: left;
+    @include font-style(13, $System-Light-Gray-0, 0.7, Mabry Pro Reg);
   }
   &_copyrights {
     margin: 0 0 0 auto;
-    @include font-style(12, $System-Dark-Gray-1, 0.7, mabryreg);
+    @include font-style(12, $System-Dark-Gray-1, 0.7, Mabry Pro Light);
   }
 }
+
+//$System-Light-Gray-0

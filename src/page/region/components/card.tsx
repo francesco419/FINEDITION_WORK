@@ -52,6 +52,8 @@ export default function Card({
     e.preventDefault();
   };
 
+  console.log(location);
+
   return (
     <div
       id={`KR${regionNum}_card`}
@@ -77,7 +79,9 @@ export default function Card({
         onDrag={(e) => dragHandler(e)}
         onDragOver={(e) => dragOverHandler(e)}
       >
-        <p>{location}</p>
+        <p style={{ color: location === 'Seoul' ? '#000' : undefined }}>
+          {location}
+        </p>
         <pre>{text}</pre>
       </div>
       {to && (

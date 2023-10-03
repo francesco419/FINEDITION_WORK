@@ -4,6 +4,19 @@
   width: 1440px;
   margin: 0 auto;
   padding: 140px 70px;
+  &_test {
+    button,
+    input[type='file'] {
+      height: 30px;
+      background-color: coral;
+      color: aliceblue;
+      margin: 0 20px;
+      padding: 10px;
+    }
+    p {
+      color: white;
+    }
+  }
   &_container {
     display: flex;
     width: 1300px;

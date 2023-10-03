@@ -11,3 +11,15 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Mabry Pro Light';
+  src: url('mabry-light-pro.otf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mabry Pro Bold';
+  src: url('mabry-bold-pro.otf');
+  font-style: normal;
+}

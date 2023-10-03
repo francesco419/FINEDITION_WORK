@@ -27,13 +27,19 @@ export default function RegionSlideButton() {
   const setOpacity = (obj: (HTMLElement | SVGElement)[], opc: string) => {
     _.forEach(obj, (o) => {
       //o.style.opacity = opc;
+      if (o.id.match(new RegExp(/KR0[0-9]*_name/g))) {
+        if (opc === '1') {
+          o.classList.add('opc0');
+        } else if (opc === '0') o.classList.remove('opc0');
+        return;
+      }
       if (opc === '1') o.classList.add('opc1');
       if (opc === '0') o.classList.remove('opc1');
     });
   };
 
   const slideButtonHandler = (bool: boolean) => {
-    const result = domRegex(new RegExp(/KR0[0-9]*_[card|rect]/g));
+    const result = domRegex(new RegExp(/KR0[0-9]*_[card|rect|name]/g));
     if (!bool) {
       setOpacity(result, '1');
       dispatch(setRegionState(true));

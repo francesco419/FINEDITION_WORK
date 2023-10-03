@@ -1,8 +1,15 @@
 import { AxiosResponse } from 'axios';
 import Header from '../../components/header/header';
-import { postInterceptor, getInterceptor } from '../../func/interceptor';
+import {
+  postInterceptor,
+  getInterceptor,
+  sendAxiosState
+} from '../../func/interceptor';
 import './administrator.scss';
 import { useState } from 'react';
+import { abort } from 'process';
+import image23 from '../../assets/image/hanoak.png';
+import { putInterceptor } from '../../func/interceptor';
 
 export default function Administrator() {
   const [contentId, setContentId] = useState<number>();
@@ -15,6 +22,7 @@ export default function Administrator() {
   const [story, setStory] = useState<string[]>([]);
   const [cover, setCover] = useState<string>('');
   const [summary, setSummary] = useState<string>('');
+  const [anything, setAnything] = useState<any>();
 
   const posttest1 = () => {
     postInterceptor({
@@ -45,18 +53,80 @@ export default function Administrator() {
   };
   const posttest4 = () => {
     getInterceptor({
-      url: `${process.env.REACT_APP_PROXY}/getinfo`,
-      data: { id: '264337' },
+      url: `http://localhost:8080/testimage`,
+      data: { img: '' },
       callback: (e: AxiosResponse) => {
         console.log(e);
       }
     });
   };
 
+  const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      let file = e.target.files[0];
+      let fileReader = new FileReader();
+      console.log(file);
+      fileReader.onload = () => {
+        setAnything((anything: any) => fileReader.result);
+      };
+      fileReader.readAsText(file);
+    }
+  };
+
+  const createFormData = (data: File) => {
+    const formData = new FormData();
+    formData.append('file', data);
+
+    let file: sendAxiosState = {
+      url: `http://localhost:8080/testimage`,
+      data: formData,
+      config: {
+        headers: {
+          'Content-Type': `multipart/form-data`
+        }
+      },
+      callback: (e: AxiosResponse) => {
+        console.log(e);
+      }
+    };
+    postInterceptor(file);
+  };
+
   return (
     <div className='admin'>
       <Header type='black' />
-      <div className='admin_container'>
+      <div className='admin_test'>
+        <p>{anything}</p>
+        <button
+          onClick={() => {
+            console.log(JSON.parse(anything));
+          }}
+        >
+          anything
+        </button>
+        {/* <input type='file' onChange={(e) => createFormData(e)} /> */}
+        <button style={{ color: '#fff' }} onClick={posttest1}>
+          서버통신테스트1
+        </button>
+        <button style={{ color: '#fff' }} onClick={posttest2}>
+          서버통신테스트 8080
+        </button>
+        <button style={{ color: '#fff' }} onClick={posttest3}>
+          서버통신테스트3
+        </button>
+        <button
+          style={{ color: '#fff' }}
+          onClick={() => createFormData(image23)}
+        >
+          이미지업로드
+        </button>
+      </div>
+    </div>
+  );
+}
+
+{
+  /* <div className='admin_container'>
         <div className='admin_box'>
           <h2>내부 내용</h2>
           <p>Content ID</p>
@@ -128,19 +198,5 @@ export default function Administrator() {
             }}
           ></textarea>
         </div>
-      </div>
-      <button style={{ color: '#fff' }} onClick={posttest1}>
-        서버통신테스트1
-      </button>
-      <button style={{ color: '#fff' }} onClick={posttest2}>
-        서버통신테스트 8080
-      </button>
-      <button style={{ color: '#fff' }} onClick={posttest3}>
-        서버통신테스트3
-      </button>
-      <button style={{ color: '#fff' }} onClick={posttest4}>
-        서버통신테스트4
-      </button>
-    </div>
-  );
+      </div> */
 }

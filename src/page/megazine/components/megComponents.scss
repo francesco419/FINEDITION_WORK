@@ -1,0 +1,26 @@
+@import '../../../style.scss';
+
+.citie-checkbox {
+  display: flex;
+  align-items: center;
+  align-self: baseline;
+  margin: 0 31px 15px 0;
+  height: 13px;
+  &#t3_id {
+    margin-bottom: 0;
+  }
+  &#KR-50_id {
+    margin-bottom: 0;
+  }
+  &_check {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 1.368px;
+    background: #fff;
+    margin-right: 8px;
+  }
+  &_label {
+    @include font-style(15, $System-Black-0, 0.7, $mabrylight);
+  }
+}

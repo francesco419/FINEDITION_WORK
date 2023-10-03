@@ -18,22 +18,22 @@ export default function CardSlide({ data }: SlideType) {
 
   let isDown = false;
   let startX: number;
-  let scrollLeft: number = 0;
+  let scrollLeft = useRef<number>(0);
   let velX: number = 0;
   let momentumID: number;
   let scrollL: number = 1;
 
-  useInterval(
+  /* useInterval(
     () => {
       if (ref.current) {
         const slider = ref.current;
-        slider.scrollLeft = scrollLeft++;
+        slider.scrollLeft = scrollLeft.current++;
         //console.log('slider.scrollLeft :' + slider.scrollLeft);
         //console.log('moving');
       }
     },
     autoSlide ? 20 : null
-  );
+  ); */
 
   const mouseDownHandler = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -45,7 +45,7 @@ export default function CardSlide({ data }: SlideType) {
       scrollL = slider.scrollWidth - slider.offsetWidth;
       slider.classList.add('active');
       startX = e.pageX - slider.offsetLeft;
-      scrollLeft = slider.scrollLeft;
+      scrollLeft.current = slider.scrollLeft;
       cancelMomentumTracking();
     }
   };
@@ -69,7 +69,7 @@ export default function CardSlide({ data }: SlideType) {
   };
 
   const downFalseHandler = () => {
-    setAutoSlide((autoSlide) => true);
+    //setSlideMove();
     if (ref.current) {
       const slider = ref.current;
       isDown = false;
@@ -99,7 +99,7 @@ export default function CardSlide({ data }: SlideType) {
       const x = e.pageX - slider.offsetLeft;
       const walk = (x - startX) * 1.8; //scroll-fast
       var prevScrollLeft = slider.scrollLeft;
-      slider.scrollLeft = scrollLeft - walk;
+      slider.scrollLeft = scrollLeft.current - walk;
       velX = slider.scrollLeft - prevScrollLeft;
     }
   };
@@ -115,6 +115,14 @@ export default function CardSlide({ data }: SlideType) {
     }
   );
 
+  const notSlideMove = () => {
+    setAutoSlide((autoSlide) => false);
+  };
+
+  const setSlideMove = () => {
+    setAutoSlide((autoSlide) => true);
+  };
+
   return (
     <div className='cardSlide'>
       <div
@@ -124,10 +132,7 @@ export default function CardSlide({ data }: SlideType) {
         onMouseLeave={downFalseHandler}
         onMouseUp={upHandler}
         onMouseMove={(e) => mouseMoveHandler(e)}
-        onMouseOver={() => {
-          setAutoSlide((autoSlide) => false);
-          //console.log('false');
-        }}
+        //onMouseOver={notSlideMove}
       >
         {_.map(data, (o, index) => {
           return (
@@ -140,12 +145,6 @@ export default function CardSlide({ data }: SlideType) {
           );
         })}
       </div>
-      <div
-        className='cardSlide_blur'
-        style={{
-          backgroundColor: left >= scrollL ? '#00000000' : '#00000050'
-        }}
-      />
     </div>
   );
 }

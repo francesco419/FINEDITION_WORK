@@ -42,7 +42,7 @@ export default function InfoTag() {
           <li
             key={o.tag}
             style={{
-              backgroundColor: index % 2 === 1 ? '#C2E56C' : '#B9B5FF'
+              backgroundColor: index % 2 === 1 ? '#bceb49' : '#b6b2f8'
             }}
           >
             {o.svg}

@@ -22,7 +22,7 @@ export const CARDDATA: Card_Type[] = [
     text: `Major international port city, it plays a\ncrucial role in South Korea's global trade\nand cultural exchange. Coastal city with\nbeautiful shorelines and islands with scenic\nviews of the West Sea.`,
     to: null,
     xy: { x: -110, y: 900 },
-    backColor: '#ED721D',
+    backColor: '#ddb33c',
     regionNum: '032'
   },
   {

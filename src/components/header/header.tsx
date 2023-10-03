@@ -8,7 +8,14 @@ import { selectLogin } from '../../redux/slices/loginSlice';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import SearchDropDown from './search/search';
-import { postInterceptor } from '../../func/interceptor';
+import {
+  APIInterceptor,
+  postInterceptor,
+  sendAxiosState
+} from '../../func/interceptor';
+import { API_ENG } from '../../temp/apicode';
+import { AxiosResponse } from 'axios';
+import { API_TYPE } from '../../func/interface';
 
 type HeaderType = {
   type: string;
@@ -19,13 +26,35 @@ export default function Header({ type }: HeaderType) {
   const nav = useNavigate();
   const [backColor, setBackColor] = useState<string>('');
   const [fontColor, setFontColor] = useState<string>('');
+  const [anyuting, setAnyuting] = useState<any[]>([]);
 
   useEffect(() => {
     chooseColor(type);
+    //getdata(0);
   }, []);
 
   const navtoHome = () => {
     nav('/');
+  };
+
+  const getdata = (number: number) => {
+    const data: API_TYPE = {
+      url: `https://apis.data.go.kr/B551011/EngService1/detailCommon1?serviceKey=${process.env.REACT_APP_TOUR_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&contentId=${API_ENG[number].contentid}&defaultYN=Y&firstImageYN=N&areacodeYN=N&catcodeYN=N&addrinfoYN=Y&mapinfoYN=N&overviewYN=N`,
+      callback: (o: any) => {
+        setAnyuting((anyuting) => [
+          ...anyuting,
+          o.data.response.body.items.item[0]
+        ]);
+        if (number !== 82) {
+          console.log(number);
+          getdata(number + 1);
+        } else {
+          console.log('end');
+          console.log(anyuting);
+        }
+      }
+    };
+    APIInterceptor(data);
   };
 
   const chooseColor = (type: string) => {
@@ -69,6 +98,14 @@ export default function Header({ type }: HeaderType) {
         <HeaderLocate color={fontColor} />
         <HeaderMenu />
       </div>
+      {/* <button
+        style={{ color: 'white' }}
+        onClick={() => {
+          console.log(anyuting);
+        }}
+      >
+        aaaa
+      </button> */}
       {login.value.login && <Login />}
     </div>
   );

@@ -50,12 +50,6 @@ export default function Region() {
           );
         })}
       </div>
-      <button
-        onClick={(e) => console.log(e.pageX, e.pageY)}
-        style={{ color: '#fff' }}
-      >
-        adfdfsfsdfs
-      </button>
       <Footer />
     </div>
   );

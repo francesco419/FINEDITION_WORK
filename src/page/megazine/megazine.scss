@@ -1,0 +1,183 @@
+@import '../../style.scss';
+
+.background-full {
+  width: 100%;
+  height: 100%;
+  background-color: $System-White-0-1;
+}
+
+.citie {
+  margin: 0 auto;
+  width: 1300px;
+  &_head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    height: 312px;
+    &_title {
+      margin: 0 0 31px;
+      p {
+        font-family: Value Serif Pro Med;
+        font-size: 45px;
+        line-height: 0.75em; /* 54px */
+      }
+    }
+    &_sort {
+      position: relative;
+      display: flex;
+      box-sizing: border-box;
+      width: 308px;
+      padding: 0 0 14px;
+      margin: 0 0 16px;
+      border-bottom: 1px solid #b9b5ff;
+      button {
+        margin: 0 18.4px 0 0;
+      }
+      p {
+        color: var(--Purple, #736de3);
+        font-family: Value Serif Pro Med;
+        font-size: 29px;
+        line-height: 0.75;
+      }
+    }
+    &_drop {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 380px;
+      height: 416px;
+      padding: 22px 38px 38px;
+      background-color: $System-White-0-1;
+      z-index: 5;
+      color: #736de3;
+      box-sizing: border-box;
+      button {
+        display: block;
+        margin-bottom: 36px;
+        &:last-child {
+          margin: 0;
+        }
+        color: #736de3;
+        font-family: Value Serif Pro Med;
+        font-size: 29px;
+        line-height: 0.675; /* 34.8px */
+      }
+    }
+  }
+  &_section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    width: 1300px;
+    height: 296px;
+    padding: 28px 32px;
+    margin: 0 0 25px;
+    box-sizing: border-box;
+    background-color: $System-White-1;
+  }
+  &_search {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: baseline;
+    width: 224px;
+    height: 239px;
+    margin-right: 74px;
+  }
+  &_search-bar {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border-radius: 300px;
+    background-color: #eaeaea;
+    padding: 0 14px;
+    box-sizing: border-box;
+    input {
+      @include noInputDeco('#eaeaea30');
+      @include font-style(16, $System-Dark-Gray-0, 0.7, Inter Reg);
+      margin: 0 0 0 8px;
+      width: 150px;
+      &::placeholder {
+        @include font-style(16, #c7c7cd, 0.7, Inter Reg);
+      }
+    }
+  }
+  &_search-reset {
+    button {
+      @include font-style(12, $System-Light-Gray-1, 0.7, Mabry Pro Reg);
+    }
+  }
+  &_city_region {
+  }
+  &_city_region-title {
+    @include font-style(18, $System-Black-0, 0.7, Mabry Pro Med);
+    margin: 1px 0 16px;
+  }
+  &_city_region-check {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 209px;
+  }
+  &_city_map {
+    svg {
+      fill: $System-Light-Gray-0;
+    }
+  }
+  &_theme {
+    align-self: baseline;
+    width: 188px;
+    margin: 0 0 0 57.5px;
+  }
+  &_theme-title {
+    margin-bottom: 17px;
+    p {
+      @include font-style(18, $System-Black-0, 0.7, Mabry Pro Med);
+    }
+  }
+  &_theme-check {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 97px;
+  }
+  &_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+#KR-45 {
+  &:hover {
+    fill: #e67d40;
+  }
+}
+/* #KR-46 {
+  &:hover {
+    fill: #e67d40;
+  }
+} */
+#KR-47 {
+  &:hover {
+    fill: #e67d40;
+  }
+}
+#KR-48 {
+  &:hover {
+    fill: #e67d40;
+  }
+}
+#KR-49 {
+  &:hover {
+    fill: #e67d40;
+  }
+}
+#KR-50 {
+  &:hover {
+    fill: #e67d40;
+  }
+}
