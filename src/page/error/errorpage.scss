@@ -1,0 +1,34 @@
+@import '../../style.scss';
+
+.errorpage {
+  &-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 0 0;
+    box-sizing: border-box;
+  }
+  &_container {
+    &-title {
+      h2 {
+        margin: 0 auto;
+        @include font-style(64, $Brand-Light-Green-0, Mabry Pro Reg, 1.4);
+      }
+    }
+    &-body {
+      margin: 36px 0 25px;
+      p {
+        white-space: pre-wrap;
+        @include font-style(24, $Brand-Light-Green-0, Mabry Pro Reg, 1.4);
+      }
+    }
+    &-contact {
+      p {
+        margin: 0 auto;
+        white-space: pre-wrap;
+        @include font-style(24, $Brand-Light-Green-0, Mabry Pro Reg, 1.4);
+        text-decoration: underline;
+      }
+    }
+  }
+}

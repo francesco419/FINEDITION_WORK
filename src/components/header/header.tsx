@@ -66,7 +66,7 @@ export default function Header({ type }: HeaderType) {
         changeColor('#b9e155');
         return;
       case 'gray':
-        changeColor('#eaeaea');
+        changeColor('#f3f3f8');
         return;
       default:
         changeColor('#ff0000');

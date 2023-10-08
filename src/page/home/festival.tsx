@@ -104,7 +104,9 @@ function FestivalHome({ refer, num, click }: FestivalRefType) {
       {_.map(temp, (o, index) => {
         return (
           <div className='festivalHome_part' key={`${o.name}_${index}`}>
-            <img src={o.img} />
+            <div className='festivalHome_image'>
+              <img src={o.img} />
+            </div>
             <div className='festivalHome_detail'>
               <h3>{o.name}</h3>
               <p>{o.detail}</p>

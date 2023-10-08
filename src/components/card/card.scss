@@ -1,151 +1,91 @@
 @import '../../style.scss';
 
-.megazineCard-small {
+@mixin cardDl {
   position: relative;
-  min-width: 224px;
-  height: 310px;
-  margin-right: 16px;
-  &:last-child {
-    margin-right: 0;
-  }
-  &_bookmark {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-  }
-  &_detail {
-    position: absolute;
-    bottom: 0;
-    width: 310px;
-    height: 98px;
-    background-color: #b9b5ff;
-    padding: 10px 15px;
-    box-sizing: border-box;
-    p {
-      color: $black;
-      font-family: Value Serif Pro;
-      font-size: 21px;
-      font-style: normal;
-      font-weight: 500;
-      letter-spacing: 0.42px;
-      &:first-child {
-        color: #736de3;
-        font-family: Value Serif Pro;
-        font-size: 13px;
-        font-style: normal;
-        font-weight: 500;
-        letter-spacing: 0.26px;
-      }
+  margin: 0;
+}
+@mixin cardDd($topmargin, $sTop, $sBot, $firstSize, $secondSize) {
+  margin: $topmargin 0 0;
+  p {
+    &:first-child {
+      @include font-style($firstSize, $System-Dark-Gray-0, Value Serif Pro Med);
     }
+    &:nth-child(2) {
+      margin: $sTop 0 $sBot;
+    }
+    @include font-style($secondSize, $System-Black-0, Mabry Pro Reg);
   }
 }
-
-.megazineCard-big {
-  position: relative;
-  width: 299px;
-  height: 412.413px;
-  margin: 0 0 28px 0;
+@mixin cardDt {
   img {
     height: 100%;
     width: 100%;
   }
-  &:last-child {
-    margin-right: 0;
-  }
-  &_bookmark {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-  &_detail {
-    position: absolute;
-    bottom: 0;
-    width: 310px;
-    height: 98px;
-    background-color: #b9b5ff;
-    padding: 10px 15px;
-    box-sizing: border-box;
-    p {
-      color: $black;
-      font-family: Value Serif Pro;
-      font-size: 21px;
-      font-style: normal;
-      font-weight: 500;
-      letter-spacing: 0.42px;
-      &:first-child {
-        color: #736de3;
-        font-family: Value Serif Pro;
-        font-size: 13px;
-        font-style: normal;
-        font-weight: 500;
-        letter-spacing: 0.26px;
-      }
-    }
+}
+
+.cardBookMark {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  margin: 0 !important;
+  &:hover svg {
+    filter: invert(100%);
   }
 }
 
-.megazineCard-default {
-  position: relative;
-  width: 224px;
-  height: 345px;
-  margin: 0 0 28px 0;
-  img {
-    height: 280px;
+.magazineCard {
+  &-small {
+    @include cardDl();
     width: 224px;
-  }
-  &:last-child {
-    margin-right: 0;
-  }
-  &_bookmark {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-  &_detail {
-    position: absolute;
-    bottom: 0;
-    width: 310px;
-    height: 98px;
-    background-color: #b9b5ff;
-    padding: 10px 15px;
-    box-sizing: border-box;
-    p {
-      color: $black;
-      font-family: Value Serif Pro;
-      font-size: 21px;
-      font-style: normal;
-      font-weight: 500;
-      letter-spacing: 0.42px;
-      &:first-child {
-        color: #736de3;
-        font-family: Value Serif Pro;
-        font-size: 13px;
-        font-style: normal;
-        font-weight: 500;
-        letter-spacing: 0.26px;
+    height: 345px;
+    background-color: $System-White-0;
+    dt {
+      height: 280px;
+      @include cardDt();
+      background-color: #d1c8b5;
+      img {
+        height: 100%;
+        width: 100%;
       }
     }
-  }
-}
-
-dl {
-  position: relative;
-  width: 224px;
-  height: 345px;
-  dt {
-    height: 280px;
-    width: 224px;
-    img {
-      height: 100%;
-      width: 100%;
+    dd {
+      @include cardDd(15px, 10px, 5px, 11px, 16px);
     }
   }
-  dd {
-    &:first-child {
-      margin: 15px 0 0;
-      p {
-        @include font-style(11, $System-Dark-Gray-0, $serifmed);
+  &-medium {
+    @include cardDl();
+    width: 260px;
+    height: 401px;
+    background-color: $System-White-0;
+    dt {
+      height: 325px;
+      @include cardDt();
+      background-color: #d1c8b5;
+      img {
+        height: 100%;
+        width: 100%;
       }
+    }
+    dd {
+      @include cardDd(18px, 10px, 5px, 12px, 18px);
+    }
+  }
+  &-big {
+    @include cardDl();
+    width: 280px;
+    height: 431px;
+    background-color: $System-White-0;
+    dt {
+      height: 350px;
+      @include cardDt();
+      background-color: #d1c8b5;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    dd {
+      @include cardDd(19px, 10px, 5px, 13px, 20px);
     }
   }
 }

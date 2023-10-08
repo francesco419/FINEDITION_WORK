@@ -33,10 +33,6 @@ export default function HeaderMenu() {
     <>
       <div className='header_menu'>
         <HeaderSVG
-          svg={<Not style={{ fill: not ? '#0849fd' : '#ff0000' }} />}
-          to={() => dispatch(setDefault())}
-        />
-        <HeaderSVG
           svg={<Search />}
           to={() => {
             setDropDown((dropDown) => !dropDown);

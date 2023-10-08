@@ -9,6 +9,7 @@ import Footer from '../../components/footer/footer';
 import ListFront from './components/listFront';
 import ListCheckBox from './components/listCheckBox';
 import ThemeCheckBox from './components/themeCheckBox';
+import Card from '../../components/card/cardComp';
 
 const cities = [
   { id: 'KR-11', name: 'Seoul' },
@@ -93,7 +94,7 @@ export default function Megazine() {
         </div>
         <div className='citie_list'>
           {_.map(data, (o) => {
-            return <MegazineCard img={o.img} color={o.color} type={false} />;
+            return <Card img={o.img} color={o.color} type='small' />;
           })}
         </div>
         <Footer />

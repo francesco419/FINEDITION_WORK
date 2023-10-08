@@ -7,6 +7,8 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import Region from './page/region/region';
 import Administrator from './page/admin/administrator';
 import Megazine from './page/megazine/megazine';
+import ErrorPage from './page/error/errorpage';
+import Story from './page/story/story';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <GoogleOAuthProvider clientId='680788977176-vgs0lulllqoi8jd2sjcbpn77f6vtml7k.apps.googleusercontent.com'>
         <Routes>
           <Route path={`/adminpageexe`} element={<Administrator />} />
+          <Route path={`/error`} element={<ErrorPage />} />
+          <Route path={`/story`} element={<Story />} />
           <Route path={`/region`} element={<Region />} />
           <Route path={`/info/:id/:typeid`} element={<Info />} />
           <Route path={`/profile/:id`} element={<Profile />} />

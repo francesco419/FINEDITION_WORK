@@ -167,8 +167,8 @@ $intersemibold: Inter SemiBold;
 @mixin font-style(
   $size,
   $color: $black-16,
-  $lineHeight: 0.7,
   $fontType: $interreg,
+  $lineHeight: 0.7,
   $fontWeigth: 500
 ) {
   /*   @if ($size==small) {

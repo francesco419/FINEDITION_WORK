@@ -34,6 +34,7 @@ import { useState } from 'react';
 import LoadingSpinner from '../../components/common/loadingspinner';
 import ImgBox from './component/imgbox';
 import InfoTag from './component/infotag';
+import PageCount from '../../components/common/pageCount';
 
 /* 
 addr1
@@ -260,25 +261,9 @@ export default function Info() {
                 <Bookmark />
               </div>
               <InfoTag />
+              <PageCount />
               <div className='info_infomation-detail'>
-                <ul>
-                  <li>
-                    <p>00 Bookmarked</p>
-                  </li>
-                  <li>
-                    <p>00 Liked</p>
-                  </li>
-                  <li>
-                    <p>00 Viewed</p>
-                  </li>
-                </ul>
-                <hr
-                  style={{
-                    border: '0',
-                    borderTop: '1px solid #000',
-                    margin: '20px 0 18px'
-                  }}
-                />
+                <hr />
                 <ul>
                   <UseTimeComp text={apidata.usetime} />
                   <RestTimeComp text={apidata.restdate} />

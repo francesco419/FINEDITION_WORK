@@ -328,3 +328,92 @@ export const data1: MegazineCardType[] = [
     color: '#F87D36'
   } */
 ];
+
+/*  const mouseDownHandler = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    setDown((down) => true);
+    if (ref.current) {
+      setPoint((point) => e.pageX);
+      setX(ref.current.scrollLeft);
+    }
+  };
+
+  const downFalseHandler = () => {
+    if (down) {
+      setDown((down) => false);
+      setTimeout(() => {
+        dispatch(noClick());
+      }, 300);
+    }
+  };
+
+  const mouseMoveHandler = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    if (!down) return;
+
+    e.preventDefault();
+
+    debounceRedux();
+
+    if (ref.current) {
+      const move = e.pageX - point;
+      ref.current.scrollLeft = x - move;
+    }
+  }; */
+
+/*   const mouseDownHandler = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    setDown((down) => true);
+    if (ref.current) {
+      setPoint((point) => e.pageX);
+      setX(ref.current.scrollLeft);
+    }
+  };
+
+  const downFalseHandler = () => {
+    if (ref.current) {
+      if (down) {
+        if (x > 0) {
+          setX(0);
+        }
+        if (x < 1300 - ref.current.offsetWidth) {
+          setX(1300 - ref.current.offsetWidth);
+        }
+        setDown((down) => false);
+        setTimeout(() => {
+          dispatch(noClick());
+        }, 300);
+      }
+    }
+  };
+
+  const mouseMoveHandler = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    if (!down) return;
+
+    e.preventDefault();
+
+    //debounceRedux();
+
+    if (ref.current) {
+      if (e.pageX < point) {
+        setX((x) => x - 3);
+        return;
+      }
+
+      if (e.pageX > point) {
+        setX((x) => x + 3);
+        return;
+      }
+      debounceRedux();
+
+      if (ref.current) {
+        const move = e.pageX - point;
+        ref.current.scrollLeft = x - move;
+      }
+    }
+  }; */

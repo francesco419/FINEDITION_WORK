@@ -1,39 +1,36 @@
 import './card.scss';
 import { ReactComponent as BookMark } from '../../assets/svg/bookmark-big.svg';
+import image from '../../assets/image/temp/Frame.png';
 
 export interface MegazineCardType {
   img: string;
   color: string;
   click?: boolean;
-  type?: boolean;
+  type: string;
 }
+
+const sizeof = ['small', 'medium', 'large'];
 
 export default function Card({ img, color, type }: MegazineCardType) {
   return (
     <dl
-      className={type ? 'megazineCard-small' : 'megazineCard-big'}
+      className={`magazineCard-${type}`}
       onClick={() => {
         console.log('to meg page');
       }}
     >
-      <dd>
-        <img src={img} />
-      </dd>
-      <dd>
-        <p>Locale</p>
-      </dd>
       <dt>
-        <p></p>
+        <img src={img} />
       </dt>
       <dd>
-        <p></p>
+        <p>Locale</p>
+        <p>Gyeongbokgung Palace</p>
+        <p>Jongno-gu, Seoul</p>
       </dd>
-      <dd
-        className={
-          type ? 'megazineCard-small_bookmark' : 'megazineCard-big_bookmark'
-        }
-      >
-        <BookMark style={{ stroke: color }} />
+      <dd className='cardBookMark'>
+        <button>
+          <BookMark style={{ stroke: color }} />
+        </button>
       </dd>
     </dl>
   );

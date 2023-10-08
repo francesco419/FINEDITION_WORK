@@ -1,7 +1,6 @@
 @import './style.scss';
 @import url(./assets/font/Mabry/stylesheet.css);
 @import url(./assets/font/ValueSerifPro/stylesheet.css);
-@import url(./assets/font/SFProDisplay/stylesheet.css);
 @import url(./assets/font/inter/stylesheet.css);
 
 body {
@@ -14,6 +13,9 @@ body {
   background-color: $black;
 }
 
+#root {
+}
+
 h1,
 h2,
 h3,
@@ -21,7 +23,7 @@ h4,
 p {
   margin: 0;
   width: fit-content;
-  line-height: 1;
+  line-height: 0.7;
 }
 
 /* p {

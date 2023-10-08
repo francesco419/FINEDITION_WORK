@@ -1,0 +1,16 @@
+@import '../../style.scss';
+
+.pageCount {
+  padding: 24px;
+  background-color: $System-Light-Gray-0;
+  ul {
+    p,
+    a {
+      color: $System-Black-0;
+      font-family: Inter Reg;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 170%; /* 29.4px */
+    }
+  }
+}

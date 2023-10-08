@@ -9,6 +9,7 @@
 .citie {
   margin: 0 auto;
   width: 1300px;
+  background-color: $System-White-0-1;
   &_head {
     display: flex;
     align-items: end;
@@ -147,7 +148,8 @@
   &_list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 70px 45px;
+    margin: 0 0 220px;
   }
 }
 

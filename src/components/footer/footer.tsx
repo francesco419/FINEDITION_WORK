@@ -40,6 +40,10 @@ const FOOTERMENU = [
   ]
 ];
 
+interface Footer_TYPE {
+  type: string;
+}
+
 export default function Footer() {
   const nav = useNavigate();
 

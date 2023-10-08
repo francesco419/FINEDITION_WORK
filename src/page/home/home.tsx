@@ -19,8 +19,8 @@ export default function Home() {
         <Header type='black' />
       </header>
       <section>
-        <CardSlide data={data} />
-        <CardSlide data={data1} />
+        <CardSlide data={data} type='small' />
+        <CardSlide data={data1} type='small' />
         <hr style={{ margin: '62px 0 25px' }} />
         <div style={{ display: 'flex', margin: '0 0 55px' }}>
           <MyProfile />

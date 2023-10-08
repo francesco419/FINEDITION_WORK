@@ -141,9 +141,13 @@
       }
     }
     &-detail {
-      padding: 22px 25px 10px;
+      padding: 0 25px 10px;
       background-color: #d9d9d9;
       white-space: pre-wrap;
+      hr {
+        margin: 0 0 18px;
+        color: $System-Black-0;
+      }
       ul {
         p,
         a {

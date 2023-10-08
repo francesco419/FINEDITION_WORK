@@ -19,6 +19,10 @@ const instance = axios.create({
 instance.interceptors.request.use(
   //요청보내기
   (config) => {
+    /*     (config.headers as AxiosRequestHeaders)[
+      'Content-Type'
+    ] = `multipart/form-data`; */
+    console.log(config);
     return config;
   },
   (error) => {
@@ -111,6 +115,17 @@ export const APIInterceptor = async (data: API_TYPE) => {
     .get(data.url)
     .then((response: any) => {
       data.callback(response);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
+
+export const postFormInterceptor = async (data: sendAxiosState) => {
+  return await axios
+    .postForm(data.url)
+    .then((response: any) => {
+      if (data.callback) data.callback(response);
     })
     .catch((e) => {
       console.log(e);

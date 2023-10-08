@@ -1,4 +1,147 @@
 @import '../../style.scss';
 
 .cityPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &_upperbody {
+    width: 1440px;
+    margin: 0 auto;
+    padding: 0 70px 80px;
+    box-sizing: border-box;
+  }
+  &_upperContainer {
+    padding: 165px 0 0;
+    width: 100%;
+    width: 100%;
+    &-title {
+      width: 865px;
+      margin: 0 auto 80px;
+      h2 {
+        width: auto;
+        text-align: center;
+        letter-spacing: 1.35px;
+        @include font-style(45, $Brand-Purple-0, Value Serif Pro Med, 1);
+      }
+      h3 {
+        margin: 26px 0 30px;
+        width: auto;
+        text-align: center;
+        @include font-style(45, $Brand-Light-Green-0, Value Serif Pro Med, 1);
+      }
+      p {
+        width: auto;
+        text-align: center;
+        white-space: pre-wrap;
+        @include font-style(16, $System-White-0, Mabry Pro Reg, 1.4);
+      }
+    }
+    &-slide {
+      margin: 0 0 80px;
+    }
+    &-things {
+      display: flex;
+      gap: 30px;
+    }
+  }
+  &_lowerbody {
+    width: 1440px;
+    margin: 0 auto;
+    padding: 207px 70px 280px;
+    box-sizing: border-box;
+    position: relative;
+    &-intro {
+      position: absolute;
+      top: 35px;
+      left: 70px;
+      width: 455px;
+      height: 205px;
+      p {
+        white-space: pre-wrap;
+        @include font-style(24, $System-Black-0, Mabry Pro Reg, 1.3);
+      }
+    }
+    &-map {
+      margin: 0 285px 132px;
+    }
+    &-menu {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 0 38px;
+      div {
+        &:first-child {
+          display: flex;
+          gap: 26px;
+          p {
+            &:first-child {
+              @include font-style(37, $System-Black-0, Mabry Pro Med, 1.3);
+            }
+            &:last-child {
+              @include font-style(29, $Brand-Orange-0, Calligraffitti, 1.5);
+              border-bottom: 1px solid $System-Black-0;
+            }
+          }
+        }
+        &:last-child {
+          p {
+            @include font-style(16, $System-Dark-Gray-1, Inter Reg, 1.3);
+            border-bottom: 1px solid $System-Black-0;
+          }
+        }
+      }
+    }
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 70px 0;
+    }
+  }
+  &_lowerContainer {
+    background-color: $System-White-0;
+    width: 100%;
+  }
+}
+
+.things-todo {
+  width: 710px;
+  &_header {
+    display: flex;
+    align-items: center;
+    background-color: $Brand-Light-Green-0;
+    height: 40px;
+    margin: 0 0 15px;
+    border-radius: 3px;
+    padding: 0 0 0 20px;
+  }
+  &_body {
+    display: flex;
+    gap: 15px;
+    ul {
+      width: 415px;
+      height: 320px;
+      background-color: aqua;
+      padding: 20px 20px;
+      border-radius: 3px;
+      background-color: $System-Black-1;
+      box-sizing: border-box;
+      h4 {
+        @include font-style(18, $Brand-Light-Green-0, Mabry Pro Med, 0.7);
+      }
+      &:first-child {
+        width: 415px;
+        height: 320px;
+      }
+      &:last-child {
+        width: 280px;
+        height: 320px;
+      }
+    }
+  }
+}
+
+.thingslist {
+  margin: 25px 0 0;
+  padding: 10px 0 7px;
+  border-top: 1px solid #eaeaea21;
+  @include font-style(14, $gray, Mabry Pro Reg);
 }
