@@ -3,14 +3,56 @@ import Header from '../../components/header/header';
 import {
   postInterceptor,
   getInterceptor,
-  sendAxiosState
+  sendAxiosState,
+  APIInterceptor
 } from '../../func/interceptor';
 import './administrator.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { abort } from 'process';
 import image23 from '../../assets/image/hanoak.png';
 import { putInterceptor } from '../../func/interceptor';
 import axios from 'axios';
+import _ from 'lodash';
+import { API_TYPE } from '../../func/interface';
+import { API_ENG } from '../../temp/apicode';
+import readXlsxFile from 'read-excel-file';
+import { common } from '../../temp/commondata';
+
+export interface cardType {
+  id: number;
+  typeId: number;
+  coverName: string;
+  coverImg: string;
+  coverLocate: string;
+  coverTitle: string;
+  coverAddr: string;
+}
+
+type poType = {
+  contentid: string;
+  contenttypeid: string;
+  title: string;
+  createdtime: string;
+  modifiedtime: string;
+  tel: string;
+  telname: string;
+  homepage: string;
+  firstimage: string;
+  firstimage2: string;
+  cpyrhtDivCd: string;
+  areacode: string;
+  sigungucode: string;
+  cat1: string;
+  cat2: string;
+  cat3: string;
+  addr1: string;
+  addr2: string;
+  zipcode: string;
+  mapx: string;
+  mapy: string;
+  mlevel: string;
+  overview: string;
+};
 
 export default function Administrator() {
   const [password, setPassword] = useState<string>();
@@ -26,15 +68,33 @@ export default function Administrator() {
   const [cover, setCover] = useState<string>('');
   const [summary, setSummary] = useState<string>('');
   const [anything, setAnything] = useState<any>();
+  const [anything2, setAnything2] = useState<any[]>([]);
 
-  const posttest4 = () => {
-    postInterceptor({
-      url: `http://localhost:8080/test`,
-      data: { id: 419 },
-      callback: (e: AxiosResponse) => {
-        console.log(e);
+  let arr123: cardType[] = [];
+  let arr000: cardType[] = [];
+
+  useEffect(() => {
+    /*     _.map(API_ENG, (o) => {
+      getAPIDataCommon(o.contentid);
+    }); */
+  }, []);
+
+  const getAPIDataCommon = async (temp: number) => {
+    const interceptor: API_TYPE = {
+      url: `https://apis.data.go.kr/B551011/EngService1/detailCommon1?serviceKey=${process.env.REACT_APP_TOUR_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&contentId=${temp}&defaultYN=Y&firstImageYN=Y&areacodeYN=Y&catcodeYN=Y&addrinfoYN=Y&mapinfoYN=Y&overviewYN=Y&contentTypeId=76`,
+      callback: (o: any) => {
+        const data = o.data.response.body.items.item[0];
+        setAnything2((anything2) => [...anything2, data]);
       }
-    });
+    };
+    APIInterceptor(interceptor);
+  };
+
+  const getExcel = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files)
+      readXlsxFile(e.target.files[0]).then((rows) => {
+        console.log(rows);
+      });
   };
 
   const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,8 +104,10 @@ export default function Administrator() {
       console.log(file);
       fileReader.onload = () => {
         setAnything((anything: any) => fileReader.result);
+        console.log(anything);
       };
       fileReader.readAsText(file);
+      console.log(anything);
     }
   };
 
@@ -88,7 +150,7 @@ export default function Administrator() {
         <>
           <Header type='black' />
           <div className='admin_test'>
-            <div className='admin_container'>
+            {/* <div className='admin_container'>
               <div className='admin_box'>
                 <h2>내부 내용</h2>
                 <p>Content ID</p>
@@ -162,6 +224,64 @@ export default function Administrator() {
                   }}
                 ></textarea>
               </div>
+            </div> */}
+            <div>
+              <input type='file' onChange={(e) => onFileChange(e)} />
+              <button
+                onClick={() => {
+                  console.log(JSON.parse(anything));
+                }}
+              >
+                CONSOLE
+              </button>
+              <button
+                onClick={() => {
+                  _.map(JSON.parse(anything), (o) => {
+                    let add: string[] = o.addr1.split(',');
+                    const covername = `${add[add.length - 2]}, ${
+                      add[add.length - 1]
+                    }`;
+                    const regExp = new RegExp(/[a-zA-Z0-9-'? ]*/);
+                    const num = _.findIndex(common, (p) => {
+                      return o.contentid == p.contentid;
+                    });
+                    let a = {
+                      id: o.contentid,
+                      typeId: 76,
+                      coverName: o.title,
+                      coverImg:
+                        common[num].firstimage !== ''
+                          ? common[num].firstimage
+                          : '',
+                      coverLocate: 'Seoul Info',
+                      coverTitle: o.title.match(regExp)[0].trim(),
+                      coverAddr: covername
+                    };
+                    if (a.coverImg === '') {
+                      arr000.push(a);
+                    }
+                    arr123.push(a);
+                  });
+                }}
+              >
+                CONSOLE
+              </button>
+              <button
+                onClick={() => {
+                  console.log(arr123);
+                  console.log(arr000);
+                }}
+              >
+                Console Result
+              </button>
+              <button
+                onClick={() => {
+                  console.log(anything2);
+                }}
+              >
+                Console anything2
+              </button>
+              <input type='file' onChange={(e) => getExcel(e)} />
             </div>
           </div>
         </>

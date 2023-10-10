@@ -43,8 +43,8 @@ export default function Cities() {
             </p>
           </div>
           <div className='cityPage_upperContainer-slide'>
-            <CardSlide data={data} type='small' />
-            <CardSlide data={data} type='small' />
+            {/* <CardSlide data={data} type='small' />
+            <CardSlide data={data} type='small' /> */}
           </div>
           <div className='cityPage_upperContainer-things'>
             <div>
@@ -99,12 +99,12 @@ export default function Cities() {
               </div>
             </div>
             <div className='cityPage_lowerbody-list'>
-              {_.map(numbers, (o, index) => {
+              {/* {_.map(numbers, (o, index) => {
                 if (index < 15)
                   return (
                     <Card img={sampleImage} color={'#000'} type='medium' />
                   );
-              })}
+              })} */}
             </div>
           </div>
         </div>

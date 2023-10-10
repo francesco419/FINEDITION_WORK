@@ -1,31 +1,40 @@
 import './card.scss';
 import { ReactComponent as BookMark } from '../../assets/svg/bookmark-big.svg';
 import image from '../../assets/image/temp/Frame.png';
+import { cardType } from '../../page/admin/administrator';
+import { useNavigate } from 'react-router';
 
 export interface MegazineCardType {
-  img: string;
+  data: cardType;
   color: string;
   click?: boolean;
   type: string;
 }
 
+interface cardValueType {
+  data: cardType;
+  type: string;
+  click?: boolean;
+}
+
 const sizeof = ['small', 'medium', 'large'];
 
-export default function Card({ img, color, type }: MegazineCardType) {
+export default function Card({ data, color, type }: MegazineCardType) {
+  const nav = useNavigate();
+
+  const navigateHandler = () => {
+    nav(`/info/${data.id}/${data.typeId}`);
+  };
+
   return (
-    <dl
-      className={`magazineCard-${type}`}
-      onClick={() => {
-        console.log('to meg page');
-      }}
-    >
+    <dl className={`magazineCard-${type}`} onClick={navigateHandler}>
       <dt>
-        <img src={img} />
+        <img src={data.coverImg} />
       </dt>
       <dd>
-        <p>Locale</p>
-        <p>Gyeongbokgung Palace</p>
-        <p>Jongno-gu, Seoul</p>
+        <p>{data.coverLocate}</p>
+        <p>{data.coverTitle}</p>
+        <p>{data.coverAddr}</p>
       </dd>
       <dd className='cardBookMark'>
         <button>

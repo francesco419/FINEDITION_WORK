@@ -6,9 +6,10 @@ import { useAppDispatch } from '../../redux/hooks';
 import { noClick, yesClick } from '../../redux/slices/clickSlice';
 import { useInterval } from 'usehooks-ts';
 import Card from '../../components/card/cardComp';
+import { cardType } from '../admin/administrator';
 
 type SlideType = {
-  data: MegazineCardType[];
+  data: cardType[];
   type: string;
 };
 
@@ -140,10 +141,10 @@ export default function CardSlide({ data, type }: SlideType) {
           return (
             <span style={{ margin: '0 33px 0 0' }}>
               <Card
-                img={o.img}
-                color={o.color}
+                data={o}
+                color={'#b6b2f8'}
                 type={type}
-                key={`${o.img}_${index}`}
+                key={`${o.id}_${index}`}
               />
             </span>
           );

@@ -93,9 +93,9 @@ export default function Megazine() {
           </div>
         </div>
         <div className='citie_list'>
-          {_.map(data, (o) => {
+          {/* {_.map(data, (o) => {
             return <Card img={o.img} color={o.color} type='small' />;
-          })}
+          })} */}
         </div>
         <Footer />
       </div>

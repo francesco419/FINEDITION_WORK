@@ -12,7 +12,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 module.exports = function (app) {
   app.use(
     createProxyMiddleware('/api', {
-      target: `http://localhost:8080`,
+      target: `https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app`,
       changeOrigin: true
     })
   );
