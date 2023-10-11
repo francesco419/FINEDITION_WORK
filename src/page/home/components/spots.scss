@@ -1,0 +1,12 @@
+@import '../../../style.scss';
+
+.home_spots {
+  margin: 75px 0 0;
+  h2 {
+    @include font-style(21, $Brand-Light-Green-0, Mabry Pro Med, 1.4);
+  }
+  &-cards {
+    display: flex;
+    margin: 18px 0 0;
+  }
+}

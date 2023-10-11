@@ -6,4 +6,12 @@
   padding: 88px 70px 0;
   background-color: $black;
   box-sizing: border-box;
+  &_souvenirs {
+    width: 350px;
+    height: 320px;
+    img {
+      width: inherit;
+      height: inherit;
+    }
+  }
 }

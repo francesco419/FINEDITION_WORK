@@ -1,21 +1,25 @@
-@import './../../style.scss';
+@import '../../../style.scss';
 
 .wordbuzz {
-  width: 639px;
+  width: 620px;
   height: 320px;
   border: 1px solid #eaeaea;
+  background-color: $System-White-2;
+  padding: 0 20px 20px;
+  box-sizing: border-box;
   &_title {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 27px auto 0;
+    margin: 15px 0 24px;
     h3 {
-      color: #eaeaea;
       @include mabry;
       font-size: 18px;
       font-style: normal;
       font-weight: 500;
       margin-right: 3px;
+    }
+    svg {
+      fill: $System-Black-0;
     }
   }
 }
@@ -23,41 +27,28 @@
 .apimap {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px 0;
-  padding: 30px;
-  white-space: pre-wrap;
+  gap: 20px 10px;
   div {
-    width: calc(100% / 5);
-    height: 96px;
+    width: 107px;
+    height: 107px;
   }
   img {
-    flex-grow: 1;
-    width: 96px;
-    height: 96px;
-    transition: all 0.5s;
-    &:hover {
-      transform: scale(1.5);
-      filter: blur(0);
-    }
+    width: inherit;
+    height: inherit;
   }
 }
 
 .discovercities {
   position: relative;
-  width: 310px;
-  height: 331px;
+  width: 290px;
+  height: 320px;
   background: #b9b5ff;
   white-space: pre-wrap;
   &_title {
     display: flex;
     margin: 22px 19px 0;
     h2 {
-      color: #000;
-      @include serif;
-      font-size: 22px;
-      font-style: normal;
-      font-weight: 500;
+      @include font-style(22, $System-Black-0, Mabry Pro Med, 1.3);
     }
   }
   &_title-list {
@@ -91,19 +82,11 @@
   &_city {
     position: absolute;
     p {
-      color: #000;
-      font-family: Value Serif Pro;
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 400;
+      @include font-style(13, $Brand-Purple-1, Mabry Pro Reg, 1.4);
       width: max-content;
     }
     svg {
       cursor: pointer;
-      stroke: #fff;
-      &:hover {
-        stroke: #2a69f1;
-      }
     }
   }
 }

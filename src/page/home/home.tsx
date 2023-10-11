@@ -1,17 +1,20 @@
 import './home.scss';
 import Header from '../../components/header/header';
 import _ from 'lodash';
-import CardSlide from './cardSlide';
-import MyProfile from './myProfile';
-import Recommend from './recommned';
-import FestivalHome from './festival';
-import NewsHome from './news';
-import PhotoBuzz from './photoBuzz';
-import DiscoverCities from './discover';
+import CardSlide from '../../components/card/slide/cardSlide';
+import MyProfile from './components/myProfile';
+import Recommend from './components/recommned';
+import FestivalHome from '../../components/festival/festival';
+import NewsHome from './components/news';
+import PhotoBuzz from './components/photoBuzz';
+import DiscoverCities from './components/discover';
 import Footer from '../../components/footer/footer';
 import LocationMapCom from '../info/component/map';
 import { cardData } from '../../temp/cardData';
 import { cardType } from '../admin/administrator';
+import souvenir from '../../assets/image/home/home-souvenir.png';
+import Extras from './components/extras';
+import HomeSpots from './components/spots';
 
 const data0: cardType[] = [
   cardData[0],
@@ -47,11 +50,11 @@ export default function Home() {
         <Header type='black' />
       </header>
       <section>
-        <CardSlide data={data0} type='small' />
+        <CardSlide data={data0} type='medium' />
         <CardSlide data={data1} type='medium' />
-        <CardSlide data={data1} type='big' />
-        <hr style={{ margin: '62px 0 25px' }} />
-        <div style={{ display: 'flex', margin: '0 0 55px' }}>
+        <div
+          style={{ display: 'flex', margin: '0 0 85px', padding: '50px 0 0' }}
+        >
           <MyProfile />
           <Recommend />
         </div>
@@ -59,16 +62,21 @@ export default function Home() {
           <FestivalHome />
           <NewsHome />
         </div>
-        <hr style={{ margin: '72px 0 32px' }} />
+        <HomeSpots />
         <div
           style={{
             display: 'flex',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            margin: '100px 0 0 '
           }}
         >
           <DiscoverCities />
+          <div className='home_souvenirs'>
+            <img src={souvenir} />
+          </div>
           <PhotoBuzz />
         </div>
+        <Extras />
       </section>
       {/* <div className='homll'>a</div> */}
       <Footer />

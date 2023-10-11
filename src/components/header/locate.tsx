@@ -8,7 +8,7 @@ type HeaderLocateType = {
 
 const arr = [
   { name: 'Megazine', to: `${process.env.PUBLIC_URL}/megazine` },
-  { name: 'Seoul', to: `${process.env.PUBLIC_URL}/info/264337/76` },
+  { name: 'Seoul', to: `${process.env.PUBLIC_URL}/cities/` },
   { name: 'Region', to: `${process.env.PUBLIC_URL}/region` }
 ];
 

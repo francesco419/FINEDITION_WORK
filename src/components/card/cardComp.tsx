@@ -9,6 +9,7 @@ export interface MegazineCardType {
   color: string;
   click?: boolean;
   type: string;
+  fcolor?: string;
 }
 
 interface cardValueType {
@@ -19,7 +20,7 @@ interface cardValueType {
 
 const sizeof = ['small', 'medium', 'large'];
 
-export default function Card({ data, color, type }: MegazineCardType) {
+export default function Card({ data, color, type, fcolor }: MegazineCardType) {
   const nav = useNavigate();
 
   const navigateHandler = () => {
@@ -33,8 +34,8 @@ export default function Card({ data, color, type }: MegazineCardType) {
       </dt>
       <dd>
         <p>{data.coverLocate}</p>
-        <p>{data.coverTitle}</p>
-        <p>{data.coverAddr}</p>
+        <p style={{ color: fcolor ? fcolor : '#fff' }}>{data.coverTitle},</p>
+        <p style={{ color: fcolor ? fcolor : '#fff' }}>{data.coverAddr}</p>
       </dd>
       <dd className='cardBookMark'>
         <button>

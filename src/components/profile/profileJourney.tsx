@@ -15,17 +15,36 @@ export default function ProfileJourney({ type }: ProfileJourneyType) {
   return (
     <ul className={style}>
       <li>
-        <p className='journey-big-fontS'>D-42 days to Seoul</p>
+        <p className='journey-big-fontS'>D-00 days to Seoul</p>
       </li>
       <li>
-        {!type && <Arrow />}
-        <Plane />
-        <p className='journey-big-fontB'>Upcoming Journey</p>
-        <p className='journey-big-fontS'>24.02.08 Wed ~ 02.21 Thu</p>
+        <div>
+          <Plane />
+          {!type && <Arrow />}
+        </div>
+        <p className='journey-big-fontB'>No Upcoming</p>
+        <p className='journey-big-fontS'>Journey to Korea</p>
       </li>
       <li>
-        <p className='journey-big-fontS'>18 Days l 17 Nights</p>
+        <p className='journey-big-fontS'>Curate to the Finest</p>
       </li>
     </ul>
   );
 }
+
+/* return (
+  <ul className={style}>
+    <li>
+      <p className='journey-big-fontS'>D-42 days to Seoul</p>
+    </li>
+    <li>
+      {!type && <Arrow />}
+      <Plane />
+      <p className='journey-big-fontB'>Upcoming Journey</p>
+      <p className='journey-big-fontS'>24.02.08 Wed ~ 02.21 Thu</p>
+    </li>
+    <li>
+      <p className='journey-big-fontS'>18 Days l 17 Nights</p>
+    </li>
+  </ul>
+); */

@@ -3,6 +3,7 @@ import { ReactComponent as Arrow } from '../asset/arrow.svg';
 import { useState, useEffect } from 'react';
 import { useAppSelector } from '../../../redux/hooks';
 import { selectRegion } from '../../../redux/slices/regionSlice';
+import { useNavigate } from 'react-router';
 
 export interface Card_Type {
   location: string;
@@ -26,6 +27,7 @@ export default function Card({
     y: xy.y
   });
   const region = useAppSelector(selectRegion);
+  const nav = useNavigate();
 
   useEffect(() => {
     setLocationIn(xy);
@@ -52,7 +54,9 @@ export default function Card({
     e.preventDefault();
   };
 
-  console.log(location);
+  const navigateHandler = (str: string) => {
+    nav(`/cities/`);
+  };
 
   return (
     <div
@@ -85,7 +89,7 @@ export default function Card({
         <pre>{text}</pre>
       </div>
       {to && (
-        <button className='card_to'>
+        <button className='card_to' onClick={() => navigateHandler('temp')}>
           Explore {location.toUpperCase()}
           <Arrow />
         </button>

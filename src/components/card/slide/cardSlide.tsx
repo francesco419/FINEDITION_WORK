@@ -1,12 +1,14 @@
-import MegazineCard, { MegazineCardType } from './megazineCard';
+import MegazineCard, {
+  MegazineCardType
+} from '../../../page/home/megazineCard';
 import { useState, useRef, useEffect } from 'react';
 import _ from 'lodash';
 import './cardSlide.scss';
-import { useAppDispatch } from '../../redux/hooks';
-import { noClick, yesClick } from '../../redux/slices/clickSlice';
+import { useAppDispatch } from '../../../redux/hooks';
+import { noClick, yesClick } from '../../../redux/slices/clickSlice';
 import { useInterval } from 'usehooks-ts';
-import Card from '../../components/card/cardComp';
-import { cardType } from '../admin/administrator';
+import Card from '../cardComp';
+import { cardType } from '../../../page/admin/administrator';
 
 type SlideType = {
   data: cardType[];

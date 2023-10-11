@@ -1,11 +1,11 @@
-import './festival.scss';
+import './news.scss';
 import { useState } from 'react';
 import _ from 'lodash';
-import { ReactComponent as Arrow } from '../../assets/svg/Arrow circle down.svg';
-import youtube from '../../assets/image/Youtube.png';
-import insta from '../../assets/image/Insta.png';
-import facebook from '../../assets/image/Facebook.png';
-import yLogo from '../../assets/image/Youtube-logo.png';
+import { ReactComponent as Arrow } from '../../../assets/svg/Arrow circle down.svg';
+import youtube from '../../../assets/image/Youtube.png';
+import insta from '../../../assets/image/Insta.png';
+import facebook from '../../../assets/image/Facebook.png';
+import yLogo from '../../../assets/image/Youtube-logo.png';
 
 const NEWSTITLE: NewsBoxType[] = [
   {

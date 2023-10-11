@@ -1,0 +1,87 @@
+@import '../../../style.scss';
+
+.home_extras {
+  display: flex;
+  gap: 17px;
+  margin: 100px 0 110px;
+  &-worldmap {
+    width: 520px;
+    height: 380px;
+    border-radius: 3px;
+    background-color: $Brand-Light-Green-0;
+    p {
+      @include font-style(18, $System-Black-0, Mabry Pro Med, 1.3);
+      white-space: pre-wrap;
+      margin: 0 0 16px;
+    }
+  }
+  &-partnership {
+    width: 406px;
+    border-radius: 3px;
+    background-color: $System-Dark-Gray-3;
+    margin: 0 0 20px;
+    h3 {
+      @include font-style(18, $System-White-0, Mabry Pro Reg, 1.4);
+    }
+    p {
+      margin: 0 0 10px;
+      white-space: pre-wrap;
+      @include font-style(12, $System-White-0, Mabry Pro Light, 1.4);
+    }
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin: 0 0 16px;
+      a {
+        text-decoration-line: underline;
+        @include font-style(14, $System-White-0, Mabry Pro Reg, 1.4);
+      }
+    }
+  }
+  &-fineTraveler {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 406px;
+    height: 196px;
+    border-radius: 3px;
+    background: #57900d;
+    h3 {
+      white-space: pre-wrap;
+      @include font-style(18, $System-White-0, Mabry Pro Reg, 1.4);
+    }
+    p {
+      white-space: pre-wrap;
+      @include font-style(18, $System-White-0, Mabry Pro Reg, 1.4);
+    }
+    span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  }
+  &-feedback {
+    position: relative;
+    height: 100%;
+    width: 330px;
+    border-radius: 3px;
+    background-color: $System-Black-1;
+    h3 {
+      white-space: pre-wrap;
+      @include font-style(18, $System-White-0, Mabry Pro Reg, 1.4);
+    }
+    p {
+      @include font-style(15, $System-White-0, Mabry Pro Light, 1.4);
+    }
+    img {
+      position: absolute;
+      bottom: -20px;
+    }
+  }
+}
+
+.extrabox {
+  padding: 14px 20px;
+  box-sizing: border-box;
+}

@@ -25,7 +25,8 @@ export const cardData = [
     id: 897540,
     typeId: 76,
     coverName: 'Cheonggyecheon Stream (청계천)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/897540_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Cheonggyecheon Stream',
     coverAddr: ' Jung-gu,  Seoul'
@@ -45,7 +46,8 @@ export const cardData = [
     id: 1326972,
     typeId: 76,
     coverName: 'Hongdae (Hongik University Street) (홍대)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/1326972_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Hongdae',
     coverAddr: ' Mapo-gu,  Seoul'
@@ -64,7 +66,8 @@ export const cardData = [
     id: 264337,
     typeId: 76,
     coverName: 'Gyeongbokgung Palace (경복궁)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264337_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Gyeongbokgung Palace',
     coverAddr: ' Jongno-gu,  Seoul'
@@ -73,7 +76,8 @@ export const cardData = [
     id: 264550,
     typeId: 76,
     coverName: 'Namsan Seoul Tower (남산서울타워)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264550_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Namsan Seoul Tower',
     coverAddr: ' Yongsan-gu,  Seoul'
@@ -95,7 +99,7 @@ export const cardData = [
     coverImg:
       'http://tong.visitkorea.or.kr/cms/resource/36/1568436_image2_1.jpg',
     coverLocate: 'Seoul Info',
-    coverTitle: 'Heunginjimun Gate - Dongdaemun Gate',
+    coverTitle: 'Dongdaemun Gate',
     coverAddr: ' Jongno-gu,  Seoul'
   },
   {
@@ -122,7 +126,8 @@ export const cardData = [
     id: 264116,
     typeId: 76,
     coverName: 'Namsangol Hanok Village (남산골한옥마을)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264116_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Namsangol Hanok Village',
     coverAddr: ' Jung-gu,  Seoul'
@@ -131,7 +136,8 @@ export const cardData = [
     id: 2946681,
     typeId: 76,
     coverName: 'Seongsu-dong Cafe Street (성수동 카페거리)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/2946681_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seongsu-dong Cafe Street',
     coverAddr: ' Seongdong-gu,  Seoul'
@@ -140,7 +146,8 @@ export const cardData = [
     id: 264152,
     typeId: 76,
     coverName: 'Lotte World (롯데월드)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264152_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Lotte World',
     coverAddr: ' Songpa-gu,  Seoul'
@@ -149,7 +156,8 @@ export const cardData = [
     id: 2944158,
     typeId: 76,
     coverName: 'Gyeongnidan Street (경리단길)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/2944158_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Gyeongnidan Street',
     coverAddr: ' Yongsan-gu,  Seoul'
@@ -158,7 +166,8 @@ export const cardData = [
     id: 264358,
     typeId: 76,
     coverName: 'Itaewon Special Tourist Zone (이태원 관광특구)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264358_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Itaewon Special Tourist Zone',
     coverAddr: ' Yongsan-gu,  Seoul'
@@ -167,7 +176,8 @@ export const cardData = [
     id: 2944084,
     typeId: 76,
     coverName: 'Haneul Park (하늘공원)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/2944084_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Haneul Park',
     coverAddr: ' Mapo-gu,  Seoul'
@@ -176,7 +186,8 @@ export const cardData = [
     id: 2003918,
     typeId: 76,
     coverName: 'Lotte World Tower & Mall (롯데월드타워&롯데월드몰)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/2003918_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Lotte World Tower',
     coverAddr: ' Songpa-gu,  Seoul'
@@ -185,7 +196,8 @@ export const cardData = [
     id: 2943972,
     typeId: 76,
     coverName: 'Ikseon-dong (익선동)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/2943972_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Ikseon-dong',
     coverAddr: ' Jongno-gu,  Seoul'
@@ -234,7 +246,8 @@ export const cardData = [
     id: 1542646,
     typeId: 76,
     coverName: 'Songpa Naru Park (Seokchonhosu Lake) (송파나루공원 (석촌호수))',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/1542646_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Songpa Naru Park',
     coverAddr: ' Songpa-gu,  Seoul'
@@ -243,7 +256,8 @@ export const cardData = [
     id: 789703,
     typeId: 76,
     coverName: 'Olympic Park (올림픽공원)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/789703_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Olympic Park',
     coverAddr: ' Songpa-gu,  Seoul'
@@ -252,7 +266,8 @@ export const cardData = [
     id: 789696,
     typeId: 76,
     coverName: 'Seoul Forest (서울숲)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/789696_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seoul Forest',
     coverAddr: ' Seongdong-gu,  Seoul'
@@ -261,7 +276,8 @@ export const cardData = [
     id: 1323377,
     typeId: 76,
     coverName: 'Sinsa-dong Garosu-gil Road (신사동 가로수길)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/1323377_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Sinsa-dong Garosu-gil Road',
     coverAddr: ' Gangnam-gu,  Seoul'
@@ -270,7 +286,8 @@ export const cardData = [
     id: 1751094,
     typeId: 76,
     coverName: 'Namsan Outdoor Botanical Garden (남산 야외식물원)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/1751094_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Namsan Outdoor Botanical Garden',
     coverAddr: ' Yongsan-gu,  Seoul'
@@ -279,7 +296,8 @@ export const cardData = [
     id: 264454,
     typeId: 76,
     coverName: 'World Cup Park (월드컵공원)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264454_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'World Cup Park',
     coverAddr: ' Mapo-gu,  Seoul'
@@ -288,7 +306,8 @@ export const cardData = [
     id: 1748004,
     typeId: 76,
     coverName: 'Seodaemun Independence Park (서대문독립공원)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/1748004_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seodaemun Independence Park',
     coverAddr: ' Seodaemun-gu,  Seoul'
@@ -298,7 +317,8 @@ export const cardData = [
     typeId: 76,
     coverName:
       'Changdeokgung Palace Complex [UNESCO World Heritage] (창덕궁과 후원 [유네스코 세계문화유산])',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264348_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Changdeokgung Palace Complex',
     coverAddr: ' Jongno-gu,  Seoul'
@@ -307,7 +327,8 @@ export const cardData = [
     id: 264354,
     typeId: 76,
     coverName: 'Insa-dong (인사동)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264354_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Insa-dong',
     coverAddr: ' Jongno-gu,  Seoul'
@@ -316,7 +337,8 @@ export const cardData = [
     id: 264329,
     typeId: 76,
     coverName: 'Gwanghwamun Gate (광화문)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264329_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Gwanghwamun Gate',
     coverAddr: ' Jongno-gu,  Seoul'
@@ -325,7 +347,8 @@ export const cardData = [
     id: 264316,
     typeId: 76,
     coverName: 'Deoksugung Palace (덕수궁)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264316_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Deoksugung Palace',
     coverAddr: ' Jung-gu,  Seoul'
@@ -334,7 +357,8 @@ export const cardData = [
     id: 264350,
     typeId: 76,
     coverName: 'Changgyeonggung Palace (창경궁)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264350_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Changgyeonggung Palace',
     coverAddr: ' Jongno-gu,  Seoul'
@@ -343,7 +367,8 @@ export const cardData = [
     id: 561382,
     typeId: 76,
     coverName: 'Bukchon Hanok Village (북촌한옥마을)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/561382_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Bukchon Hanok Village',
     coverAddr: ' Jongno-gu,  Seoul'
@@ -352,7 +377,8 @@ export const cardData = [
     id: 264312,
     typeId: 76,
     coverName: 'Myeong-dong (명동)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264312_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Myeong-dong',
     coverAddr: ' Jung-gu,  Seoul'
@@ -368,19 +394,11 @@ export const cardData = [
     coverAddr: ' Gangnam-gu,  Seoul'
   },
   {
-    id: 264312,
-    typeId: 76,
-    coverName: 'Myeong-dong (명동)',
-    coverImg: '',
-    coverLocate: 'Seoul Info',
-    coverTitle: 'Myeong-dong',
-    coverAddr: ' Jung-gu,  Seoul'
-  },
-  {
     id: 2475097,
     typeId: 76,
     coverName: 'Dongdaemun Design Plaza (동대문디자인플라자 (DDP))',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/2475097_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Dongdaemun Design Plaza',
     coverAddr: ' Jung-gu,  Seoul'
@@ -461,7 +479,8 @@ export const cardData = [
     typeId: 76,
     coverName:
       'Seolleung and Jeongneung Royal Tombs [UNESCO World Heritage] (서울 선릉(성종과 정현왕후)과 정릉(중종) [유네스코 세계문화유산])',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264106_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seolleung and Jeongneung Royal Tombs',
     coverAddr: ' Gangnam-gu,  Seoul'
@@ -511,7 +530,8 @@ export const cardData = [
     id: 1348621,
     typeId: 76,
     coverName: 'Seoul National Cemetery (국립서울현충원)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/1348621_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seoul National Cemetery',
     coverAddr: ' Dongjak-gu,  Seoul'
@@ -550,7 +570,8 @@ export const cardData = [
     id: 264473,
     typeId: 76,
     coverName: 'Samcheong-dong Street (삼청동길)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264473_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Samcheong-dong Street',
     coverAddr: ' Jongno-gu,  Seoul'
@@ -651,7 +672,8 @@ export const cardData = [
     id: 264107,
     typeId: 76,
     coverName: 'Apgujeong Rodeo Street (압구정 로데오거리)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264107_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Apgujeong Rodeo Street',
     coverAddr: ' Gangnam-gu,  Seoul-si'
@@ -740,7 +762,8 @@ export const cardData = [
     id: 1241248,
     typeId: 76,
     coverName: 'Dongdaemun Stationery Store Street (동대문 문구완구거리)',
-    coverImg: '',
+    coverImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/1241248_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Dongdaemun Stationery Store Street',
     coverAddr: ' Jongno-gu,  Seoul'

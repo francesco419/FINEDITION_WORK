@@ -1,13 +1,41 @@
 import Header from '../../components/header/header';
-import CardSlide from '../home/cardSlide';
+import CardSlide from '../../components/card/slide/cardSlide';
 import './cities.scss';
 import _ from 'lodash';
-import { data } from '../../temp/megazinecard';
-import FestivalSlider from '../home/festival';
+import FestivalSlider from '../../components/festival/festival';
 import { ReactComponent as Seoul } from './assets/svg/seoul.svg';
 import Card from '../../components/card/cardComp';
 import Footer from '../../components/footer/footer';
 import sampleImage from '../../assets/image/temp/Frame.png';
+import { cardData } from '../../temp/cardData';
+import { cardType } from '../admin/administrator';
+
+const data0: cardType[] = [
+  cardData[0],
+  cardData[1],
+  cardData[2],
+  cardData[3],
+  cardData[4],
+  cardData[5],
+  cardData[6],
+  cardData[7],
+  cardData[8],
+  cardData[9]
+];
+
+const data1: cardType[] = [
+  cardData[10],
+  cardData[11],
+  cardData[12],
+  cardData[13],
+  cardData[14],
+  cardData[15],
+  cardData[16],
+  cardData[17],
+  cardData[18],
+  cardData[19],
+  cardData[20]
+];
 
 const numbers = [
   1, 1, 1, 1, 1, 1, 1, 1, 1, 11, 1, 1, 1, 1, 1, 11, 1, 1, 1, 11, 1
@@ -43,8 +71,8 @@ export default function Cities() {
             </p>
           </div>
           <div className='cityPage_upperContainer-slide'>
-            {/* <CardSlide data={data} type='small' />
-            <CardSlide data={data} type='small' /> */}
+            <CardSlide data={data0} type='small' />
+            <CardSlide data={data1} type='small' />
           </div>
           <div className='cityPage_upperContainer-things'>
             <div>
@@ -99,12 +127,12 @@ export default function Cities() {
               </div>
             </div>
             <div className='cityPage_lowerbody-list'>
-              {/* {_.map(numbers, (o, index) => {
+              {_.map(cardData, (o, index) => {
                 if (index < 15)
                   return (
-                    <Card img={sampleImage} color={'#000'} type='medium' />
+                    <Card data={o} color={'#000'} type='medium' fcolor='#000' />
                   );
-              })} */}
+              })}
             </div>
           </div>
         </div>

@@ -1,9 +1,10 @@
 import './festival.scss';
-import festival from '../../assets/image/festival.png';
+import festival from '../../../assets/image/festival.png';
 import { ReactComponent as Dot } from '../../assets/svg/dot.svg';
 import { useState, useRef } from 'react';
 import { useInterval } from 'usehooks-ts';
 import _ from 'lodash';
+import { festivalData } from '../../data/festival';
 
 interface FestivalClickType {
   num: number;
@@ -19,37 +20,6 @@ interface FestivalDotType extends FestivalClickType {
 }
 
 const SLIDEWIDTH: number = 558;
-
-const temp = [
-  {
-    img: festival,
-    name: 'Gunsan Festival, “Time Travel Journey”',
-    detail: `2023.10.23 Thu - 28 Sun
-    Explore history in Gunsan with amazing foods
-    Ticket 10,000 for adults`
-  },
-  {
-    img: festival,
-    name: 'Gunsan Festival, “Time Travel Journey”',
-    detail: `2023.10.23 Thu - 28 Sun
-    Explore history in Gunsan with amazing foods
-    Ticket 10,000 for adults`
-  },
-  {
-    img: festival,
-    name: 'Gunsan Festival, “Time Travel Journey”',
-    detail: `2023.10.23 Thu - 28 Sun
-    Explore history in Gunsan with amazing foods
-    Ticket 10,000 for adults`
-  },
-  {
-    img: festival,
-    name: 'Gunsan Festival, “Time Travel Journey”',
-    detail: `2023.10.23 Thu - 28 Sun
-    Explore history in Gunsan with amazing foods
-    Ticket 10,000 for adults`
-  }
-];
 
 export default function FestivalSlider() {
   const [isShowing, setIsShowing] = useState<boolean>(true);
@@ -101,7 +71,7 @@ export default function FestivalSlider() {
 function FestivalHome({ refer, num, click }: FestivalRefType) {
   return (
     <div className='festivalHome' ref={refer}>
-      {_.map(temp, (o, index) => {
+      {_.map(festivalData, (o, index) => {
         return (
           <div className='festivalHome_part' key={`${o.name}_${index}`}>
             <div className='festivalHome_image'>

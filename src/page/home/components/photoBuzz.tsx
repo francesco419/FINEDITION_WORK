@@ -1,13 +1,12 @@
-import './wordBuzz.scss';
-import { ReactComponent as Renew } from '../../assets/svg/Autorenew.svg';
-import { data } from '../../temp/megazinecard';
+import './photoBuzz.scss';
+import { ReactComponent as Renew } from '../../../assets/svg/Autorenew.svg';
 import { useEffect, useRef, useState } from 'react';
-import { MegazineCardType } from './megazineCard';
+import { MegazineCardType } from '../megazineCard';
 import _ from 'lodash';
-import { APIInterceptor } from '../../func/interceptor';
-import { API_TYPE } from '../../func/interface';
+import { APIInterceptor } from '../../../func/interceptor';
+import { API_TYPE } from '../../../func/interface';
 import { Axios, AxiosResponse } from 'axios';
-import { gallary_type } from '../../func/interface';
+import { gallary_type } from '../../../func/interface';
 
 export default function PhotoBuzz() {
   const [item, setItem] = useState<gallary_type[]>([]);
@@ -61,7 +60,7 @@ export default function PhotoBuzz() {
   return (
     <div className='wordbuzz'>
       <div className='wordbuzz_title'>
-        <h3>Word Buzz</h3>
+        <h3>Photo Buzz</h3>
         <button
           onClick={() => {
             getRandomImage(item);

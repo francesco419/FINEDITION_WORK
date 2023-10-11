@@ -3,13 +3,13 @@ import { ReactComponent as Map } from '../../assets/svg/map.svg';
 import { ReactComponent as Search } from '../../assets/svg/search_grey.svg';
 import _ from 'lodash';
 import Header from '../../components/header/header';
-import { data } from '../../temp/megazinecard';
 import MegazineCard from '../home/megazineCard';
 import Footer from '../../components/footer/footer';
 import ListFront from './components/listFront';
 import ListCheckBox from './components/listCheckBox';
 import ThemeCheckBox from './components/themeCheckBox';
 import Card from '../../components/card/cardComp';
+import { cardData } from '../../temp/cardData';
 
 const cities = [
   { id: 'KR-11', name: 'Seoul' },
@@ -93,9 +93,9 @@ export default function Megazine() {
           </div>
         </div>
         <div className='citie_list'>
-          {/* {_.map(data, (o) => {
-            return <Card img={o.img} color={o.color} type='small' />;
-          })} */}
+          {_.map(cardData, (o) => {
+            return <Card data={o} color={'#000'} type='small' fcolor='#000' />;
+          })}
         </div>
         <Footer />
       </div>

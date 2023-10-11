@@ -6,12 +6,12 @@
   padding: 15px;
   border-radius: 3px;
   p {
-    @include font-style(16, #1a7219, 1.2, Mabry Pro Reg);
+    @include font-style(16, #1a7219, Mabry Pro Reg, 1.2);
   }
   pre {
     white-space: pre-wrap;
     margin: 8px 0 0;
-    @include font-style(16, #1a7219, 1.3, Mabry Pro Reg, 500);
+    @include font-style(16, #1a7219, Mabry Pro Reg, 1.3);
   }
   &_drag {
     position: absolute;
@@ -23,7 +23,7 @@
     display: flex;
     align-items: center;
     margin: 34px 0 0 auto;
-    @include font-style(16, $System-Black-0, 0.7, Mabry Pro Reg);
+    @include font-style(16, $System-Black-0, Mabry Pro Reg);
     svg {
       margin: 0 0 0 5px;
     }

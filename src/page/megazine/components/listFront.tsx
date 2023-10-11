@@ -19,6 +19,7 @@ export default function ListFront() {
   return (
     <div className='citie_head'>
       <div className='citie_head_title'>
+        <h2>Finedition Magazine</h2>
         <p>We curate to the finest</p>
       </div>
       <div className='citie_head_sort'>
@@ -29,7 +30,14 @@ export default function ListFront() {
         >
           <Down />
         </button>
-        <p>{sort}</p>
+        <p
+          style={{ cursor: 'pointer' }}
+          onClick={() => {
+            setShow((show) => !show);
+          }}
+        >
+          {sort}
+        </p>
         {show && (
           <div className='citie_head_drop'>
             {_.map(DROPTEMP, (o) => {

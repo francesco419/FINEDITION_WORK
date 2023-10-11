@@ -1,15 +1,11 @@
 import './recommend.scss';
 import { useState } from 'react';
 import _ from 'lodash';
-import { ReactComponent as ArrowRight } from '../../assets/svg/Arrow right.svg';
-import image from '../../assets/image/hanoak.png';
-import image2 from '../../assets/image/castle.png';
-import image3 from '../../assets/image/street.png';
+import image from '../../../assets/image/hanoak.png';
+import image2 from '../../../assets/image/castle.png';
+import image3 from '../../../assets/image/street.png';
 
 const temp = [
-  {
-    img: image
-  },
   {
     img: image
   },
@@ -29,15 +25,9 @@ const temp1 = [
   },
   {
     img: image2
-  },
-  {
-    img: image2
   }
 ];
 const temp2 = [
-  {
-    img: image3
-  },
   {
     img: image3
   },
@@ -66,30 +56,27 @@ export default function Recommend() {
 
   return (
     <div className='recommend'>
-      <div className='recommend_title'>
-        <h2>Picks* of the week</h2>
-        <ArrowRight />
-      </div>
       <div className='recommend_container'>
         <ul className='recommend_head'>
-          {_.map(MENUTEXT, (s) => {
+          {_.map(MENUTEXT, (s, index) => {
             return (
-              <li
-                style={{
-                  backgroundColor: choose === s.num ? s.color : '#eaeaea',
-                  opacity: choose === s.num ? '1' : '0.8'
-                }}
-                key={s.title}
-              >
-                <button
-                  style={{
-                    opacity: choose === s.num ? '1' : '0.3'
-                  }}
-                  onClick={() => onClickHandler(s.num)}
-                >
-                  {s.title}
-                </button>
-              </li>
+              <>
+                <li key={s.title}>
+                  <button
+                    style={{
+                      color: choose === s.num ? '#BCEB49' : '#8D8D90'
+                    }}
+                    onClick={() => onClickHandler(s.num)}
+                  >
+                    {s.title}
+                  </button>
+                </li>
+                {index !== MENUTEXT.length - 1 && (
+                  <li style={{ margin: '0 8px' }}>
+                    <p>l</p>
+                  </li>
+                )}
+              </>
             );
           })}
         </ul>
@@ -108,7 +95,7 @@ function PicksofWeek({ num, color }: NumType) {
   const pick = num === 0 ? temp : num === 1 ? temp1 : temp2;
 
   return (
-    <div className='recommend_card' style={{ backgroundColor: color }}>
+    <div className='recommend_card'>
       <ul>
         {_.map(pick, (o, index) => {
           return (
