@@ -1,6 +1,7 @@
 @import '../../../style.scss';
 
 .wordbuzz {
+  border-radius: 3px;
   width: 620px;
   height: 320px;
   border: 1px solid #eaeaea;
@@ -39,6 +40,7 @@
 }
 
 .discovercities {
+  border-radius: 3px;
   position: relative;
   width: 290px;
   height: 320px;
@@ -46,7 +48,7 @@
   white-space: pre-wrap;
   &_title {
     display: flex;
-    margin: 22px 19px 0;
+    margin: 15px 19px 0;
     h2 {
       @include font-style(22, $System-Black-0, Mabry Pro Med, 1.3);
     }

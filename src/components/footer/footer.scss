@@ -3,11 +3,10 @@
 .footer {
   display: flex;
   gap: 40px;
-  height: 134px;
   width: 1300px;
   //border: 1px solid #eaeaea;
   margin: 30px auto 0;
-  padding: 20px 0;
+  padding: 20px 0 60px;
   box-sizing: border-box;
   &_divide {
     display: flex;
@@ -19,11 +18,11 @@
   }
   button {
     text-align: left;
-    @include font-style(13, $System-Light-Gray-0, 0.7, Mabry Pro Reg);
+    @include font-style(13, $System-Light-Gray-0, Mabry Pro Reg);
   }
   &_copyrights {
     margin: 0 0 0 auto;
-    @include font-style(12, $System-Dark-Gray-1, 0.7, Mabry Pro Light);
+    @include font-style(12, $System-Dark-Gray-1, Mabry Pro Light);
   }
 }
 

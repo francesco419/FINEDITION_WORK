@@ -54,7 +54,7 @@ const DROPTEMP = [
   { text: 'My Bookmark' }
 ];
 
-export default function Megazine() {
+export default function Magazine() {
   return (
     <div className='background-full'>
       <div className='citie'>

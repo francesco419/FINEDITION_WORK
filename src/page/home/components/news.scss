@@ -23,14 +23,9 @@
     padding-top: 11px;
     height: 72px;
     a {
-      color: var(--light-gray, #eaeaea);
-      font-family: SF Pro;
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 274;
       text-decoration: none;
       white-space: pre-wrap;
-      line-height: 0;
+      @include font-style(14, $System-Dark-Gray-0, Mabry Pro Reg, 1);
     }
   }
   &_right {

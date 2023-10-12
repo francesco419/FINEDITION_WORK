@@ -11,7 +11,6 @@ import { cardType } from '../../admin/administrator';
 import { cardData } from '../../../temp/cardData';
 
 export default function PhotoBuzz() {
-  const [item, setItem] = useState<cardType[]>([]);
   const [image, setImage] = useState<cardType[]>([]);
 
   useEffect(() => {
@@ -46,15 +45,13 @@ export default function PhotoBuzz() {
     }
   };
 
-  console.log(item);
-
   return (
     <div className='wordbuzz'>
       <div className='wordbuzz_title'>
         <h3>Photo Buzz</h3>
         <button
           onClick={() => {
-            getRandomImage(item);
+            getRandomImage(cardData);
           }}
         >
           <Renew />

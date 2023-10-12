@@ -6,7 +6,7 @@ import Info from './page/info/info';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Region from './page/region/region';
 import Administrator from './page/admin/administrator';
-import Megazine from './page/megazine/megazine';
+import Magazine from './page/megazine/megazine';
 import ErrorPage from './page/error/errorpage';
 import Story from './page/story/story';
 
@@ -22,7 +22,7 @@ function App() {
           <Route path={`/info/:id/:typeid`} element={<Info />} />
           <Route path={`/profile/:id`} element={<Profile />} />
           <Route path={`/cities/`} element={<Cities />} />
-          <Route path={`/megazine/`} element={<Megazine />} />
+          <Route path={`/magazine/`} element={<Magazine />} />
           <Route path={`${process.env.PUBLIC_URL}/`} element={<Home />} />
         </Routes>
       </GoogleOAuthProvider>

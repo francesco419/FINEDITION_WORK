@@ -2,7 +2,7 @@
 
 .home_extras {
   display: flex;
-  gap: 17px;
+  justify-content: space-between;
   margin: 100px 0 110px;
   &-worldmap {
     width: 520px;

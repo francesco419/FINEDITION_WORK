@@ -276,8 +276,12 @@ export default function Info() {
           </div>
           <div className='info_infomation'>
             <div className='info_infomation-view d-flex'>
-              <Like />
-              <Bookmark />
+              <button onClick={() => {}}>
+                <Like />
+              </button>
+              <button onClick={() => {}}>
+                <Bookmark />
+              </button>
             </div>
             <InfoTag data={typedData?.tag} />
             <PageCount

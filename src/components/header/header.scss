@@ -19,12 +19,10 @@
   &_locate {
     display: flex;
     margin: 0 0 0 40px;
+    gap: 24px;
     button {
-      margin-right: 24px;
-      font-family: Mabry Pro;
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 400;
+      padding: 2px 0 0;
+      @include font-style(16, $System-White-0, Mabry Pro Reg, 1);
     }
   }
   &_menu {

@@ -37,11 +37,11 @@ export default function Card({ data, color, type, fcolor }: MegazineCardType) {
         <p style={{ color: fcolor ? fcolor : '#fff' }}>{data.coverTitle},</p>
         <p style={{ color: fcolor ? fcolor : '#fff' }}>{data.coverAddr}</p>
       </dd>
-      <dd className='cardBookMark'>
+      {/*       <dd className='cardBookMark'>
         <button>
           <BookMark style={{ stroke: color }} />
         </button>
-      </dd>
+      </dd> */}
     </dl>
   );
 }

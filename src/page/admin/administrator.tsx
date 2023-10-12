@@ -79,6 +79,7 @@ export default function Administrator() {
   const [passwordOK, setPasswordOK] = useState<boolean>(true);
   const [anything, setAnything] = useState<any>();
   const [anything2, setAnything2] = useState<any[]>([]);
+  const [story, setStory] = useState<any[]>([]);
 
   let arr123: cardType[] = [];
   let arr000: cardType[] = [];
@@ -275,6 +276,8 @@ export default function Administrator() {
     });
     console.log(obj);
   };
+
+  const storyIntoData = () => {};
 
   return (
     <div className='admin'>

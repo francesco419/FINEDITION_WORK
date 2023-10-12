@@ -1,5 +1,5 @@
 import './extras.scss';
-import { ReactComponent as WorldMap } from '../../../assets/image/home/extra-world-map.svg';
+import { ReactComponent as WorldMap } from '../../../assets/image/home/svg/extra-world-map.svg';
 import { ReactComponent as Download } from '../../../assets/image/home/svg/download.svg';
 import feedback from '../../../assets/image/home/home-feedback.png';
 import _ from 'lodash';

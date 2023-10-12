@@ -40,7 +40,7 @@ export default function DiscoverCities() {
           <MapElement svg={<Incheon />} top={87} left={22} />
           <MapElement name={'Gyeonggi-do'} top={-10} left={130} />
           <MapElement name={'Seoul'} top={120} left={110} />
-          <MapElement name={'Incheon'} top={186} left={10} />
+          <MapElement name={'Incheon'} top={110} left={-20} />
         </div>
       </div>
     </div>

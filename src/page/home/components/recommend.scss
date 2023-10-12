@@ -28,9 +28,11 @@
       li {
         width: 340px;
         height: 426px;
+        overflow: hidden;
         img {
           width: inherit;
           height: inherit;
+          object-fit: cover;
         }
       }
     }

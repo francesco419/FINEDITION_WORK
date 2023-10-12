@@ -829,3 +829,5 @@ export const cardData = [
     coverAddr: ' Mapo-gu,  Seoul'
   }
 ];
+
+const magazine = {};

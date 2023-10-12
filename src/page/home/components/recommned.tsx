@@ -4,16 +4,19 @@ import _ from 'lodash';
 import image from '../../../assets/image/hanoak.png';
 import image2 from '../../../assets/image/castle.png';
 import image3 from '../../../assets/image/street.png';
+import i264316 from '../../../assets/image/home/264316.png';
+import i264550 from '../../../assets/image/home/264550.png';
+import i561382 from '../../../assets/image/home/561382.png';
 
 const temp = [
   {
-    img: 'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264316_cover.jpg'
+    img: i264550
   },
   {
-    img: 'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264350_cover.jpg'
+    img: i264316
   },
   {
-    img: 'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264337_cover.jpg'
+    img: i561382
   }
 ];
 const temp1 = [

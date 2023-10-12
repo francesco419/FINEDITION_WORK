@@ -50,11 +50,11 @@ const arr = [
 ];
 
 const arr2 = [
-  '1000 drons are lighting up the sky!',
-  'Enjoy autumn foliage from the middle',
-  'Enjoy the autumn festivals with',
-  'Several royal palaces open at night.',
-  'Many cultural pop-ups coming on'
+  'Cheonggyechon Stream',
+  'Haneul Park',
+  'Changgyeonggung Palace',
+  'Seonyudo Park',
+  'Culture Station Seoul 284'
 ];
 
 export default function Cities() {

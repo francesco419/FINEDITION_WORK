@@ -7,7 +7,7 @@
   &_container {
     display: flex;
     width: 1300px;
-    margin: 100px auto 0;
+    margin: 100px auto 220px;
     color: $System-White-0;
   }
   &_about {
@@ -16,22 +16,17 @@
     &-title {
       display: flex;
       align-items: end;
-      font-family: Value Serif Pro Med;
       h1 {
-        font-size: 29px;
-        font-weight: 500;
+        @include font-style(33, $System-White-0, Value Serif Pro Med);
         margin: 0 19px 0 0;
       }
       p {
-        color: #828282;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 500;
+        @include font-style(16, $System-Dark-Gray-0, Value Serif Pro Med);
       }
     }
     &-detail {
       width: 880px;
-      margin: 18px 0 40px;
+      margin: 25px 0 30px;
     }
     &-frontimg {
       height: 440px;
@@ -43,48 +38,33 @@
     }
     &-text {
       padding: 25px 70px 35px 27px;
-      background-color: #eaeaea;
+      background-color: $System-White-0-1;
       div {
         display: flex;
         align-items: end;
         margin: 0 0 8px;
       }
       h3 {
-        @include font-style(16, $Brand-Purple-1, Mabry Pro Med, 1.6);
+        @include font-style(16, $Brand-Purple-1, Mabry Pro Med);
         margin-left: 9px;
       }
       p {
-        @include font-style(14, $Brand-Purple-1, Mabry Pro Light, 1.6);
+        @include font-style(14, $Brand-Purple-1, Mabry Pro Reg, 1.6);
         white-space: pre-line;
         &:last-child {
           color: $System-Black-0;
-          margin-top: 28px;
+          margin-top: 20px;
         }
-      }
-    }
-    &-highlights {
-      width: 880px;
-      height: 48px;
-      background-color: #1d1d1d;
-      padding: 0 27px;
-      box-sizing: border-box;
-      p {
-        margin-right: 12px;
-        color: #6f6f6f;
-        font-family: Mabry Pro Reg;
-        font-size: 16px;
-        font-weight: 400;
       }
     }
     &-imgbox {
       display: flex;
-      justify-content: space-between;
+      //justify-content: space-between;
       margin: 40px 0 0;
       height: 285px;
       width: 880px;
       div {
-        width: 396px;
-
+        width: 50%;
         height: 285px;
         color: #fff;
         img {
@@ -106,21 +86,21 @@
         svg {
           margin: 0 6px 9px 0;
         }
-        color: #8c8c8c;
-        font-family: Inter;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 160%; /* 22.4px */
+        @include font-style(14, $System-Dark-Gray-0, Mabry Pro Reg, 1.6);
       }
     }
   }
   &_infomation {
     width: 300px;
     &-view {
-      margin: 0 0 15px;
+      margin: 2px 0 11px;
       svg {
+        fill: $System-Dark-Gray-3;
+        stroke: none;
         margin-right: 13px;
+        &:hover {
+          fill: $Brand-Purple-1;
+        }
       }
     }
     &-tags {
@@ -133,16 +113,13 @@
         height: 40px;
         padding: 0 0 0 26px;
         p {
-          color: $System-Black-0;
-          font-family: Inter Med;
-          font-size: 15px;
-          line-height: 180%;
+          @include font-style(15, $System-Black-0, Mabry Pro Reg, 1.8);
         }
       }
     }
     &-detail {
       padding: 0 25px 10px;
-      background-color: #d9d9d9;
+      background-color: $System-Light-Gray-0;
       white-space: pre-wrap;
       hr {
         margin: 0 0 18px;
@@ -151,22 +128,11 @@
       ul {
         p,
         a {
-          color: $System-Black-0;
-          font-family: Inter Reg;
-          font-size: 14px;
-          font-weight: 400;
-          line-height: 170%; /* 29.4px */
+          @include font-style(14, $System-Black-0, Mabry Pro Reg, 1.7);
         }
       }
     }
   }
-}
-
-@font-face {
-  font-family: 'Inter Reg';
-  src: url('../../assets/font/inter/Inter-Regular.ttf');
-  font-style: normal;
-  font-display: swap;
 }
 
 .info-element {
@@ -200,22 +166,18 @@
 .maylike {
   width: 300px;
   padding: 20px 26px 19px;
-  background-color: $Brand-Light-Green-0;
+  background-color: $System-Light-Gray-1;
   box-sizing: border-box;
   h2 {
-    color: $System-Black-0;
-    font-family: Mabry Pro Med;
-    font-size: 16px;
-    line-height: 0.7;
+    @include font-style(16, $System-Black-0, Mabry Pro Reg);
     margin: 0 0 8px;
-    font-weight: 500;
   }
   a {
-    text-decoration: none;
-    color: $System-Black-0;
-    font-family: Inter Reg;
-    font-size: 13px;
-    line-height: 170%; /* 22.1px */
+    @include font-style(16, $System-Black-0, Mabry Pro Reg, 1.7);
+    text-decoration: underline;
+    &:hover {
+      color: $System-Dark-Gray-0;
+    }
   }
 }
 
@@ -226,12 +188,8 @@
   padding: 20px 26px 23px 25px;
   background-color: #649d77;
   h2 {
-    color: $System-Black-0;
-    font-family: Mabry Pro Med;
-    font-size: 16px;
-    line-height: 0.7;
+    @include font-style(16, $System-Black-0, Mabry Pro Reg);
     margin: 0 0 10px;
-    font-weight: 500;
   }
   ul {
     display: flex;
@@ -246,10 +204,7 @@
     li {
       margin-right: 11px;
       h4 {
-        color: #8c8c8c;
-        font-size: 13px;
-        font-weight: 400;
-        line-height: 0.7;
+        @include font-style(13, $System-Dark-Gray-0, Mabry Pro Light);
         margin-bottom: 11px;
       }
       div {
@@ -263,8 +218,8 @@
         padding: 11px;
         box-sizing: border-box;
         p {
+          @include font-style(13, $System-Dark-Gray-0, Mabry Pro Light);
           align-self: baseline;
-          color: #848484;
           height: 20px;
           margin: 0;
         }
@@ -284,9 +239,8 @@
   padding: 11px;
   box-sizing: border-box;
   p {
-    font-family: Inter Reg;
+    @include font-style(13, $System-Dark-Gray-0, Mabry Pro Light);
     align-self: baseline;
-    color: #848484;
     height: 20px;
     margin: 0;
     font-size: 13px;
@@ -307,12 +261,7 @@
       margin: 0 0 0 11px;
     }
     h3 {
-      color: #8c8c8c;
-      font-family: Mabry Pro Reg;
-      font-size: 13px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 1.2;
+      @include font-style(13, $System-Dark-Gray-0, Mabry Pro Reg, 1.2);
     }
   }
   &_calender {
@@ -326,18 +275,13 @@
     padding: 0 11px;
     box-sizing: border-box;
     justify-content: space-between;
-    color: #8c8c8c;
-    font-family: SF Pro Text Reg;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 210%; /* 27.3px */
+    @include font-style(13, $System-Dark-Gray-0, Mabry Pro Reg, 2.1);
   }
 }
 
 .react-datepicker {
   * {
-    font-family: Inter Reg;
+    font-family: Mabry Pro Reg;
   }
   &__day--selected {
     border-radius: 50% !important;
@@ -351,47 +295,4 @@
 
 .kakaomap {
   color: #ff0000;
-}
-
-.skeleton {
-  position: relative;
-  display: block;
-  width: 400px;
-  height: 100px;
-  margin: 20px auto;
-  background-color: #18181a;
-  overflow: hidden;
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: 100%;
-    background: linear-gradient(to right, #232325, #23232550, #232325);
-    animation: loading 1.2s infinite ease-in;
-  }
-}
-
-@keyframes loading {
-  0% {
-    transform: translateX(-50px);
-  }
-  50%,
-  100% {
-    transform: translateX(400px);
-  }
-}
-
-.skeleton {
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: 100%;
-    background: linear-gradient(to right, #232325, #23232550, #232325);
-    animation: loading 1.2s infinite ease-in;
-  }
 }
