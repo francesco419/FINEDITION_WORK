@@ -22,7 +22,6 @@ instance.interceptors.request.use(
     /*     (config.headers as AxiosRequestHeaders)[
       'Content-Type'
     ] = `multipart/form-data`; */
-    console.log(config);
     return config;
   },
   (error) => {

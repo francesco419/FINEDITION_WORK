@@ -19,7 +19,7 @@ interface FestivalDotType extends FestivalClickType {
   current: number;
 }
 
-const SLIDEWIDTH: number = 558;
+const SLIDEWIDTH: number = 613;
 
 export default function FestivalSlider() {
   const [isShowing, setIsShowing] = useState<boolean>(true);

@@ -123,7 +123,7 @@ export default function Cities() {
                 <p>click above map’s region</p>
               </div>
               <div>
-                <p>view all</p>
+                <button>VIEW ALL</button>
               </div>
             </div>
             <div className='cityPage_lowerbody-list'>

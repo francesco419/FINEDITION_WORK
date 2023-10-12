@@ -37,17 +37,15 @@
 
 .magazineCard {
   &-small {
+    position: relative;
     @include cardDl();
     width: 224px;
     height: 345px;
     dt {
+      overflow: hidden;
       height: 280px;
       @include cardDt();
       background-color: #d1c8b5;
-      img {
-        height: 100%;
-        width: 100%;
-      }
     }
     dd {
       @include cardDd(11, 16);
@@ -55,35 +53,31 @@
     }
   }
   &-medium {
+    position: relative;
     @include cardDl();
     width: 260px;
     height: 401px;
     dt {
+      overflow: hidden;
       height: 325px;
       @include cardDt();
       background-color: #d1c8b5;
-      img {
-        height: 100%;
-        width: 100%;
-      }
     }
     dd {
-      @include cardDd(12, 18);
+      @include cardDd(11, 16);
       margin: 15px 0 0;
     }
   }
   &-big {
+    position: relative;
     @include cardDl();
     width: 280px;
     height: 431px;
     dt {
+      overflow: hidden;
       height: 350px;
       @include cardDt();
       background-color: #d1c8b5;
-      img {
-        height: 100%;
-        width: 100%;
-      }
     }
     dd {
       @include cardDd(13, 20);

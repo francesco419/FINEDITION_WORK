@@ -26,8 +26,8 @@ export default function ListCheckBox({ id, name }: CheckBoxType) {
             ) as HTMLLabelElement | null;
             if (svg && label) {
               if (tar.checked) {
-                svg.style.fill = '#e67d40';
-                label.style.backgroundColor = '#e67d40';
+                svg.style.fill = '#f87b36';
+                label.style.backgroundColor = '#f87b36';
               } else {
                 svg.style.fill = '#dbdbe0';
                 label.style.backgroundColor = '#fff';

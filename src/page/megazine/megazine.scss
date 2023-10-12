@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     justify-content: end;
-    height: 312px; //400px
+    padding: 230px 0 0;
     &_title {
       margin: 0 auto 40px;
       h2 {
@@ -41,31 +41,28 @@
         margin: 0 18.4px 0 0;
       }
       p {
-        color: var(--Purple, #736de3);
-        font-family: Value Serif Pro Med;
-        font-size: 29px;
-        line-height: 0.75;
+        @include font-style(29, $Brand-Purple-1, Value Serif Pro Med);
       }
     }
     &_drop {
       position: absolute;
       top: 100%;
       left: 0;
-      width: 311px;
-      padding: 22px 0px 22px 22px;
-      background-color: $System-White-1;
+      width: 320px;
+      padding: 22px 0px 35px 40px;
+      background-color: $Brand-Purple-1;
       z-index: 5;
       color: #736de3;
       box-sizing: border-box;
       button {
         display: block;
-        margin-bottom: 36px;
-        @include font-style(29, $Brand-Purple-1, Value Serif Pro Med);
+        margin-bottom: 30px;
+        @include font-style(29, $System-White-0, Value Serif Pro Med);
         &:last-child {
           margin: 0;
         }
         &:hover {
-          filter: invert(50%);
+          color: $Brand-Orange-0;
         }
       }
     }
@@ -101,7 +98,7 @@
     box-sizing: border-box;
     input {
       @include noInputDeco('#eaeaea30');
-      @include font-style(16, $System-Dark-Gray-0, 0.7, Inter Reg);
+      @include font-style(16, $System-Dark-Gray-0, Inter Reg);
       margin: 0 0 0 8px;
       width: 150px;
       &::placeholder {
@@ -111,13 +108,13 @@
   }
   &_search-reset {
     button {
-      @include font-style(12, $System-Light-Gray-1, 0.7, Mabry Pro Reg);
+      @include font-style(12, $System-Light-Gray-1, Mabry Pro Reg);
     }
   }
   &_city_region {
   }
   &_city_region-title {
-    @include font-style(18, $System-Black-0, 0.7, Mabry Pro Med);
+    @include font-style(18, $System-Black-0, Mabry Pro Med);
     margin: 1px 0 16px;
   }
   &_city_region-check {
@@ -140,7 +137,7 @@
   &_theme-title {
     margin-bottom: 17px;
     p {
-      @include font-style(18, $System-Black-0, 0.7, Mabry Pro Med);
+      @include font-style(18, $System-Black-0, Mabry Pro Med);
     }
   }
   &_theme-check {

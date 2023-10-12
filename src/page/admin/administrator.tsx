@@ -17,6 +17,7 @@ import { API_TYPE } from '../../func/interface';
 import { API_ENG } from '../../temp/apicode';
 import readXlsxFile from 'read-excel-file';
 import { common } from '../../temp/commondata';
+import { ww } from '../../data/infomationData';
 
 export interface cardType {
   id: number;
@@ -54,19 +55,28 @@ type poType = {
   overview: string;
 };
 
+export type info_Type = {
+  id: number;
+  typeId: number;
+  tag: string[];
+  pickText: string;
+  spendTime: string;
+  station: string;
+  keyword: string[];
+  maylike: mayLike_Type[];
+  bookmark: number;
+  like: number;
+  view: number;
+};
+
+export interface mayLike_Type {
+  name: string;
+  likeId: number;
+}
+
 export default function Administrator() {
   const [password, setPassword] = useState<string>();
   const [passwordOK, setPasswordOK] = useState<boolean>(true);
-  const [contentId, setContentId] = useState<number>();
-  const [contentTypeId, setContentTypeId] = useState<number>();
-  const [intro, setIntro] = useState<string>('');
-  const [spendTime, setSpendTime] = useState<string>('');
-  const [transport, setTransport] = useState<string>('');
-  const [keyword, setKeyword] = useState<string[]>([]);
-  const [mayLike, setMayLike] = useState<string[]>([]);
-  const [story, setStory] = useState<string[]>([]);
-  const [cover, setCover] = useState<string>('');
-  const [summary, setSummary] = useState<string>('');
   const [anything, setAnything] = useState<any>();
   const [anything2, setAnything2] = useState<any[]>([]);
 
@@ -139,6 +149,133 @@ export default function Administrator() {
     }
   };
 
+  const txtToData = () => {
+    _.map(JSON.parse(anything), (o) => {
+      let add: string[] = o.addr1.split(',');
+      const covername = `${add[add.length - 2]}, ${add[add.length - 1]}`;
+      const regExp = new RegExp(/[a-zA-Z0-9-'? ]*/);
+      const num = _.findIndex(common, (p) => {
+        return o.contentid == p.contentid;
+      });
+      let a = {
+        id: o.contentid,
+        typeId: 76,
+        coverName: o.title,
+        coverImg: common[num].firstimage !== '' ? common[num].firstimage : '',
+        coverLocate: 'Seoul Info',
+        coverTitle: o.title.match(regExp)[0].trim(),
+        coverAddr: covername
+      };
+      if (a.coverImg === '') {
+        arr000.push(a);
+      }
+      arr123.push(a);
+    });
+  };
+
+  const excelToInfoForm = () => {
+    let obj: info_Type[] = [];
+    _.map(ww, (o) => {
+      let info: info_Type = {
+        id: 0,
+        typeId: 76,
+        tag: [],
+        pickText: '',
+        spendTime: '',
+        station: '',
+        keyword: [],
+        maylike: [],
+        bookmark: 0,
+        like: 0,
+        view: 0
+      };
+      _.map(o, (g, index) => {
+        let data = g === null ? '' : g;
+        switch (index) {
+          case 0:
+            info.id = data as number;
+            return;
+          case 2:
+            if (data === '') {
+              return;
+            }
+            info.tag.push(data as string);
+            return;
+          case 3:
+            if (data === '') {
+              return;
+            }
+            info.tag.push(data as string);
+            return;
+          case 4:
+            if (data === '') {
+              return;
+            }
+            info.tag.push(data as string);
+            return;
+          case 5:
+            info.pickText = data as string;
+            return;
+          case 6:
+            info.spendTime = data as string;
+            return;
+          case 7:
+            info.station = data as string;
+            return;
+          case 8:
+            let arr: string[];
+            if (typeof data === 'string') {
+              arr = data.split(',');
+              const trr = _.forEach(arr, (o) => {
+                _.trim(o, '"');
+              });
+              info.keyword = trr;
+            }
+            return;
+          case 9:
+            if (data === '') {
+              return;
+            }
+            console.log(data);
+            const arr2 = JSON.stringify(data).split(',');
+            console.log(arr2);
+            let may2 = {
+              name: _.trim(arr2[1], '"'),
+              likeId: parseInt(_.trim(arr2[0], '"'))
+            };
+            info.maylike.push(may2);
+            return;
+          case 10:
+            if (data === '') {
+              return;
+            }
+            const arr3 = JSON.stringify(data).split(',');
+            let may3 = {
+              name: _.trim(arr3[1], '"'),
+              likeId: parseInt(_.trim(arr3[0], '"'))
+            };
+            info.maylike.push(may3);
+            return;
+          case 11:
+            if (data === '') {
+              return;
+            }
+            const arr4 = JSON.stringify(data).split(',');
+            let may4 = {
+              name: _.trim(arr4[1], '"'),
+              likeId: parseInt(_.trim(arr4[0], '"'))
+            };
+            info.maylike.push(may4);
+            return;
+          default:
+            return;
+        }
+      });
+      obj.push(info);
+    });
+    console.log(obj);
+  };
+
   return (
     <div className='admin'>
       {passwordOK ? (
@@ -150,81 +287,6 @@ export default function Administrator() {
         <>
           <Header type='black' />
           <div className='admin_test'>
-            {/* <div className='admin_container'>
-              <div className='admin_box'>
-                <h2>내부 내용</h2>
-                <p>Content ID</p>
-                <input
-                  type='number'
-                  onChange={(e) => {
-                    setContentId((contentId) => parseInt(e.target.value));
-                  }}
-                />
-                <p>Content Type ID</p>
-                <input
-                  type='number'
-                  onChange={(e) => {
-                    setContentTypeId((contentTypeId) =>
-                      parseInt(e.target.value)
-                    );
-                  }}
-                />
-                <p>Intro</p>
-                <textarea
-                  onChange={(e) => {
-                    setIntro((intro) => e.target.value);
-                  }}
-                ></textarea>
-                <p>Spend Time</p>
-                <input
-                  onChange={(e) => {
-                    setSpendTime((spendTime) => e.target.value);
-                  }}
-                />
-                <p>Transport</p>
-                <input
-                  onChange={(e) => {
-                    setTransport((transport) => e.target.value);
-                  }}
-                />
-                <p>Keyword</p>
-                <input
-                  onChange={(e) => {
-                    const t: string[] = e.target.value.split(',');
-                    setKeyword((keyword) => t);
-                  }}
-                />
-                <p>MayLike ID</p>
-                <input
-                  onChange={(e) => {
-                    const t: string[] = e.target.value.split(',');
-                    setMayLike((mayLike) => t);
-                  }}
-                />
-                <p>Story ID</p>
-                <input
-                  onChange={(e) => {
-                    const t: string[] = e.target.value.split(',');
-                    setStory((story) => t);
-                  }}
-                />
-              </div>
-              <div>
-                <h2>외부 커버 내용</h2>
-                <p>Cover Img</p>
-                <input
-                  onChange={(e) => {
-                    setCover((cover) => e.target.value);
-                  }}
-                />
-                <p>Summary</p>
-                <textarea
-                  onChange={(e) => {
-                    setSummary((summary) => e.target.value);
-                  }}
-                ></textarea>
-              </div>
-            </div> */}
             <div>
               <input type='file' onChange={(e) => onFileChange(e)} />
               <button
@@ -234,38 +296,7 @@ export default function Administrator() {
               >
                 CONSOLE
               </button>
-              <button
-                onClick={() => {
-                  _.map(JSON.parse(anything), (o) => {
-                    let add: string[] = o.addr1.split(',');
-                    const covername = `${add[add.length - 2]}, ${
-                      add[add.length - 1]
-                    }`;
-                    const regExp = new RegExp(/[a-zA-Z0-9-'? ]*/);
-                    const num = _.findIndex(common, (p) => {
-                      return o.contentid == p.contentid;
-                    });
-                    let a = {
-                      id: o.contentid,
-                      typeId: 76,
-                      coverName: o.title,
-                      coverImg:
-                        common[num].firstimage !== ''
-                          ? common[num].firstimage
-                          : '',
-                      coverLocate: 'Seoul Info',
-                      coverTitle: o.title.match(regExp)[0].trim(),
-                      coverAddr: covername
-                    };
-                    if (a.coverImg === '') {
-                      arr000.push(a);
-                    }
-                    arr123.push(a);
-                  });
-                }}
-              >
-                CONSOLE
-              </button>
+              <button onClick={excelToInfoForm}>Excel Do</button>
               <button
                 onClick={() => {
                   console.log(arr123);
@@ -288,80 +319,4 @@ export default function Administrator() {
       )}
     </div>
   );
-}
-
-{
-  /* <div className='admin_container'>
-        <div className='admin_box'>
-          <h2>내부 내용</h2>
-          <p>Content ID</p>
-          <input
-            type='number'
-            onChange={(e) => {
-              setContentId((contentId) => parseInt(e.target.value));
-            }}
-          />
-          <p>Content Type ID</p>
-          <input
-            type='number'
-            onChange={(e) => {
-              setContentTypeId((contentTypeId) => parseInt(e.target.value));
-            }}
-          />
-          <p>Intro</p>
-          <textarea
-            onChange={(e) => {
-              setIntro((intro) => e.target.value);
-            }}
-          ></textarea>
-          <p>Spend Time</p>
-          <input
-            onChange={(e) => {
-              setSpendTime((spendTime) => e.target.value);
-            }}
-          />
-          <p>Transport</p>
-          <input
-            onChange={(e) => {
-              setTransport((transport) => e.target.value);
-            }}
-          />
-          <p>Keyword</p>
-          <input
-            onChange={(e) => {
-              const t: string[] = e.target.value.split(',');
-              setKeyword((keyword) => t);
-            }}
-          />
-          <p>MayLike ID</p>
-          <input
-            onChange={(e) => {
-              const t: string[] = e.target.value.split(',');
-              setMayLike((mayLike) => t);
-            }}
-          />
-          <p>Story ID</p>
-          <input
-            onChange={(e) => {
-              const t: string[] = e.target.value.split(',');
-              setStory((story) => t);
-            }}
-          />
-        </div>
-        <div>
-          <h2>외부 커버 내용</h2>
-          <p>Cover Img</p>
-          <input
-            onChange={(e) => {
-              setCover((cover) => e.target.value);
-            }}
-          />
-          <p>Summary</p>
-          <textarea
-            onChange={(e) => {
-              setSummary((summary) => e.target.value);
-            }}
-          ></textarea>
-        </div>
-      </div> */
 }

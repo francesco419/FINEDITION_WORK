@@ -8,8 +8,8 @@ type HeaderLocateType = {
 
 const arr = [
   { name: 'Megazine', to: `${process.env.PUBLIC_URL}/megazine` },
-  { name: 'Seoul', to: `${process.env.PUBLIC_URL}/cities/` },
-  { name: 'Region', to: `${process.env.PUBLIC_URL}/region` }
+  { name: 'Region', to: `${process.env.PUBLIC_URL}/region` },
+  { name: 'Seoul', to: `${process.env.PUBLIC_URL}/cities/` }
 ];
 
 export default function HeaderLocate({ color }: HeaderLocateType) {

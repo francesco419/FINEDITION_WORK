@@ -2,24 +2,19 @@
 
 .newsHome {
   display: flex;
-  width: 649px;
+  align-self: flex-end;
   height: 391px;
-  margin: 0 0 0 48px;
+  margin-left: 30px;
   &_left {
-    width: 358px;
+    width: 340px;
   }
   &_title {
     display: flex;
     align-items: center;
     justify-content: space-between;
     h2 {
-      color: var(--light-gray, #eaeaea);
-      font-family: Value Serif Pro;
-      font-size: 21px;
-      font-style: normal;
-      font-weight: 500;
-      margin: 0 0 30px;
-      line-height: 20px;
+      margin: 0 0 20px;
+      @include font-style(21, $Brand-Light-Green-0, Mabry Pro Med, 1.1);
     }
   }
   &_textBox {
@@ -39,36 +34,26 @@
     }
   }
   &_right {
-    width: 272px;
-    padding: 7px 0 0;
-    margin-right: 48px;
+    margin-right: 40px;
     box-sizing: border-box;
     white-space: pre-wrap;
     &_image {
-      margin: 15px 15px 15px 0;
+      margin: 15px 15px 12px 0;
     }
     h2 {
-      color: #fff;
-      @include mabry;
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 400;
+      @include font-style(21, $Brand-Light-Green-0, Mabry Pro Med, 1.1);
     }
   }
   &_video {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 272px;
+    width: 280px;
     height: 155px;
     background-color: #d9d9d966;
-    margin: 7px 0 10px;
+    margin: 0 0 10px;
   }
   p {
-    color: rgba(255, 255, 255, 0.5);
-    font-family: Mabry Pro;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
+    @include font-style(14, $System-Dark-Gray-0, Mabry Pro Reg, 1.1);
   }
 }

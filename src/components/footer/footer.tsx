@@ -57,9 +57,12 @@ export default function Footer() {
       {_.map(FOOTERMENU, (a) => {
         return (
           <div className='footer_divide'>
-            {_.map(a, (o) => {
+            {_.map(a, (o, index) => {
               return (
-                <button onClick={() => onClickHandlerFooter(o.to)}>
+                <button
+                  onClick={() => onClickHandlerFooter(o.to)}
+                  key={`${o.name}_${index}`}
+                >
                   {o.name}
                 </button>
               );

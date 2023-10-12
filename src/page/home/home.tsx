@@ -72,6 +72,7 @@ export default function Home() {
         >
           <DiscoverCities />
           <div className='home_souvenirs'>
+            <p>{`Look around\nFinedition Souvenirs`}</p>
             <img src={souvenir} />
           </div>
           <PhotoBuzz />

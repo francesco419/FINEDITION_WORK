@@ -3,7 +3,7 @@
 .citie-checkbox {
   display: flex;
   align-items: center;
-  align-self: baseline;
+  align-self: flex-start;
   margin: 0 31px 15px 0;
   height: 13px;
   &#t3_id {
@@ -21,6 +21,6 @@
     margin-right: 8px;
   }
   &_label {
-    @include font-style(15, $System-Black-0, 0.7, $mabrylight);
+    @include font-style(15, $System-Black-0, Mabry Pro Light);
   }
 }

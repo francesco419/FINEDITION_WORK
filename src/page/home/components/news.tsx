@@ -43,7 +43,7 @@ export default function NewsHome() {
   return (
     <div className='newsHome'>
       <div className='newsHome_right'>
-        <h2>{`Discover various \nways of Korea`}</h2>
+        <h2>{`Discover diversity \nof Korea with us`}</h2>
         {_.map(DISCOVERIMG, (o, index) => {
           return (
             <img
@@ -56,7 +56,7 @@ export default function NewsHome() {
         <div className='newsHome_video'>
           <img src={yLogo} />
         </div>
-        <p>{`Must know tips when exploring Seoul\n#Seoul #travel #Korea`}</p>
+        <p>{`Finedition Youtube Channel Coming soon\non November, 2023`}</p>
       </div>
       <div className='newsHome_left'>
         <div className='newsHome_title'>

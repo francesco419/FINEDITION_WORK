@@ -141,8 +141,14 @@ function StoryMap() {
       </div>
       <div className='storymap_right'>
         <div>
-          <InfoTag />
-          <PageCount />
+          <InfoTag data={['Traditional', 'Highlight', 'Recommend']} />
+          <PageCount
+            value={{
+              bookmark: 0,
+              liked: 0,
+              view: 0
+            }}
+          />
         </div>
       </div>
     </div>

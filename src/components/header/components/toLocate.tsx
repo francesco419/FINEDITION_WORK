@@ -20,7 +20,7 @@ export default function LocateButton({
 
   useEffect(() => {
     if (loca.pathname.includes(obj.name.toLowerCase())) {
-      setColors((colors) => '#BCEB49');
+      setColors((colors) => '#b6b2f8');
     } else {
       setColors((colors) => color);
     }

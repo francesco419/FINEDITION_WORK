@@ -19,7 +19,7 @@ const TAG_LIST = [
   { tag: 'Night scenery', svg: <NightScenery /> },
   { tag: 'Good with kids', svg: <GoodforKids /> },
   { tag: 'Instagrammable', svg: <Intagrammable /> },
-  { tag: 'Great landscape', svg: <Landscape /> },
+  { tag: 'Great scenery', svg: <Landscape /> },
   { tag: 'Shoppers’ heaven', svg: <Shopper /> },
   { tag: 'Stroll friendly', svg: <Stroll /> },
   { tag: 'Fun & joy', svg: <FunJoy /> }
@@ -27,12 +27,18 @@ const TAG_LIST = [
 
 const tagcount = ['Traditional', 'Highlight', 'Recommend'];
 
-export default function InfoTag() {
+interface infoTag_Type {
+  data: string[] | undefined;
+}
+
+export default function InfoTag({ data }: infoTag_Type) {
   const getTags = () => {
-    const temp = _.filter(TAG_LIST, (o) => {
-      return _.includes(tagcount, o.tag);
-    });
-    return temp;
+    if (data !== undefined) {
+      const temp = _.filter(TAG_LIST, (o) => {
+        return _.includes(data, o.tag.replaceAll(' ', ''));
+      });
+      return temp;
+    }
   };
 
   return (

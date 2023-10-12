@@ -1,17 +1,25 @@
 import './pageCount.scss';
 
-export default function PageCount() {
+interface InfoCount_Type {
+  value: {
+    bookmark: number | undefined;
+    liked: number | undefined;
+    view: number | undefined;
+  };
+}
+
+export default function PageCount({ value }: InfoCount_Type) {
   return (
     <div className='pageCount'>
       <ul>
         <li>
-          <p>00 Bookmarked</p>
+          <p>{value.bookmark} Bookmarked</p>
         </li>
         <li>
-          <p>00 Liked</p>
+          <p>{value.liked} Liked</p>
         </li>
         <li>
-          <p>00 Viewed</p>
+          <p>{value.view} Viewed</p>
         </li>
       </ul>
     </div>

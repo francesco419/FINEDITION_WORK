@@ -35,6 +35,9 @@ import LoadingSpinner from '../../components/common/loadingspinner';
 import ImgBox from './component/imgbox';
 import InfoTag from './component/infotag';
 import PageCount from '../../components/common/pageCount';
+import { info_Type } from '../admin/administrator';
+import { dataInfo } from '../../temp/infoDataF';
+import InfoSkeleton from '../../components/skeleton/infoSkeleton';
 
 /* 
 addr1
@@ -128,11 +131,26 @@ export default function Info() {
     },
     originimgurl: []
   });
+  const [typedData, setTypedData] = useState<info_Type>();
 
   useEffect(() => {
     getAPIDataCommon(apidata);
+    getInfoData(param.id);
     //setLoading((loading) => true);
   }, []);
+
+  const getInfoData = (id: string | undefined) => {
+    if (id === undefined) {
+      return;
+    }
+
+    const contentid = parseInt(id);
+    _.forEach(dataInfo, (o) => {
+      if (o.id === contentid) {
+        setTypedData((typedData) => o);
+      }
+    });
+  };
 
   const getAPIDataCommon = async (temp: API_DATA_TYPE) => {
     const interceptor: API_TYPE = {
@@ -189,7 +207,7 @@ export default function Info() {
         });
         //console.log('fetching (3) info success');
         //setApiData(temp);
-        getBakcData(temp.contentid);
+        //getBakcData(temp.contentid);
         setLoading((loading) => true);
       }
     };
@@ -221,9 +239,10 @@ export default function Info() {
     };
     APIInterceptor(apidata);
   };
-  /* const REG = new RegExp(/\(.*\)/gi); */
 
-  return (
+  return <InfoSkeleton />;
+
+  /* return (
     <div className={loading ? 'info' : ''}>
       {loading ? (
         <>
@@ -237,6 +256,7 @@ export default function Info() {
                   apidata.firstimage !== '' ? apidata.firstimage : frontimg
                 }
                 overview={apidata.overview}
+                typedDetailText={typedData?.pickText}
               />
               <LocationMapCom
                 mapx={apidata.mapx}
@@ -260,8 +280,14 @@ export default function Info() {
                 <Like />
                 <Bookmark />
               </div>
-              <InfoTag />
-              <PageCount />
+              <InfoTag data={typedData?.tag} />
+              <PageCount
+                value={{
+                  bookmark: typedData?.bookmark,
+                  liked: typedData?.like,
+                  view: typedData?.view
+                }}
+              />
               <div className='info_infomation-detail'>
                 <hr />
                 <ul>
@@ -269,19 +295,16 @@ export default function Info() {
                   <RestTimeComp text={apidata.restdate} />
                   <ReservationComp text={'`No reservation`'} />
                   <EntryFeeComp text={apidata.fee.infotext} />
-                  <SpendTimeComp text={'`About 1h 30m`'} />
+                  <SpendTimeComp spend={typedData?.spendTime} />
                   <HomepageComp text={apidata.homepage} />
-                  <NearbyComp text={'Chungmuro Station (Line3)'} />
+                  <NearbyComp station={typedData?.station} />
                   <LanguageComp text={apidata.Interpretation.infotext} />
-                  <KeyWordComp
-                    text={`#namsangol #hanok #village #jung-gu #seoul #chungmuro #traditional #experience`}
-                  />
+                  <KeyWordComp keyword={typedData?.keyword} />
                 </ul>
               </div>
-              <MayLike />
-              <RelatedMegazine />
+              <MayLike arr={typedData?.maylike} />
               <Weather mapx='126.8999035848' mapy='37.5523989260' />
-              {/* <PastWeather mapx='126.8999035848' mapy='37.5523989260' /> */}
+              <PastWeather mapx='126.8999035848' mapy='37.5523989260' />
             </div>
           </div>
           <Footer />
@@ -304,11 +327,10 @@ export default function Info() {
         </div>
       )}
     </div>
-  );
+  ); */
 }
-
-function ListElement() {
-  return <div className='info-element'></div>;
+{
+  /* <RelatedMegazine /> */
 }
 
 // N/A (Open all year round)

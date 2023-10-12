@@ -54,7 +54,7 @@ export default function ImgBox({ img }: IMGBOXTYPE) {
           {_.map(imgData, (o, index) => {
             if (index < 2) {
               return (
-                <div>
+                <div key={`${o.galContentId}_${index}`}>
                   <img src={o.galWebImageUrl} />
                 </div>
               );

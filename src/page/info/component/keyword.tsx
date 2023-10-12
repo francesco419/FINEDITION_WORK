@@ -4,17 +4,21 @@ import { ReactComponent as KeyWord } from '../assets/keyword.svg';
 import _ from 'lodash';
 import { LiType } from './usetime';
 
-export default function KeyWordComp({ text }: LiType) {
+type KeyWord_Type = {
+  keyword: string[] | undefined;
+};
+
+export default function KeyWordComp({ keyword }: KeyWord_Type) {
   return (
     <li className='usetime'>
       <div style={{ alignSelf: 'baseline', margin: '2px 0 0' }}>
         <KeyWord />
       </div>
       <p>
-        {_.map(text.split(' '), (o, index) => {
+        {_.map(keyword, (o, index) => {
           return (
             <a href='https://www.naver.com/' key={`${o}_${index}`}>
-              {o}{' '}
+              #{o}{' '}
             </a>
           );
         })}

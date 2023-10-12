@@ -4,11 +4,15 @@ import { ReactComponent as SpendTime } from '../assets/spend-time.svg';
 import InfoHover from './infohover';
 import { LiType } from './usetime';
 
-export default function SpendTimeComp({ text }: LiType) {
+type SpendTime_Type = {
+  spend: string | undefined;
+};
+
+export default function SpendTimeComp({ spend }: SpendTime_Type) {
   return (
     <li className='usetime'>
       <SpendTime />
-      <p>{`About 1h 30m`}</p>
+      <p>{`About ${spend}`}</p>
     </li>
   );
 }

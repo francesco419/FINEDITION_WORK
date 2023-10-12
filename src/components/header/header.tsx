@@ -80,6 +80,7 @@ export default function Header({ type }: HeaderType) {
     } else {
       setFontColor((fontColor) => '#000');
     }
+
     setBackColor((backColor) => color);
   };
 
