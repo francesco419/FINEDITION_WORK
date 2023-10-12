@@ -7,13 +7,13 @@ import image3 from '../../../assets/image/street.png';
 
 const temp = [
   {
-    img: image
+    img: 'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264316_cover.jpg'
   },
   {
-    img: image
+    img: 'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264316_cover.jpg'
   },
   {
-    img: image
+    img: 'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264337_cover.jpg'
   }
 ];
 const temp1 = [

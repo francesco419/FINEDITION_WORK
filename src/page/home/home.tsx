@@ -33,7 +33,7 @@ const data1: cardType[] = [
   cardData[10],
   cardData[11],
   cardData[12],
-  cardData[13],
+  /* cardData[13], */
   cardData[14],
   cardData[15],
   cardData[16],
