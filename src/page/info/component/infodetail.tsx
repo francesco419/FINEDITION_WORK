@@ -1,10 +1,7 @@
 import '../info.scss';
 import { ReactComponent as Pick } from '../assets/Storytelling.svg';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import _ from 'lodash';
-
-//title,addr1,firstimage -
-//overview
 
 type AAType = {
   title: string;
@@ -13,6 +10,9 @@ type AAType = {
   overview: string;
   typedDetailText: string | undefined;
 };
+
+const DELETEFROMSTRING = ['<br />', '&nbsp;'];
+
 export default function InfoDetail({
   title,
   addr1,
@@ -20,13 +20,19 @@ export default function InfoDetail({
   overview,
   typedDetailText
 }: AAType) {
+  const [result, setResult] = useState<string>();
+
   let add = title.match(new RegExp(/[가-힣]+\s?/));
   let titl = title.split('(');
   let addr = addr1.split(',').reverse();
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (overview) {
+      _.map(DELETEFROMSTRING, (o) => {
+        setResult((result) => overview.replaceAll(o, ''));
+      });
+    }
+  }, []);
 
-  ///([가-힣]+|\w+)(\s{0,}):(\s{0,})(\w+)$/
-  ///[가-힣]+\s?/
   return (
     <>
       <div className='info_about-title'>
@@ -45,14 +51,8 @@ export default function InfoDetail({
             <h3>Finedition Pick</h3>
           </div>
           <p>{typedDetailText}</p>
-          <p>{`${overview.replaceAll('<br />', '\n')}`}</p>
+          <p>{`${result}`}</p>
         </div>
-        {/* <div className='info_about-highlights d-flex'>
-              <div className='d-flex'>
-                <p>Surrounding Highlights</p>
-                <Down />
-              </div>
-            </div> */}
       </div>
     </>
   );

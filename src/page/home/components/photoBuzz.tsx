@@ -15,8 +15,7 @@ export default function PhotoBuzz() {
   const [image, setImage] = useState<cardType[]>([]);
 
   useEffect(() => {
-    getApi();
-    console.log(ddd.length);
+    getRandomImage(cardData);
   }, []);
 
   const getRandomImage = (data: cardType[]) => {
@@ -47,9 +46,7 @@ export default function PhotoBuzz() {
     }
   };
 
-  const getApi = () => {
-    setItem((item) => cardData);
-  };
+  console.log(item);
 
   return (
     <div className='wordbuzz'>
@@ -65,13 +62,6 @@ export default function PhotoBuzz() {
       </div>
       <div className='apimap'>
         {_.map(image, (o, index) => {
-          if (o === undefined) {
-            return (
-              <div>
-                <img src='https://picsum.photos/200/300' />
-              </div>
-            );
-          }
           return <MapPop obj={o} key={`${o.id}_${index}`} />;
         })}
       </div>

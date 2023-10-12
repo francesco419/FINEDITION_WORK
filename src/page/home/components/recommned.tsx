@@ -60,23 +60,21 @@ export default function Recommend() {
         <ul className='recommend_head'>
           {_.map(MENUTEXT, (s, index) => {
             return (
-              <>
-                <li key={s.title}>
-                  <button
-                    style={{
-                      color: choose === s.num ? '#BCEB49' : '#8D8D90'
-                    }}
-                    onClick={() => onClickHandler(s.num)}
-                  >
-                    {s.title}
-                  </button>
-                </li>
+              <li key={s.title}>
+                <button
+                  style={{
+                    color: choose === s.num ? '#BCEB49' : '#8D8D90'
+                  }}
+                  onClick={() => onClickHandler(s.num)}
+                >
+                  {s.title}
+                </button>
                 {index !== MENUTEXT.length - 1 && (
-                  <li style={{ margin: '0 8px' }}>
+                  <span style={{ margin: '0 8px' }}>
                     <p>l</p>
-                  </li>
+                  </span>
                 )}
-              </>
+              </li>
             );
           })}
         </ul>

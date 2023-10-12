@@ -240,94 +240,76 @@ export default function Info() {
     APIInterceptor(apidata);
   };
 
-  /*   return <InfoSkeleton />; */
-
-  return (
-    <div className={loading ? 'info' : ''}>
-      {loading ? (
-        <>
-          <Header type='black' />
-          <div className='info_container'>
-            <div className='info_about'>
-              <InfoDetail
-                title={apidata.title}
-                addr1={apidata.addr1}
-                firstimage={
-                  apidata.firstimage !== '' ? apidata.firstimage : frontimg
-                }
-                overview={apidata.overview}
-                typedDetailText={typedData?.pickText}
-              />
-              <LocationMapCom
-                mapx={apidata.mapx}
-                mapy={apidata.mapy}
-                place={apidata.title}
-              />
-              <div className='info_about-tele'>
-                <div>
-                  <Locate />
-                  <p>{apidata.addr1}</p>
-                </div>
-                <div>
-                  <Tele />
-                  <p>{apidata.infocenter}</p>
-                </div>
+  if (!loading) {
+    return <InfoSkeleton />;
+  } else {
+    return (
+      <div className={loading ? 'info' : ''}>
+        <Header type='black' />
+        <div className='info_container'>
+          <div className='info_about'>
+            <InfoDetail
+              title={apidata.title}
+              addr1={apidata.addr1}
+              firstimage={
+                apidata.firstimage !== '' ? apidata.firstimage : frontimg
+              }
+              overview={apidata.overview}
+              typedDetailText={typedData?.pickText}
+            />
+            <LocationMapCom
+              mapx={apidata.mapx}
+              mapy={apidata.mapy}
+              place={apidata.title}
+            />
+            <div className='info_about-tele'>
+              <div>
+                <Locate />
+                <p>{apidata.addr1}</p>
               </div>
-              <ImgBox img={apidata.title.match(new RegExp(/[가-힣]+\s?/))} />
+              <div>
+                <Tele />
+                <p>{apidata.infocenter}</p>
+              </div>
             </div>
-            <div className='info_infomation'>
-              <div className='info_infomation-view d-flex'>
-                <Like />
-                <Bookmark />
-              </div>
-              <InfoTag data={typedData?.tag} />
-              <PageCount
-                value={{
-                  bookmark: typedData?.bookmark,
-                  liked: typedData?.like,
-                  view: typedData?.view
-                }}
-              />
-              <div className='info_infomation-detail'>
-                <hr />
-                <ul>
-                  <UseTimeComp text={apidata.usetime} />
-                  <RestTimeComp text={apidata.restdate} />
-                  <ReservationComp text={'`No reservation`'} />
-                  <EntryFeeComp text={apidata.fee.infotext} />
-                  <SpendTimeComp spend={typedData?.spendTime} />
-                  <HomepageComp text={apidata.homepage} />
-                  <NearbyComp station={typedData?.station} />
-                  <LanguageComp text={apidata.Interpretation.infotext} />
-                  <KeyWordComp keyword={typedData?.keyword} />
-                </ul>
-              </div>
-              <MayLike arr={typedData?.maylike} />
-              <Weather mapx='126.8999035848' mapy='37.5523989260' />
-              <PastWeather mapx='126.8999035848' mapy='37.5523989260' />
-            </div>
+            <ImgBox img={apidata.title.match(new RegExp(/[가-힣]+\s?/))} />
           </div>
-          <Footer />
-        </>
-      ) : (
-        <div className='skeleton'>
-          <div>
-            <div style={{ width: '879px', height: '39px' }}></div>
-            <div style={{ width: '879px', height: '693px' }}></div>
-            <div style={{ width: '879px', height: '39px' }}></div>
-            <div>
-              <div style={{ width: '879px', height: '39px' }}></div>
-              <div style={{ width: '879px', height: '39px' }}></div>
+          <div className='info_infomation'>
+            <div className='info_infomation-view d-flex'>
+              <Like />
+              <Bookmark />
             </div>
-          </div>
-          <div>
-            <div></div>
-            <div></div>
+            <InfoTag data={typedData?.tag} />
+            <PageCount
+              value={{
+                bookmark: typedData?.bookmark,
+                liked: typedData?.like,
+                view: typedData?.view
+              }}
+            />
+            <div className='info_infomation-detail'>
+              <hr />
+              <ul>
+                <UseTimeComp text={apidata.usetime} />
+                <RestTimeComp text={apidata.restdate} />
+                <ReservationComp text={'`No reservation`'} />
+                <EntryFeeComp text={apidata.fee.infotext} />
+                <SpendTimeComp spend={typedData?.spendTime} />
+                <HomepageComp text={apidata.homepage} />
+                <NearbyComp station={typedData?.station} />
+                <LanguageComp text={apidata.Interpretation.infotext} />
+                <KeyWordComp keyword={typedData?.keyword} />
+              </ul>
+            </div>
+            <MayLike arr={typedData?.maylike} />
+            <Weather mapx='126.8999035848' mapy='37.5523989260' />
+            <PastWeather mapx='126.8999035848' mapy='37.5523989260' />
           </div>
         </div>
-      )}
-    </div>
-  );
+        <Footer />
+      </div>
+    );
+  }
 }
 {
   /* <RelatedMegazine /> */

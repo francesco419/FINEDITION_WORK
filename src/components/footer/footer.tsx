@@ -51,12 +51,16 @@ export default function Footer() {
     if (to === null) return;
     nav(`/${to}`);
   };
+
   return (
     <div className='footer'>
       <FINEDITION />
-      {_.map(FOOTERMENU, (a) => {
+      {_.map(FOOTERMENU, (a, index) => {
         return (
-          <div className='footer_divide'>
+          <div
+            className='footer_divide'
+            key={`${a[index].name}_footer_${index}}`}
+          >
             {_.map(a, (o, index) => {
               return (
                 <button

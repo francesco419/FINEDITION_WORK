@@ -1,4 +1,62 @@
 @import '../../style.scss/';
 
-.skeletonInfo {
+/* .skeletonAnimation {
+  background: linear-gradient(-45deg, #18181a, #4d4d53, #0d0d0e, #19191b);
+  background-size: 400% 400%;
+  animation: gradient 3s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} */
+
+.skeletonAnimation {
+  background: linear-gradient(318deg, #18181a, #282829, #0d0d0e);
+  background-size: 600% 600%;
+
+  -webkit-animation: AnimationName 3s linear infinite;
+  -moz-animation: AnimationName 3s linear infinite;
+  animation: AnimationName 3s linear infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 99% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 99% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 99% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }

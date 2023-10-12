@@ -18,8 +18,16 @@ export default function HomeSpots() {
     <div className='home_spots'>
       <h2>Interesting Spots around you</h2>
       <div className='home_spots-cards'>
-        {_.map(data0, (o) => {
-          return <Card data={o} color='#fff' type='medium' fcolor='#fff' />;
+        {_.map(data0, (o, index) => {
+          return (
+            <Card
+              data={o}
+              color='#fff'
+              type='medium'
+              fcolor='#fff'
+              key={`${o.id}_spot_${index}}`}
+            />
+          );
         })}
       </div>
     </div>

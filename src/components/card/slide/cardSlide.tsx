@@ -141,7 +141,10 @@ export default function CardSlide({ data, type }: SlideType) {
       >
         {_.map(data, (o, index) => {
           return (
-            <span style={{ margin: '0 33px 0 0' }}>
+            <span
+              style={{ margin: '0 33px 0 0' }}
+              key={`${o.id}_card_${index}`}
+            >
               <Card
                 data={o}
                 color={'#b6b2f8'}

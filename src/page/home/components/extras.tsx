@@ -28,8 +28,12 @@ export default function Extras() {
           <h3>Welcome Partnerships!</h3>
           <p>{`Contact us if you are from companies, MICE,\nGoverment visitor. Let us find what’s best for you.`}</p>
           <div>
-            {_.map(partnership, (o) => {
-              return <a href=''>{o}</a>;
+            {_.map(partnership, (o, index) => {
+              return (
+                <a href='' key={`${o}_${index}`}>
+                  {o}
+                </a>
+              );
             })}
           </div>
         </div>

@@ -142,26 +142,17 @@ $interreg: Inter Reg;
 $interthin: Inter Thin;
 $intersemibold: Inter SemiBold;
 
-//letter-spacing: $letter-spacing-12;
-
 @mixin font-style-small() {
   font-size: $font-size-small;
-  //line-height: $line-height-small;
 }
 @mixin font-style-middle() {
   font-size: $font-size-middle;
-  //line-height: $line-height-middle;
 }
 @mixin font-style-big() {
   font-size: $font-size-big;
-  //line-height: $line-height-big;
 }
 @mixin font-style-custom($size) {
   font-size: #{$size}px;
-  //line-height: #{$size}px;
-}
-
-@mixin font-type() {
 }
 
 @mixin font-style(
@@ -171,15 +162,6 @@ $intersemibold: Inter SemiBold;
   $lineHeight: 0.7,
   $fontWeigth: 500
 ) {
-  /*   @if ($size==small) {
-    @include font-style-small;
-  }
-  @if ($size==middle) {
-    @include font-style-middle;
-  }
-  @if ($size==big) {
-    @include font-style-big;
-  } */
   @if (type-of($size) ==number) {
     @include font-style-custom($size);
   }
