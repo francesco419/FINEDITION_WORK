@@ -7,18 +7,20 @@ import { APIInterceptor } from '../../../func/interceptor';
 import { API_TYPE } from '../../../func/interface';
 import { Axios, AxiosResponse } from 'axios';
 import { gallary_type } from '../../../func/interface';
+import { cardType } from '../../admin/administrator';
+import { cardData } from '../../../temp/cardData';
 
 export default function PhotoBuzz() {
-  const [item, setItem] = useState<gallary_type[]>([]);
-  const [image, setImage] = useState<gallary_type[]>([]);
+  const [item, setItem] = useState<cardType[]>([]);
+  const [image, setImage] = useState<cardType[]>([]);
 
   useEffect(() => {
-    getApi(_.random(1, 50));
+    getApi();
     console.log(ddd.length);
   }, []);
 
-  const getRandomImage = (data: gallary_type[]) => {
-    let arr: gallary_type[] = [];
+  const getRandomImage = (data: cardType[]) => {
+    let arr: cardType[] = [];
     let randomNum: number[] = [];
 
     for (;;) {
@@ -45,16 +47,8 @@ export default function PhotoBuzz() {
     }
   };
 
-  const getApi = (num: number) => {
-    const data: API_TYPE = {
-      url: `https://apis.data.go.kr/B551011/PhotoGalleryService1/galleryList1?serviceKey=${process.env.REACT_APP_TOUR_KEY}&numOfRows=100&pageNo=${num}&MobileOS=ETC&MobileApp=AppTest&arrange=A&_type=json`,
-      callback: (e: AxiosResponse) => {
-        console.log(e.data.response.body.items.item);
-        getRandomImage(e.data.response.body.items.item);
-        setItem((item) => e.data.response.body.items.item);
-      }
-    };
-    APIInterceptor(data);
+  const getApi = () => {
+    setItem((item) => cardData);
   };
 
   return (
@@ -78,7 +72,7 @@ export default function PhotoBuzz() {
               </div>
             );
           }
-          return <MapPop obj={o} key={`${o.galContentId}_${index}`} />;
+          return <MapPop obj={o} key={`${o.id}_${index}`} />;
         })}
       </div>
     </div>
@@ -86,7 +80,7 @@ export default function PhotoBuzz() {
 }
 
 type PopType = {
-  obj: gallary_type;
+  obj: cardType;
 };
 
 function MapPop({ obj }: PopType) {
@@ -97,9 +91,9 @@ function MapPop({ obj }: PopType) {
   return (
     <div>
       <img
-        src={obj.galWebImageUrl}
+        src={obj.coverImg}
         onError={(e) => handleImgError(e)}
-        title={obj.galWebImageUrl}
+        title={obj.coverName}
       />
     </div>
   );
