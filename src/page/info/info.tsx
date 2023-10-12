@@ -240,9 +240,9 @@ export default function Info() {
     APIInterceptor(apidata);
   };
 
-  return <InfoSkeleton />;
+  /*   return <InfoSkeleton />; */
 
-  /* return (
+  return (
     <div className={loading ? 'info' : ''}>
       {loading ? (
         <>
@@ -327,7 +327,7 @@ export default function Info() {
         </div>
       )}
     </div>
-  ); */
+  );
 }
 {
   /* <RelatedMegazine /> */
