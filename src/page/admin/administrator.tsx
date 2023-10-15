@@ -279,7 +279,7 @@ export default function Administrator() {
 
   const storyIntoData = () => {
     let data: sendAxiosState = {
-      url: 'http://localhost:8080/test',
+      url: 'https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/test',
       data: { id: 'hello' },
       callback: (e: AxiosResponse) => {
         console.log(e);
