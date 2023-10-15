@@ -278,7 +278,7 @@ export default function Administrator() {
 
   const storyIntoData = () => {
     let data: sendAxiosState = {
-      url: 'http://localhost:8080/getinfo',
+      url: `${process.env.REACT_APP_PROXY}/getinfo`,
       data: { id: 'frank' },
       callback: (e: AxiosResponse) => {
         console.log(e);
