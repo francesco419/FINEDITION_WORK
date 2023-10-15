@@ -47,8 +47,11 @@
     height: 155px;
     background-color: #d9d9d966;
     margin: 0 0 10px;
+    background-image: url('../../../assets/image/home/youtube.jpg');
+    background-size: 280px 155px;
+    opacity: 0.75;
   }
   p {
-    @include font-style(14, $System-Dark-Gray-0, Mabry Pro Reg, 1.1);
+    @include font-style(14, $System-Dark-Gray-0, Mabry Pro Reg, 1.4);
   }
 }

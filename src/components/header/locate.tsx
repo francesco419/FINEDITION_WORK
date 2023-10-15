@@ -28,7 +28,12 @@ export default function HeaderLocate({ color }: HeaderLocateType) {
           return (
             <LocateButton
               clickHandler={() => onClickHandler(o.to)}
-              color={location.pathname.includes('info') ? '#bceb49' : color}
+              color={
+                location.pathname.includes('info') ||
+                location.pathname.includes('cities')
+                  ? '#bceb49'
+                  : color
+              }
               obj={o}
               key={`${index}_locate`}
             />

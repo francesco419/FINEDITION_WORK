@@ -26,7 +26,15 @@ const data0: cardType[] = [
   cardData[6],
   cardData[7],
   cardData[8],
-  cardData[9]
+  cardData[9],
+  cardData[31],
+  cardData[32],
+  cardData[33],
+  cardData[34],
+  cardData[35],
+  cardData[36],
+  cardData[37],
+  cardData[38]
 ];
 
 const data1: cardType[] = [
@@ -40,7 +48,17 @@ const data1: cardType[] = [
   cardData[17],
   cardData[18],
   cardData[19],
-  cardData[20]
+  cardData[20],
+  cardData[21],
+  cardData[22],
+  cardData[23],
+  cardData[24],
+  cardData[25],
+  cardData[26],
+  cardData[27],
+  cardData[28],
+  cardData[29],
+  cardData[30]
 ];
 
 export default function Home() {
@@ -50,8 +68,8 @@ export default function Home() {
         <Header type='black' />
       </header>
       <section>
-        <CardSlide data={data0} type='medium' />
-        <CardSlide data={data1} type='medium' />
+        <CardSlide data={data0} type='small' />
+        <CardSlide data={data1} type='small' />
         <div
           style={{ display: 'flex', margin: '0 0 85px', padding: '50px 0 0' }}
         >
@@ -72,15 +90,14 @@ export default function Home() {
         >
           <DiscoverCities />
           <div className='home_souvenirs'>
-            {/* <p>{`Look around\nFinedition Souvenirs`}</p> */}
-            <img src={souvenir} />
+            <p>{`Look around\nFinedition Souvenirs`}</p>
           </div>
           <PhotoBuzz />
         </div>
         <Extras />
       </section>
       {/* <div className='homll'>a</div> */}
-      <Footer />
+      <Footer type={false} />
     </div>
   );
 }

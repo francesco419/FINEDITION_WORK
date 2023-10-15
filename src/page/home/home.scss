@@ -3,16 +3,19 @@
 .home {
   margin: 0 auto;
   width: 1440px;
-  padding: 88px 70px 0;
+  padding: 130px 70px 0;
   background-color: $black;
   box-sizing: border-box;
   &_souvenirs {
     width: 350px;
     height: 320px;
+    padding: 14px 20px;
     border-radius: 3px;
-    img {
-      width: inherit;
-      height: inherit;
+    box-sizing: border-box;
+    background-image: url('../../assets/image/home/home-souvenir.png');
+    p {
+      white-space: pre-wrap;
+      @include font-style(18, #ebd357, Mabry Pro Med, 1.2);
     }
   }
 }

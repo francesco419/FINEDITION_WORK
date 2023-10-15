@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import SearchComponent from '../../components/common/search/searchComponent';
 import SearchList from '../search/components/searchList';
 import SortList from '../search/components/sortList';
+import headimg from '../../assets/search/myPageBookmark.png';
 
 const count = {
   Overview: {
@@ -75,7 +76,7 @@ export default function Bookmark() {
         </div>
         <SearchList list={cardData} searchWord={searchWord} sort={sort} />
       </div>
-      <Footer />
+      <Footer type={false} />
     </div>
   );
 }

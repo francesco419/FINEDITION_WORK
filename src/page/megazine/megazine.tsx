@@ -31,17 +31,19 @@ const cities = [
   { id: 'KR-48', name: 'Gyeongnam' },
   { id: 'KR-27', name: 'Daegu & Ulsan', id2: 'KR-31', name2: 'Daegu & Ulsan' },
   { id: 'KR-26', name: 'Busan' },
-  { id: 'KR-50', name: 'Jeju' }
+  { id: 'KR-50', name: 'Jeju' },
+  { id: 'KR-50', name: 'None' }
 ];
 
 const theme = [
-  { id: 't0', name: 'Travel' },
-  { id: 't1', name: 'Spots' },
-  { id: 't2', name: 'Culture' },
-  { id: 't3', name: 'Food' },
-  { id: 't4', name: 'Shopping' },
-  { id: 't5', name: 'Insight' },
-  { id: 't6', name: 'News' }
+  { id: 't0', name: 'Edition' },
+  { id: 't1', name: 'Info' },
+  { id: 't2', name: 'Explore' },
+  { id: 't3', name: 'Culture' },
+  { id: 't4', name: 'Cuisine' },
+  { id: 't5', name: 'Locale' },
+  { id: 't6', name: 'Trends' },
+  { id: 't7', name: 'Shopping' }
 ];
 
 const DROPTEMP = [
@@ -97,7 +99,7 @@ export default function Magazine() {
             return <Card data={o} color={'#000'} type='small' fcolor='#000' />;
           })}
         </div>
-        <Footer />
+        <Footer type={true} />
       </div>
     </div>
   );

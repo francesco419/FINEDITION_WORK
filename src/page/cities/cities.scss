@@ -66,9 +66,9 @@
     }
     &-menu {
       display: flex;
-      justify-content: space-between;
       margin: 0 0 38px;
-      div {
+      gap: 26px;
+      &-list {
         &:first-child {
           display: flex;
           gap: 26px;
@@ -76,19 +76,19 @@
             &:first-child {
               @include font-style(37, $System-Black-0, Mabry Pro Med, 1.3);
             }
-            &:last-child {
+            &:nth-child(2) {
               @include font-style(29, $Brand-Orange-0, Calligraffitti, 1.5);
               border-bottom: 1px solid $System-Black-0;
             }
           }
         }
-        &:last-child {
-          align-self: flex-end;
-          button {
-            margin: 0 0 5px;
-            @include font-style(14, $System-Light-Gray-2, Mabry Pro Light, 1.3);
-          }
-        }
+      }
+    }
+    &-viewall {
+      margin: 0 0 0 auto;
+      button {
+        margin: 0 0 5px;
+        @include font-style(14, $System-Light-Gray-2, Mabry Pro Light, 1.3);
       }
     }
     &-list {
@@ -145,4 +145,72 @@
   padding: 10px 0 7px;
   border-top: 1px solid #eaeaea21;
   @include font-style(14, $gray, Mabry Pro Reg);
+}
+
+.climateRate {
+  margin: 10px 0 0;
+  position: relative;
+  div {
+    background-color: #d9d9d9;
+    border-radius: 4px;
+    padding: 5px 8px;
+    p {
+      @include font-style(18, $System-Black-0, Mabry Pro Light, 1);
+    }
+  }
+  span {
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    p {
+      @include font-style(10, $System-Light-Gray-1, Mabry Pro Light, 1);
+    }
+  }
+}
+
+.select-gu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  &-button {
+    padding: 10px 20px;
+    border-radius: 4px;
+    @include font-style(20, $Brand-Light-Green-0, Value Serif Pro Reg);
+    background-color: $System-Black-0;
+  }
+  ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 311px;
+    height: 400px;
+    overflow: scroll;
+    z-index: 10;
+    background-color: $System-White-2;
+    padding: 20px 30px;
+    overflow-x: hidden;
+    border-radius: 4px;
+    box-sizing: border-box;
+    button {
+      @include font-style(20, $System-Black-0, Value Serif Pro Reg);
+      margin: 0 0 15px;
+      &:hover {
+        color: $Brand-Orange-0;
+      }
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: $System-White-0;
+    }
+
+    &::-webkit-scrollbar {
+      width: 12px;
+      background: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: $System-Light-Gray-1;
+    }
+  }
 }

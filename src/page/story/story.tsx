@@ -76,7 +76,7 @@ export default function Story() {
             <RelatedMagazine strArr={tempe} />
           </div>
         </div>
-        <Footer />
+        <Footer type={true} />
       </div>
     );
   } else {

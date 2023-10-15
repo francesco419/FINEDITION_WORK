@@ -2,6 +2,7 @@ import '../info.scss';
 import { ReactComponent as Pick } from '../assets/Storytelling.svg';
 import { useEffect, useState } from 'react';
 import _ from 'lodash';
+import errorImg from '../../../assets/image/imageError.jpg';
 
 type AAType = {
   title: string;
@@ -33,6 +34,12 @@ export default function InfoDetail({
     }
   }, []);
 
+  const errorImageHandler = (
+    e: React.SyntheticEvent<HTMLImageElement, Event>
+  ) => {
+    e.currentTarget.src = errorImg;
+  };
+
   return (
     <>
       <div className='info_about-title'>
@@ -43,7 +50,7 @@ export default function InfoDetail({
       </div>
       <div className='info_about-detail'>
         <div className='info_about-frontimg'>
-          <img src={firstimage} />
+          <img src={firstimage} onError={errorImageHandler} />
         </div>
         <div className='info_about-text'>
           <div>

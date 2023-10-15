@@ -19,7 +19,7 @@ export default function ErrorPage() {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer type={false} />
     </div>
   );
 }

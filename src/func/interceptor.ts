@@ -112,7 +112,7 @@ export const putInterceptor = async (data: sendAxiosState) => {
 export const APIInterceptor = async (data: API_TYPE) => {
   return await axios
     .get(data.url)
-    .then((response: any) => {
+    .then((response: AxiosResponse) => {
       data.callback(response);
     })
     .catch((e) => {

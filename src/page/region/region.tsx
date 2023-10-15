@@ -50,7 +50,7 @@ export default function Region() {
           );
         })}
       </div>
-      <Footer />
+      <Footer type={false} />
     </div>
   );
 }

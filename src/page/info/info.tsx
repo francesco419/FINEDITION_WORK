@@ -134,6 +134,7 @@ export default function Info() {
   const [typedData, setTypedData] = useState<info_Type>();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getAPIDataCommon(apidata);
     getInfoData(param.id);
     //setLoading((loading) => true);
@@ -240,6 +241,8 @@ export default function Info() {
     APIInterceptor(apidata);
   };
 
+  console.log(apidata);
+
   if (!loading) {
     return <InfoSkeleton />;
   } else {
@@ -251,9 +254,7 @@ export default function Info() {
             <InfoDetail
               title={apidata.title}
               addr1={apidata.addr1}
-              firstimage={
-                apidata.firstimage !== '' ? apidata.firstimage : frontimg
-              }
+              firstimage={apidata.firstimage}
               overview={apidata.overview}
               typedDetailText={typedData?.pickText}
             />
@@ -310,7 +311,7 @@ export default function Info() {
             <PastWeather mapx='126.8999035848' mapy='37.5523989260' />
           </div>
         </div>
-        <Footer />
+        <Footer type={true} />
       </div>
     );
   }

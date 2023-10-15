@@ -17,7 +17,7 @@ export default function Profile() {
           <ProfilePersonal />
           <ProfileMyList />
         </div>
-        <Footer />
+        <Footer type={true} />
       </div>
     </div>
   );

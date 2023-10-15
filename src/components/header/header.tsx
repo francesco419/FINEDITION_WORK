@@ -80,7 +80,7 @@ export default function Header({ type }: HeaderType) {
   const changeColor = (color: string) => {
     if (color === '#000') {
       setFontColor((fontColor) => '#fff');
-    } else if (color === '#8763ED') {
+    } else {
       setFontColor((fontColor) => '#000');
     }
     setBackColor((backColor) => color);
@@ -96,10 +96,12 @@ export default function Header({ type }: HeaderType) {
         }}
       >
         <button onClick={navtoHome}>
-          <LogoLetter style={{ fill: fontColor }} />
+          <LogoLetter
+            style={{ fill: fontColor === '#fff' ? '#fff' : '#000' }}
+          />
         </button>
         <HeaderLocate color={fontColor} />
-        <HeaderMenu />
+        <HeaderMenu color={fontColor} />
       </div>
       {/* <button
         style={{ color: 'white' }}

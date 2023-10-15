@@ -10,7 +10,11 @@ import { useNavigate } from 'react-router';
 import { selectUserInfo, setDefault } from '../../redux/slices/userInfoSlice';
 import SearchDropDown from './search/search';
 
-export default function HeaderMenu() {
+type HeaderMenu_Type = {
+  color: string;
+};
+
+export default function HeaderMenu({ color }: HeaderMenu_Type) {
   const dispatch = useAppDispatch();
   const user = useAppSelector(selectUserInfo);
   const nav = useNavigate();
@@ -33,13 +37,16 @@ export default function HeaderMenu() {
     <>
       <div className='header_menu'>
         <HeaderSVG
-          svg={<Search />}
+          svg={<Search fill={color === '#fff' ? '#C2E56C' : color} />}
           to={() => {
             setDropDown((dropDown) => !dropDown);
           }}
         />
         {user.id === null ? (
-          <HeaderSVG svg={<Person />} to={navToLogIn} />
+          <HeaderSVG
+            svg={<Person fill={color === '#fff' ? '#C2E56C' : color} />}
+            to={navToLogIn}
+          />
         ) : (
           <HeaderSVG
             svg={<Not style={{ fill: '#ff0000' }} />}
@@ -48,8 +55,16 @@ export default function HeaderMenu() {
             }}
           />
         )}
-        <HeaderSVG svg={<Bookmark />} to={navToLogIn} />
-        <HeaderSVG svg={<Menu />} to={navTo} />
+        <HeaderSVG
+          svg={<Bookmark fill={color === '#fff' ? '#C2E56C' : color} />}
+          to={() => {
+            nav('/bookmark');
+          }}
+        />
+        <HeaderSVG
+          svg={<Menu stroke={color === '#fff' ? '#C2E56C' : color} />}
+          to={navTo}
+        />
       </div>
       {dropDown && <SearchDropDown />}
     </>

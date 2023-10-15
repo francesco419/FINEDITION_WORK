@@ -41,10 +41,10 @@ const FOOTERMENU = [
 ];
 
 interface Footer_TYPE {
-  type: string;
+  type: boolean;
 }
 
-export default function Footer() {
+export default function Footer({ type }: Footer_TYPE) {
   const nav = useNavigate();
 
   const onClickHandlerFooter = (to: string | null) => {
@@ -54,7 +54,7 @@ export default function Footer() {
 
   return (
     <div className='footer'>
-      <FINEDITION />
+      <FINEDITION fill={type ? '#000' : '#fff'} />
       {_.map(FOOTERMENU, (a, index) => {
         return (
           <div
@@ -65,6 +65,7 @@ export default function Footer() {
               return (
                 <button
                   onClick={() => onClickHandlerFooter(o.to)}
+                  style={{ color: type ? '#000' : '#fff' }}
                   key={`${o.name}_${index}`}
                 >
                   {o.name}

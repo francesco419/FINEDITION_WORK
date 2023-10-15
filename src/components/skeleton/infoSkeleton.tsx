@@ -68,7 +68,7 @@ export default function InfoSkeleton() {
           ></div>
         </div>
       </div>
-      <Footer />
+      <Footer type={false} />
     </div>
   );
 }

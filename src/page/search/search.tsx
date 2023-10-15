@@ -75,7 +75,7 @@ export default function Search() {
         </div>
         <SearchList list={listUp} searchWord={searchWord} sort={sort} />
       </div>
-      <Footer />
+      <Footer type={false} />
     </div>
   );
 }

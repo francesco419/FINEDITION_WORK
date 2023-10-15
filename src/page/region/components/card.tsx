@@ -65,7 +65,8 @@ export default function Card({
       style={{
         top: `${locationIn.y}px`,
         left: `${locationIn.x}px`,
-        backgroundColor: backColor
+        backgroundColor: backColor,
+        opacity: location === 'Seoul' ? 1 : undefined
       }}
     >
       {/* <button

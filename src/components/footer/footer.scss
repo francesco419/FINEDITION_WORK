@@ -13,9 +13,6 @@
     gap: 15px;
     flex-direction: column;
   }
-  svg {
-    fill: $Brand-Light-Green-0;
-  }
   button {
     text-align: left;
     @include font-style(13, $System-Light-Gray-0, Mabry Pro Reg);

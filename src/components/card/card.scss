@@ -2,7 +2,7 @@
 
 @mixin cardDl {
   position: relative;
-  margin: 0;
+  margin: 5px 0 0;
   &:hover {
     transform: translateY(-5px);
     transition: all 0.5s;
