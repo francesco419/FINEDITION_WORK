@@ -10,6 +10,7 @@ import ListCheckBox from './components/listCheckBox';
 import ThemeCheckBox from './components/themeCheckBox';
 import Card from '../../components/card/cardComp';
 import { cardData } from '../../temp/cardData';
+import { storyCardData } from '../../data/storyCardData';
 
 const cities = [
   { id: 'KR-11', name: 'Seoul' },
@@ -95,7 +96,7 @@ export default function Magazine() {
           </div>
         </div>
         <div className='citie_list'>
-          {_.map(cardData, (o) => {
+          {_.map(storyCardData, (o) => {
             return <Card data={o} color={'#000'} type='small' fcolor='#000' />;
           })}
         </div>

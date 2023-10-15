@@ -5,46 +5,59 @@ import { cardType } from '../../page/admin/administrator';
 import { useNavigate } from 'react-router';
 import { useAppSelector } from '../../redux/hooks';
 import { selectClick } from '../../redux/slices/clickSlice';
+import { StroyCardDate_Type } from '../../data/storyCardData';
+import { is } from 'date-fns/locale';
+import { storyData_Type } from '../../data/storyData';
 
 export interface MegazineCardType {
-  data: cardType;
+  data: cardType | StroyCardDate_Type;
   color: string;
   click?: boolean;
   type: string;
   fcolor?: string;
 }
 
-interface cardValueType {
-  data: cardType;
-  type: string;
-  click?: boolean;
-}
-
-const sizeof = ['small', 'medium', 'large'];
-
 export default function Card({ data, color, type, fcolor }: MegazineCardType) {
   const nav = useNavigate();
   const click = useAppSelector(selectClick);
 
-  const navigateHandler = () => {
-    if (click === false) nav(`/info/${data.id}/${data.typeId}`);
-  };
+  if ('coverLocate' in data) {
+    console.log('card');
+    const navigateHandler = () => {
+      if (click === false) nav(`/info/${data.id}/${data.typeId}`);
+    };
 
-  return (
-    <dl className={`magazineCard-${type}`} onClick={navigateHandler}>
-      <dt>
-        <img src={data.coverImg} />
-      </dt>
-      <dd>
-        <p>{data.coverLocate}</p>
-        <p style={{ color: fcolor ? fcolor : '#fff' }}>{data.coverTitle},</p>
-        <p style={{ color: fcolor ? fcolor : '#fff' }}>{data.coverAddr}</p>
-      </dd>
-      {/*       <dd className='cardBookMark'>
-        <button>
-          <BookMark style={{ stroke: color }} />
-        </button>
-      </dd> */}
-    </dl>
-  );
+    return (
+      <dl className={`magazineCard-${type}`} onClick={navigateHandler}>
+        <dt>
+          <img src={data.coverImg} />
+        </dt>
+        <dd>
+          <p>{data.coverLocate}</p>
+          <p style={{ color: fcolor ? fcolor : '#fff' }}>{data.coverTitle},</p>
+          <p style={{ color: fcolor ? fcolor : '#fff' }}>{data.coverAddr}</p>
+        </dd>
+      </dl>
+    );
+  } else {
+    console.log('story');
+    const navigateHandler = () => {
+      if (click === false) nav(`/story/${data.id}`);
+    };
+    const theme = data.coverTheme;
+
+    return (
+      <dl className={`magazineCard-${type}`} onClick={navigateHandler}>
+        <dt>
+          <img src={data.coverImg} />
+        </dt>
+        <dd>
+          <p>{theme}</p>
+          <p
+            style={{ color: fcolor ? fcolor : '#fff' }}
+          >{`${data.coverTitle}`}</p>
+        </dd>
+      </dl>
+    );
+  }
 }

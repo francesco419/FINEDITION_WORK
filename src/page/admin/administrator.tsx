@@ -26,6 +26,7 @@ export interface cardType {
   coverLocate: string;
   coverTitle: string;
   coverAddr: string;
+  isCard: boolean;
 }
 
 type poType = {
@@ -167,9 +168,9 @@ export default function Administrator() {
         coverAddr: covername
       };
       if (a.coverImg === '') {
-        arr000.push(a);
+        //arr000.push(a);
       }
-      arr123.push(a);
+      //arr123.push(a);
     });
   };
 
@@ -278,7 +279,7 @@ export default function Administrator() {
 
   const storyIntoData = () => {
     let data: sendAxiosState = {
-      url: 'http://localhost:8080/getinfo',
+      url: 'https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/getinfo',
       //url: `${process.env.REACT_APP_PROXY}/getinfo`,
       data: { id: 'frank' },
       callback: (e: AxiosResponse) => {

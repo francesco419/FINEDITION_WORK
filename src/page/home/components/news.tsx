@@ -32,10 +32,12 @@ const NEWSTITLE: NewsBoxType[] = [
 
 const DISCOVERIMG = [
   {
-    src: youtube
+    src: youtube,
+    href: 'https://www.youtube.com/@finedition'
   },
   {
-    src: insta
+    src: insta,
+    href: 'https://www.instagram.com/finedition.kr/'
   }
 ];
 
@@ -44,17 +46,19 @@ export default function NewsHome() {
     <div className='newsHome'>
       <div className='newsHome_right'>
         <h2>{`Discover diversity \nof Korea with us`}</h2>
-        {_.map(DISCOVERIMG, (o, index) => {
-          return (
-            <img
-              src={o.src}
-              key={`${index}_img`}
-              className='newsHome_right_image'
-            />
-          );
-        })}
+        <div style={{ display: 'flex' }}>
+          {_.map(DISCOVERIMG, (o, index) => {
+            return (
+              <div className='newsHome_right_image'>
+                <img src={o.src} key={`${index}_img`} />
+                <a href={o.href} />
+              </div>
+            );
+          })}
+        </div>
         <div className='newsHome_video'>
           <img src={yLogo} />
+          <a href='https://www.youtube.com/@finedition' />
         </div>
         <p>{`Finedition Youtube Channel Coming soon\non November, 2023`}</p>
       </div>

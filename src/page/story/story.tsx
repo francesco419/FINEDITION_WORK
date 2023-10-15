@@ -29,7 +29,7 @@ export default function Story() {
   useEffect(() => {
     if (param.id !== undefined) {
       const id = parseInt(param.id);
-      setStory((story) => storyData[id]);
+      setStory((story) => storyData[id - 1]);
     }
   });
 

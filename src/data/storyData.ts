@@ -4,7 +4,7 @@ import hanji2 from '../data/temp/story/Hanji-2.jpg';
 import hanji3 from '../data/temp/story/Hanji-3.jpg';
 import hanji4 from '../data/temp/story/Hanji-4.jpg';
 import samg1 from '../data/temp/story/samgyeopsal-1.jpg';
-import samg2 from '../data/temp/story/samgyeopsal-2.gif';
+import samg2 from '../data/temp/story/samgyeopsal-2.jpg';
 import samg3 from '../data/temp/story/samgyeopsal-3.jpg';
 import samg4 from '../data/temp/story/samgyeopsal-4.jpg';
 
@@ -59,7 +59,7 @@ export const storyData: storyData_Type[] = [
     tagline: ['Interesting', 'Recommend', 'Interesting'],
     introText:
       'Samgyeopsal is iconic Korean dish that consists of thick slices of pork belly, grilled to perfection at the table. The name means "three-layered flesh" as each slice contains three distinct layers of meat, fat, and skin. It is not just a meal but an experience, that\'s often shared with friends and family. Samgyeopsal is a symbol of camaraderie and bonding, making it a top pick for both casual get-togethers and celebratory occasions.',
-    introImg: samg3,
+    introImg: samg2,
     introImgText: '',
     individual: [
       {

@@ -1,6 +1,6 @@
 import { cardType } from '../page/admin/administrator';
 
-export const cardData = [
+export const cardData: cardType[] = [
   {
     id: 3006358,
     typeId: 76,
@@ -9,7 +9,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/60/2658460_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seoul Botanic Park',
-    coverAddr: ' Gangseo-gu,  Seoul'
+    coverAddr: 'Gangseo-gu,  Seoul',
+    isCard: true
   },
   {
     id: 3006542,
@@ -19,7 +20,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/01/2678801_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seonyudo Park',
-    coverAddr: ' Yeongdeungpo-gu,  Seoul'
+    coverAddr: 'Yeongdeungpo-gu,  Seoul',
+    isCard: true
   },
   {
     id: 897540,
@@ -29,7 +31,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/897540_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Cheonggyecheon Stream',
-    coverAddr: ' Jung-gu,  Seoul'
+    coverAddr: 'Jung-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264351,
@@ -40,7 +43,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/41/2678541_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Jongmyo Shrine',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1326972,
@@ -50,7 +54,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/1326972_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Hongdae',
-    coverAddr: ' Mapo-gu,  Seoul'
+    coverAddr: 'Mapo-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1340416,
@@ -60,7 +65,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/32/1985332_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Culture Station Seoul 284',
-    coverAddr: ' Jung-gu,  Seoul'
+    coverAddr: 'Jung-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264337,
@@ -70,7 +76,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264337_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Gyeongbokgung Palace',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264550,
@@ -80,7 +87,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264550_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Namsan Seoul Tower',
-    coverAddr: ' Yongsan-gu,  Seoul'
+    coverAddr: 'Yongsan-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264340,
@@ -90,7 +98,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/31/1954531_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Yeouido Park',
-    coverAddr: ' Yeongdeungpo-gu,  Seoul'
+    coverAddr: 'Yeongdeungpo-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264315,
@@ -100,7 +109,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/36/1568436_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Dongdaemun Gate',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264134,
@@ -110,7 +120,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/23/774323_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Cheong Wa Dae',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264257,
@@ -120,7 +131,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/01/1945801_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Sungnyemun Gate',
-    coverAddr: ' Jung-gu,  Seoul'
+    coverAddr: 'Jung-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264116,
@@ -130,7 +142,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264116_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Namsangol Hanok Village',
-    coverAddr: ' Jung-gu,  Seoul'
+    coverAddr: 'Jung-gu,  Seoul',
+    isCard: true
   },
   {
     id: 2946681,
@@ -140,7 +153,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/2946681_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seongsu-dong Cafe Street',
-    coverAddr: ' Seongdong-gu,  Seoul'
+    coverAddr: 'Seongdong-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264152,
@@ -150,7 +164,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264152_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Lotte World',
-    coverAddr: ' Songpa-gu,  Seoul'
+    coverAddr: 'Songpa-gu,  Seoul',
+    isCard: true
   },
   {
     id: 2944158,
@@ -160,7 +175,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/2944158_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Gyeongnidan Street',
-    coverAddr: ' Yongsan-gu,  Seoul'
+    coverAddr: 'Yongsan-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264358,
@@ -170,7 +186,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264358_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Itaewon Special Tourist Zone',
-    coverAddr: ' Yongsan-gu,  Seoul'
+    coverAddr: 'Yongsan-gu,  Seoul',
+    isCard: true
   },
   {
     id: 2944084,
@@ -180,7 +197,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/2944084_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Haneul Park',
-    coverAddr: ' Mapo-gu,  Seoul'
+    coverAddr: 'Mapo-gu,  Seoul',
+    isCard: true
   },
   {
     id: 2003918,
@@ -190,7 +208,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/2003918_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Lotte World Tower',
-    coverAddr: ' Songpa-gu,  Seoul'
+    coverAddr: 'Songpa-gu,  Seoul',
+    isCard: true
   },
   {
     id: 2943972,
@@ -200,7 +219,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/2943972_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Ikseon-dong',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1348713,
@@ -210,7 +230,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/50/2025950_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'April 19th National Cemetery',
-    coverAddr: ' Gangbuk-gu,  Seoul'
+    coverAddr: 'Gangbuk-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264138,
@@ -220,7 +241,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/03/1987703_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Myeongdong Cathedral',
-    coverAddr: ' Jung-gu,  Seoul'
+    coverAddr: 'Jung-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1909500,
@@ -230,7 +252,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/32/2667332_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Bugak Skyway Palgakjeong Pavilion',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1349202,
@@ -240,7 +263,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/66/2668466_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: "Maeheon Citizen's Forest",
-    coverAddr: ' Seocho-gu,  Seoul'
+    coverAddr: 'Seocho-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1542646,
@@ -250,7 +274,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/1542646_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Songpa Naru Park',
-    coverAddr: ' Songpa-gu,  Seoul'
+    coverAddr: 'Songpa-gu,  Seoul',
+    isCard: true
   },
   {
     id: 789703,
@@ -260,7 +285,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/789703_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Olympic Park',
-    coverAddr: ' Songpa-gu,  Seoul'
+    coverAddr: 'Songpa-gu,  Seoul',
+    isCard: true
   },
   {
     id: 789696,
@@ -270,7 +296,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/789696_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seoul Forest',
-    coverAddr: ' Seongdong-gu,  Seoul'
+    coverAddr: 'Seongdong-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1323377,
@@ -280,7 +307,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/1323377_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Sinsa-dong Garosu-gil Road',
-    coverAddr: ' Gangnam-gu,  Seoul'
+    coverAddr: 'Gangnam-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1751094,
@@ -290,7 +318,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/1751094_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Namsan Outdoor Botanical Garden',
-    coverAddr: ' Yongsan-gu,  Seoul'
+    coverAddr: 'Yongsan-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264454,
@@ -300,7 +329,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264454_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'World Cup Park',
-    coverAddr: ' Mapo-gu,  Seoul'
+    coverAddr: 'Mapo-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1748004,
@@ -310,7 +340,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/1748004_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seodaemun Independence Park',
-    coverAddr: ' Seodaemun-gu,  Seoul'
+    coverAddr: 'Seodaemun-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264348,
@@ -321,7 +352,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264348_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Changdeokgung Palace Complex',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264354,
@@ -331,7 +363,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264354_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Insa-dong',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264329,
@@ -341,7 +374,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264329_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Gwanghwamun Gate',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264316,
@@ -351,7 +385,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264316_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Deoksugung Palace',
-    coverAddr: ' Jung-gu,  Seoul'
+    coverAddr: 'Jung-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264350,
@@ -361,7 +396,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264350_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Changgyeonggung Palace',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 561382,
@@ -371,7 +407,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/561382_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Bukchon Hanok Village',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264312,
@@ -381,7 +418,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264312_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Myeong-dong',
-    coverAddr: ' Jung-gu,  Seoul'
+    coverAddr: 'Jung-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264571,
@@ -391,7 +429,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/08/1984608_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Gangnam',
-    coverAddr: ' Gangnam-gu,  Seoul'
+    coverAddr: 'Gangnam-gu,  Seoul',
+    isCard: true
   },
   {
     id: 2475097,
@@ -401,7 +440,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/2475097_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Dongdaemun Design Plaza',
-    coverAddr: ' Jung-gu,  Seoul'
+    coverAddr: 'Jung-gu,  Seoul',
+    isCard: true
   },
   {
     id: 2543150,
@@ -411,7 +451,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/92/2481892_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Baek In-je House',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 2813573,
@@ -421,7 +462,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/65/2638965_image2_1.JPG',
     coverLocate: 'Seoul Info',
     coverTitle: 'Nodeulseom Island',
-    coverAddr: ' Yongsan-gu,  Seoul'
+    coverAddr: 'Yongsan-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1810712,
@@ -431,7 +473,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/18/2031918_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Choi Sunu House',
-    coverAddr: ' Seongbuk-gu,  Seoul'
+    coverAddr: 'Seongbuk-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1747593,
@@ -442,7 +485,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/45/2526645_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Bukhansan National Park',
-    coverAddr: ' Seongbuk-gu,  Seoul'
+    coverAddr: 'Seongbuk-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264223,
@@ -452,7 +496,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/71/924371_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Unhyeongung Royal Residence',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1913218,
@@ -462,7 +507,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/58/1568458_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seoul Gyeonggyojang House',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264320,
@@ -472,7 +518,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/83/1981983_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seoul Namsan Park',
-    coverAddr: ' Jung-gu,  Seoul'
+    coverAddr: 'Jung-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264106,
@@ -483,7 +530,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264106_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seolleung and Jeongneung Royal Tombs',
-    coverAddr: ' Gangnam-gu,  Seoul'
+    coverAddr: 'Gangnam-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264111,
@@ -493,7 +541,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/19/204019_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Archaeological Site in Amsa-dong',
-    coverAddr: ' Gangdong-gu,  Seoul'
+    coverAddr: 'Gangdong-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264115,
@@ -504,7 +553,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/42/1985242_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Heolleung and Illeung Royal Tombs',
-    coverAddr: ' Seocho-gu,  Seoul'
+    coverAddr: 'Seocho-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264132,
@@ -514,7 +564,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/61/1811361_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'The National Assembly Building',
-    coverAddr: ' Yeongdeungpo-gu,  Seoul'
+    coverAddr: 'Yeongdeungpo-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264308,
@@ -524,7 +575,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/31/1568231_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Gyeonghuigung Palace',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1348621,
@@ -534,7 +586,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/1348621_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seoul National Cemetery',
-    coverAddr: ' Dongjak-gu,  Seoul'
+    coverAddr: 'Dongjak-gu,  Seoul',
+    isCard: true
   },
   {
     id: 2037040,
@@ -544,7 +597,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/94/2678694_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seochon Village',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1876944,
@@ -554,7 +608,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/72/1567972_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Namsan Octagonal Pavilion',
-    coverAddr: ' Yongsan-gu,  Seoul'
+    coverAddr: 'Yongsan-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1748351,
@@ -564,7 +619,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/50/2658350_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Deoksugung Stone Wall Path',
-    coverAddr: ' Jung-gu,  Seoul'
+    coverAddr: 'Jung-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264473,
@@ -574,7 +630,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264473_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Samcheong-dong Street',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 778924,
@@ -585,7 +642,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/80/2690680_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Uireung Royal Tomb',
-    coverAddr: ' Seongbuk-gu,  Seoul'
+    coverAddr: 'Seongbuk-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1051832,
@@ -595,7 +653,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/02/2028002_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Children',
-    coverAddr: ' Gwangjin-gu,  Seoul'
+    coverAddr: 'Gwangjin-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1747984,
@@ -605,7 +664,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/14/1567814_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Mongchontoseong Fortress',
-    coverAddr: ' Songpa-gu,  Seoul'
+    coverAddr: 'Songpa-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264317,
@@ -615,7 +675,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/86/1554786_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Daehangno',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1747995,
@@ -625,7 +686,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/89/203889_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seoul Seokchon-dong Ancient Tombs',
-    coverAddr: ' Songpa-gu,  Seoul'
+    coverAddr: 'Songpa-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264113,
@@ -636,7 +698,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/91/2622291_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Jeongneung Royal Tomb',
-    coverAddr: ' Seongbuk-gu,  Seoul'
+    coverAddr: 'Seongbuk-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1382671,
@@ -646,7 +709,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/41/2549141_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'King Sejong Statue',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1887247,
@@ -656,7 +720,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/87/629687_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Hangang River',
-    coverAddr: ' Seongdong-gu,  Seoul'
+    coverAddr: 'Seongdong-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1887239,
@@ -666,7 +731,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/18/2661818_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Yangcheonhyanggyo Local Confucian School',
-    coverAddr: ' Gangseo-gu,  Seoul'
+    coverAddr: 'Gangseo-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264107,
@@ -676,7 +742,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264107_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Apgujeong Rodeo Street',
-    coverAddr: ' Gangnam-gu,  Seoul-si'
+    coverAddr: 'Gangnam-gu,  Seoul-si',
+    isCard: true
   },
   {
     id: 1114212,
@@ -686,7 +753,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/86/2526686_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Dream Forest',
-    coverAddr: ' Gangbuk-gu,  Seoul'
+    coverAddr: 'Gangbuk-gu,  Seoul',
+    isCard: true
   },
   {
     id: 2035491,
@@ -696,7 +764,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/14/1917414_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Dapsimni Antique Art Street',
-    coverAddr: ' Dongdaemun-gu,  Seoul'
+    coverAddr: 'Dongdaemun-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264478,
@@ -706,7 +775,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/87/1568087_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Naksan Park',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 2497803,
@@ -716,7 +786,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/70/2495570_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seoullo 7017',
-    coverAddr: ' Jung-gu,  Seoul'
+    coverAddr: 'Jung-gu,  Seoul',
+    isCard: true
   },
   {
     id: 264122,
@@ -726,7 +797,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/86/2526386_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: '63 Square',
-    coverAddr: ' Yeongdeungpo-gu,  Seoul'
+    coverAddr: 'Yeongdeungpo-gu,  Seoul',
+    isCard: true
   },
   {
     id: 2541628,
@@ -736,7 +808,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/80/933780_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Eight Scenic Views of Bukchon',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1382366,
@@ -746,7 +819,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/41/2036441_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Buam-dong',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1930523,
@@ -756,7 +830,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/81/1981981_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Seoul Yakhyeon Catholic Church',
-    coverAddr: ' Jung-gu,  Seoul'
+    coverAddr: 'Jung-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1241248,
@@ -766,7 +841,8 @@ export const cardData = [
       'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/1241248_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Dongdaemun Stationery Store Street',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1352705,
@@ -776,7 +852,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/77/1907677_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Aqua Planet 63',
-    coverAddr: ' Yeongdeungpo-gu,  Seoul'
+    coverAddr: 'Yeongdeungpo-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1382517,
@@ -786,7 +863,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/09/1568209_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Statue of Admiral Yi Sun-Shin',
-    coverAddr: ' Jongno-gu,  Seoul'
+    coverAddr: 'Jongno-gu,  Seoul',
+    isCard: true
   },
   {
     id: 1011983,
@@ -796,7 +874,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/81/2616881_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Banpo Bridge Rainbow Fountain',
-    coverAddr: ' Seocho-gu,  Seoul'
+    coverAddr: 'Seocho-gu,  Seoul',
+    isCard: true
   },
   {
     id: 2553836,
@@ -806,7 +885,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/55/1570555_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Bank of Korea Money Museum',
-    coverAddr: ' Jung-gu,  Seoul'
+    coverAddr: 'Jung-gu,  Seoul',
+    isCard: true
   },
   {
     id: 2484384,
@@ -816,7 +896,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/13/2484013_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Yeonnam-dong',
-    coverAddr: ' Mapo-gu,  Seoul'
+    coverAddr: 'Mapo-gu,  Seoul',
+    isCard: true
   },
   {
     id: 2482058,
@@ -826,7 +907,8 @@ export const cardData = [
       'http://tong.visitkorea.or.kr/cms/resource/34/2014834_image2_1.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Hapjeong-dong Caf',
-    coverAddr: ' Mapo-gu,  Seoul'
+    coverAddr: 'Mapo-gu,  Seoul',
+    isCard: true
   }
 ];
 

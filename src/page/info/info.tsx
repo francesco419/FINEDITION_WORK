@@ -167,7 +167,6 @@ export default function Info() {
         temp.mapy = response.mapy;
         temp.homepage = response.homepage;
         temp.overview = response.overview;
-        console.log('fetching (1) common success');
         getAPIDataIntro(temp);
       }
     };
@@ -184,7 +183,6 @@ export default function Info() {
         temp.usetime = response.usetime;
         //setApiData(temp);
         //console.log(o);
-        console.log('fetching (2) intro success');
         getAPIDataInfo(temp);
       }
     };
@@ -195,7 +193,6 @@ export default function Info() {
     const apidata: API_TYPE = {
       url: `https://apis.data.go.kr/B551011/EngService1/detailInfo1?serviceKey=${process.env.REACT_APP_TOUR_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&contentId=${param.id}&contentTypeId=${param.typeid}&_type=json`,
       callback: (o: any) => {
-        //console.log(o.data);
         const response = o.data.response.body.items.item;
         response.forEach((o: INFO_TYPE, index: number) => {
           if (o.infoname === 'Admission Fees') {
@@ -206,7 +203,6 @@ export default function Info() {
             temp.Interpretation = o;
           return;
         });
-        //console.log('fetching (3) info success');
         //setApiData(temp);
         //getBakcData(temp.contentid);
         setLoading((loading) => true);
@@ -240,8 +236,6 @@ export default function Info() {
     };
     APIInterceptor(apidata);
   };
-
-  console.log(apidata);
 
   if (!loading) {
     return <InfoSkeleton />;
