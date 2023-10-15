@@ -11,8 +11,13 @@ import ErrorPage from './page/error/errorpage';
 import Story from './page/story/story';
 import Search from './page/search/search';
 import Bookmark from './page/bookmark/bookemark';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <BrowserRouter>
       <GoogleOAuthProvider clientId='680788977176-vgs0lulllqoi8jd2sjcbpn77f6vtml7k.apps.googleusercontent.com'>
