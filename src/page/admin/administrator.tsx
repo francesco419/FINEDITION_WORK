@@ -17,7 +17,6 @@ import { API_TYPE } from '../../func/interface';
 import { API_ENG } from '../../temp/apicode';
 import readXlsxFile from 'read-excel-file';
 import { common } from '../../temp/commondata';
-import { ww } from '../../data/infomationData';
 
 export interface cardType {
   id: number;
@@ -174,9 +173,9 @@ export default function Administrator() {
     });
   };
 
-  const excelToInfoForm = () => {
+  /* const excelToInfoForm = () => {
     let obj: info_Type[] = [];
-    _.map(ww, (o) => {
+    _.map(obj, (o) => {
       let info: info_Type = {
         id: 0,
         typeId: 76,
@@ -275,18 +274,21 @@ export default function Administrator() {
       obj.push(info);
     });
     console.log(obj);
-  };
+  }; */
 
   const storyIntoData = () => {
     let data: sendAxiosState = {
-      url: 'https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/test',
-      data: { id: 'hello' },
+      url: 'http://localhost:8080/getinfo',
+      data: { id: 'frank' },
       callback: (e: AxiosResponse) => {
         console.log(e);
       }
     };
     postInterceptor(data);
   };
+
+  const aaaaa =
+    'https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/test';
 
   return (
     <div className='admin'>
