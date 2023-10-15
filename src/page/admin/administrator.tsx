@@ -313,14 +313,6 @@ export default function Administrator() {
               <button onClick={storyIntoData}>test api</button>
               <button
                 onClick={() => {
-                  console.log(arr123);
-                  console.log(arr000);
-                }}
-              >
-                Console Result
-              </button>
-              <button
-                onClick={() => {
                   console.log(anything2);
                 }}
               >
