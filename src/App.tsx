@@ -12,15 +12,19 @@ import Story from './page/story/story';
 import Search from './page/search/search';
 import Bookmark from './page/bookmark/bookemark';
 import { useEffect } from 'react';
+import ScrollToTop from './components/common/scrollTop/scrollTop';
 
 function App() {
+  const googleClient = process.env.REACT_APP_CLIENT_ID!;
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <BrowserRouter>
-      <GoogleOAuthProvider clientId='680788977176-vgs0lulllqoi8jd2sjcbpn77f6vtml7k.apps.googleusercontent.com'>
+      <GoogleOAuthProvider clientId={googleClient}>
+        <ScrollToTop />
         <Routes>
           <Route path={`/Bookmark`} element={<Bookmark />} />
           <Route path={`/search/:keyword`} element={<Search />} />
