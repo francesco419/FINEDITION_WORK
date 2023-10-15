@@ -5,110 +5,83 @@ import { ReactComponent as Bookmark } from '../../assets/svg/likebookmark/bookma
 import picture from '../cities/assets/svg/pic.png';
 import map from './assets/map.png';
 import _ from 'lodash';
-import PageCount from '../../components/common/pageCount';
+import { useEffect, useState } from 'react';
+import PageCount, { InfoCount_Type } from '../../components/common/pageCount';
 import InfoTag from '../info/component/infotag';
 import Card from '../../components/card/cardComp';
 import mainImg from './assets/mainImage.jpg';
 import sideImg from './assets/sideImage.jpg';
 import Footer from '../../components/footer/footer';
+import { useParams } from 'react-router';
+import {
+  Individual_Type,
+  qna_Type,
+  storyData,
+  storyData_Type
+} from '../../data/storyData';
+import { cardData } from '../../temp/cardData';
 
 export default function Story() {
+  const [story, setStory] = useState<storyData_Type>();
   const tempe = ['1', '2', '3', '4'];
-  return (
-    <div className='story'>
-      <Header type='gray' />
-      <div className='story-container'>
-        <div className='storyfront'>
-          <div className='storyfront-info'>
-            <div className='storyfront-top'>
-              <h4>MAGAZINE l Locale</h4>
-              <p>
-                {`If you have to visit royal palaces, and hesitate to know which one to visit?\nHere’s our suggestion about royal palaces for foreign travelers. We\nestimated time for duration and your, and based on that, we\ncurated some itineries for you to check out!`}
-              </p>
-            </div>
-            <div className='storyfront-bottom'>
-              <h2>{`Five Royal Palaces in Seoul\n& Which one to Visit`}</h2>
-              <p>10min read l 26th Oct, 2023</p>
-              <div className='likeBookmark'>
-                <Heart />
-                <Bookmark />
+  const param = useParams();
+
+  useEffect(() => {
+    if (param.id !== undefined) {
+      const id = parseInt(param.id);
+      setStory((story) => storyData[id]);
+    }
+  });
+
+  if (story) {
+    return (
+      <div className='story'>
+        <Header type='gray' />
+        <div className='story-container'>
+          <div className='storyfront'>
+            <div className='storyfront-info'>
+              <div className='storyfront-top'>
+                <h4>{`MAGAZINE l ${story.upperTheme}`}</h4>
+                <p>{story.upperWhy}</p>
+              </div>
+              <div className='storyfront-bottom'>
+                <h2>{story.upperTitle}</h2>
+                <p>{story.upperTime} read l 26th Oct, 2023</p>
+                <div className='likeBookmark'>
+                  <Heart />
+                  <Bookmark />
+                </div>
               </div>
             </div>
+            <div className='storyfront-image'>
+              <img src={story.upperImg} />
+            </div>
           </div>
-          <div className='storyfront-image'>
-            <img src={picture} />
+          <div className='story_body'>
+            <StoryMap
+              introText={story.introText}
+              introImg={story.introImg}
+              introImgText={story.introImgText}
+              pageCount={story.pageCount}
+            />
+            <StoryGroup data={story.individual} />
+            <StoryMain
+              main={{
+                mainImage: story.mainImg,
+                sideImage: story.sideImg,
+                question: story.qna,
+                ending: story.conclusion
+              }}
+            />
+            <RelatedMagazine strArr={tempe} />
           </div>
         </div>
-        <div className='story_body'>
-          <StoryMap />
-          <StoryGroup />
-          <StoryMain
-            main={{
-              mainImage: mainImg,
-              sideImage: sideImg,
-              question: [
-                {
-                  title:
-                    'Q. If I had to pick one palace, which one would you suggest?',
-                  explain: `When it comes to choosing just one palace to visit, it's essential to focus on what resonates with you the most. Each palace has its unique charm, making it a challenging choice. However, here are some recommendations based on your preferences and available time:`,
-                  answer: [
-                    {
-                      point: '[Gyeongbokgung Palace]',
-                      pointAns: `epitome of Korean royal elegance, with its grandeur courtyards and stunning architecture.
-        You can immerse yourself in its splendor by spending a few hours here.`
-                    },
-                    {
-                      point: '[Changdeok Palace]',
-                      pointAns: `UNESCO World Heritage site, is perfect for those who seek a peaceful escape amidst natural beauty.
-        Its tranquil Secret Garden is known for its serenity, so allocate at least two hours for your visit.`
-                    },
-                    {
-                      point: '[Deoksugung Palace]',
-                      pointAns: `The only palace open until 9 p.m., making it a top choice if you're interested in experiencing a palace's nighttime charm. You can enjoy a unique night view without prior reservation.`
-                    },
-                    {
-                      point: '[Changgyeong Palace]',
-                      pointAns: `A smaller palace with a serene atmosphere, is ideal for a peaceful stroll. Consider adding it
-        to your itinerary if you have time.`
-                    }
-                  ]
-                },
-                {
-                  title: 'Q. Do I need to visit all five palaces?',
-                  explain: `When it comes to choosing just one palace to visit, it's essential to focus on what resonates with you the most. Each palace has its unique charm, making it a challenging choice. However, here are some recommendations based on your preferences and available time:`,
-                  answer: [
-                    {
-                      point: '[Gyeongbokgung Palace]',
-                      pointAns: `epitome of Korean royal elegance, with its grandeur courtyards and stunning architecture.
-        You can immerse yourself in its splendor by spending a few hours here.`
-                    },
-                    {
-                      point: '[Changdeok Palace]',
-                      pointAns: `UNESCO World Heritage site, is perfect for those who seek a peaceful escape amidst natural beauty.
-        Its tranquil Secret Garden is known for its serenity, so allocate at least two hours for your visit.`
-                    },
-                    {
-                      point: '[Deoksugung Palace]',
-                      pointAns: `The only palace open until 9 p.m., making it a top choice if you're interested in experiencing a palace's nighttime charm. You can enjoy a unique night view without prior reservation.`
-                    },
-                    {
-                      point: '[Changgyeong Palace]',
-                      pointAns: `A smaller palace with a serene atmosphere, is ideal for a peaceful stroll. Consider adding it
-        to your itinerary if you have time.`
-                    }
-                  ]
-                }
-              ],
-              ending: `Exploring Jongno and its royal palaces is an unforgettable journey through Korea's history and culture. Whether you choose to visit one or all of these magnificent palaces, each holds a piece of the nation's heritage waiting to be discovered. So, step into the past and embrace the beauty and grandeur of
-              Seoul's royal legacy.`
-            }}
-          />
-          <RelatedMagazine strArr={tempe} />
-        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-  );
+    );
+  } else {
+    return <div></div>;
+  }
 }
 
 const mapDetail = [
@@ -119,77 +92,82 @@ const mapDetail = [
   'Gyeonhuigung Palace'
 ];
 
-function StoryMap() {
+type StoryMap_Type = {
+  introText: string;
+  introImg: string;
+  introImgText: string;
+  pageCount: InfoCount_Type;
+};
+
+function StoryMap({
+  introText,
+  introImg,
+  introImgText,
+  pageCount
+}: StoryMap_Type) {
   return (
     <div className='storymap'>
       <div className='storymap_left'>
         <div className='storymap_left-text'>
-          <p>{`Discover the rich history and culture of Seoul, the vibrant capital of South Korea, through the five\nmagnificent royal palaces that were once the epicenters of Korean royalty. These palaces located in the\nheart of the city offer a captivating glimpse into Korea's imperial past, particularly in the enchanting district\nof Jongno, where four of them are nestled. In this guide, we will explore the essence of each palace\nand answer some commonly asked questions to help you plan your visit.`}</p>
+          <p>{introText}</p>
         </div>
         <div className='storymap_left-map'>
-          <img src={map} />
-          <ul className='storymap_left-mapdetail'>
-            {_.map(mapDetail, (o, index) => {
-              return (
-                <li>
-                  <p>{`${index + 1}. ${o}`}</p>
-                </li>
-              );
-            })}
-          </ul>
+          <img src={introImg} />
         </div>
+        {introImgText !== '' && (
+          <div className='aaaa'>
+            <p>
+              Samgyeopsal is not just a meal; it's a cultural and gastronomic
+              adventure that offers a taste of Korea's rich culinary traditions.
+              By considering these important facts before savoring this beloved
+              dish, you can enhance your experience and fully immerse yourself
+              in the unique flavors and traditions of Samgyeopsal. From choosing
+              the right grill and making reservations to exploring the
+              delightful side dishes, you're well-equipped to embark on a
+              delicious journey through the world of Korean cuisine. So, fire up
+              the grill, enjoy the sizzle, and create lasting memories with
+              Samgyeopsal.
+            </p>
+          </div>
+        )}
       </div>
       <div className='storymap_right'>
         <div>
           <InfoTag data={['Traditional', 'Highlight', 'Recommend']} />
-          <PageCount
-            value={{
-              bookmark: 0,
-              liked: 0,
-              view: 0
-            }}
-          />
+          <PageCount value={pageCount.value} />
         </div>
       </div>
     </div>
   );
 }
 
-function StoryGroup() {
+type StoryGroup_Type = {
+  data: Individual_Type[];
+};
+
+function StoryGroup({ data }: StoryGroup_Type) {
   return (
     <div className='storygroup'>
-      <StoryIndividual />
-      <StoryIndividual />
-      <StoryIndividual />
-      <StoryIndividual />
-      <StoryIndividual />
+      {_.map(data, (o) => {
+        return <StoryIndividual individual={o} />;
+      })}
     </div>
   );
 }
 
-const list = [
-  'Geunjeongjeon: The main hall, where important state affairs took place and where the king granted audiences to his officials.',
-  'Gyeonghoeru: A stunning pavilion surrounded by a large pond, used for state banquets.',
-  "Changing of the Guard Ceremony: Don't miss the daily reenactment of this ceremonial event in traditional attire.",
-  'National Folk Museum: Located within the palace grounds, it offers insights into Korean culture and history.'
-];
+type StoryIndividual_Type = {
+  individual: Individual_Type;
+};
 
-interface storyIndiv_Type {
-  main: string;
-  mainText: string;
-  listUp: string[];
-  cardNo: string;
-}
-
-function StoryIndividual() {
+function StoryIndividual({ individual }: StoryIndividual_Type) {
   return (
     <div className='storyindiv'>
-      <h2>{`[Gyeongbokgung Palace]`}</h2>
+      <h2>{individual.individual_Heading}</h2>
       <div className='storyindiv-maintext'>
-        <p>{`The "Palace of Shining Happiness," is the most iconic of Seoul's palaces. It was built in 1395 during the Joseon Dynasty and served as the primary royal residence. This palace holds historical importance as it was the heart of political power for over two centuries.`}</p>
+        <p>{individual.individual_Text}</p>
       </div>
       <ul>
-        {_.map(list, (o) => {
+        {_.map(individual.individual_ListText, (o) => {
           return (
             <li>
               <p>{`${o}`}</p>
@@ -197,9 +175,9 @@ function StoryIndividual() {
           );
         })}
       </ul>
-      <div className='storyindiv-card'>
-        {/* <Card img={'1'} color={'#00000000'} type='small' /> */}
-      </div>
+      {/* {individual.individual_CardID !== '' && <div className='storyindiv-card'>
+        <Card data={cardData.id} color={'#00000000'} type='small' />
+      </div>} */}
     </div>
   );
 }
@@ -208,7 +186,7 @@ interface StoryMain_Type {
   main: {
     mainImage: string;
     sideImage: string;
-    question: StoryQna_Type[];
+    question: qna_Type[];
     ending: string;
   };
 }
@@ -221,24 +199,42 @@ function StoryMain({ main }: StoryMain_Type) {
       </div>
       <div className='storymain_mainText'>
         <div className='storymain_mainText-qna'>
-          {_.map(main.question, (o) => {
+          {_.map(main.question, (o, index) => {
             return <StoryQna qna={o} />;
           })}
         </div>
         <div className='storymain_mainText-side'>
           <p>{`Keep in mind that all palaces, except Deoksugung, close around 6:00 p.m., and the last admission is an hour before closing.`}</p>
-          <img src={sideImg} />
+          <img src={main.sideImage} />
         </div>
       </div>
+      <hr
+        style={{
+          width: '1000px',
+          margin: '20px auto 0 0',
+          borderColor: '#8763ed',
+          borderTop: '0'
+        }}
+      />
       <div className='storymain_endText'>
-        <p>{main.ending}</p>
+        <p>
+          Samgyeopsal is not just a meal; it's a cultural and gastronomic
+          adventure that offers a taste of Korea's rich culinary traditions. By
+          considering these important facts before savoring this beloved dish,
+          you can enhance your experience and fully immerse yourself in the
+          unique flavors and traditions of Samgyeopsal. From choosing the right
+          grill and making reservations to exploring the delightful side dishes,
+          you're well-equipped to embark on a delicious journey through the
+          world of Korean cuisine. So, fire up the grill, enjoy the sizzle, and
+          create lasting memories with Samgyeopsal.
+        </p>
       </div>
     </div>
   );
 }
 
 interface StoryQnaWrap_Type {
-  qna: StoryQna_Type;
+  qna: qna_Type;
 }
 
 interface StoryQna_Type extends StoryAnswer_Type {
@@ -249,13 +245,13 @@ interface StoryQna_Type extends StoryAnswer_Type {
 function StoryQna({ qna }: StoryQnaWrap_Type) {
   return (
     <div className='storyqna'>
-      <h2>{qna.title}</h2>
-      <p>{qna.explain}</p>
-      {typeof qna.answer === 'string' ? (
-        <p>{qna.answer}</p>
+      <h2>{qna.mainTitle}</h2>
+      <p>{qna.mainText}</p>
+      {typeof qna.main_ListText === 'string' ? (
+        <p>{qna.main_ListText}</p>
       ) : (
         <div>
-          {_.map(qna.answer, (o) => {
+          {_.map(qna.main_ListText, (o) => {
             return <StoryAnswer point={o.point} pointAns={o.pointAns} />;
           })}
         </div>

@@ -3,6 +3,8 @@ import { ReactComponent as BookMark } from '../../assets/svg/bookmark-big.svg';
 import image from '../../assets/image/temp/Frame.png';
 import { cardType } from '../../page/admin/administrator';
 import { useNavigate } from 'react-router';
+import { useAppSelector } from '../../redux/hooks';
+import { selectClick } from '../../redux/slices/clickSlice';
 
 export interface MegazineCardType {
   data: cardType;
@@ -22,9 +24,10 @@ const sizeof = ['small', 'medium', 'large'];
 
 export default function Card({ data, color, type, fcolor }: MegazineCardType) {
   const nav = useNavigate();
+  const click = useAppSelector(selectClick);
 
   const navigateHandler = () => {
-    nav(`/info/${data.id}/${data.typeId}`);
+    if (click === false) nav(`/info/${data.id}/${data.typeId}`);
   };
 
   return (

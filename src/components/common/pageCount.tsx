@@ -1,6 +1,6 @@
 import './pageCount.scss';
 
-interface InfoCount_Type {
+export interface InfoCount_Type {
   value: {
     bookmark: number | undefined;
     liked: number | undefined;

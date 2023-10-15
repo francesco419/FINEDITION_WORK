@@ -63,10 +63,13 @@ export default function Header({ type }: HeaderType) {
         changeColor('#000');
         return;
       case 'yellow':
-        changeColor('#b9e155');
+        changeColor('#BCEB49');
         return;
       case 'gray':
         changeColor('#f3f3f8');
+        return;
+      case 'purple':
+        changeColor('#8763ED');
         return;
       default:
         changeColor('#ff0000');
@@ -77,10 +80,9 @@ export default function Header({ type }: HeaderType) {
   const changeColor = (color: string) => {
     if (color === '#000') {
       setFontColor((fontColor) => '#fff');
-    } else {
+    } else if (color === '#8763ED') {
       setFontColor((fontColor) => '#000');
     }
-
     setBackColor((backColor) => color);
   };
 

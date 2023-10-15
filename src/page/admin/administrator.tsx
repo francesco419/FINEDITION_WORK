@@ -277,7 +277,16 @@ export default function Administrator() {
     console.log(obj);
   };
 
-  const storyIntoData = () => {};
+  const storyIntoData = () => {
+    let data: sendAxiosState = {
+      url: 'http://localhost:8080/test',
+      data: { id: 'hello' },
+      callback: (e: AxiosResponse) => {
+        console.log(e);
+      }
+    };
+    postInterceptor(data);
+  };
 
   return (
     <div className='admin'>
@@ -299,7 +308,7 @@ export default function Administrator() {
               >
                 CONSOLE
               </button>
-              <button onClick={excelToInfoForm}>Excel Do</button>
+              <button onClick={storyIntoData}>test api</button>
               <button
                 onClick={() => {
                   console.log(arr123);

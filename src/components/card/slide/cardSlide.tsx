@@ -44,8 +44,8 @@ export default function CardSlide({ data, type }: SlideType) {
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     isDown = true;
+    dispatch(yesClick());
     if (ref.current) {
-      dispatch(yesClick());
       const slider = ref.current;
       scrollL = slider.scrollWidth - slider.offsetWidth;
       slider.classList.add('active');
@@ -91,6 +91,12 @@ export default function CardSlide({ data, type }: SlideType) {
       dispatch(noClick());
       beginMomentumTracking();
     }
+  };
+
+  const waitDispatch = () => {
+    setTimeout(() => {
+      dispatch(noClick());
+    }, 0);
   };
 
   const mouseMoveHandler = (

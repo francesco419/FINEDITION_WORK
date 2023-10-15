@@ -1,5 +1,5 @@
 import './recommend.scss';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import _ from 'lodash';
 import image from '../../../assets/image/hanoak.png';
 import image2 from '../../../assets/image/castle.png';
@@ -95,6 +95,8 @@ type NumType = {
 function PicksofWeek({ num, color }: NumType) {
   const pick = num === 0 ? temp : num === 1 ? temp1 : temp2;
 
+  const ref = useRef<HTMLParagraphElement>(null);
+
   return (
     <div className='recommend_card'>
       <ul>
@@ -102,6 +104,9 @@ function PicksofWeek({ num, color }: NumType) {
           return (
             <li key={`${o.img}_${index}`}>
               <img src={o.img} />
+              <p ref={ref} className='popupText'>
+                Center Namsan Brights the City
+              </p>
             </li>
           );
         })}

@@ -5,7 +5,6 @@
   display: flex;
   margin: 0 0 60px;
   width: 1300px;
-  overflow: hidden;
   img {
     pointer-events: none;
   }
@@ -16,7 +15,6 @@
     width: max-content;
     cursor: pointer;
     overflow-x: scroll;
-    overflow-y: hidden;
     transition: all 0.2s;
     &::-webkit-scrollbar {
       display: none;
@@ -24,15 +22,6 @@
     ::selection {
       background: none;
     }
-  }
-  &_blur {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100px;
-    height: 100%;
-    background-color: #00000050;
-    transition: all 1s;
   }
 }
 

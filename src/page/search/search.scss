@@ -1,0 +1,48 @@
+@import '../../style.scss';
+
+.search {
+  &_container {
+    width: 1440px;
+    padding: 240px 70px 100px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  &_head {
+    display: flex;
+    h2 {
+      @include font-style(45, $Brand-Light-Green-0, Value Serif Pro Med, 1.3);
+    }
+  }
+  &_overview {
+    margin: 85px 0 45px;
+    &-count {
+      display: flex;
+      gap: 25px;
+      margin: 0 0 20px;
+      p {
+        @include font-style(16, $Brand-Light-Green-0, Mabry Pro Reg, 1.4);
+      }
+      li {
+        &:last-child {
+          position: relative;
+          margin: 0 0 0 auto;
+        }
+      }
+    }
+  }
+}
+
+.search-absolute {
+  position: absolute;
+  top: 100%;
+  left: -285px;
+  width: 305px;
+  height: 388px;
+  padding: 25px 20px;
+  box-sizing: border-box;
+  background-color: $Brand-Light-Green-0;
+  z-index: 10;
+  p {
+    color: white;
+  }
+}

@@ -17,8 +17,6 @@ export default function HeaderLocate({ color }: HeaderLocateType) {
   const nav = useNavigate();
   const location = useLocation();
 
-  console.log(location.pathname.includes('info'));
-
   const onClickHandler = (to: string) => {
     nav(to);
   };

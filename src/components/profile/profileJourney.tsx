@@ -15,18 +15,20 @@ export default function ProfileJourney({ type }: ProfileJourneyType) {
   return (
     <ul className={style}>
       <li>
-        <p className='journey-big-fontS'>D-00 days to Seoul</p>
+        <p>D-00 days to Seoul</p>
       </li>
       <li>
         <div>
           <Plane />
-          {!type && <Arrow />}
+          <Arrow />
         </div>
-        <p className='journey-big-fontB'>No Upcoming</p>
-        <p className='journey-big-fontS'>Journey to Korea</p>
+        <span>
+          <p>No Upcoming</p>
+          <p>Journey to Korea</p>
+        </span>
       </li>
       <li>
-        <p className='journey-big-fontS'>Curate to the Finest</p>
+        <p>Curate to the Finest</p>
       </li>
     </ul>
   );

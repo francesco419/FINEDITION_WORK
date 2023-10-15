@@ -1,0 +1,26 @@
+@import '../../../style.scss';
+
+.searchInputComponent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 233px;
+  height: 40px;
+  border-radius: 300px;
+  background: var(--light-gray, #eaeaea);
+  padding: 0 15px;
+  box-sizing: border-box;
+  input {
+    background: none;
+    border: none;
+    width: 150px;
+    height: 100%;
+    @include font-style(16, $System-Black-0, Inter Reg);
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      @include font-style(16, $System-Light-Gray-2, Inter Reg);
+    }
+  }
+}

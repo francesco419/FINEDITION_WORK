@@ -10,11 +10,11 @@ export default function InfoSkeleton() {
         style={{
           display: 'flex',
           padding: '180px 70px 180px',
-          justifyContent: 'space-between',
+          justifyContent: 'center',
           backgroundColor: '#000'
         }}
       >
-        <div>
+        <div style={{ marginRight: '120px' }}>
           <div
             style={{
               width: '880px',

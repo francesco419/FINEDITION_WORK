@@ -172,3 +172,11 @@ $intersemibold: Inter SemiBold;
   font-family: $fontType;
   font-weight: $fontWeigth;
 }
+
+/*--------*/
+
+@mixin pageSet($backColor: #000) {
+  width: 100%;
+  height: 100%;
+  background-color: $backColor;
+}
