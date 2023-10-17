@@ -62,6 +62,7 @@
     background-image: url('../../../assets/image/home/youtube.jpg');
     background-size: 280px 155px;
     opacity: 0.75;
+    @include radius3();
     a {
       position: absolute;
       top: 0;

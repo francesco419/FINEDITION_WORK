@@ -15,6 +15,8 @@ import { cardType } from '../admin/administrator';
 import souvenir from '../../assets/image/home/home-souvenir.png';
 import Extras from './components/extras';
 import HomeSpots from './components/spots';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const data0: cardType[] = [
   cardData[0],
@@ -72,21 +74,28 @@ export default function Home() {
         <CardSlide data={data1} type='small' />
         <div
           style={{ display: 'flex', margin: '0 0 85px', padding: '50px 0 0' }}
+          data-aos='fade-up'
+          data-aos-duration='1000'
         >
           <MyProfile />
           <Recommend />
         </div>
-        <div style={{ display: 'flex' }}>
+        <div
+          style={{ display: 'flex' }}
+          data-aos='fade-up'
+          data-aos-duration='1000'
+        >
           <FestivalHome />
           <NewsHome />
         </div>
-        <HomeSpots />
         <div
           style={{
             display: 'flex',
             justifyContent: 'space-between',
             margin: '100px 0 0 '
           }}
+          data-aos='fade-up'
+          data-aos-duration='1000'
         >
           <DiscoverCities />
           <div className='home_souvenirs'>
@@ -94,6 +103,7 @@ export default function Home() {
           </div>
           <PhotoBuzz />
         </div>
+        <HomeSpots />
         <Extras />
       </section>
       {/* <div className='homll'>a</div> */}

@@ -1,16 +1,31 @@
 import { ReactComponent as Arrow } from '../../assets/svg/Arrow back.svg';
 import { ReactComponent as Plane } from '../../assets/svg/airplane.svg';
+import { ReactComponent as PlaneBig } from '../../assets/profile/image/svg/airplanebig.svg';
+import { ReactComponent as Setting } from '../../assets/profile/image/svg/settting.svg';
 import './profileJourney.scss';
+import { useNavigate } from 'react-router';
+import { useAppSelector } from '../../redux/hooks';
+import { selectUserInfo } from '../../redux/slices/userInfoSlice';
 
 type ProfileJourneyType = {
   type: boolean;
 };
 
 export default function ProfileJourney({ type }: ProfileJourneyType) {
+  const nav = useNavigate();
+  const user = useAppSelector(selectUserInfo);
   //false는 메인의 작은 형태
   //true는 profile페이지의 큰 형태
 
   const style = type ? 'journey-big' : 'journey-small';
+
+  const navTo = () => {
+    if (user.id === null) {
+      return;
+    } else {
+      nav(`/profile/${user.id}`);
+    }
+  };
 
   return (
     <ul className={style}>
@@ -18,10 +33,21 @@ export default function ProfileJourney({ type }: ProfileJourneyType) {
         <p>D-00 days to Seoul</p>
       </li>
       <li>
-        <div>
-          <Plane />
-          <Arrow />
-        </div>
+        {type ? (
+          <div>
+            <PlaneBig />
+            <button>
+              <Setting />
+            </button>
+          </div>
+        ) : (
+          <div>
+            <Plane />
+            <button onClick={navTo}>
+              <Arrow />
+            </button>
+          </div>
+        )}
         <span>
           <p>No Upcoming</p>
           <p>Journey to Korea</p>

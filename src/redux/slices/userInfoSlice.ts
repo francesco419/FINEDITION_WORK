@@ -3,26 +3,26 @@ import { RootState } from '../store';
 import _ from 'lodash';
 
 export interface UserInfoState {
-  id: number | null;
-  name: string | null;
-  email: string | null;
-  nationality: string | null;
-  photo: string | null;
-  age: string | number | null;
-  gender: string | null;
-  keyword: string[] | null;
+  userid: number | null;
+  username: string | null;
+  useremail: string | null;
+  usernation: string | null;
+  userImage: string | null;
+  userbirth: string | number | null;
+  usergender: string | null;
+  userkeyword: string[] | null;
   [prop: string]: any;
 }
 
 const initialState: UserInfoState = {
-  id: null,
-  name: null,
-  email: null,
-  nationality: null,
-  photo: null,
-  age: null,
-  gender: null,
-  keyword: null
+  userid: null,
+  username: null,
+  useremail: null,
+  usernation: null,
+  userImage: null,
+  userbirth: null,
+  usergender: null,
+  userkeyword: null
 };
 
 export const UserInfoSlice = createSlice({
@@ -30,14 +30,15 @@ export const UserInfoSlice = createSlice({
   initialState,
   reducers: {
     setUserInfo: (state, actions: PayloadAction<UserInfoState>) => {
-      console.log(actions.payload);
       _.forEach(state, (value, key) => {
         const isValueExist = actions.payload[key];
+        console.log(key);
         if (isValueExist !== null) {
-          if (key === 'keyword' && typeof isValueExist === 'string') {
+          if (key === 'userkeyword' && typeof isValueExist === 'string') {
             state[key] = JSON.parse(isValueExist);
+          } else {
+            state[key] = isValueExist;
           }
-          state[key] = isValueExist;
         }
       });
     },

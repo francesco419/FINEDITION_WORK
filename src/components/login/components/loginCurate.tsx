@@ -93,14 +93,14 @@ export default function LoginFormCurate({ toNext }: LoginForm_type) {
           console.log(nation, name, age, gender);
           dispatch(
             setUserInfo({
-              id: null,
-              name: name,
-              email: null,
-              nationality: nation,
-              photo: null,
-              age: age,
-              gender: gender,
-              keyword: null
+              userid: null,
+              username: name,
+              useremail: null,
+              usernation: nation,
+              userImage: null,
+              userbirth: age,
+              usergender: gender,
+              userkeyword: null
             })
           );
           toNext(2);

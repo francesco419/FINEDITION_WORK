@@ -2,7 +2,7 @@ import MegazineCard, {
   MegazineCardType
 } from '../../../page/home/megazineCard';
 import { useState, useRef, useEffect } from 'react';
-import _ from 'lodash';
+import _, { reject } from 'lodash';
 import './cardSlide.scss';
 import { useAppDispatch } from '../../../redux/hooks';
 import { noClick, yesClick } from '../../../redux/slices/clickSlice';
@@ -11,6 +11,7 @@ import Card from '../cardComp';
 import { cardType } from '../../../page/admin/administrator';
 import { ReactComponent as SlideClickLeft } from '../../../assets/svg/slideClickLeft.svg';
 import { ReactComponent as SlideClickRight } from '../../../assets/svg/slideClickRight.svg';
+import { resolve } from 'path';
 
 type SlideType = {
   data: cardType[];
@@ -131,7 +132,9 @@ export default function CardSlide({ data, type }: SlideType) {
     setAutoSlide((autoSlide) => true);
   }; */
 
-  const onClickHandlerRight = () => {
+  const onClickHandlerRight = (
+    callback: (num: HTMLDivElement, Left: number) => void
+  ) => {
     if (ref.current && refRight.current) {
       const container = ref.current;
       container.scroll({
@@ -139,11 +142,13 @@ export default function CardSlide({ data, type }: SlideType) {
         left: container.scrollLeft + 1220,
         behavior: 'smooth'
       });
-      buttonShow(container);
+      callback(ref.current, container.scrollLeft + 1220);
     }
   };
 
-  const onClickHandlerLeft = () => {
+  const onClickHandlerLeft = (
+    callback: (num: HTMLDivElement, Left: number) => void
+  ) => {
     if (ref.current) {
       const container = ref.current;
       container.scroll({
@@ -151,17 +156,17 @@ export default function CardSlide({ data, type }: SlideType) {
         left: container.scrollLeft - 1220,
         behavior: 'smooth'
       });
-      buttonShow(container);
+      callback(ref.current, container.scrollLeft - 1220);
     }
   };
 
-  const buttonShow = (num: HTMLDivElement) => {
-    if (num.scrollLeft > num.scrollWidth - num.clientWidth) {
+  const buttonShow = (num: HTMLDivElement, left: number) => {
+    if (left > num.scrollWidth - num.clientWidth) {
       setButtonRight((buttonRight) => false);
     } else {
       setButtonRight((buttonRight) => true);
     }
-    if (num.scrollLeft !== 0) {
+    if (left > 0) {
       setButtonLeft((buttonLeft) => true);
     } else {
       setButtonLeft((buttonLeft) => false);
@@ -174,7 +179,7 @@ export default function CardSlide({ data, type }: SlideType) {
         <button
           ref={refLeft}
           className='cardSlide-button'
-          onClick={onClickHandlerLeft}
+          onClick={() => onClickHandlerLeft(buttonShow)}
         >
           <SlideClickLeft />
         </button>
@@ -206,7 +211,7 @@ export default function CardSlide({ data, type }: SlideType) {
         <button
           ref={refRight}
           className='cardSlide-button'
-          onClick={onClickHandlerRight}
+          onClick={() => onClickHandlerRight(buttonShow)}
         >
           <SlideClickRight />
         </button>

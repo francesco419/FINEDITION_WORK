@@ -2,6 +2,7 @@
 
 .wordbuzz {
   border-radius: 3px;
+  @include radius3();
   width: 620px;
   height: 320px;
   border: 1px solid #eaeaea;

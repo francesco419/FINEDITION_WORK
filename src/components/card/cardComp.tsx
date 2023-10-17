@@ -22,7 +22,6 @@ export default function Card({ data, color, type, fcolor }: MegazineCardType) {
   const click = useAppSelector(selectClick);
 
   if ('coverLocate' in data) {
-    console.log('card');
     const navigateHandler = () => {
       if (click === false) nav(`/info/${data.id}/${data.typeId}`);
     };
@@ -40,7 +39,6 @@ export default function Card({ data, color, type, fcolor }: MegazineCardType) {
       </dl>
     );
   } else {
-    console.log('story');
     const navigateHandler = () => {
       if (click === false) nav(`/story/${data.id}`);
     };

@@ -75,9 +75,10 @@
       background-color: #736de3;
       div {
         display: flex;
+        align-items: flex-start;
         width: 206px;
         justify-content: space-between;
-        margin: 13px 0 12px;
+        margin: 0 0 12px;
       }
       p {
         @include font-style(19, $System-White-0, Mabry Pro Reg, 1.4);

@@ -12,6 +12,7 @@
     padding: 14px 20px;
     border-radius: 3px;
     box-sizing: border-box;
+    @include radius3();
     background-image: url('../../assets/image/home/home-souvenir.png');
     p {
       white-space: pre-wrap;

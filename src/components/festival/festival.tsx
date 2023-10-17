@@ -26,15 +26,6 @@ export default function FestivalSlider() {
   const [num, setNum] = useState<number>(0);
   const ref = useRef<HTMLDivElement>(null);
 
-  useInterval(
-    () => {
-      let number = num + 1;
-      if (number >= 4) number = 0;
-      ChangeNum(number);
-    },
-    isShowing ? 5000 : null
-  );
-
   const changeIsShow = (bool: boolean) => {
     setIsShowing((isShowing) => bool);
   };
@@ -47,14 +38,14 @@ export default function FestivalSlider() {
     setNum((num) => number);
   };
 
-  useInterval(
+  /* useInterval(
     () => {
       let number = num + 1;
       if (number >= 4) number = 0;
       ChangeNum(number);
     },
     isShowing ? 5000 : null
-  );
+  ); */
 
   return (
     <div

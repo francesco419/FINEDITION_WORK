@@ -31,14 +31,14 @@ export default function LoginFormGoogleAPI({ toNext }: LoginForm_type) {
       .get(url, { headers: { Authorization: 'Bearer ' + access_token } })
       .then((response) => {
         const userInfo: UserInfoState = {
-          id: 78,
-          name: response.data.names[0].displayName,
-          email: response.data.emailAddresses[0].value,
-          nationality: null,
-          photo: response.data.photos[0].url,
-          age: null,
-          gender: null,
-          keyword: null
+          userid: 78,
+          username: response.data.names[0].displayName,
+          useremail: response.data.emailAddresses[0].value,
+          usernation: null,
+          userImage: response.data.photos[0].url,
+          userbirth: null,
+          usergender: null,
+          userkeyword: null
         };
         loginCheckHandler(userInfo);
       })
@@ -50,10 +50,11 @@ export default function LoginFormGoogleAPI({ toNext }: LoginForm_type) {
   const loginCheckHandler = (userInfo: UserInfoState) => {
     const loginCheckData: sendAxiosState = {
       url: `${process.env.REACT_APP_PROXY}/logincheck`,
-      data: { email: userInfo.email },
+      data: { email: userInfo.useremail },
       config: undefined,
       callback: (e: AxiosResponse) => {
-        if (e.data.result.length > 0) {
+        console.log(e);
+        if (e.data.check) {
           console.log('successs');
           loginSuccess(e.data.result[0]);
         } else {

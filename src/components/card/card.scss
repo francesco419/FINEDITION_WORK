@@ -3,9 +3,9 @@
 @mixin cardDl {
   position: relative;
   margin: 5px 0 0;
+  transition: all 0.5s;
   &:hover {
     transform: translateY(-5px);
-    transition: all 0.5s;
   }
 }
 @mixin cardDd($firstSize, $secondSize) {
@@ -41,6 +41,10 @@
   &:hover svg {
     filter: invert(100%);
   }
+}
+
+dt {
+  border-radius: 3px;
 }
 
 .magazineCard {

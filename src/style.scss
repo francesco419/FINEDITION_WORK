@@ -39,6 +39,10 @@ $Brand-Orange-0: #f87b36;
 
 /*-----------------------*/
 
+@mixin radius3 {
+  border-radius: 3px;
+}
+
 @mixin mabry {
   font-family: Mabry Pro;
 }

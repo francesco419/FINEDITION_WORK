@@ -9,7 +9,7 @@ export type LiType = {
 
 export default function UseTimeComp({ text }: LiType) {
   const REG_USETIME: RegExp = new RegExp(/[0-9]{2}:[0-9]{2}-[0-9]{2}:[0-9]{2}/);
-  console.log(text.match(REG_USETIME));
+
   return (
     <li className='usetime'>
       <UseTime />

@@ -15,8 +15,8 @@ const data0: cardType[] = [
 
 export default function HomeSpots() {
   return (
-    <div className='home_spots'>
-      <h2>Interesting Spots around you</h2>
+    <div className='home_spots' data-aos='fade-up' data-aos-duration='1000'>
+      <h2>Interesting Spots in Seoul</h2>
       <div className='home_spots-cards'>
         {_.map(data0, (o, index) => {
           return (

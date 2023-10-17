@@ -22,15 +22,15 @@ export default function HeaderMenu({ color }: HeaderMenu_Type) {
   const [dropDown, setDropDown] = useState<boolean>(false);
 
   const navTo = (to: string) => {
-    nav(`/profile/${to}`);
+    if (user.id === null) {
+      return;
+    } else {
+      nav(`/profile/${to}`);
+    }
   };
 
   const navToLogIn = (to: string) => {
-    if (not) {
-      nav(`/profile/999999`);
-    } else {
-      dispatch(setLoginFormTrue());
-    }
+    dispatch(setLoginFormTrue());
   };
 
   return (
@@ -42,14 +42,14 @@ export default function HeaderMenu({ color }: HeaderMenu_Type) {
             setDropDown((dropDown) => !dropDown);
           }}
         />
-        {user.id === null ? (
+        {user.userid === null ? (
           <HeaderSVG
             svg={<Person fill={color === '#fff' ? '#C2E56C' : color} />}
             to={navToLogIn}
           />
         ) : (
           <HeaderSVG
-            svg={<Not style={{ fill: '#ff0000' }} />}
+            svg={<Person fill={color === '#fff' ? '#C2E56C' : color} />}
             to={() => {
               if (user.id) navTo(JSON.stringify(user.id));
             }}

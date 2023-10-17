@@ -13,12 +13,15 @@ import Search from './page/search/search';
 import Bookmark from './page/bookmark/bookemark';
 import { useEffect } from 'react';
 import ScrollToTop from './components/common/scrollTop/scrollTop';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function App() {
   const googleClient = process.env.REACT_APP_CLIENT_ID!;
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    AOS.init();
   }, []);
 
   return (

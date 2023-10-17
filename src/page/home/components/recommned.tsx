@@ -10,35 +10,53 @@ import i561382 from '../../../assets/image/home/561382.png';
 
 const temp = [
   {
-    img: i264550
+    img: i264550,
+    text: 'Center Nam\nBrights the City',
+    color: '#C0D6EC'
   },
   {
-    img: i264316
+    img: i264316,
+    text: 'Autumn falls\ninto Palaces',
+    color: '#F3F0A7'
   },
   {
-    img: i561382
+    img: i561382,
+    text: 'Buckhon,\n&its heritage',
+    color: '#F9FDFF'
   }
 ];
 const temp1 = [
   {
-    img: image2
+    img: i264550,
+    text: 'Center Nam\nBrights the City',
+    color: '#C0D6EC'
   },
   {
-    img: image2
+    img: i264316,
+    text: 'Autumn falls\ninto Palaces',
+    color: '#F3F0A7'
   },
   {
-    img: image2
+    img: i561382,
+    text: 'Buckhon,\n&its heritage',
+    color: '#F9FDFF'
   }
 ];
 const temp2 = [
   {
-    img: image3
+    img: i264550,
+    text: 'Center Nam\nBrights the City',
+    color: '#C0D6EC'
   },
   {
-    img: image3
+    img: i264316,
+    text: 'Autumn falls\ninto Palaces',
+    color: '#F3F0A7'
   },
   {
-    img: image3
+    img: i561382,
+    text: 'Buckhon,\n&its heritage',
+    color: '#F9FDFF'
   }
 ];
 
@@ -104,8 +122,8 @@ function PicksofWeek({ num, color }: NumType) {
           return (
             <li key={`${o.img}_${index}`}>
               <img src={o.img} />
-              <p ref={ref} className='popupText'>
-                Center Namsan Brights the City
+              <p ref={ref} className='popupText' style={{ color: o.color }}>
+                {o.text}
               </p>
             </li>
           );

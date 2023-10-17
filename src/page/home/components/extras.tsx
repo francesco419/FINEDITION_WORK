@@ -16,7 +16,7 @@ const partnership = [
 
 export default function Extras() {
   return (
-    <div className='home_extras'>
+    <div className='home_extras' data-aos='fade-up' data-aos-duration='1000'>
       <div>
         <div className='home_extras-worldmap extrabox'>
           <p>{'We care our travelers from\nall over the countries'}</p>

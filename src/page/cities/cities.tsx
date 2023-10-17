@@ -4,6 +4,7 @@ import './cities.scss';
 import _, { drop } from 'lodash';
 import FestivalSlider from '../../components/festival/festival';
 import { ReactComponent as Seoul } from './assets/svg/seoul.svg';
+import { ReactComponent as Down } from '../../assets/svg/sort_down.svg';
 import Card from '../../components/card/cardComp';
 import Footer from '../../components/footer/footer';
 import sampleImage from '../../assets/image/temp/Frame.png';
@@ -266,7 +267,7 @@ type Gu_Type = {
 };
 
 function SelectGu({ region }: Gu_Type) {
-  const [inputText, setInputText] = useState<string>('Gangnam');
+  const [inputText, setInputText] = useState<string>('Select Gu');
   const [dropDown, setDropDown] = useState<boolean>(false);
 
   const onClickDropHandler = () => {
@@ -282,6 +283,7 @@ function SelectGu({ region }: Gu_Type) {
   return (
     <div className='select-gu'>
       <button className='select-gu-button' onClick={onClickDropHandler}>
+        <Down />
         {inputText}
       </button>
       {dropDown && (

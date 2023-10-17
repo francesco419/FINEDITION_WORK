@@ -3,10 +3,9 @@
 .festivalHome {
   position: relative;
   display: flex;
-  flex-shrink: 0;
   transition: all 1s;
   &_image {
-    width: 613px;
+    width: 610px;
     height: 264px;
     img {
       width: 100%;
@@ -30,11 +29,13 @@
   &_detail {
     position: relative;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     height: 121px;
     background: #161616;
-    padding: 15px 16px;
+    padding: 0 0 0 16px;
     box-sizing: border-box;
+    border-radius: 0 0 3px 3px;
     h3,
     p {
       white-space: pre-line;
@@ -53,6 +54,6 @@
   position: relative;
   display: flex;
   width: 613px;
-  flex-shrink: 0;
   overflow: hidden;
+  @include radius3();
 }

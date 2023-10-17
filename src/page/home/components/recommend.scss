@@ -30,6 +30,7 @@
         width: 340px;
         height: 426px;
         overflow: hidden;
+        @include radius3();
         img {
           width: inherit;
           height: inherit;
@@ -41,13 +42,16 @@
         }
         .popupText {
           position: absolute;
-          left: 20px;
-          bottom: 20px;
-          width: 140px;
+          left: 26px;
+          bottom: 24px;
           white-space: pre-wrap;
           word-wrap: break-word;
-          transform: translateY(60px);
-          @include font-style(17.5, #c0d6ec, Mabry Pro Med, 1.2);
+          transform: translateY(100px);
+          @include font-style(33, #c0d6ec, Mabry Pro Med, 1.2);
+          transition: all 0.5s;
+          &:hover {
+            transform: translateY(0);
+          }
         }
       }
     }
