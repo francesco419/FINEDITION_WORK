@@ -254,11 +254,16 @@
   }
   &_list {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px 20px;
+    justify-content: center;
     padding: 20px;
     box-sizing: border-box;
     background-color: #b4e43d;
+    ul {
+      display: flex;
+      padding: 0 0 0 30px;
+      flex-wrap: wrap;
+      gap: 20px 20px;
+    }
   }
 }
 
