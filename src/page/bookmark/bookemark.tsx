@@ -115,7 +115,7 @@ export default function Bookmark() {
                 </li>
               );
             })}
-            <SortList sortState={sortStateHandler} />
+            {/* <SortList sortState={sortStateHandler} /> */}
           </ul>
           <SearchComponent
             value={{

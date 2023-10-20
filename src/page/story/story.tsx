@@ -82,7 +82,7 @@ export default function Story() {
                 ending: story.conclusion
               }}
             />
-            <RelatedMagazine strArr={tempe} />
+            {/* <RelatedMagazine strArr={tempe} /> */}
           </div>
         </div>
         <Footer type={true} />
@@ -219,7 +219,7 @@ function StoryMain({ main }: StoryMain_Type) {
           })}
         </div>
         <div className='storymain_mainText-side'>
-          <p>{main.sideText}</p>
+          <p>{main.sideText === 'null' ? null : main.sideText}</p>
           {main.sideImage !== '' && <img src={main.sideImage} />}
         </div>
       </div>
@@ -232,7 +232,7 @@ function StoryMain({ main }: StoryMain_Type) {
         }}
       />
       <div className='storymain_endText'>
-        <p>{main.ending}</p>
+        <p>{main.ending === 'null' ? null : main.ending}</p>
       </div>
     </div>
   );

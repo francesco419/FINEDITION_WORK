@@ -16,39 +16,45 @@ export default function SearchList({ list, searchWord }: SearchList_Type) {
 
   return (
     <ul className='searchList'>
-      {_.map(list, (o) => {
-        if ('coverLocate' in o) {
-          if (searchWord === '') {
-            return (
-              <li>
-                <Card data={o} color='#000' type='medium' fcolor='#fff' />
-              </li>
-            );
-          } else {
-            if (o.coverTitle.toLowerCase().includes(searchWord))
+      {list.length > 0 ? (
+        _.map(list, (o) => {
+          if ('coverLocate' in o) {
+            if (searchWord === '') {
               return (
                 <li>
                   <Card data={o} color='#000' type='medium' fcolor='#fff' />
                 </li>
               );
-          }
-        } else {
-          if (searchWord === '') {
-            return (
-              <li>
-                <Card data={o} color='#000' type='medium' fcolor='#fff' />
-              </li>
-            );
+            } else {
+              if (o.coverTitle.toLowerCase().includes(searchWord))
+                return (
+                  <li>
+                    <Card data={o} color='#000' type='medium' fcolor='#fff' />
+                  </li>
+                );
+            }
           } else {
-            if (o.keyword.includes(searchWord))
+            if (searchWord === '') {
               return (
                 <li>
                   <Card data={o} color='#000' type='medium' fcolor='#fff' />
                 </li>
               );
+            } else {
+              if (o.keyword.includes(searchWord))
+                return (
+                  <li>
+                    <Card data={o} color='#000' type='medium' fcolor='#fff' />
+                  </li>
+                );
+            }
           }
-        }
-      })}
+        })
+      ) : (
+        <div className='noresult'>
+          <h2>No Result</h2>
+        </div>
+      )}
     </ul>
   );
   /*   if ('coverLocate' in list) {

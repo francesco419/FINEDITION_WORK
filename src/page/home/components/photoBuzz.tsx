@@ -26,7 +26,7 @@ export default function PhotoBuzz() {
   const getAxios = () => {
     let random = _.random(1, 20);
     let data: API_TYPE = {
-      url: `https://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySyncDetailList1?serviceKey=${process.env.REACT_APP_TOUR_KEY}&numOfRows=10&pageNo=${random}&MobileOS=ETC&MobileApp=AppTest&showflag=1&_type=json&title=서울`,
+      url: `https://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySyncDetailList1?serviceKey=${process.env.REACT_APP_TOUR_KEY}&numOfRows=40&pageNo=${random}&MobileOS=ETC&MobileApp=AppTest&showflag=1&_type=json&title=서울`,
       callback: (o) => {
         const img = o.data.response.body.items.item;
         setImage((image) => img);
@@ -86,8 +86,10 @@ export default function PhotoBuzz() {
         </button>
       </div>
       <div className='apimap'>
-        {_.map(image, (o, index) => {
-          return <PhotoBox obj={o} key={`${o.id}_${index}`} />;
+        {_.map(_.shuffle(image), (o, index) => {
+          if (index < 10) {
+            return <PhotoBox obj={o} key={`${o.id}_${index}`} />;
+          }
         })}
       </div>
     </div>

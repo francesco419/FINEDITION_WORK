@@ -63,7 +63,7 @@
     box-sizing: border-box;
     border-radius: 3px;
     p {
-      @include font-style(19, $System-White-0, Mabry Pro Reg, 1.4);
+      @include font-style(16, $System-White-0, Mabry Pro Reg, 1.4);
     }
     &:first-child {
       height: 50px;

@@ -17,6 +17,8 @@ import 'aos/dist/aos.css';
 import PopUpImg from '../../components/popupimage/popUpImg';
 import { storyCardData } from '../../data/storyCardData';
 import Souvenirs from './components/souvenirs';
+import FestivalSlider from '../../components/festival/festival';
+import ToTopButton from '../../components/common/buttons/toTop/toTopButton';
 
 const first = [
   264337, 264138, 2, 2946681, 897540, 3, 2003918, 264340, 264132, 1, 1909500,
@@ -65,7 +67,7 @@ export default function Home() {
             data-aos='fade-up'
             data-aos-duration='1000'
           >
-            <FestivalHome />
+            <FestivalSlider />
             <NewsHome />
           </div>
           <div
@@ -88,6 +90,7 @@ export default function Home() {
       {/* <div className='homll'>a</div> */}
       <Footer type={false} />
       <PopUpImg />
+      {/* <ToTopButton type={true} /> */}
     </div>
   );
 }

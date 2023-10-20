@@ -1,0 +1,9 @@
+@import '../../../style.scss';
+
+.confirmButton {
+  width: 110px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: $System-Black-0;
+  @include font-style(16, $System-White-0, Mabry Pro Reg);
+}

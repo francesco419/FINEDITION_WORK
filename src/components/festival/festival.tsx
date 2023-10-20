@@ -38,14 +38,14 @@ export default function FestivalSlider() {
     setNum((num) => number);
   };
 
-  /* useInterval(
+  useInterval(
     () => {
       let number = num + 1;
       if (number >= 4) number = 0;
       ChangeNum(number);
     },
     isShowing ? 5000 : null
-  ); */
+  );
 
   return (
     <div

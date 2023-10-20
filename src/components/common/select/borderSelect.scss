@@ -1,0 +1,30 @@
+@import '../../../style.scss';
+
+.borderSelect {
+  display: flex;
+  position: relative;
+  border: 1px solid $System-Dark-Gray-0;
+  height: 45px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  select {
+    flex-basis: auto;
+    flex-grow: 1;
+    width: 70%;
+    border: none;
+    background: none;
+    @include font-style(16, $System-Black-0, Inter Reg);
+    &:focus {
+      outline: none;
+    }
+  }
+  label {
+    position: absolute;
+    background-color: $System-White-0-1;
+    padding: 0 5px;
+    top: -5px;
+    left: 10px;
+    @include font-style(12, $System-Dark-Gray-0, Inter Reg);
+  }
+}

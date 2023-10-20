@@ -20,6 +20,8 @@
     "axios": "^1.5.1",
     "date-fns": "^2.30.0",
     "dotenv": "^16.3.1",
+    "downloadjs": "^1.4.7",
+    "html2canvas": "^1.4.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "react": "^18.2.0",
@@ -65,6 +67,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/aos": "^3.0.5",
+    "@types/downloadjs": "^1.4.5",
     "@types/react-datepicker": "^4.15.0",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",

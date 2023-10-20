@@ -89,7 +89,13 @@ export default function SearchDropDown() {
                 ) : (
                   _.map(searchArray, (o, index) => {
                     return (
-                      <button className='history-keyname' key={`${o}_${index}`}>
+                      <button
+                        className='history-keyname'
+                        key={`${o}_${index}`}
+                        onClick={() => {
+                          nav(`/search/${o}`);
+                        }}
+                      >
                         {o}
                       </button>
                     );
@@ -98,7 +104,7 @@ export default function SearchDropDown() {
               </div>
             </div>
           </div>
-          <div className='searchbar_edition'>
+          {/* <div className='searchbar_edition'>
             {_.map(EDITION, (o) => {
               return (
                 <div className='searchbar_edition-box' key={o.title}>
@@ -115,7 +121,7 @@ export default function SearchDropDown() {
                 </div>
               );
             })}
-          </div>
+          </div> */}
         </div>
         <div></div>
       </div>

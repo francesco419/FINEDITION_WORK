@@ -12,6 +12,7 @@ import { useState } from 'react';
 import ClimateRate from './components/climateRate';
 import SelectGu from './components/selectRegion';
 import { Link } from 'react-router-dom';
+import ToTopButton from '../../components/common/buttons/toTop/toTopButton';
 
 const first = [
   264550, 264106, 789703, 264257, 264132, 264138, 1747593, 264116, 2944084,
@@ -80,13 +81,21 @@ export default function Cities() {
       <div className='cityPage_upperContainer'>
         <div className='cityPage_upperbody'>
           <div className='cityPage_upperContainer-title'>
-            <h2>SEOUL</h2>
-            <h3>A Journey through Diverse Charms</h3>
-            <p>
+            <h2 data-aos='fade-up' data-aos-duration='500'>
+              SEOUL
+            </h2>
+            <h3 data-aos='fade-up' data-aos-duration='700'>
+              A Journey through Diverse Charms
+            </h3>
+            <p data-aos='fade-up' data-aos-duration='1000'>
               {`Seoul, South Korea’s capital and the heart of the nation, is a city that blends a rich tapestry of traditions\nwith the vibrant pulse of modernity. It is a dynamic metropolis that unveil its profound cultural and historical significance.`}
             </p>
           </div>
-          <div className='cityPage_upperContainer-slide' data-aos='fade-up'>
+          <div
+            className='cityPage_upperContainer-slide'
+            data-aos='fade-up'
+            data-aos-duration='1200'
+          >
             <CardSlide
               data={_.shuffle(
                 _.filter(cardData, (o) => {
@@ -98,7 +107,7 @@ export default function Cities() {
             <CardSlide
               data={_.shuffle(
                 _.filter(cardData, (o) => {
-                  return first.includes(o.id);
+                  return second.includes(o.id);
                 })
               )}
               type='small'
@@ -165,9 +174,9 @@ export default function Cities() {
                 <SelectGu region={regionHandler} />
               </div>
               <ClimateRate region={region} />
-              <div className='cityPage_lowerbody-viewall'>
+              {/* <div className='cityPage_lowerbody-viewall'>
                 <button>VIEW ALL</button>
-              </div>
+              </div> */}
             </div>
             <div className='cityPage_lowerbody-list'>
               {_.map(cardData, (o, index) => {
@@ -198,6 +207,7 @@ export default function Cities() {
         </div>
       </div>
       <Footer type={false} />
+      <ToTopButton type={true} />
     </div>
   );
 }

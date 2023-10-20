@@ -149,35 +149,38 @@ export default function ProfileJourney({ type }: ProfileJourneyType) {
 02.08 Wed - 02.21 Thu*/
   } else {
     return (
-      <ul className={style}>
-        <li>
-          <p>Log-in & get more information</p>
-        </li>
-        <li>
-          {type ? (
-            <div>
-              <PlaneBig />
-              <button>
-                <Setting />
-              </button>
-            </div>
-          ) : (
-            <div>
-              <Plane />
-              <button onClick={navTo}>
-                <Arrow />
-              </button>
-            </div>
-          )}
-          <span>
-            <p>No Upcoming</p>
-            <p>Journey to Korea</p>
-          </span>
-        </li>
-        <li>
-          <p>Curate to the Finest</p>
-        </li>
-      </ul>
+      <>
+        {travelSetting && <TravelPlan exit={travelSettingShow} />}
+        <ul className={style}>
+          <li>
+            <p>Log-in & get more information</p>
+          </li>
+          <li>
+            {type ? (
+              <div>
+                <PlaneBig />
+                <button onClick={travelSettingShow}>
+                  <Setting />
+                </button>
+              </div>
+            ) : (
+              <div>
+                <Plane />
+                <button onClick={navTo}>
+                  <Arrow />
+                </button>
+              </div>
+            )}
+            <span>
+              <p>No Upcoming</p>
+              <p>Journey to Korea</p>
+            </span>
+          </li>
+          <li>
+            <p>Curate to the Finest</p>
+          </li>
+        </ul>
+      </>
     );
   }
 }

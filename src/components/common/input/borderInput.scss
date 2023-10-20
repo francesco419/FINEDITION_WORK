@@ -1,0 +1,38 @@
+@import '../../../style.scss';
+
+.borderInput {
+  display: flex;
+  position: relative;
+  border: 1px solid $System-Dark-Gray-0;
+  height: 45px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  input {
+    flex-basis: auto;
+    flex-grow: 1;
+    width: 70%;
+    border: none;
+    background: none;
+    @include font-style(16, $System-Black-0, Inter Reg);
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      @include font-style(16, $System-Light-Gray-0, Inter Reg);
+    }
+  }
+  label {
+    position: absolute;
+    background-color: $System-White-0-1;
+    padding: 0 5px;
+    top: -5px;
+    left: 10px;
+    @include font-style(12, $System-Dark-Gray-0, Inter Reg);
+  }
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

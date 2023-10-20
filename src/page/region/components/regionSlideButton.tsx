@@ -48,7 +48,7 @@ export default function RegionSlideButton() {
   };
 
   return (
-    <li>
+    <li data-aos='fade-up' data-aos-duration='1000'>
       <SlideButton click={slideButtonHandler} />
     </li>
   );

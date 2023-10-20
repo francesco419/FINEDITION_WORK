@@ -22,12 +22,6 @@
       p {
         @include font-style(16, $Brand-Light-Green-0, Mabry Pro Reg, 1.4);
       }
-      li {
-        &:last-child {
-          position: relative;
-          margin: 0 0 0 auto;
-        }
-      }
     }
   }
 }

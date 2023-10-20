@@ -4,6 +4,13 @@
   @include pageSet($Brand-Light-Green-0);
 }
 
+.logout {
+  align-self: baseline;
+  @include font-style(16, $System-Black-0, Mabry Pro Reg);
+  padding: 10px 0 0;
+  text-decoration: underline;
+}
+
 .profile {
   width: 1440px;
   color: #ff0000;
@@ -44,6 +51,7 @@
     display: flex;
     justify-content: space-between;
     &-photo {
+      position: relative;
       width: 310px;
       height: 100%;
       border-radius: 3px 0px 0px 3px;
@@ -53,6 +61,11 @@
         height: 100%;
         object-fit: cover;
         //filter: brightness(120%);
+      }
+      button {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
       }
     }
     &-profile {
@@ -129,7 +142,7 @@
 .profileClass {
   width: 300px;
   &_upper {
-    height: 185px;
+    height: 195px;
     background-color: $System-Black-0;
     border-radius: 0px 3px 3px 0px;
     padding: 20px;
@@ -200,6 +213,7 @@
     background-color: $System-White-1;
     padding: 20px 20px 0;
     box-sizing: border-box;
+    max-height: 300px;
     &-title {
       display: flex;
       align-items: center;
@@ -283,5 +297,61 @@
     margin: 5px 0 0;
     white-space: pre-wrap;
     @include font-style(16, $System-Black-0, Mabry Pro Light, 1.4);
+  }
+}
+
+.editkeyword {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 90;
+}
+
+.editkeyword-paragraph {
+  p {
+    &:first-child {
+      text-align: center;
+      color: var(--black, #161616);
+      font-family: Value Serif Pro Med;
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%; /* 29.4px */
+    }
+    &:last-child {
+      width: 100%;
+      text-align: center;
+      color: #736de3;
+      font-family: Value Serif Pro Med;
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%;
+    }
+  }
+}
+
+.editkeyword-taste {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 80px auto 0;
+  width: 450px;
+  height: 600px;
+  padding: 20px;
+  background-color: $System-White-0-1;
+  border-radius: 5px;
+  border: 1px solid $System-Black-0;
+  &_form {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 45px 30px 0;
   }
 }

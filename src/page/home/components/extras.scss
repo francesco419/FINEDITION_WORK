@@ -65,6 +65,7 @@
       box-sizing: border-box;
       padding: 0 0 0 20px;
       list-style: decimal;
+      margin: 0 0 5px;
       li {
         padding: 0 0 0 5px;
         &::marker {
@@ -72,6 +73,10 @@
           font-family: Mabry Pro Reg;
         }
       }
+    }
+    img {
+      width: 330px;
+      height: 51px;
     }
   }
   &-feedback {

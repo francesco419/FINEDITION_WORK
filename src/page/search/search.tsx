@@ -63,7 +63,7 @@ export default function Search() {
                 </li>
               );
             })}
-            <SortList sortState={sortStateHandler} />
+            {/* <SortList sortState={sortStateHandler} /> */}
           </ul>
           <SearchComponent
             value={{

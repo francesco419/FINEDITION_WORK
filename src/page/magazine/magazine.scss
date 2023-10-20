@@ -71,7 +71,6 @@
     position: relative;
     display: flex;
     align-items: center;
-    margin-right: 10px;
     width: 1300px;
     height: 296px;
     padding: 28px 32px;
@@ -130,9 +129,9 @@
     }
   }
   &_theme {
-    align-self: baseline;
+    align-self: flex-start;
     width: 188px;
-    margin: 0 0 0 57.5px;
+    margin: 7px 0 0 57.5px;
   }
   &_theme-title {
     margin-bottom: 17px;
@@ -151,7 +150,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 70px 45px;
-    margin: 0 0 220px;
+    margin: 0 0 400px;
   }
 }
 

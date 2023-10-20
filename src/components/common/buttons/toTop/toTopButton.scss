@@ -1,0 +1,25 @@
+@import '../../../../style.scss';
+
+.toTopNeutralTrue {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 99;
+  svg {
+    circle {
+      fill: #d1c8b5;
+    }
+  }
+}
+
+.toTopNeutralFalse {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 99;
+  svg {
+    circle {
+      fill: #d1c8b5;
+    }
+  }
+}

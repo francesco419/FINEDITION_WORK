@@ -45,7 +45,7 @@ const temp1 = [
   },
   {
     img: week2,
-    text: 'Stroll casually\nacross Jongno',
+    text: 'Amazing view\nfrom Bukhansan',
     color: '#FFE9EF',
     to: '/info/897540/76'
   },
@@ -71,7 +71,7 @@ const temp2 = [
   },
   {
     img: uprising3,
-    text: 'Amazing view\nfrom Bukhansan',
+    text: 'Stroll casually\nacross Jongno',
     color: '#ACEAAA',
     to: '/info/1747593/76'
   }

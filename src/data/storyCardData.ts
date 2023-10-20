@@ -43,7 +43,7 @@ export const storyCardData: StoryCardDate_Type[] = [
     coverTheme: 'Cuisine',
     coverRegion: '',
     coverImg: id3,
-    coverTitle: 'Hanji, Korean traditional paper\n& Where to find them',
+    coverTitle: 'Classic never goes out\nof style - Korean snacks',
     isCard: false,
     keyword: [
       'cuisine',
@@ -79,7 +79,7 @@ export const storyCardData: StoryCardDate_Type[] = [
     coverTheme: 'Info',
     coverRegion: 'Busan',
     coverImg: id4,
-    coverTitle: 'Hanji, Korean traditional paper\n& Where to find them',
+    coverTitle: 'Discover five famous\nregions in Korea',
     isCard: false,
     keyword: [
       'info',

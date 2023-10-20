@@ -1,69 +1,82 @@
-import { sendAxiosState } from './interceptor';
+import { AxiosResponse } from 'axios';
+import {
+  sendAxiosState,
+  postInterceptor,
+  putInterceptor,
+  getInterceptor
+} from './interceptor';
 
 export const sendFilesPost = (
   data: any,
-  files: File[],
+  files: File | undefined,
   axios: string,
-  func?: () => void
+  func: (id: number) => void
 ) => {
-  if (data.text === '') {
+  if (data.userid === null || files === undefined) {
     return false;
   }
 
-  let file = createFormData(data, files);
+  console.log('formdata pass');
+
+  let file = createFormData(data, files, func);
 
   if (axios === 'put') {
-    //putInterceptor(file);
+    putInterceptor(file);
   } else if (axios === 'post') {
-    //postInterceptor(file);
+    postInterceptor(file);
   }
-
-  if (func) func();
 };
 
-export const createFormData = (data: any, files: File[]) => {
-  let CRUDTO: string = 'editpost';
+export const createFormData = (
+  data: any,
+  files: File,
+  func: (id: number) => void
+) => {
+  let CRUDTO: string = 'updateuser';
   let formdata = new FormData();
 
-  files.map((file, index) => {
-    formdata.append(`img+${index}`, file);
-  });
-  if (data.id) {
-    formdata.append('id', data.id);
-    CRUDTO = 'upload';
+  formdata.append(`file`, files);
+  if (data.userid) {
+    formdata.append('userid', data.userid);
   }
-  if (data.name) {
-    formdata.append('name', data.name);
+  if (data.username) {
+    formdata.append('username', data.username);
   }
-  if (data.text) {
-    formdata.append('text', data.text);
+  if (data.usernation) {
+    formdata.append('usernation', data.usernation);
   }
-  if (data.tag) {
-    formdata.append('tag', JSON.stringify(data.tag));
+  if (data.usergender) {
+    formdata.append('usergender', data.usergender);
   }
-  if (data.date) {
-    formdata.append('time', data.date);
-  }
-  if (data.code) {
-    formdata.append('code', data.code);
-  }
-  if (typeof data.announcement) {
-    console.log(1);
-    formdata.append('announcement', JSON.stringify(data.announcement));
+  if (data.userbirth) {
+    formdata.append('userbirth', data.userbirth);
   }
 
   let file: sendAxiosState = {
-    url: `http://localhost:8080/${CRUDTO}`,
+    url: `${process.env.REACT_APP_PROXY}/${CRUDTO}`,
     data: formdata,
     config: {
       headers: {
         'Content-Type': `multipart/form-data`
       }
     },
-    callback: undefined
+    callback: (e: AxiosResponse) => {
+      if (e.data.flag) {
+        func(data.userid as number);
+      }
+    }
   };
   return file;
 };
+
+/* const getUserInfo = (id: number,set:any) => {
+  let data: sendAxiosState = {
+    url: `${process.env.REACT_APP_PROXY}/getinfo`,
+    data: { userid: id },
+    callback: (e: AxiosResponse) => {}
+  };
+  getInterceptor(data);
+}; */
 
 export const setFilesOnState = (
   e: React.ChangeEvent<HTMLInputElement>,

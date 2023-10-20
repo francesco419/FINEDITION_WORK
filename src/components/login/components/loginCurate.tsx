@@ -54,7 +54,7 @@ export default function LoginFormCurate({
             onChange={(e) => nationChangeHandler(e)}
           >
             <option value='' disabled selected></option>
-            {_.shuffle(COUNTRY_NAMES).map((item, index) => (
+            {_.map(COUNTRY_NAMES, (item, index) => (
               <option value={item} key={`data_${index}`}>
                 {item}
               </option>

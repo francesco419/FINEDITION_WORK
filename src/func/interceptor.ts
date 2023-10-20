@@ -102,7 +102,7 @@ export const putInterceptor = async (data: sendAxiosState) => {
   return instance
     .put(data.url, data.data)
     .then((response: AxiosResponse) => {
-      //data.callback(response);
+      if (data.callback !== undefined) data.callback(response);
     })
     .catch((e) => {
       console.log(e);
