@@ -9,11 +9,6 @@ import { useEffect } from 'react';
 import RegionSlideButton from './components/regionSlideButton';
 
 export default function Region() {
-  useEffect(() => {
-    document.addEventListener('click', (e) => {
-      console.log(e.pageX, e.pageY, window.innerHeight);
-    });
-  });
   return (
     <div className='region'>
       <Header type='black' />

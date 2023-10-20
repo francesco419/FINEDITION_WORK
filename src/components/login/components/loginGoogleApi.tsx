@@ -54,12 +54,9 @@ export default function LoginFormGoogleAPI({
       data: { email: userInfo.useremail },
       config: undefined,
       callback: (e: AxiosResponse) => {
-        console.log(e);
         if (e.data.result[0]) {
-          console.log('successs');
           loginSuccess(e.data.result[0]);
         } else {
-          console.log('fail');
           loginFailed(userInfo);
         }
       }

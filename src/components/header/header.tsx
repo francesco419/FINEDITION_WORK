@@ -61,11 +61,7 @@ export default function Header({ type }: HeaderType) {
           o.data.response.body.items.item[0]
         ]);
         if (number !== 82) {
-          console.log(number);
           getdata(number + 1);
-        } else {
-          console.log('end');
-          console.log(anyuting);
         }
       }
     };

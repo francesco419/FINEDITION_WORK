@@ -155,7 +155,6 @@ export default function Magazine() {
                 searchTheme.includes(o.coverTheme) &&
                 searchCity.includes(o.coverRegion)
               ) {
-                console.log(1);
                 return (
                   <Card
                     data={o}
@@ -171,7 +170,6 @@ export default function Magazine() {
 
             if (searchTheme.length > 0) {
               if (searchTheme.includes(o.coverTheme)) {
-                console.log(2);
                 return (
                   <Card
                     data={o}
@@ -187,7 +185,6 @@ export default function Magazine() {
 
             if (searchCity.length > 0) {
               if (searchCity.includes(o.coverRegion)) {
-                console.log(3);
                 return (
                   <Card
                     data={o}

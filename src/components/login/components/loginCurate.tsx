@@ -20,18 +20,9 @@ export default function LoginFormCurate({
     gender: string = '';
   const dispatch = useAppDispatch();
 
-  const nameChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value) {
-      console.log(e.target.value);
-      //setName(e.target.value);
-    }
-  };
-
   const nationChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     nation = e.target.value;
   };
-
-  const nameDebounce = useCallback(_.debounce(nameChangeHandler, 700), []);
 
   const curateVerificationHandler = (obj: UserInfoState) => {
     setUserInfoTemp(obj, userInfoBefore);

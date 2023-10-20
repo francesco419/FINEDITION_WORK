@@ -23,7 +23,6 @@ export default function TravelPlan({ exit }: TravelPlan_Type) {
       url: `${process.env.REACT_APP_PROXY}/posttravel`,
       data: { userid: user.userid, start: start, end: end, reason: reason },
       callback: (e: AxiosResponse) => {
-        console.log(e.data.result[0]);
         dispatch(getTravelInfo(e.data.result[0]));
       }
     };

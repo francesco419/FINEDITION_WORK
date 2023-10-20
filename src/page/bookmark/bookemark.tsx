@@ -49,13 +49,11 @@ export default function Bookmark() {
       url: `${process.env.REACT_APP_PROXY}/getlikebookmark`,
       data: { userid: id },
       callback: (o: any) => {
-        console.log(o);
         if (!o.data.flag) {
           return;
         }
 
         if (o.data.result[0]) {
-          console.log(1);
           let arr: number[] = [];
 
           _.map(o.data.result[0], (o) => {
@@ -66,7 +64,6 @@ export default function Bookmark() {
         }
 
         if (o.data.result[1]) {
-          console.log(2);
           let arr: number[] = [];
 
           _.map(o.data.result[1], (o) => {

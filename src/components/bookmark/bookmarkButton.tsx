@@ -35,7 +35,6 @@ export default function BookmarkButton({
         dataId: dataId
       },
       callback: (e: AxiosResponse) => {
-        console.log(e);
         if (e.data.flag) {
           setLike((like) => !like);
         }
@@ -52,7 +51,6 @@ export default function BookmarkButton({
         dataId: dataId
       },
       callback: (e: AxiosResponse) => {
-        console.log(e);
         if (e.data.flag) {
           setLike((like) => !like);
         }
@@ -81,7 +79,9 @@ export default function BookmarkButton({
         dataId: dataId
       },
       callback: (e: AxiosResponse) => {
-        console.log(e);
+        if (e.data.flag) {
+          setBookmark((bookmark) => !bookmark);
+        }
       }
     };
     postInterceptor(data);
@@ -95,7 +95,9 @@ export default function BookmarkButton({
         dataId: dataId
       },
       callback: (e: AxiosResponse) => {
-        console.log(e);
+        if (e.data.flag) {
+          setBookmark((bookmark) => !bookmark);
+        }
       }
     };
     postInterceptor(data);
@@ -107,7 +109,6 @@ export default function BookmarkButton({
     } else {
       bookmarkDeleteHandler();
     }
-    setBookmark((bookmark) => !bookmark);
   };
 
   const debouncedB = _.debounce(bookmarkHandler, 250);

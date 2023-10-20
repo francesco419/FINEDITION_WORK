@@ -20,7 +20,6 @@ const keywordsss = [
 
 export default function ProfileKeyword() {
   const user = useAppSelector(selectUserInfo);
-  console.log(user);
 
   const onClicAddkHandler = (taste: string) => {
     // setKeyword((keyword) => [...keyword, taste]);

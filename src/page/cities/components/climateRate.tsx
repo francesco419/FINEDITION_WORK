@@ -28,7 +28,6 @@ export default function ClimateRate({ region }: ClimateRate_Type) {
         if (res.data.response.body.items.item) {
           const rateData = res.data.response.body.items.item[0];
           switchRate(rateData);
-          console.log(rateData);
         }
       }
     };

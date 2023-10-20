@@ -183,7 +183,6 @@ export default function Info() {
         if (data[1].length > 0) {
           setBookmark((bookmark) => true);
         }
-        console.log(o);
       }
     };
     getInterceptor(apidata);

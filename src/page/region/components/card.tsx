@@ -37,7 +37,6 @@ export default function Card({
     e.stopPropagation();
     const img = new Image();
     e.dataTransfer.setDragImage(img, 0, 0);
-    console.log(1);
   };
 
   const dragHandler = (e: React.DragEvent<HTMLDivElement>) => {
@@ -46,7 +45,6 @@ export default function Card({
     pos['x'] = e.pageX - 400 - (window.innerWidth - 1440) / 2.05; // - 650;
     pos['y'] = e.pageY - 90; //- 80;
     setLocationIn((locationIn) => pos);
-    console.log(pos);
   };
 
   const dragOverHandler = (e: React.DragEvent<HTMLDivElement>) => {

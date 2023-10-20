@@ -49,7 +49,6 @@ export default function ProfileJourney({ type }: ProfileJourneyType) {
   const calculateDday = (now: string, start: string) => {
     const time1 = moment(now, 'DDMMYYYY');
     const time2 = moment(start, 'DDMMYYYY');
-    console.log(time2.year());
 
     return moment.duration(time2.diff(time1)).asDays();
   };
