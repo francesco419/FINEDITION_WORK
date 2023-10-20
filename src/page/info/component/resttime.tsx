@@ -1,4 +1,3 @@
-import React from 'react';
 import '../info.scss';
 import { ReactComponent as Closed } from '../assets/closed.svg';
 import { LiType } from './usetime';

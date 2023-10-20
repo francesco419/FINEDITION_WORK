@@ -7,7 +7,7 @@ import errorImg from '../../../assets/image/imageError.jpg';
 type AAType = {
   title: string;
   addr1: string;
-  firstimage: string;
+  firstimage: string | undefined;
   overview: string;
   typedDetailText: string | undefined;
 };

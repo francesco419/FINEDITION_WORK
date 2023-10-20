@@ -1,64 +1,7 @@
 import './recommend.scss';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import _ from 'lodash';
-import image from '../../../assets/image/hanoak.png';
-import image2 from '../../../assets/image/castle.png';
-import image3 from '../../../assets/image/street.png';
-import i264316 from '../../../assets/image/home/264316.png';
-import i264550 from '../../../assets/image/home/264550.png';
-import i561382 from '../../../assets/image/home/561382.png';
-
-const temp = [
-  {
-    img: i264550,
-    text: 'Center Nam\nBrights the City',
-    color: '#C0D6EC'
-  },
-  {
-    img: i264316,
-    text: 'Autumn falls\ninto Palaces',
-    color: '#F3F0A7'
-  },
-  {
-    img: i561382,
-    text: 'Buckhon,\n&its heritage',
-    color: '#F9FDFF'
-  }
-];
-const temp1 = [
-  {
-    img: i264550,
-    text: 'Center Nam\nBrights the City',
-    color: '#C0D6EC'
-  },
-  {
-    img: i264316,
-    text: 'Autumn falls\ninto Palaces',
-    color: '#F3F0A7'
-  },
-  {
-    img: i561382,
-    text: 'Buckhon,\n&its heritage',
-    color: '#F9FDFF'
-  }
-];
-const temp2 = [
-  {
-    img: i264550,
-    text: 'Center Nam\nBrights the City',
-    color: '#C0D6EC'
-  },
-  {
-    img: i264316,
-    text: 'Autumn falls\ninto Palaces',
-    color: '#F3F0A7'
-  },
-  {
-    img: i561382,
-    text: 'Buckhon,\n&its heritage',
-    color: '#F9FDFF'
-  }
-];
+import PicksofWeek from './picksofWeek';
 
 export default function Recommend() {
   const [choose, setChoose] = useState<number>(0);
@@ -101,34 +44,6 @@ export default function Recommend() {
         </ul>
         <PicksofWeek num={choose} color={color} />
       </div>
-    </div>
-  );
-}
-
-type NumType = {
-  num: number;
-  color: string;
-};
-
-function PicksofWeek({ num, color }: NumType) {
-  const pick = num === 0 ? temp : num === 1 ? temp1 : temp2;
-
-  const ref = useRef<HTMLParagraphElement>(null);
-
-  return (
-    <div className='recommend_card'>
-      <ul>
-        {_.map(pick, (o, index) => {
-          return (
-            <li key={`${o.img}_${index}`}>
-              <img src={o.img} />
-              <p ref={ref} className='popupText' style={{ color: o.color }}>
-                {o.text}
-              </p>
-            </li>
-          );
-        })}
-      </ul>
     </div>
   );
 }

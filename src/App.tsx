@@ -6,7 +6,7 @@ import Info from './page/info/info';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Region from './page/region/region';
 import Administrator from './page/admin/administrator';
-import Magazine from './page/megazine/megazine';
+import Magazine from './page/magazine/magazine';
 import ErrorPage from './page/error/errorpage';
 import Story from './page/story/story';
 import Search from './page/search/search';

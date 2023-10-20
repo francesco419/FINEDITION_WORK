@@ -61,6 +61,18 @@
       align-items: center;
       gap: 6px;
     }
+    ul {
+      box-sizing: border-box;
+      padding: 0 0 0 20px;
+      list-style: decimal;
+      li {
+        padding: 0 0 0 5px;
+        &::marker {
+          color: #fff;
+          font-family: Mabry Pro Reg;
+        }
+      }
+    }
   }
   &-feedback {
     position: relative;
@@ -73,6 +85,8 @@
       @include font-style(18, $System-White-0, Mabry Pro Reg, 1.4);
     }
     p {
+      margin: 10px 0 0;
+      text-decoration: underline;
       @include font-style(15, $System-White-0, Mabry Pro Light, 1.4);
     }
     img {

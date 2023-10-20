@@ -26,6 +26,7 @@
     }
   }
   &_menu {
+    position: relative;
     display: flex;
     align-items: center;
     margin-left: auto;
@@ -38,6 +39,22 @@
         margin: 0;
       }
     }
+  }
+}
+
+.droplist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background-color: #d1c8b5;
+  position: absolute;
+  right: 0px;
+  top: 25px;
+  border-radius: 3px;
+  transition: all 1s;
+  li {
+    //margin: 10px 0;
   }
 }
 

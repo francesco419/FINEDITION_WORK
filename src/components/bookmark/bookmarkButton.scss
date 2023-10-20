@@ -1,0 +1,19 @@
+@import '../../style.scss';
+
+.bookmarkButton {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  margin: 2px 0 11px;
+  svg {
+    stroke: none;
+    margin-right: 13px;
+  }
+}
+
+.purpleSvg {
+  svg,
+  path {
+    fill: $Brand-Purple-1;
+  }
+}

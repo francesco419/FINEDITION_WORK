@@ -45,7 +45,7 @@
     justify-content: space-between;
     &-photo {
       width: 310px;
-      height: 388px;
+      height: 100%;
       border-radius: 3px 0px 0px 3px;
       overflow: hidden;
       img {
@@ -135,6 +135,7 @@
     padding: 20px;
     box-sizing: border-box;
     &-membership {
+      position: relative;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -258,5 +259,24 @@
     padding: 20px;
     box-sizing: border-box;
     background-color: #b4e43d;
+  }
+}
+
+.classDetail {
+  position: absolute;
+  top: 10px;
+  right: -240px;
+  background-color: $System-White-0-1;
+  padding: 15px 20px 20px;
+  width: 350px;
+  border: 1px solid $System-Black-0;
+  border-radius: 5px;
+  h4 {
+    line-height: 1.4;
+  }
+  p {
+    margin: 5px 0 0;
+    white-space: pre-wrap;
+    @include font-style(16, $System-Black-0, Mabry Pro Light, 1.4);
   }
 }

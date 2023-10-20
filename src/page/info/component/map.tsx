@@ -1,5 +1,5 @@
 import '../info.scss';
-import { LocationType } from './weather';
+import { LocationType } from '../../../func/interface';
 import { useRef, useEffect } from 'react';
 
 declare global {

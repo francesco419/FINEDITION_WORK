@@ -6,6 +6,7 @@ import ProfileMyList from './components/myList';
 import _ from 'lodash';
 import { useAppSelector } from '../../redux/hooks';
 import { selectUserInfo } from '../../redux/slices/userInfoSlice';
+import TravelPlan from './components/travelPlan';
 
 export default function Profile() {
   const user = useAppSelector(selectUserInfo);
@@ -23,6 +24,7 @@ export default function Profile() {
         </div>
         <Footer type={true} />
       </div>
+      {/* <TravelPlan /> */}
     </div>
   );
 }

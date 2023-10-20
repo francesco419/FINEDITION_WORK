@@ -8,7 +8,6 @@ import { cardData } from '../../temp/cardData';
 import { useEffect, useState } from 'react';
 import SearchComponent from '../../components/common/search/searchComponent';
 import SearchList from './components/searchList';
-import { ReactComponent as Sort } from '../../assets/search/svg/sort.svg';
 import SortList from './components/sortList';
 
 const count = {

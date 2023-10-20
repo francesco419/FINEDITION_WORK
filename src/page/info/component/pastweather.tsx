@@ -1,18 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import './weather.scss';
 import '../info.scss';
 import _ from 'lodash';
-import { Link } from 'react-router-dom';
-import storm from '../assets/Storm.png';
-import DatePickerComp from './datepicker';
 import CalenderComp from './calender';
-import { WeatherCard } from './weather';
-import LoadingSpinner from '../../../components/common/loadingspinner';
+import WeatherCard from '../../../components/weather/components/weatherCard';
 
-const API_KEY = process.env.REACT_APP_WEATHER_KEY;
-
-interface WeatherType {
+type WeatherType = {
   avghumidity: number;
   avgtemp_c: number;
   avgtemp_f: number;
@@ -32,12 +25,12 @@ interface WeatherType {
   totalprecip_in: number;
   totalprecip_mm: number;
   uv: number;
-}
+};
 
-interface LocationType {
+type LocationType = {
   mapx: string;
   mapy: string;
-}
+};
 
 export default function PastWeather({ mapx, mapy }: LocationType) {
   const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());

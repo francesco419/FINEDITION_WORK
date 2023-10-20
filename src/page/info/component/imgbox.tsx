@@ -37,10 +37,8 @@ export default function ImgBox({ img }: IMGBOXTYPE) {
         )}&_type=json`
       )
       .then((o) => {
-        console.log(o.data.response.body.items.item);
         setImgData((imgData) => _.shuffle(o.data.response.body.items.item));
         setLoading((loading) => true);
-        console.log('fetching image success');
       })
       .catch((e) => {
         console.log(e);

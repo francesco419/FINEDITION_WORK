@@ -1,9 +1,5 @@
 import Header from '../../components/header/header';
 import './info.scss';
-import frontimg from './assets/frontimg.png';
-import _, { set } from 'lodash';
-import { ReactComponent as Like } from './assets/like.svg';
-import { ReactComponent as Bookmark } from './assets/bookmark.svg';
 import { ReactComponent as Tele } from './assets/tele.svg';
 import { ReactComponent as Locate } from './assets/location.svg';
 import UseTimeComp from './component/usetime';
@@ -16,8 +12,7 @@ import NearbyComp from './component/nearby';
 import LanguageComp from './component/language';
 import KeyWordComp from './component/keyword';
 import MayLike from './component/maylike';
-import RelatedMegazine from './component/relatemegazine';
-import Weather from './component/weather';
+import Weather from '../../components/weather/weather';
 import PastWeather from './component/pastweather';
 import LocationMapCom from './component/map';
 import Footer from '../../components/footer/footer';
@@ -28,76 +23,23 @@ import {
   getInterceptor,
   sendAxiosState
 } from '../../func/interceptor';
+import _ from 'lodash';
 import { API_TYPE } from '../../func/interface';
 import { useParams } from 'react-router';
 import { useState } from 'react';
-import LoadingSpinner from '../../components/common/loadingspinner';
 import ImgBox from './component/imgbox';
 import InfoTag from './component/infotag';
 import PageCount from '../../components/common/pageCount';
 import { info_Type } from '../admin/administrator';
 import { dataInfo } from '../../temp/infoDataF';
 import InfoSkeleton from '../../components/skeleton/infoSkeleton';
-
-/* 
-addr1
-contentid
-contenttypeid : 76번으로 동일
-firstimage
-title
-mapx
-mapy
---
-infocenter restdate
-usetime
---
-infoname : "Admission Fees" - infotext
-infoname: "Interpretation Services Offered” - infotext
---
-homepage
-overview
---
-originimgurl 
-
------------------------------------------------------------------------------
-*/
-interface API_DATA_TYPE {
-  addr1: string;
-  contentid: string;
-  contenttypeid: string;
-  firstimage: string;
-  title: string;
-  mapx: string;
-  mapy: string;
-  homepage: string;
-  overview: string;
-  infocenter: string;
-  restdate: string;
-  usetime: string;
-  fee: INFO_TYPE;
-  Interpretation: INFO_TYPE;
-  originimgurl: imgurlTYPE[];
-}
-
-interface imgurlTYPE {
-  contentid: string;
-  originimgurl: string;
-  imgname: string;
-  smallimageurl: string;
-  cpyrhtDivCd: string;
-  serialnum: string;
-}
-
-interface INFO_TYPE {
-  contentid: string;
-  contenttypeid: string;
-  fldgubun: string;
-  infoname: string;
-  infotext: string;
-  serialnum: string;
-}
+import { API_DATA_TYPE, INFO_TYPE } from '../../func/interface';
+import BookmarkButton from '../../components/bookmark/bookmarkButton';
+import { useAppSelector } from '../../redux/hooks';
+import { selectUserInfo } from '../../redux/slices/userInfoSlice';
 
 export default function Info() {
+  const user = useAppSelector(selectUserInfo);
   const param = useParams();
   const [loading, setLoading] = useState<boolean>();
   const [apidata, setApiData] = useState<API_DATA_TYPE>({
@@ -134,10 +76,8 @@ export default function Info() {
   const [typedData, setTypedData] = useState<info_Type>();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     getAPIDataCommon(apidata);
     getInfoData(param.id);
-    //setLoading((loading) => true);
   }, []);
 
   const getInfoData = (id: string | undefined) => {
@@ -248,7 +188,11 @@ export default function Info() {
             <InfoDetail
               title={apidata.title}
               addr1={apidata.addr1}
-              firstimage={apidata.firstimage}
+              firstimage={
+                typedData?.mainImg !== ''
+                  ? typedData?.mainImg
+                  : apidata.firstimage
+              }
               overview={apidata.overview}
               typedDetailText={typedData?.pickText}
             />
@@ -270,14 +214,10 @@ export default function Info() {
             <ImgBox img={apidata.title.match(new RegExp(/[가-힣]+\s?/))} />
           </div>
           <div className='info_infomation'>
-            <div className='info_infomation-view d-flex'>
-              <button onClick={() => {}}>
-                <Like />
-              </button>
-              <button onClick={() => {}}>
-                <Bookmark />
-              </button>
-            </div>
+            <BookmarkButton
+              userEmail={user.useremail as string}
+              dataId={typedData?.id}
+            />
             <InfoTag data={typedData?.tag} />
             <PageCount
               value={{
@@ -305,14 +245,8 @@ export default function Info() {
             <PastWeather mapx='126.8999035848' mapy='37.5523989260' />
           </div>
         </div>
-        <Footer type={true} />
+        <Footer type={false} />
       </div>
     );
   }
 }
-{
-  /* <RelatedMegazine /> */
-}
-
-// N/A (Open all year round)
-// 메인이미지 대체품

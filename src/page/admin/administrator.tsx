@@ -64,6 +64,7 @@ export type info_Type = {
   station: string;
   keyword: string[];
   maylike: mayLike_Type[];
+  mainImg: string;
   bookmark: number;
   like: number;
   view: number;

@@ -1,6 +1,3 @@
-import MegazineCard, {
-  MegazineCardType
-} from '../../../page/home/megazineCard';
 import { useState, useRef, useEffect } from 'react';
 import _, { reject } from 'lodash';
 import './cardSlide.scss';
@@ -12,6 +9,7 @@ import { cardType } from '../../../page/admin/administrator';
 import { ReactComponent as SlideClickLeft } from '../../../assets/svg/slideClickLeft.svg';
 import { ReactComponent as SlideClickRight } from '../../../assets/svg/slideClickRight.svg';
 import { resolve } from 'path';
+import { CardComp_Type } from '../../../func/interface';
 
 type SlideType = {
   data: cardType[];

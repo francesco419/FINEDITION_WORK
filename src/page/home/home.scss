@@ -1,11 +1,15 @@
 @import './../../style.scss';
 
 .home {
-  margin: 0 auto;
-  width: 1440px;
-  padding: 130px 70px 0;
-  background-color: $black;
-  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  section {
+    margin: 0 auto;
+    width: 1440px;
+    padding: 130px 70px 0;
+    background-color: $black;
+    box-sizing: border-box;
+  }
   &_souvenirs {
     width: 350px;
     height: 320px;

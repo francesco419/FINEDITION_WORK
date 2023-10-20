@@ -172,7 +172,7 @@
     @include font-style(16, $System-Black-0, Mabry Pro Reg);
     margin: 0 0 8px;
   }
-  a {
+  button {
     @include font-style(16, $System-Black-0, Mabry Pro Reg, 1.7);
     text-decoration: underline;
     &:hover {

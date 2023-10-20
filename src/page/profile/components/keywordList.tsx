@@ -52,8 +52,8 @@ export default function ProfileKeyword() {
           })}
         </ul>
       </div>
-      <DownloadComponent name='FineDition Passport' download={() => {}} />
-      <DownloadComponent name="Traveler's Pledge" download={() => {}} />
+      {/* <DownloadComponent name='FineDition Passport' download={() => {}} />
+      <DownloadComponent name="Traveler's Pledge" download={() => {}} /> */}
     </div>
   );
 }

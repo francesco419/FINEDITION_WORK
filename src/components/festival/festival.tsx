@@ -65,11 +65,22 @@ function FestivalHome({ refer, num, click }: FestivalRefType) {
       {_.map(festivalData, (o, index) => {
         return (
           <div className='festivalHome_part' key={`${o.name}_${index}`}>
-            <div className='festivalHome_image'>
+            <div
+              className='festivalHome_image'
+              onClick={() => {
+                window.open(o.to);
+              }}
+            >
               <img src={o.img} />
             </div>
             <div className='festivalHome_detail'>
-              <h3>{o.name}</h3>
+              <h3
+                onClick={() => {
+                  window.open(o.to);
+                }}
+              >
+                {o.name}
+              </h3>
               <p>{o.detail}</p>
               <FestivalNav num={num} click={click} />
             </div>

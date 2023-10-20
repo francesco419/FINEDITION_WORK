@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../info.scss';
 import { ReactComponent as Language } from '../assets/language.svg';
 import _ from 'lodash';
@@ -34,7 +34,6 @@ export default function LanguageComp({ text }: LiType) {
   const [code, setCode] = useState<string[]>([]);
 
   useEffect(() => {
-    console.log(text);
     division();
   }, []);
 

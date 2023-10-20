@@ -1,4 +1,3 @@
-import React from 'react';
 import '../info.scss';
 import { ReactComponent as UseTime } from '../assets/time.svg';
 import InfoHover from './infohover';

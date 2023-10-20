@@ -9,13 +9,14 @@ import {
   UserInfoState,
   setUserInfo
 } from '../../../redux/slices/userInfoSlice';
-import {
-  getInterceptor,
-  postInterceptor,
-  sendAxiosState
-} from '../../../func/interceptor';
+import { postInterceptor, sendAxiosState } from '../../../func/interceptor';
+import { getTravel } from '../../../func/func';
+import { getTravelInfo } from '../../../redux/slices/travelSlice';
 
-export default function LoginFormGoogleAPI({ toNext }: LoginForm_type) {
+export default function LoginFormGoogleAPI({
+  toNext,
+  setUserInfoTemp
+}: LoginForm_type) {
   const url =
     'https://people.googleapis.com/v1/people/me?personFields=emailAddresses,names,locales,photos';
   const dispatch = useAppDispatch();
@@ -54,7 +55,7 @@ export default function LoginFormGoogleAPI({ toNext }: LoginForm_type) {
       config: undefined,
       callback: (e: AxiosResponse) => {
         console.log(e);
-        if (e.data.check) {
+        if (e.data.result[0]) {
           console.log('successs');
           loginSuccess(e.data.result[0]);
         } else {
@@ -67,13 +68,20 @@ export default function LoginFormGoogleAPI({ toNext }: LoginForm_type) {
   };
 
   const loginFailed = (userInfo: UserInfoState) => {
-    dispatch(setUserInfo(userInfo));
+    setUserInfoTemp(userInfo);
     toNext(1);
   };
 
   const loginSuccess = (userInfo: UserInfoState) => {
+    if (userInfo.userid) getTravel(userInfo.userid, getTravelCallback);
     dispatch(setUserInfo(userInfo));
     dispatch(setLoginFormFalse());
+  };
+
+  const getTravelCallback = (e: AxiosResponse) => {
+    if (e.data.flag !== false) {
+      dispatch(getTravelInfo(e.data.result[0]));
+    }
   };
 
   return (

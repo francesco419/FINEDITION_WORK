@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { selectUserInfo, setDefault } from '../../redux/slices/userInfoSlice';
 import SearchDropDown from './search/search';
+import MenuDropList from './components/droplist';
 
 type HeaderMenu_Type = {
   color: string;
@@ -20,22 +21,28 @@ export default function HeaderMenu({ color }: HeaderMenu_Type) {
   const nav = useNavigate();
   const [not, setNot] = useState<boolean>(false);
   const [dropDown, setDropDown] = useState<boolean>(false);
+  const [dropList, setDropList] = useState<boolean>(false);
 
   const navTo = (to: string) => {
-    if (user.id === null) {
+    if (user.userid === null) {
       return;
     } else {
       nav(`/profile/${to}`);
     }
   };
 
-  const navToLogIn = (to: string) => {
+  const navToLogIn = () => {
     dispatch(setLoginFormTrue());
+  };
+
+  const dropListHandler = () => {
+    setDropList((dropList) => !dropList);
   };
 
   return (
     <>
       <div className='header_menu'>
+        {dropList && <MenuDropList />}
         <HeaderSVG
           svg={<Search fill={color === '#fff' ? '#C2E56C' : color} />}
           to={() => {
@@ -45,13 +52,15 @@ export default function HeaderMenu({ color }: HeaderMenu_Type) {
         {user.userid === null ? (
           <HeaderSVG
             svg={<Person fill={color === '#fff' ? '#C2E56C' : color} />}
-            to={navToLogIn}
+            to={() => {
+              navToLogIn();
+            }}
           />
         ) : (
           <HeaderSVG
             svg={<Person fill={color === '#fff' ? '#C2E56C' : color} />}
             to={() => {
-              if (user.id) navTo(JSON.stringify(user.id));
+              navTo(JSON.stringify(user.userid));
             }}
           />
         )}
@@ -63,7 +72,7 @@ export default function HeaderMenu({ color }: HeaderMenu_Type) {
         />
         <HeaderSVG
           svg={<Menu stroke={color === '#fff' ? '#C2E56C' : color} />}
-          to={navTo}
+          to={dropListHandler}
         />
       </div>
       {dropDown && <SearchDropDown />}
@@ -73,9 +82,9 @@ export default function HeaderMenu({ color }: HeaderMenu_Type) {
 
 interface HeaderSVGButton {
   svg: any;
-  to: (to: string) => void;
+  to: any;
 }
 
 function HeaderSVG({ svg, to }: HeaderSVGButton) {
-  return <button onClick={() => to('a')}>{svg}</button>;
+  return <button onClick={() => to()}>{svg}</button>;
 }

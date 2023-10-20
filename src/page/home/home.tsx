@@ -9,14 +9,12 @@ import NewsHome from './components/news';
 import PhotoBuzz from './components/photoBuzz';
 import DiscoverCities from './components/discover';
 import Footer from '../../components/footer/footer';
-import LocationMapCom from '../info/component/map';
 import { cardData } from '../../temp/cardData';
 import { cardType } from '../admin/administrator';
-import souvenir from '../../assets/image/home/home-souvenir.png';
 import Extras from './components/extras';
 import HomeSpots from './components/spots';
-import AOS from 'aos';
 import 'aos/dist/aos.css';
+import PopUpImg from '../../components/popupimage/popUpImg';
 
 const data0: cardType[] = [
   cardData[0],
@@ -43,7 +41,6 @@ const data1: cardType[] = [
   cardData[10],
   cardData[11],
   cardData[12],
-  /* cardData[13], */
   cardData[14],
   cardData[15],
   cardData[16],
@@ -70,44 +67,53 @@ export default function Home() {
         <Header type='black' />
       </header>
       <section>
-        <CardSlide data={data0} type='small' />
-        <CardSlide data={data1} type='small' />
-        <div
-          style={{ display: 'flex', margin: '0 0 85px', padding: '50px 0 0' }}
-          data-aos='fade-up'
-          data-aos-duration='1000'
-        >
-          <MyProfile />
-          <Recommend />
-        </div>
-        <div
-          style={{ display: 'flex' }}
-          data-aos='fade-up'
-          data-aos-duration='1000'
-        >
-          <FestivalHome />
-          <NewsHome />
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            margin: '100px 0 0 '
-          }}
-          data-aos='fade-up'
-          data-aos-duration='1000'
-        >
-          <DiscoverCities />
-          <div className='home_souvenirs'>
-            <p>{`Look around\nFinedition Souvenirs`}</p>
+        <div>
+          <CardSlide data={data0} type='small' />
+          <CardSlide data={data1} type='small' />
+          <div
+            style={{ display: 'flex', margin: '0 0 85px', padding: '50px 0 0' }}
+            data-aos='fade-up'
+            data-aos-duration='1000'
+          >
+            <MyProfile />
+            <Recommend />
           </div>
-          <PhotoBuzz />
+          <div
+            style={{ display: 'flex' }}
+            data-aos='fade-up'
+            data-aos-duration='1000'
+          >
+            <FestivalHome />
+            <NewsHome />
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              margin: '100px 0 0 '
+            }}
+            data-aos='fade-up'
+            data-aos-duration='1000'
+          >
+            <DiscoverCities />
+            <Sounvenirs />
+            <PhotoBuzz />
+          </div>
+          <HomeSpots />
+          <Extras />
         </div>
-        <HomeSpots />
-        <Extras />
       </section>
       {/* <div className='homll'>a</div> */}
       <Footer type={false} />
+      <PopUpImg />
+    </div>
+  );
+}
+
+function Sounvenirs() {
+  return (
+    <div className='home_souvenirs'>
+      <p>{`Look around\nFinedition Souvenirs`}</p>
     </div>
   );
 }

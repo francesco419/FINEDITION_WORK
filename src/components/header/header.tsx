@@ -3,19 +3,20 @@ import { ReactComponent as LogoLetter } from '../../assets/svg/logo_letter.svg';
 import HeaderLocate from './locate';
 import HeaderMenu from './menu';
 import Login from '../login/login';
-import { useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { selectLogin } from '../../redux/slices/loginSlice';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
-import SearchDropDown from './search/search';
-import {
-  APIInterceptor,
-  postInterceptor,
-  sendAxiosState
-} from '../../func/interceptor';
+import { APIInterceptor, sendAxiosState } from '../../func/interceptor';
 import { API_ENG } from '../../temp/apicode';
 import { AxiosResponse } from 'axios';
 import { API_TYPE } from '../../func/interface';
+import {
+  selectTravel,
+  getTravelInfo,
+  TravelState
+} from '../../redux/slices/travelSlice';
+import { getInterceptor } from '../../func/interceptor';
 
 type HeaderType = {
   type: string;
@@ -23,6 +24,8 @@ type HeaderType = {
 
 export default function Header({ type }: HeaderType) {
   const login = useAppSelector(selectLogin);
+  const travel = useAppSelector(selectTravel);
+  const dispatch = useAppDispatch();
   const nav = useNavigate();
   const [backColor, setBackColor] = useState<string>('');
   const [fontColor, setFontColor] = useState<string>('');
@@ -35,6 +38,18 @@ export default function Header({ type }: HeaderType) {
 
   const navtoHome = () => {
     nav('/');
+  };
+
+  const getTravelData = () => {
+    let data: sendAxiosState = {
+      url: `${process.env.REACT_APP_PROXY}/gettravel`,
+      data: { userid: 1 },
+      callback: (e: AxiosResponse) => {
+        const result: TravelState = e.data.result[0];
+        dispatch(getTravelInfo(result));
+      }
+    };
+    getInterceptor(data);
   };
 
   const getdata = (number: number) => {
@@ -102,6 +117,11 @@ export default function Header({ type }: HeaderType) {
         </button>
         <HeaderLocate color={fontColor} />
         <HeaderMenu color={fontColor} />
+        {/* <div>
+          <button style={{ color: '#fff' }} onClick={getTravelData}>
+            get
+          </button>
+        </div> */}
       </div>
       {/* <button
         style={{ color: 'white' }}

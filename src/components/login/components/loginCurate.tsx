@@ -3,9 +3,16 @@ import { useState, useCallback } from 'react';
 import { COUNTRY_NAMES } from '../../../temp/countries';
 import _ from 'lodash';
 import { useAppDispatch } from '../../../redux/hooks';
-import { setUserInfo } from '../../../redux/slices/userInfoSlice';
+import {
+  UserInfoState,
+  setUserInfo
+} from '../../../redux/slices/userInfoSlice';
 
-export default function LoginFormCurate({ toNext }: LoginForm_type) {
+export default function LoginFormCurate({
+  toNext,
+  setUserInfoTemp,
+  userInfoBefore
+}: LoginForm_type) {
   const genders = ['Male', 'Female'];
   let name: string = '',
     nation: string = '',
@@ -25,6 +32,11 @@ export default function LoginFormCurate({ toNext }: LoginForm_type) {
   };
 
   const nameDebounce = useCallback(_.debounce(nameChangeHandler, 700), []);
+
+  const curateVerificationHandler = (obj: UserInfoState) => {
+    setUserInfoTemp(obj, userInfoBefore);
+    toNext(2);
+  };
 
   return (
     <div className='login-curate'>
@@ -90,20 +102,16 @@ export default function LoginFormCurate({ toNext }: LoginForm_type) {
       <button
         type='button'
         onClick={() => {
-          console.log(nation, name, age, gender);
-          dispatch(
-            setUserInfo({
-              userid: null,
-              username: name,
-              useremail: null,
-              usernation: nation,
-              userImage: null,
-              userbirth: age,
-              usergender: gender,
-              userkeyword: null
-            })
-          );
-          toNext(2);
+          curateVerificationHandler({
+            userid: null,
+            username: name,
+            useremail: null,
+            usernation: nation,
+            userImage: null,
+            userbirth: age,
+            usergender: gender,
+            userkeyword: null
+          });
         }}
       >
         Continue

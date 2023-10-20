@@ -1,7 +1,6 @@
 import './spots.scss';
 import { cardData } from '../../../temp/cardData';
 import { cardType } from '../../admin/administrator';
-import CardSlide from '../../../components/card/slide/cardSlide';
 import Card from '../../../components/card/cardComp';
 import _ from 'lodash';
 

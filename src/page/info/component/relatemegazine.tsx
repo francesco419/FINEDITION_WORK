@@ -7,13 +7,6 @@ const temp = [
   { name: 'Bukchon Hanok Village', contentid: '111111' },
   { name: 'Eunpyeong Hanok Village', contentid: '111111' }
 ];
-//받는 데이터 형태
-/*
-    {
-        name:'Bukchon Hanok Village',
-        contentid:'1243423'
-    }
-    */
 
 export default function RelatedMegazine() {
   return (

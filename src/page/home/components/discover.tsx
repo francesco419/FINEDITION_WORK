@@ -32,6 +32,7 @@ export default function DiscoverCities() {
     <div className='discovercities'>
       <div className='discovercities_title'>
         <h2>{`Discover Seoul\n& around cities`}</h2>
+        <p>Only Seoul is available on 2023</p>
       </div>
       <div className='cityslide'>
         <div className='discovercities_cities'>

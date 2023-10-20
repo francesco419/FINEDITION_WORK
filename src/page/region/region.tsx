@@ -1,12 +1,11 @@
 import Header from '../../components/header/header';
 import { ReactComponent as Hovers } from './asset/sample4.svg';
 import './region.scss';
-import SlideButton from '../../components/button/slideButton';
 import Card from './components/card';
-import _, { forEach } from 'lodash';
+import _ from 'lodash';
 import { CARDDATA } from '../../temp/card';
 import Footer from '../../components/footer/footer';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import RegionSlideButton from './components/regionSlideButton';
 
 export default function Region() {

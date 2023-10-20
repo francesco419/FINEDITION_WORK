@@ -1,20 +1,17 @@
 import Header from '../../components/header/header';
 import CardSlide from '../../components/card/slide/cardSlide';
 import './cities.scss';
-import _, { drop } from 'lodash';
+import _ from 'lodash';
 import FestivalSlider from '../../components/festival/festival';
 import { ReactComponent as Seoul } from './assets/svg/seoul.svg';
-import { ReactComponent as Down } from '../../assets/svg/sort_down.svg';
 import Card from '../../components/card/cardComp';
 import Footer from '../../components/footer/footer';
-import sampleImage from '../../assets/image/temp/Frame.png';
 import { cardData } from '../../temp/cardData';
 import { cardType } from '../admin/administrator';
-import { useEffect } from 'react';
-import { APIInterceptor } from '../../func/interceptor';
-import { AxiosResponse } from 'axios';
-import { API_TYPE } from '../../func/interface';
 import { useState } from 'react';
+import ClimateRate from './components/climateRate';
+import SelectGu from './components/selectRegion';
+import { Link } from 'react-router-dom';
 
 const data0: cardType[] = [
   cardData[0],
@@ -43,10 +40,6 @@ const data1: cardType[] = [
   cardData[20]
 ];
 
-const numbers = [
-  1, 1, 1, 1, 1, 1, 1, 1, 1, 11, 1, 1, 1, 1, 1, 11, 1, 1, 1, 11, 1
-];
-
 const arr = [
   '1000 drons are lighting up the sky! Dron show at Hangang',
   'Enjoy autumn foliage from the middle of October to Nov.',
@@ -56,19 +49,22 @@ const arr = [
 ];
 
 const arr2 = [
-  'Cheonggyechon Stream',
-  'Haneul Park',
-  'Changgyeonggung Palace',
-  'Seonyudo Park',
-  'Culture Station Seoul 284'
+  { name: 'Cheonggyechon Stream', url: 897540 },
+  { name: 'Haneul Park', url: 2944084 },
+  { name: 'Changgyeonggung Palace', url: 264350 },
+  { name: 'Seonyudo Park', url: 3006542 },
+  { name: 'Culture Station Seoul 284', url: 1340416 }
 ];
 
 export default function Cities() {
   const [region, setRegion] = useState<number>(1168000000);
+  const [regionName, setRegionName] = useState<string>();
 
-  const regionHandler = (num: number) => {
+  const regionHandler = (num: number, gu: string) => {
     setRegion((region) => num);
+    setRegionName((regionName) => gu);
   };
+
   return (
     <div className='cityPage'>
       <Header type='black' />
@@ -86,7 +82,7 @@ export default function Cities() {
             <CardSlide data={data1} type='small' />
           </div>
           <div className='cityPage_upperContainer-things'>
-            <div>
+            <div data-aos='fade-up' data-aos-duration='1000'>
               <FestivalSlider />
             </div>
             <div className='things-todo'>
@@ -96,9 +92,9 @@ export default function Cities() {
               <div className='things-todo_body'>
                 <ul className='things-todo_body-things'>
                   <h4>Things to do</h4>
-                  {_.map(arr, (o) => {
+                  {_.map(arr, (o, index) => {
                     return (
-                      <div className='thingslist'>
+                      <div className='thingslist' key={`${o}_${index}`}>
                         <p>{o}</p>
                       </div>
                     );
@@ -106,10 +102,10 @@ export default function Cities() {
                 </ul>
                 <ul>
                   <h4>Places to visit</h4>
-                  {_.map(arr2, (o) => {
+                  {_.map(arr2, (o, index) => {
                     return (
-                      <div className='thingslist'>
-                        <p>{o}</p>
+                      <div className='thingslist' key={`${o}_${index}`}>
+                        <Link to={`/info/${o.url}/76`}>{o.name}</Link>
                       </div>
                     );
                   })}
@@ -121,10 +117,18 @@ export default function Cities() {
       </div>
       <div className='cityPage_lowerContainer'>
         <div className='cityPage_lowerbody'>
-          <div className='cityPage_lowerbody-intro'>
+          <div
+            className='cityPage_lowerbody-intro'
+            data-aos='fade-up'
+            data-aos-duration='1000'
+          >
             <p>{`Seoul is living museum of Korea’s past\nand melting pot of contemporary culture.\nPublic transporatation is well structured\nto visit all the places in Seoul.\nMinimum three days to get a glimpse,\nbut if you stay more, you will find hidden\nlocal gems and diversity.`}</p>
           </div>
-          <div className='cityPage_lowerbody-map'>
+          <div
+            className='cityPage_lowerbody-map'
+            data-aos='fade-up'
+            data-aos-duration='1000'
+          >
             <Seoul />
           </div>
           <div>
@@ -140,9 +144,26 @@ export default function Cities() {
             </div>
             <div className='cityPage_lowerbody-list'>
               {_.map(cardData, (o, index) => {
-                if (index < 15)
+                if (regionName === undefined) {
                   return (
-                    <Card data={o} color={'#000'} type='medium' fcolor='#000' />
+                    <Card
+                      data={o}
+                      color={'#000'}
+                      type='medium'
+                      fcolor='#000'
+                      key={`${o.id}_${index}-city`}
+                    />
+                  );
+                }
+                if (_.includes(o.coverAddr, regionName))
+                  return (
+                    <Card
+                      data={o}
+                      color={'#000'}
+                      type='medium'
+                      fcolor='#000'
+                      key={`${o.id}_${index}-city`}
+                    />
                   );
               })}
             </div>
@@ -150,157 +171,6 @@ export default function Cities() {
         </div>
       </div>
       <Footer type={false} />
-    </div>
-  );
-}
-
-type ClimateRate_Type = {
-  region: number;
-};
-
-function ClimateRate({ region }: ClimateRate_Type) {
-  const [rate, setRate] = useState<string>('');
-
-  useEffect(() => {
-    getAPI();
-  }, []);
-
-  useEffect(() => {
-    getAPI();
-  }, [region]);
-
-  const getAPI = () => {
-    let data: API_TYPE = {
-      url: `https://apis.data.go.kr/1360000/TourStnInfoService1/getCityTourClmIdx1?serviceKey=${
-        process.env.REACT_APP_TOUR_KEY
-      }&pageNo=1&numOfRows=10&dataType=JSON&CURRENT_DATE=${getDate()}&DAY=0&CITY_AREA_ID=${region}`,
-      callback: (res: AxiosResponse) => {
-        if (res.data.response.body.items.item) {
-          const rateData = res.data.response.body.items.item[0];
-          switchRate(rateData);
-          console.log(rateData);
-        }
-      }
-    };
-    APIInterceptor(data);
-  };
-
-  function getDate() {
-    let date = new Date();
-    let year = date.getFullYear();
-    let month = addZero(date.getMonth());
-    let day = addZero(date.getDate() - 1);
-
-    return `${year}${month}${day}`;
-  }
-
-  function switchRate(rate: string) {
-    switch (rate) {
-      case '나쁨':
-        setRate((rate) => 'Bad');
-        return;
-      case '보통':
-        setRate((rate) => 'Good');
-        return;
-      case '좋음':
-        setRate((rate) => 'Very Good');
-        return;
-      case '매우좋음':
-        setRate((rate) => 'Excellent');
-        return;
-      default:
-        setRate((rate) => 'Good');
-        return;
-    }
-  }
-
-  const addZero = (num: number) => {
-    if (num < 10) {
-      return `0${num}`;
-    } else {
-      return num;
-    }
-  };
-
-  return (
-    <div className='climateRate'>
-      <div>
-        <p>{`Climate rate : ${rate}`}</p>
-      </div>
-      <span>
-        <p>powered by 기상청</p>
-      </span>
-    </div>
-  );
-}
-
-const cityArr = [
-  { cityId: 1132000000, cityName: 'Dobong' },
-  { cityId: 1123000000, cityName: 'Dongdaemun' },
-  { cityId: 1159000000, cityName: 'Dongjak' },
-  { cityId: 1138000000, cityName: 'Eunpyeong' },
-  { cityId: 1168000000, cityName: 'Gangnam' },
-  { cityId: 1174000000, cityName: 'Gangdong' },
-  { cityId: 1130500000, cityName: 'Gangbuk' },
-  { cityId: 1150000000, cityName: 'Gangseo' },
-  { cityId: 1162000000, cityName: 'Gwanak' },
-  { cityId: 1121500000, cityName: 'Gwangjin' },
-  { cityId: 1153000000, cityName: 'Guro' },
-  { cityId: 1154500000, cityName: 'Geumcheon' },
-  { cityId: 1111000000, cityName: 'Jongno' },
-  { cityId: 1114000000, cityName: 'Jung-gu' },
-  { cityId: 1126000000, cityName: 'Jungnang' },
-  { cityId: 1144000000, cityName: 'Mapo' },
-  { cityId: 1135000000, cityName: 'Nowon' },
-  { cityId: 1141000000, cityName: 'Seodamun' },
-  { cityId: 1165000000, cityName: 'Seocho' },
-  { cityId: 1120000000, cityName: 'Seongdong' },
-  { cityId: 1129000000, cityName: 'Seongbuk' },
-  { cityId: 1171000000, cityName: 'Songpa' },
-  { cityId: 1147000000, cityName: 'Yangcheon' },
-  { cityId: 1156000000, cityName: 'Yeongdeungpo' },
-  { cityId: 1117000000, cityName: 'Yongsan' }
-];
-
-type Gu_Type = {
-  region: (num: number) => void;
-};
-
-function SelectGu({ region }: Gu_Type) {
-  const [inputText, setInputText] = useState<string>('Select Gu');
-  const [dropDown, setDropDown] = useState<boolean>(false);
-
-  const onClickDropHandler = () => {
-    setDropDown((dropDown) => !dropDown);
-  };
-
-  const onClickInputHandler = (num: number, str: string) => {
-    setInputText((inputText) => str);
-    region(num);
-    onClickDropHandler();
-  };
-
-  return (
-    <div className='select-gu'>
-      <button className='select-gu-button' onClick={onClickDropHandler}>
-        <Down />
-        {inputText}
-      </button>
-      {dropDown && (
-        <ul>
-          {_.map(cityArr, (o) => {
-            return (
-              <li>
-                <button
-                  onClick={() => onClickInputHandler(o.cityId, o.cityName)}
-                >
-                  {o.cityName}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      )}
     </div>
   );
 }

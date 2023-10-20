@@ -1,4 +1,3 @@
-import React from 'react';
 import '../info.scss';
 import { ReactComponent as Reservation } from '../assets/reservation.svg';
 import { LiType } from './usetime';

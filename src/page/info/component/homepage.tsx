@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../info.scss';
 import { ReactComponent as Fee } from '../assets/fee.svg';
 import { LiType } from './usetime';

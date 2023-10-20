@@ -1,7 +1,6 @@
 @import '../../../style.scss';
 
 .wordbuzz {
-  border-radius: 3px;
   @include radius3();
   width: 620px;
   height: 320px;
@@ -26,6 +25,24 @@
   }
 }
 
+.buzzPopUp {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 99;
+  button {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+  }
+  img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+  }
+}
+
 .apimap {
   display: flex;
   flex-wrap: wrap;
@@ -33,6 +50,10 @@
   div {
     width: 107px;
     height: 107px;
+  }
+  button {
+    width: inherit;
+    height: inherit;
   }
   img {
     width: inherit;
@@ -48,10 +69,12 @@
   background: #b9b5ff;
   white-space: pre-wrap;
   &_title {
-    display: flex;
     margin: 15px 19px 0;
     h2 {
       @include font-style(18, $System-Black-0, Mabry Pro Med, 1.2);
+    }
+    p {
+      @include font-style(10, $System-Black-0, Mabry Pro Reg, 1.4);
     }
   }
   &_title-list {

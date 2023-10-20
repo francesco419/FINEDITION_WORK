@@ -1,15 +1,12 @@
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
 import './bookmark.scss';
-import { useParams } from 'react-router';
 import _ from 'lodash';
-import { cardType } from '../admin/administrator';
 import { cardData } from '../../temp/cardData';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import SearchComponent from '../../components/common/search/searchComponent';
 import SearchList from '../search/components/searchList';
 import SortList from '../search/components/sortList';
-import headimg from '../../assets/search/myPageBookmark.png';
 
 const count = {
   Overview: {
@@ -24,19 +21,8 @@ const count = {
 };
 
 export default function Bookmark() {
-  const [listUp, setListUp] = useState<cardType[]>([]);
   const [sort, setSort] = useState<string>('');
   const [searchWord, setSearchWord] = useState<string>('');
-
-  useEffect(() => {
-    /* if (keyword !== undefined) {
-      _.map(cardData, (o) => {
-        if (o.coverTitle.toLowerCase().includes(keyword)) {
-          setListUp((arr) => [...arr, o]);
-        }
-      });
-    } */
-  }, []);
 
   const onChangeHandler = (str: string) => {
     setSearchWord((searchWord) => str);

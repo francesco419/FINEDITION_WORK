@@ -1,14 +1,18 @@
 @import '../../../style.scss';
 
 .myProfile {
-  width: 234px;
   height: 472px;
   margin-right: 48px;
+  border-radius: 3px;
+  overflow: hidden;
   &_head {
-    width: 200px;
+    width: inherit;
     height: 293px;
-  }
-  &_container {
+    img {
+      height: inherit;
+      object-fit: cover;
+      width: inherit;
+    }
   }
   &_imgbox {
     position: relative;
@@ -18,7 +22,6 @@
       height: 107px;
       border-radius: 50%;
       width: inherit;
-      height: inherit;
     }
     p {
       &:nth-child(3) {

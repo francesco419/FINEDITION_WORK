@@ -63,7 +63,8 @@ export default function SearchDropDown() {
                 placeholder='What are you curious about?'
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') {
-                    nav(`/cities/`);
+                    nav(`/search/${e.currentTarget.value}`);
+                    window.location.reload();
                   }
                 }}
               />

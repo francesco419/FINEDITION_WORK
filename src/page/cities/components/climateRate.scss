@@ -1,0 +1,24 @@
+@import '../../../style.scss';
+
+.climateRate {
+  margin: 10px 0 0;
+  position: relative;
+  height: 24px;
+  background-color: #d9d9d9;
+  padding: 2px 7px;
+  border-radius: 4px;
+  align-self: flex-end;
+  div {
+    p {
+      @include font-style(18, $System-Black-0, Mabry Pro Light, 1.3);
+    }
+  }
+  span {
+    position: absolute;
+    top: -15px;
+    right: 0;
+    p {
+      @include font-style(11, $System-Light-Gray-2, Mabry Pro Light, 1.3);
+    }
+  }
+}

@@ -2,15 +2,10 @@ import Header from '../../components/header/header';
 import './story.scss';
 import { ReactComponent as Heart } from '../../assets/svg/likebookmark/like.svg';
 import { ReactComponent as Bookmark } from '../../assets/svg/likebookmark/bookmark.svg';
-import picture from '../cities/assets/svg/pic.png';
-import map from './assets/map.png';
 import _ from 'lodash';
 import { useEffect, useState } from 'react';
 import PageCount, { InfoCount_Type } from '../../components/common/pageCount';
 import InfoTag from '../info/component/infotag';
-import Card from '../../components/card/cardComp';
-import mainImg from './assets/mainImage.jpg';
-import sideImg from './assets/sideImage.jpg';
 import Footer from '../../components/footer/footer';
 import { useParams } from 'react-router';
 import {
@@ -19,6 +14,7 @@ import {
   storyData,
   storyData_Type
 } from '../../data/storyData';
+import Card from '../../components/card/cardComp';
 import { cardData } from '../../temp/cardData';
 
 export default function Story() {
@@ -69,6 +65,7 @@ export default function Story() {
               main={{
                 mainImage: story.mainImg,
                 sideImage: story.sideImg,
+                sideText: story.sideText,
                 question: story.qna,
                 ending: story.conclusion
               }}
@@ -83,14 +80,6 @@ export default function Story() {
     return <div></div>;
   }
 }
-
-const mapDetail = [
-  'Gyeongbokgung Palace',
-  'Changdeokgung Palace',
-  'Changgyeonggung Palace',
-  'Deoksugung Palace',
-  'Gyeonhuigung Palace'
-];
 
 type StoryMap_Type = {
   introText: string;
@@ -175,9 +164,20 @@ function StoryIndividual({ individual }: StoryIndividual_Type) {
           );
         })}
       </ul>
-      {/* {individual.individual_CardID !== '' && <div className='storyindiv-card'>
-        <Card data={cardData.id} color={'#00000000'} type='small' />
-      </div>} */}
+      {individual.individual_CardID !== '' &&
+        _.map(cardData, (o) => {
+          if (o.id === parseInt(individual.individual_CardID))
+            return (
+              <div className='storyindiv-card'>
+                <Card data={o} color={'#00000000'} type='small' />
+              </div>
+            );
+        })}
+      {individual.individual_image !== '' && (
+        <div>
+          <img src={individual.individual_image} />
+        </div>
+      )}
     </div>
   );
 }
@@ -186,6 +186,7 @@ interface StoryMain_Type {
   main: {
     mainImage: string;
     sideImage: string;
+    sideText: string;
     question: qna_Type[];
     ending: string;
   };
@@ -204,7 +205,7 @@ function StoryMain({ main }: StoryMain_Type) {
           })}
         </div>
         <div className='storymain_mainText-side'>
-          <p>{`Keep in mind that all palaces, except Deoksugung, close around 6:00 p.m., and the last admission is an hour before closing.`}</p>
+          <p>{main.sideText}</p>
           <img src={main.sideImage} />
         </div>
       </div>
@@ -217,17 +218,7 @@ function StoryMain({ main }: StoryMain_Type) {
         }}
       />
       <div className='storymain_endText'>
-        <p>
-          Samgyeopsal is not just a meal; it's a cultural and gastronomic
-          adventure that offers a taste of Korea's rich culinary traditions. By
-          considering these important facts before savoring this beloved dish,
-          you can enhance your experience and fully immerse yourself in the
-          unique flavors and traditions of Samgyeopsal. From choosing the right
-          grill and making reservations to exploring the delightful side dishes,
-          you're well-equipped to embark on a delicious journey through the
-          world of Korean cuisine. So, fire up the grill, enjoy the sizzle, and
-          create lasting memories with Samgyeopsal.
-        </p>
+        <p>{main.ending}</p>
       </div>
     </div>
   );

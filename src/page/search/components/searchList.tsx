@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { cardType } from '../../admin/administrator';
 import Card from '../../../components/card/cardComp';
 import _ from 'lodash';

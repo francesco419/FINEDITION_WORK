@@ -25,8 +25,6 @@ const TAG_LIST = [
   { tag: 'Fun & joy', svg: <FunJoy /> }
 ];
 
-const tagcount = ['Traditional', 'Highlight', 'Recommend'];
-
 interface infoTag_Type {
   data: string[] | undefined;
 }

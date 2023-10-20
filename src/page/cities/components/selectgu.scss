@@ -1,0 +1,55 @@
+@import '../../../style.scss';
+
+.select-gu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.8px solid $System-Black-0;
+  &-button {
+    display: flex;
+    gap: 19px;
+    align-items: center;
+    @include font-style(37, $System-Black-0, Mabry Pro Med, 1.3);
+    width: 290px;
+    svg {
+      path {
+        stroke: $System-Black-0 !important;
+      }
+    }
+  }
+  ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 311px;
+    height: 400px;
+    overflow: scroll;
+    z-index: 10;
+    background-color: $System-White-2;
+    padding: 20px 30px;
+    overflow-x: hidden;
+    border-radius: 4px;
+    box-sizing: border-box;
+    button {
+      @include font-style(20, $System-Black-0, Value Serif Pro Reg);
+      margin: 0 0 15px;
+      &:hover {
+        color: $Brand-Orange-0;
+      }
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: $System-White-0;
+    }
+
+    &::-webkit-scrollbar {
+      width: 12px;
+      background: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: $System-Light-Gray-1;
+    }
+  }
+}

@@ -1,8 +1,5 @@
-import React from 'react';
 import '../info.scss';
 import { ReactComponent as SpendTime } from '../assets/spend-time.svg';
-import InfoHover from './infohover';
-import { LiType } from './usetime';
 
 type SpendTime_Type = {
   spend: string | undefined;

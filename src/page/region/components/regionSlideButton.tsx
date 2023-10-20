@@ -1,5 +1,4 @@
 import SlideButton from '../../../components/button/slideButton';
-import { useState } from 'react';
 import _ from 'lodash';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import {
@@ -9,7 +8,6 @@ import {
 
 export default function RegionSlideButton() {
   const dispatch = useAppDispatch();
-  const region = useAppSelector(selectRegion);
 
   const domRegex = (regex: RegExp) => {
     let output: (HTMLElement | SVGElement)[] = [];

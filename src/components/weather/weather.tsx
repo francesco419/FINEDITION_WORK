@@ -1,36 +1,12 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './weather.scss';
-import '../info.scss';
-import _, { forEach, set } from 'lodash';
-import { Link } from 'react-router-dom';
-import storm from '../assets/Storm.png';
-import dotenv from 'dotenv';
-//dotenv.config({ path: '../.env', encoding: 'utf8' });
+import _ from 'lodash';
+import storm from '../../page/info/assets/Storm.png';
+import { LocationType } from '../../func/interface';
+import WeatherCard from './components/weatherCard';
 
 const API_KEY = process.env.REACT_APP_WEATHER_KEY;
-
-type WEATHER_FORMAT_TYPE = {
-  latitude: number;
-  longitude: number;
-  generationtime_ms: number;
-  utc_offset_seconds: number;
-  timezone: string;
-  timezone_abbreviation: string;
-  elevation: number;
-  daily_units: {
-    time: string;
-    weathercode: string;
-    temperature_2m_max: string;
-    temperature_2m_min: string;
-  };
-  daily: {
-    time: string[];
-    weathercode: number[];
-    temperature_2m_max: number[];
-    temperature_2m_min: number[];
-  };
-};
 
 type WEATHER_TYPE = {
   date: string;
@@ -73,11 +49,6 @@ type NEW_WEATHER_TYPE = {
   code: number;
 };
 
-export interface LocationType {
-  mapx: string;
-  mapy: string;
-}
-
 export default function Weather({ mapx, mapy }: LocationType) {
   const [weather, setWeather] = useState<NEW_WEATHER_TYPE[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -107,7 +78,6 @@ export default function Weather({ mapx, mapy }: LocationType) {
             ]);
           });
           setLoading((loading) => true);
-          console.log('fetching weather success');
         }
       })
       .catch((e) => {
@@ -147,20 +117,6 @@ export default function Weather({ mapx, mapy }: LocationType) {
           })}
         </ul>
       )}
-    </div>
-  );
-}
-
-type WEATHER_CARD_TYPE = {
-  temp: number;
-  icon: string;
-};
-
-export function WeatherCard({ temp, icon }: WEATHER_CARD_TYPE) {
-  return (
-    <div className='weather-card'>
-      <p>{temp + ' °C'}</p>
-      <img src={icon} />
     </div>
   );
 }

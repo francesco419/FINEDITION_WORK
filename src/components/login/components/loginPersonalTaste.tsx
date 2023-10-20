@@ -4,19 +4,26 @@ import _ from 'lodash';
 import TasteComp from './tasteindividual';
 import { useState } from 'react';
 import { useAppSelector } from '../../../redux/hooks';
-import { selectUserInfo } from '../../../redux/slices/userInfoSlice';
+import {
+  UserInfoState,
+  selectUserInfo
+} from '../../../redux/slices/userInfoSlice';
 import { postInterceptor, sendAxiosState } from '../../../func/interceptor';
 import { AxiosResponse } from 'axios';
 import LoadingSpinner from '../../common/loadingspinner';
 
-export default function LoginFormPersonalTaste({ toNext }: LoginForm_type) {
+export default function LoginFormPersonalTaste({
+  toNext,
+  setUserInfoTemp,
+  userInfoBefore
+}: LoginForm_type) {
   const [tasteArr, setTasteArr] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const user = useAppSelector(selectUserInfo);
 
   const postRegister = () => {
     setLoading((loading) => true);
-    let inputInfo = _.clone(user);
+    let inputInfo = _.clone(userInfoBefore) as UserInfoState;
     inputInfo.keyword = tasteArr;
 
     const data: sendAxiosState = {

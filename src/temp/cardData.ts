@@ -40,7 +40,7 @@ export const cardData: cardType[] = [
     coverName:
       'Jongmyo Shrine [UNESCO World Heritage] (종묘 [유네스코 세계문화유산])',
     coverImg:
-      'http://tong.visitkorea.or.kr/cms/resource/41/2678541_image2_1.jpg',
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264351_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Jongmyo Shrine',
     coverAddr: 'Jongno-gu,  Seoul',
@@ -95,7 +95,7 @@ export const cardData: cardType[] = [
     typeId: 76,
     coverName: 'Yeouido Park (여의도공원)',
     coverImg:
-      'http://tong.visitkorea.or.kr/cms/resource/31/1954531_image2_1.jpg',
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264340_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Yeouido Park',
     coverAddr: 'Yeongdeungpo-gu,  Seoul',
@@ -128,7 +128,7 @@ export const cardData: cardType[] = [
     typeId: 76,
     coverName: 'Sungnyemun Gate (숭례문)',
     coverImg:
-      'http://tong.visitkorea.or.kr/cms/resource/01/1945801_image2_1.jpg',
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264257_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Sungnyemun Gate',
     coverAddr: 'Jung-gu,  Seoul',
@@ -238,7 +238,7 @@ export const cardData: cardType[] = [
     typeId: 76,
     coverName: 'Myeongdong Cathedral (서울 명동성당)',
     coverImg:
-      'http://tong.visitkorea.or.kr/cms/resource/03/1987703_image2_1.jpg',
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264138_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Myeongdong Cathedral',
     coverAddr: 'Jung-gu,  Seoul',
@@ -482,7 +482,7 @@ export const cardData: cardType[] = [
     coverName:
       'Bukhansan National Park (Seoul District) (북한산국립공원(서울))',
     coverImg:
-      'http://tong.visitkorea.or.kr/cms/resource/45/2526645_image2_1.jpg',
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/1747593_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Bukhansan National Park',
     coverAddr: 'Seongbuk-gu,  Seoul',
@@ -561,7 +561,7 @@ export const cardData: cardType[] = [
     typeId: 76,
     coverName: 'The National Assembly Building (국회의사당)',
     coverImg:
-      'http://tong.visitkorea.or.kr/cms/resource/61/1811361_image2_1.jpg',
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/264132_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'The National Assembly Building',
     coverAddr: 'Yeongdeungpo-gu,  Seoul',
@@ -706,7 +706,7 @@ export const cardData: cardType[] = [
     typeId: 76,
     coverName: 'King Sejong Statue (세종대왕 동상)',
     coverImg:
-      'http://tong.visitkorea.or.kr/cms/resource/41/2549141_image2_1.jpg',
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/1382671_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'King Sejong Statue',
     coverAddr: 'Jongno-gu,  Seoul',
@@ -805,7 +805,7 @@ export const cardData: cardType[] = [
     typeId: 76,
     coverName: 'Eight Scenic Views of Bukchon (북촌 8경)',
     coverImg:
-      'http://tong.visitkorea.or.kr/cms/resource/80/933780_image2_1.jpg',
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/coverImage/2541628_cover.jpg',
     coverLocate: 'Seoul Info',
     coverTitle: 'Eight Scenic Views of Bukchon',
     coverAddr: 'Jongno-gu,  Seoul',

@@ -28,6 +28,7 @@ export const dataInfo: info_Type[] = [
         likeId: 789696
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -55,6 +56,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264454
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -86,6 +88,8 @@ export const dataInfo: info_Type[] = [
         likeId: 1241248
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/897540_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -117,6 +121,8 @@ export const dataInfo: info_Type[] = [
         likeId: 1747984
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/264351_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -148,6 +154,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264571
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -179,6 +186,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264317
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -210,6 +218,8 @@ export const dataInfo: info_Type[] = [
         likeId: 561382
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/264337_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -241,6 +251,8 @@ export const dataInfo: info_Type[] = [
         likeId: 1909500
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/264550_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -272,6 +284,8 @@ export const dataInfo: info_Type[] = [
         likeId: 264132
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/264340_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -303,6 +317,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264110
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -330,6 +345,7 @@ export const dataInfo: info_Type[] = [
         likeId: 2541628
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -357,6 +373,8 @@ export const dataInfo: info_Type[] = [
         likeId: 264110
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/264257_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -388,6 +406,8 @@ export const dataInfo: info_Type[] = [
         likeId: 1748351
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/264116_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -415,6 +435,8 @@ export const dataInfo: info_Type[] = [
         likeId: 789696
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/2946681_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -442,6 +464,7 @@ export const dataInfo: info_Type[] = [
         likeId: 1352705
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -469,6 +492,7 @@ export const dataInfo: info_Type[] = [
         likeId: 2482058
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -496,6 +520,7 @@ export const dataInfo: info_Type[] = [
         likeId: 2484384
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -523,6 +548,8 @@ export const dataInfo: info_Type[] = [
         likeId: 264122
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/2944084_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -546,6 +573,7 @@ export const dataInfo: info_Type[] = [
         likeId: 1011983
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -569,6 +597,8 @@ export const dataInfo: info_Type[] = [
         likeId: 2541628
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/2493015_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -596,6 +626,7 @@ export const dataInfo: info_Type[] = [
         likeId: 561382
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -615,6 +646,7 @@ export const dataInfo: info_Type[] = [
         likeId: 1348621
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -634,6 +666,8 @@ export const dataInfo: info_Type[] = [
         likeId: 1930523
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/264138_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -661,6 +695,7 @@ export const dataInfo: info_Type[] = [
         likeId: 2541628
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -688,6 +723,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264320
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -715,6 +751,7 @@ export const dataInfo: info_Type[] = [
         likeId: 3006358
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -742,6 +779,8 @@ export const dataInfo: info_Type[] = [
         likeId: 789696
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/789703_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -769,6 +808,8 @@ export const dataInfo: info_Type[] = [
         likeId: 264320
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/789696_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -796,6 +837,7 @@ export const dataInfo: info_Type[] = [
         likeId: 2946681
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -819,6 +861,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264320
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -846,6 +889,7 @@ export const dataInfo: info_Type[] = [
         likeId: 3006358
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -873,6 +917,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264315
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -900,6 +945,8 @@ export const dataInfo: info_Type[] = [
         likeId: 2541628
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/264348_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -927,6 +974,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264317
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -954,6 +1002,8 @@ export const dataInfo: info_Type[] = [
         likeId: 264315
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/264329_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -981,6 +1031,8 @@ export const dataInfo: info_Type[] = [
         likeId: 264337
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/264316_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1008,6 +1060,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264337
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1035,6 +1088,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264337
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1062,6 +1116,7 @@ export const dataInfo: info_Type[] = [
         likeId: 1326972
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1089,6 +1144,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264317
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1108,6 +1164,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264351
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1131,6 +1188,8 @@ export const dataInfo: info_Type[] = [
         likeId: 1340416
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/2475097_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1154,6 +1213,7 @@ export const dataInfo: info_Type[] = [
         likeId: 1340416
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1177,6 +1237,7 @@ export const dataInfo: info_Type[] = [
         likeId: 3006542
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1200,6 +1261,7 @@ export const dataInfo: info_Type[] = [
         likeId: 2541628
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1223,6 +1285,8 @@ export const dataInfo: info_Type[] = [
         likeId: 2037040
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/1747593_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1250,6 +1314,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264337
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1269,6 +1334,7 @@ export const dataInfo: info_Type[] = [
         likeId: 1340416
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1296,6 +1362,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264454
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1315,6 +1382,8 @@ export const dataInfo: info_Type[] = [
         likeId: 264115
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/264106_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1334,6 +1403,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264115
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1353,6 +1423,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264106
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1372,6 +1443,8 @@ export const dataInfo: info_Type[] = [
         likeId: 264340
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/264132_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1395,6 +1468,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264350
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1414,6 +1488,8 @@ export const dataInfo: info_Type[] = [
         likeId: 264340
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/1348621_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1441,6 +1517,7 @@ export const dataInfo: info_Type[] = [
         likeId: 2946681
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1464,6 +1541,7 @@ export const dataInfo: info_Type[] = [
         likeId: 561382
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1487,6 +1565,7 @@ export const dataInfo: info_Type[] = [
         likeId: 561382
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1514,6 +1593,7 @@ export const dataInfo: info_Type[] = [
         likeId: 2943972
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1533,6 +1613,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264106
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1556,6 +1637,7 @@ export const dataInfo: info_Type[] = [
         likeId: 1114212
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1583,6 +1665,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264111
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1606,6 +1689,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264340
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1633,6 +1717,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264571
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1656,6 +1741,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264111
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1679,6 +1765,7 @@ export const dataInfo: info_Type[] = [
         likeId: 2541628
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1698,6 +1785,8 @@ export const dataInfo: info_Type[] = [
         likeId: 1382517
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/1382671_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1725,6 +1814,7 @@ export const dataInfo: info_Type[] = [
         likeId: 1011983
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1744,6 +1834,7 @@ export const dataInfo: info_Type[] = [
         likeId: 2541628
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1767,6 +1858,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264317
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1794,6 +1886,7 @@ export const dataInfo: info_Type[] = [
         likeId: 1051832
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1808,6 +1901,7 @@ export const dataInfo: info_Type[] = [
     station: 'Dapsimni',
     keyword: ['art', 'shopping', 'antique'],
     maylike: [],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1835,6 +1929,7 @@ export const dataInfo: info_Type[] = [
         likeId: 2943972
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1858,6 +1953,7 @@ export const dataInfo: info_Type[] = [
         likeId: 1340416
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1881,6 +1977,8 @@ export const dataInfo: info_Type[] = [
         likeId: 1352705
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/2003918_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1908,6 +2006,8 @@ export const dataInfo: info_Type[] = [
         likeId: 2037040
       }
     ],
+    mainImg:
+      'https://finedition-bucket.s3.ap-northeast-2.amazonaws.com/infoMain/2541628_main.jpg',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1927,6 +2027,7 @@ export const dataInfo: info_Type[] = [
         likeId: 1241248
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1954,6 +2055,7 @@ export const dataInfo: info_Type[] = [
         likeId: 2037040
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1973,6 +2075,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264138
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -1992,6 +2095,7 @@ export const dataInfo: info_Type[] = [
         likeId: 1352705
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -2019,6 +2123,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264340
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -2038,6 +2143,7 @@ export const dataInfo: info_Type[] = [
         likeId: 1382671
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -2061,6 +2167,7 @@ export const dataInfo: info_Type[] = [
         likeId: 264320
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -2080,6 +2187,7 @@ export const dataInfo: info_Type[] = [
         likeId: 1340416
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -2103,6 +2211,7 @@ export const dataInfo: info_Type[] = [
         likeId: 2482058
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0
@@ -2126,6 +2235,7 @@ export const dataInfo: info_Type[] = [
         likeId: 2946681
       }
     ],
+    mainImg: '',
     bookmark: 0,
     like: 0,
     view: 0

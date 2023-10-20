@@ -3,6 +3,7 @@ import { ReactComponent as WorldMap } from '../../../assets/image/home/svg/extra
 import { ReactComponent as Download } from '../../../assets/image/home/svg/download.svg';
 import feedback from '../../../assets/image/home/home-feedback.png';
 import _ from 'lodash';
+import textImg from '../../../assets/image/hometext.png';
 
 const partnership = [
   'Transport',
@@ -38,11 +39,26 @@ export default function Extras() {
           </div>
         </div>
         <div className='home_extras-fineTraveler extrabox'>
-          <h3>{`Be a Fine-traveler\nwho cares about local culture\n& environment? `}</h3>
-          <span>
+          <img src={textImg} />
+          {/* <h3>{`Be a Fine-traveler\nwho cares about local culture\n& environment? `}</h3> */}
+          {/* <span>
             <Download />
             <p>Download your own traveler-pledge</p>
-          </span>
+          </span> */}
+          <ul>
+            <li>
+              <p>Conserve water and energy.</p>
+            </li>
+            <li>
+              <p>Buy from local markets and artisans.</p>
+            </li>
+            <li>
+              <p>Familiarize with local laws and customs.</p>
+            </li>
+            <li>
+              <p>how respect for local residents.</p>
+            </li>
+          </ul>
         </div>
       </div>
       <div>
