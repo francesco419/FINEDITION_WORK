@@ -131,7 +131,7 @@ export default function Administrator() {
       formData.append('name', 'files[0]');
 
       let data: sendAxiosState = {
-        url: 'http://localhost:8080/testimage',
+        url: '',
         data: formData,
         callback: (e: AxiosResponse) => {
           console.log(e);
@@ -280,7 +280,7 @@ export default function Administrator() {
 
   const storyIntoData = () => {
     let data: sendAxiosState = {
-      url: 'https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/getinfo',
+      url: '',
       //url: `${process.env.REACT_APP_PROXY}/getinfo`,
       data: { id: 'frank' },
       callback: (e: AxiosResponse) => {
@@ -289,9 +289,6 @@ export default function Administrator() {
     };
     postInterceptor(data);
   };
-
-  const aaaaa =
-    'https://port-0-fine-back-euegqv2bln4k549r.sel5.cloudtype.app/test';
 
   return (
     <div className='admin'>

@@ -18,11 +18,9 @@ export const LogInSlice = createSlice({
   reducers: {
     setLoginFormFalse: (state) => {
       state.value.login = false;
-      console.log('false');
     },
     setLoginFormTrue: (state) => {
       state.value.login = true;
-      console.log('true');
     }
   }
 });

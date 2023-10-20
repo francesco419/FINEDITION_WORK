@@ -77,7 +77,7 @@ export default function LoginFormGoogleAPI({
 
   const getTravelCallback = (e: AxiosResponse) => {
     if (e.data.flag !== false) {
-      dispatch(getTravelInfo(e.data.result[0]));
+      if (e.data.result.length > 0) dispatch(getTravelInfo(e.data.result[0]));
     }
   };
 
