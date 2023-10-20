@@ -86,7 +86,7 @@ export default function Cities() {
               {`Seoul, South Korea’s capital and the heart of the nation, is a city that blends a rich tapestry of traditions\nwith the vibrant pulse of modernity. It is a dynamic metropolis that unveil its profound cultural and historical significance.`}
             </p>
           </div>
-          <div className='cityPage_upperContainer-slide'>
+          <div className='cityPage_upperContainer-slide' data-aos='fade-up'>
             <CardSlide
               data={_.shuffle(
                 _.filter(cardData, (o) => {
@@ -104,8 +104,12 @@ export default function Cities() {
               type='small'
             />
           </div>
-          <div className='cityPage_upperContainer-things'>
-            <div data-aos='fade-up' data-aos-duration='1000'>
+          <div
+            className='cityPage_upperContainer-things'
+            data-aos='fade-up'
+            data-aos-duration='1000'
+          >
+            <div>
               <FestivalSlider />
             </div>
             <div className='things-todo'>

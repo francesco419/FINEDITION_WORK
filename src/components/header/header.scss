@@ -45,6 +45,7 @@
 .droplist {
   display: flex;
   flex-direction: column;
+  width: 200px;
   gap: 10px;
   padding: 20px;
   background-color: #d1c8b5;
@@ -54,6 +55,19 @@
   border-radius: 3px;
   transition: all 1s;
   li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    &:hover p {
+      display: block;
+    }
+    p {
+      display: none;
+      @include font-style(24, $System-Black-0, Value Serif Pro Med, 1.6);
+    }
+    button {
+      @include font-style(24, $System-Black-0, Value Serif Pro Med, 1.6);
+    }
     //margin: 10px 0;
   }
 }

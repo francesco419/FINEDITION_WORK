@@ -18,12 +18,18 @@ import Card from '../../components/card/cardComp';
 import { cardData } from '../../temp/cardData';
 import { useAppDispatch } from '../../redux/hooks';
 import { addView } from '../../redux/slices/viewSlice';
+import BookmarkButton from '../../components/bookmark/bookmarkButton';
+import { useAppSelector } from '../../redux/hooks';
+import { selectUserInfo } from '../../redux/slices/userInfoSlice';
 
 export default function Story() {
+  const [bookmark, setBookmark] = useState<boolean>(false);
+  const [like, setLike] = useState<boolean>(false);
   const [story, setStory] = useState<storyData_Type>();
   const tempe = ['1', '2', '3', '4'];
   const param = useParams();
   const dispatch = useAppDispatch();
+  const user = useAppSelector(selectUserInfo);
 
   useEffect(() => {
     if (param.id !== undefined) {
@@ -47,10 +53,12 @@ export default function Story() {
               <div className='storyfront-bottom'>
                 <h2>{story.upperTitle}</h2>
                 <p>{story.upperTime} read l 26th Oct, 2023</p>
-                <div className='likeBookmark'>
-                  <Heart />
-                  <Bookmark />
-                </div>
+                <BookmarkButton
+                  userid={user.userid as number}
+                  dataId={story.id}
+                  likeBool={like}
+                  bookmarkBool={bookmark}
+                />
               </div>
             </div>
             <div className='storyfront-image'>

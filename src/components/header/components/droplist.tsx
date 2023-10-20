@@ -29,6 +29,7 @@ export default function MenuDropList() {
       {_.map(list, (o) => {
         return (
           <li>
+            <p>{'>'}</p>
             <button onClick={logOutHandler}>{o}</button>
           </li>
         );

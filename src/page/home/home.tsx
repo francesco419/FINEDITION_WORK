@@ -16,6 +16,7 @@ import HomeSpots from './components/spots';
 import 'aos/dist/aos.css';
 import PopUpImg from '../../components/popupimage/popUpImg';
 import { storyCardData } from '../../data/storyCardData';
+import Souvenirs from './components/souvenirs';
 
 const first = [
   264337, 264138, 2, 2946681, 897540, 3, 2003918, 264340, 264132, 1, 1909500,
@@ -77,7 +78,7 @@ export default function Home() {
             data-aos-duration='1000'
           >
             <DiscoverCities />
-            <Sounvenirs />
+            <Souvenirs />
             <PhotoBuzz />
           </div>
           <HomeSpots />
@@ -87,14 +88,6 @@ export default function Home() {
       {/* <div className='homll'>a</div> */}
       <Footer type={false} />
       <PopUpImg />
-    </div>
-  );
-}
-
-function Sounvenirs() {
-  return (
-    <div className='home_souvenirs'>
-      <p>{`Look around\nFinedition Souvenirs`}</p>
     </div>
   );
 }
