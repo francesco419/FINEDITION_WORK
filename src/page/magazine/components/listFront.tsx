@@ -12,8 +12,12 @@ const DROPTEMP = [
   { text: 'My Bookmark' }
 ];
 
-export default function ListFront() {
-  const [sort, setSort] = useState<string>('for Sophie');
+type ListFront_Type = {
+  sort: string;
+  handler: (str: string) => void;
+};
+
+export default function ListFront({ sort, handler }: ListFront_Type) {
   const [show, setShow] = useState<boolean>(false);
 
   return (
@@ -44,7 +48,7 @@ export default function ListFront() {
               return (
                 <button
                   onClick={() => {
-                    setSort((sort) => o.text);
+                    handler(o.text);
                     setShow((show) => !show);
                   }}
                 >

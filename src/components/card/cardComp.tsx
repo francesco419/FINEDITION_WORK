@@ -5,12 +5,12 @@ import { cardType } from '../../page/admin/administrator';
 import { useNavigate } from 'react-router';
 import { useAppSelector } from '../../redux/hooks';
 import { selectClick } from '../../redux/slices/clickSlice';
-import { StroyCardDate_Type } from '../../data/storyCardData';
+import { StoryCardDate_Type } from '../../data/storyCardData';
 import { is } from 'date-fns/locale';
 import { storyData_Type } from '../../data/storyData';
 
 export interface MegazineCardType {
-  data: cardType | StroyCardDate_Type;
+  data: cardType | StoryCardDate_Type;
   color: string;
   click?: boolean;
   type: string;

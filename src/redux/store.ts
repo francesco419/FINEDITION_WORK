@@ -9,6 +9,8 @@ import userinfoReducer from './slices/userInfoSlice';
 import regionReducer from './slices/regionSlice';
 import travelReducer from './slices/travelSlice';
 import popupReducer from './slices/popupSlice';
+import viewReducer from './slices/viewSlice';
+import bookmarkReducer from './slices/bookmarklikeSlice';
 
 const rootReducer = combineReducers({
   click: clickReducer,
@@ -16,7 +18,9 @@ const rootReducer = combineReducers({
   userinfo: userinfoReducer,
   region: regionReducer,
   travel: travelReducer,
-  popup: popupReducer
+  popup: popupReducer,
+  view: viewReducer,
+  bookmark: bookmarkReducer
 });
 
 const persistConfig = {

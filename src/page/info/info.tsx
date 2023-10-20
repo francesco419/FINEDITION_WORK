@@ -35,11 +35,13 @@ import { dataInfo } from '../../temp/infoDataF';
 import InfoSkeleton from '../../components/skeleton/infoSkeleton';
 import { API_DATA_TYPE, INFO_TYPE } from '../../func/interface';
 import BookmarkButton from '../../components/bookmark/bookmarkButton';
-import { useAppSelector } from '../../redux/hooks';
+import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import { selectUserInfo } from '../../redux/slices/userInfoSlice';
+import { addView } from '../../redux/slices/viewSlice';
 
 export default function Info() {
   const user = useAppSelector(selectUserInfo);
+  const dispatch = useAppDispatch();
   const param = useParams();
   const [loading, setLoading] = useState<boolean>();
   const [apidata, setApiData] = useState<API_DATA_TYPE>({
@@ -74,10 +76,13 @@ export default function Info() {
     originimgurl: []
   });
   const [typedData, setTypedData] = useState<info_Type>();
+  const [bookmark, setBookmark] = useState<boolean>(false);
+  const [like, setLike] = useState<boolean>(false);
 
   useEffect(() => {
     getAPIDataCommon(apidata);
     getInfoData(param.id);
+    getLikeBookmark(user.userid as number, parseInt(param.id as string));
   }, []);
 
   const getInfoData = (id: string | undefined) => {
@@ -145,13 +150,14 @@ export default function Info() {
         });
         //setApiData(temp);
         //getBakcData(temp.contentid);
+        dispatch(addView(parseInt(param.id as string)));
         setLoading((loading) => true);
       }
     };
     APIInterceptor(apidata);
   };
-
-  const getBakcData = (id: string) => {
+  /* 
+  const getLikeBookmark = (id: number) => {
     const apidata: sendAxiosState = {
       url: 'http://localhost:8080/getinfo',
       data: { id: id },
@@ -160,6 +166,24 @@ export default function Info() {
         console.log(o);
         //setApiData(temp);
         //setLoading((loading) => true);
+      }
+    };
+    getInterceptor(apidata);
+  };
+ */
+  const getLikeBookmark = (id: number, num: number) => {
+    const apidata: sendAxiosState = {
+      url: `${process.env.REACT_APP_PROXY}/checklikebookmark`,
+      data: { userid: id, dataid: num },
+      callback: (o: any) => {
+        const data = o.data.result;
+        if (data[0].length > 0) {
+          setLike((like) => true);
+        }
+        if (data[1].length > 0) {
+          setBookmark((bookmark) => true);
+        }
+        console.log(o);
       }
     };
     getInterceptor(apidata);
@@ -215,7 +239,9 @@ export default function Info() {
           </div>
           <div className='info_infomation'>
             <BookmarkButton
-              userEmail={user.useremail as string}
+              likeBool={like}
+              bookmarkBool={bookmark}
+              userid={user.userid as number}
               dataId={typedData?.id}
             />
             <InfoTag data={typedData?.tag} />

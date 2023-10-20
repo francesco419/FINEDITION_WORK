@@ -226,13 +226,13 @@ export const storyData: storyData_Type[] = [
     tagline: ['Interesting', 'Shooper’sheaven', 'Fun&joy'],
     introText:
       "Welcome to South Korea, a land of rich history, stunning landscapes, and a culinary treasure trove. Beyond the bulgogi and kimchi lies another hidden gem - iconic Korean snacks. These flavorful morsels are a delectable reflection of the nation's diverse culture, and they have earned their place in the hearts of locals and adventurers from far and wide. What makes these iconic Korean snacks truly special is their ability to bridge the gap between the traditional and the contemporary. They are an embodiment of South Korea's culinary heritage, offering a glimpse into the past while being firmly rooted in the modern food landscape. Let's delve into the fascinating world of these beloved snacks, why you must try them, and where you can find them on your Korean adventure.",
-    introImg: snack2,
+    introImg: '',
     introImgText:
       "Iconic Korean snacks are like edible time capsules. They encapsulate centuries of tradition, regional influences, and distinctive flavors. For instance, shrimp crackers (Saewookkang) are a testament to Korea's love for seafood, and the craftsmanship that goes into creating them is a nod to the country's artisanal heritage. When it comes to flavor, Korean snacks are the embodiment of 'variety is the spice of life.' Swing Chip, for example, offers a tantalizing array of flavors from sweet honey to savory barbeque. These snacks are a rollercoaster of sensations, where sweet, salty, spicy, and savory flavors collide in a harmonious explosion.",
     individual: [
       {
         individual_Heading: 'Shrimp Crackers (Saewookkang)',
-        individual_image: snack3,
+        individual_image: snack2,
         individual_Text:
           'Shrimp crackers have been a beloved snack in Korea for a long time. They are a classic snack enjoyed by people of all ages. These crackers are made using shrimp and other seafood as their primary ingredients. They are popular for their crispy texture and come in various flavors, including spicy, truffle, and seasoned tastes.',
         individual_ListText: [],
@@ -240,7 +240,7 @@ export const storyData: storyData_Type[] = [
       },
       {
         individual_Heading: 'Poca / Swing Chip',
-        individual_image: snack4,
+        individual_image: snack3,
         individual_Text:
           'Poca and Swing Chip are two popular potato chips from the Orion brand. Poca is thinly sliced and deep-fried to a crisp and light texture, while Swing is thickly sliced and deep-fried to a rich and hearty crunch. It’s a reinvention of the classic potato chip. The diverse range of flavors adds a touch of adventure to your snacking experience.',
         individual_ListText: [],
@@ -248,7 +248,7 @@ export const storyData: storyData_Type[] = [
       },
       {
         individual_Heading: 'Kkokkal Corn',
-        individual_image: snack5,
+        individual_image: snack4,
         individual_Text:
           'Kkokkal Corn is a fun snack that resembles a corn-shaped hat(kkokkal) and can be eaten by putting it on our fingers. It is primarily a corn-based snack with a savory, sweet corn flavor and crispy texture. The main flavors available are Original, Sweet & Spicy, and Baked Corn.',
         individual_ListText: [],
@@ -256,7 +256,7 @@ export const storyData: storyData_Type[] = [
       },
       {
         individual_Heading: 'Squid and Peanuts (Ojingeo Ttangkong)',
-        individual_image: snack6,
+        individual_image: snack5,
         individual_Text:
           'Ojingeo Ttangkong is an iconic South Korean snack made with squid and peanuts. It has a savory and slightly salty taste that emphasizes the flavor of squid. Recently, a seaweed version has been released, making it the perfect snack to eat with beer.',
         individual_ListText: [],
@@ -264,14 +264,14 @@ export const storyData: storyData_Type[] = [
       },
       {
         individual_Heading: 'Caramel Corn Peanut (Caramel Ddangkong)',
-        individual_image: snack7,
+        individual_image: snack6,
         individual_Text:
           'Last but not least, Maple Corn is a delicious snack that offers a sweet and nutty taste. The caramel provides sweetness, while the peanuts contribute a savory, nutty flavor. The Maple Corn flavor is a blend of caramel and maple syrup, and the snack size is a bit bigger.',
         individual_ListText: [],
         individual_CardID: ''
       }
     ],
-    mainImg: '',
+    mainImg: snack7,
     qna: [
       {
         mainTitle: 'Elevating Your Snacking Experience',
@@ -403,7 +403,7 @@ export const storyData: storyData_Type[] = [
         individual_CardID: ''
       }
     ],
-    mainImg: famousRegion9,
+    mainImg: '',
     qna: [
       {
         mainTitle: 'Imagine your Korea with us',

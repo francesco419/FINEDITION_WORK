@@ -3,26 +3,82 @@ import Header from '../../components/header/header';
 import './bookmark.scss';
 import _ from 'lodash';
 import { cardData } from '../../temp/cardData';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SearchComponent from '../../components/common/search/searchComponent';
 import SearchList from '../search/components/searchList';
 import SortList from '../search/components/sortList';
-
-const count = {
-  Overview: {
-    count: 0
-  },
-  Magazine: {
-    count: 0
-  },
-  Info: {
-    count: 0
-  }
-};
+import { sendAxiosState, getInterceptor } from '../../func/interceptor';
+import { useAppSelector, useAppDispatch } from '../../redux/hooks';
+import { selectUserInfo } from '../../redux/slices/userInfoSlice';
+import {
+  getBookmark,
+  getLike,
+  selectBookmark
+} from '../../redux/slices/bookmarklikeSlice';
+import { storyCardData } from '../../data/storyCardData';
 
 export default function Bookmark() {
   const [sort, setSort] = useState<string>('');
   const [searchWord, setSearchWord] = useState<string>('');
+  const user = useAppSelector(selectUserInfo);
+  const dispatch = useAppDispatch();
+  const bookmark = useAppSelector(selectBookmark);
+
+  const count = {
+    Overview: {
+      count: bookmark.bookmark.length
+    },
+    Magazine: {
+      count: _.filter(bookmark.bookmark, (o) => {
+        return o < 50;
+      }).length
+    },
+    Info: {
+      count: _.filter(bookmark.bookmark, (o) => {
+        return o > 50;
+      }).length
+    }
+  };
+
+  useEffect(() => {
+    if (user.userid) getLikeBookmark(user.userid);
+  }, []);
+
+  const getLikeBookmark = (id: number) => {
+    const apidata: sendAxiosState = {
+      url: `${process.env.REACT_APP_PROXY}/getlikebookmark`,
+      data: { userid: id },
+      callback: (o: any) => {
+        console.log(o);
+        if (!o.data.flag) {
+          return;
+        }
+
+        if (o.data.result[0]) {
+          console.log(1);
+          let arr: number[] = [];
+
+          _.map(o.data.result[0], (o) => {
+            arr.push(o.likenum);
+          });
+
+          dispatch(getLike(arr));
+        }
+
+        if (o.data.result[1]) {
+          console.log(2);
+          let arr: number[] = [];
+
+          _.map(o.data.result[1], (o) => {
+            arr.push(o.bookmarknum);
+          });
+
+          dispatch(getBookmark(arr));
+        }
+      }
+    };
+    getInterceptor(apidata);
+  };
 
   const onChangeHandler = (str: string) => {
     setSearchWord((searchWord) => str);
@@ -30,6 +86,17 @@ export default function Bookmark() {
 
   const sortStateHandler = (str: string) => {
     setSort((sort) => str);
+  };
+
+  const sortOutBookmark = () => {
+    const info = _.filter(cardData, (o) => {
+      return bookmark.bookmark.includes(o.id);
+    });
+    const story = _.filter(storyCardData, (o) => {
+      return bookmark.bookmark.includes(o.id);
+    });
+
+    return [...info, ...story];
   };
 
   return (
@@ -60,7 +127,12 @@ export default function Bookmark() {
             change={onChangeHandler}
           />
         </div>
-        <SearchList list={cardData} searchWord={searchWord} sort={sort} />
+        <SearchList
+          list={sortOutBookmark()}
+          searchWord={searchWord}
+          sort={sort}
+        />
+        {/* <SearchList list={storyCardData} searchWord={searchWord} sort={sort} /> */}
       </div>
       <Footer type={false} />
     </div>

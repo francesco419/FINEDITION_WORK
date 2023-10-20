@@ -29,6 +29,6 @@ export const festivalData = [
     detail: `2023.10.06 Fri - 11.02 Thu
         Explore the night beauty at Seokjojeon, Duksugung Palace
         Entrance fee 26,000`,
-    to: 'https://www.swcf.or.kr/hlfl/eng/'
+    to: 'https://www.deoksugung.go.kr/en/'
   }
 ];

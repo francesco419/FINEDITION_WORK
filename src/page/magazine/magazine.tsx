@@ -8,8 +8,10 @@ import ListFront from './components/listFront';
 import ListCheckBox from './components/listCheckBox';
 import ThemeCheckBox from './components/themeCheckBox';
 import Card from '../../components/card/cardComp';
-import { storyCardData } from '../../data/storyCardData';
+import { storyCardData, StoryCardDate_Type } from '../../data/storyCardData';
 import { useState } from 'react';
+import { useAppSelector } from '../../redux/hooks';
+import { selectView } from '../../redux/slices/viewSlice';
 
 const cities = [
   { id: 'KR-26', name: 'Busan' },
@@ -49,6 +51,12 @@ const theme = [
 export default function Magazine() {
   const [searchTheme, setSearchTheme] = useState<string[]>([]);
   const [searchCity, setSearchCity] = useState<string[]>([]);
+  const [sort, setSort] = useState<string>('for Sophie');
+  const view = useAppSelector(selectView);
+
+  const sortHandler = (str: string) => {
+    setSort((sort) => str);
+  };
 
   const changeThemeHandler = (theme: string, bool: boolean) => {
     if (bool) {
@@ -74,13 +82,26 @@ export default function Magazine() {
     }
   };
 
-  console.log(searchCity.length, searchTheme.length);
+  const sortBy = (story: StoryCardDate_Type[]) => {
+    if (sort === 'Read') {
+      return _.filter(story, (o) => {
+        return view.view.includes(o.id);
+      });
+    }
+
+    if (sort === 'Unread') {
+      return _.filter(story, (o) => {
+        return !view.view.includes(o.id);
+      });
+    }
+    return story;
+  };
 
   return (
     <div className='background-full'>
       <div className='citie'>
         <Header type='gray' />
-        <ListFront />
+        <ListFront sort={sort} handler={sortHandler} />
         <div className='citie_section'>
           <div className='citie_search'>
             <div className='citie_search-bar'>
@@ -128,7 +149,7 @@ export default function Magazine() {
           </div>
         </div>
         <div className='citie_list'>
-          {_.map(storyCardData, (o) => {
+          {_.map(sortBy(storyCardData), (o) => {
             if (searchTheme.length > 0 && searchCity.length > 0) {
               if (
                 searchTheme.includes(o.coverTheme) &&

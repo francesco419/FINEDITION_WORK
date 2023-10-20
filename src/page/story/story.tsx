@@ -16,17 +16,21 @@ import {
 } from '../../data/storyData';
 import Card from '../../components/card/cardComp';
 import { cardData } from '../../temp/cardData';
+import { useAppDispatch } from '../../redux/hooks';
+import { addView } from '../../redux/slices/viewSlice';
 
 export default function Story() {
   const [story, setStory] = useState<storyData_Type>();
   const tempe = ['1', '2', '3', '4'];
   const param = useParams();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (param.id !== undefined) {
       const id = parseInt(param.id);
       setStory((story) => storyData[id - 1]);
     }
+    dispatch(addView(parseInt(param.id as string)));
   });
 
   if (story) {
@@ -101,7 +105,7 @@ function StoryMap({
           <p>{introText}</p>
         </div>
         <div className='storymap_left-map'>
-          <img src={introImg} />
+          {introImg !== '' && <img src={introImg} />}
         </div>
         {introImgText !== '' && (
           <div className='aaaa'>
@@ -195,9 +199,11 @@ interface StoryMain_Type {
 function StoryMain({ main }: StoryMain_Type) {
   return (
     <div className='storymain'>
-      <div className='storymain-mainPicture'>
-        <img src={main.mainImage} />
-      </div>
+      {main.mainImage !== '' && (
+        <div className='storymain-mainPicture'>
+          <img src={main.mainImage} />
+        </div>
+      )}
       <div className='storymain_mainText'>
         <div className='storymain_mainText-qna'>
           {_.map(main.question, (o, index) => {
@@ -206,7 +212,7 @@ function StoryMain({ main }: StoryMain_Type) {
         </div>
         <div className='storymain_mainText-side'>
           <p>{main.sideText}</p>
-          <img src={main.sideImage} />
+          {main.sideImage !== '' && <img src={main.sideImage} />}
         </div>
       </div>
       <hr

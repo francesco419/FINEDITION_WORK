@@ -1,8 +1,9 @@
 import './photoBuzz.scss';
 import _ from 'lodash';
-import { ReactComponent as GYEONGGI } from '../../../assets/svg/KR-41.svg';
+/* import { ReactComponent as GYEONGGI } from '../../../assets/svg/KR-41.svg';
 import { ReactComponent as Seoul } from '../../../assets/svg/seoul.svg';
-import { ReactComponent as Incheon } from '../../../assets/svg/incheon.svg';
+import { ReactComponent as Incheon } from '../../../assets/svg/incheon.svg'; */
+import { ReactComponent as Seoul } from '../../../assets/svg/finedition_main_map.svg';
 
 const CITYLIST = [
   {
@@ -36,9 +37,7 @@ export default function DiscoverCities() {
       </div>
       <div className='cityslide'>
         <div className='discovercities_cities'>
-          <MapElement svg={<Seoul />} top={74} left={71} />
-          <MapElement svg={<GYEONGGI />} top={0} left={0} />
-          <MapElement svg={<Incheon />} top={87} left={22} />
+          <Seoul />
           <MapElement name={'Gyeonggi-do'} top={-10} left={130} />
           <MapElement name={'Seoul'} top={120} left={110} />
           <MapElement name={'Incheon'} top={110} left={-20} />

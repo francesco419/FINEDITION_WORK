@@ -10,9 +10,10 @@ import { ReactComponent as SlideClickLeft } from '../../../assets/svg/slideClick
 import { ReactComponent as SlideClickRight } from '../../../assets/svg/slideClickRight.svg';
 import { resolve } from 'path';
 import { CardComp_Type } from '../../../func/interface';
+import { StoryCardDate_Type } from '../../../data/storyCardData';
 
 type SlideType = {
-  data: cardType[];
+  data: (cardType | StoryCardDate_Type)[];
   type: string;
 };
 

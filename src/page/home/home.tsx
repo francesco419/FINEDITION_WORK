@@ -15,49 +15,16 @@ import Extras from './components/extras';
 import HomeSpots from './components/spots';
 import 'aos/dist/aos.css';
 import PopUpImg from '../../components/popupimage/popUpImg';
+import { storyCardData } from '../../data/storyCardData';
 
-const data0: cardType[] = [
-  cardData[0],
-  cardData[1],
-  cardData[2],
-  cardData[3],
-  cardData[4],
-  cardData[5],
-  cardData[6],
-  cardData[7],
-  cardData[8],
-  cardData[9],
-  cardData[31],
-  cardData[32],
-  cardData[33],
-  cardData[34],
-  cardData[35],
-  cardData[36],
-  cardData[37],
-  cardData[38]
+const first = [
+  264337, 264138, 2, 2946681, 897540, 3, 2003918, 264340, 264132, 1, 1909500,
+  264312, 264571, 7, 264106
 ];
 
-const data1: cardType[] = [
-  cardData[10],
-  cardData[11],
-  cardData[12],
-  cardData[14],
-  cardData[15],
-  cardData[16],
-  cardData[17],
-  cardData[18],
-  cardData[19],
-  cardData[20],
-  cardData[21],
-  cardData[22],
-  cardData[23],
-  cardData[24],
-  cardData[25],
-  cardData[26],
-  cardData[27],
-  cardData[28],
-  cardData[29],
-  cardData[30]
+const second = [
+  929909, 4, 1747593, 264348, 789703, 5, 2944084, 264257, 2475097, 6, 1348621,
+  264329, 8, 264351, 264116
 ];
 
 export default function Home() {
@@ -68,8 +35,22 @@ export default function Home() {
       </header>
       <section>
         <div>
-          <CardSlide data={data0} type='small' />
-          <CardSlide data={data1} type='small' />
+          <CardSlide
+            data={_.shuffle(
+              _.filter([...cardData, ...storyCardData], (o) => {
+                return first.includes(o.id);
+              })
+            )}
+            type='small'
+          />
+          <CardSlide
+            data={_.shuffle(
+              _.filter([...cardData, ...storyCardData], (o) => {
+                return second.includes(o.id);
+              })
+            )}
+            type='small'
+          />
           <div
             style={{ display: 'flex', margin: '0 0 85px', padding: '50px 0 0' }}
             data-aos='fade-up'

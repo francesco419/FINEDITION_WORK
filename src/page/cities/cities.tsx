@@ -3,7 +3,7 @@ import CardSlide from '../../components/card/slide/cardSlide';
 import './cities.scss';
 import _ from 'lodash';
 import FestivalSlider from '../../components/festival/festival';
-import { ReactComponent as Seoul } from './assets/svg/seoul.svg';
+import { ReactComponent as Seoul } from '../../assets/svg/seoul.svg';
 import Card from '../../components/card/cardComp';
 import Footer from '../../components/footer/footer';
 import { cardData } from '../../temp/cardData';
@@ -12,6 +12,15 @@ import { useState } from 'react';
 import ClimateRate from './components/climateRate';
 import SelectGu from './components/selectRegion';
 import { Link } from 'react-router-dom';
+
+const first = [
+  264550, 264106, 789703, 264257, 264132, 264138, 1747593, 264116, 2944084,
+  2646681, 264350, 789696, 2475097, 561382, 264571
+];
+const second = [
+  2003918, 2944084, 264348, 929909, 2003918, 897540, 264337, 264351, 1348621,
+  2541628, 1909500, 264329, 264312, 4006542, 2943972
+];
 
 const data0: cardType[] = [
   cardData[0],
@@ -78,8 +87,22 @@ export default function Cities() {
             </p>
           </div>
           <div className='cityPage_upperContainer-slide'>
-            <CardSlide data={data0} type='small' />
-            <CardSlide data={data1} type='small' />
+            <CardSlide
+              data={_.shuffle(
+                _.filter(cardData, (o) => {
+                  return first.includes(o.id);
+                })
+              )}
+              type='small'
+            />
+            <CardSlide
+              data={_.shuffle(
+                _.filter(cardData, (o) => {
+                  return first.includes(o.id);
+                })
+              )}
+              type='small'
+            />
           </div>
           <div className='cityPage_upperContainer-things'>
             <div data-aos='fade-up' data-aos-duration='1000'>
