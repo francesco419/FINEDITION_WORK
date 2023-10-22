@@ -124,6 +124,9 @@
   p {
     @include font-style(18, $System-Black-0, Mabry Pro Light, 1.6);
   }
+  p {
+    color: $System-Black-0 !important;
+  }
   ul {
     padding: 0 0 0 20px;
     margin: 0 0 0 10px;
@@ -143,6 +146,11 @@
     }
     dd {
       margin: 0 0 0 20px;
+      p {
+        &:first-child {
+          color: $System-Dark-Gray-0 !important;
+        }
+      }
     }
   }
   img {
@@ -158,7 +166,7 @@
     height: 540px;
     margin: 0 0 53px;
     img {
-      width: 100%;
+      max-width: 100%;
       height: 100%;
       object-fit: contain;
     }

@@ -31,9 +31,9 @@ export default function Extras() {
           <div>
             {_.map(partnership, (o, index) => {
               return (
-                <a href='' key={`${o}_${index}`}>
+                <button type='button' key={`${o}_${index}`}>
                   {o}
-                </a>
+                </button>
               );
             })}
           </div>

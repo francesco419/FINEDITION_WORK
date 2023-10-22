@@ -1,7 +1,7 @@
 import '../info.scss';
 import { ReactComponent as Pick } from '../assets/Storytelling.svg';
 import { useEffect, useState } from 'react';
-import _ from 'lodash';
+import _, { over } from 'lodash';
 import errorImg from '../../../assets/image/imageError.jpg';
 
 type AAType = {
@@ -12,7 +12,32 @@ type AAType = {
   typedDetailText: string | undefined;
 };
 
-const DELETEFROMSTRING = ['<br />', '&nbsp;'];
+const DELETEFROMSTRING = [
+  {
+    del: '<br />',
+    replace: '\n'
+  },
+  {
+    del: '<br>',
+    replace: ''
+  },
+  {
+    del: '&nbsp;',
+    replace: ' '
+  },
+  {
+    del: '&rsquo;',
+    replace: "'"
+  },
+  {
+    del: '<em>',
+    replace: ''
+  },
+  {
+    del: '</em>',
+    replace: ''
+  }
+];
 
 export default function InfoDetail({
   title,
@@ -27,11 +52,13 @@ export default function InfoDetail({
   let titl = title.split('(');
   let addr = addr1.split(',').reverse();
   useEffect(() => {
-    if (overview) {
-      _.map(DELETEFROMSTRING, (o) => {
-        setResult((result) => overview.replaceAll(o, ''));
-      });
-    }
+    console.log(overview);
+    let editedOverview: string = overview;
+    _.map(DELETEFROMSTRING, (o) => {
+      editedOverview = editedOverview.replaceAll(o.del, o.replace);
+    });
+
+    setResult((result) => editedOverview);
   }, []);
 
   const errorImageHandler = (
@@ -43,8 +70,8 @@ export default function InfoDetail({
   return (
     <>
       <div className='info_about-title'>
-        <h1>{titl[0]}</h1>
-        <p>
+        <h1 className='info_about-title-h1'>{titl[0]}</h1>
+        <p className='info_about-title-p'>
           {addr[1]},{addr[0]}
         </p>
       </div>

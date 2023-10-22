@@ -4,6 +4,7 @@ import _ from 'lodash';
 import { ReactComponent as Seoul } from '../../../assets/svg/seoul.svg';
 import { ReactComponent as Incheon } from '../../../assets/svg/incheon.svg'; */
 import { ReactComponent as Seoul } from '../../../assets/svg/finedition_main_map.svg';
+import { useNavigate } from 'react-router';
 
 const CITYLIST = [
   {
@@ -55,12 +56,20 @@ type MapElementType = {
 };
 
 function MapElement({ svg = null, name = 'null', top, left }: MapElementType) {
+  const nav = useNavigate();
+
+  const onClickHandler = () => {
+    nav('/cities/');
+  };
+
   return (
-    <div
+    <button
+      type='button'
       className='discovercities_city'
       style={{ top: `${top}px`, left: `${left}px` }}
+      onClick={name === 'Seoul' ? onClickHandler : undefined}
     >
       {svg ? svg : <p>{name}</p>}
-    </div>
+    </button>
   );
 }

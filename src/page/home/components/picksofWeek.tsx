@@ -19,21 +19,21 @@ type NumType = {
 const temp = [
   {
     img: i264550,
-    text: 'Center Nam\nBrights the City',
+    text: 'Center Namsan\nBrights the City',
     color: '#C0D6EC',
-    to: '/story/6'
+    to: '/info/264550/76'
   },
   {
     img: i264316,
     text: 'Autumn falls\ninto Palaces',
     color: '#F3F0A7',
-    to: '/story/6'
+    to: '/info/264316/76'
   },
   {
     img: i561382,
     text: 'Buckhon,\n&its heritage',
     color: '#F9FDFF',
-    to: '/story/6'
+    to: '/info/561382/76'
   }
 ];
 const temp1 = [
@@ -47,7 +47,7 @@ const temp1 = [
     img: week2,
     text: 'Amazing view\nfrom Bukhansan',
     color: '#FFE9EF',
-    to: '/info/897540/76'
+    to: '/info/1747593/76'
   },
   {
     img: week3,
@@ -73,7 +73,7 @@ const temp2 = [
     img: uprising3,
     text: 'Stroll casually\nacross Jongno',
     color: '#ACEAAA',
-    to: '/info/1747593/76'
+    to: '/info/897540/76'
   }
 ];
 

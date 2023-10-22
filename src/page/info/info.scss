@@ -1,5 +1,20 @@
 @import '../../style.scss';
 
+/* 
+.module h2 {
+  font-size: 1em;
+  container-name: sidebar
+}
+
+
+
+@container sidebar (min-width: 700px) {
+  .module h2 {
+    font-size: 2em;
+  }
+}
+ */
+
 .info {
   width: 1440px;
   margin: 0 auto;
@@ -14,13 +29,25 @@
     width: 880px;
     margin-right: 120px;
     &-title {
+      min-height: 25px;
+      container-name: titleSize;
+      container-type: inline-size;
+      @container (min-height:25px) {
+        &-h1 {
+          @include font-style(33, $System-White-0, Value Serif Pro Med);
+          margin: 0 19px 0 0;
+        }
+        &-p {
+          @include font-style(16, $System-Dark-Gray-0, Value Serif Pro Med);
+        }
+      }
       display: flex;
       align-items: end;
-      h1 {
-        @include font-style(33, $System-White-0, Value Serif Pro Med);
+      &-h1 {
+        @include font-style(20, $System-White-0, Value Serif Pro Med);
         margin: 0 19px 0 0;
       }
-      p {
+      &-p {
         @include font-style(16, $System-Dark-Gray-0, Value Serif Pro Med);
       }
     }

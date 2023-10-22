@@ -30,10 +30,10 @@ export const TravelSlice = createSlice({
   initialState,
   reducers: {
     getTravelInfo: (state, actions: PayloadAction<TravelState>) => {
-      console.log(actions.payload);
-      _.forEach(state, (value, key) => {
-        state[key] = actions.payload[key];
-      });
+      if (actions.payload !== undefined)
+        _.forEach(state, (value, key) => {
+          state[key] = actions.payload[key];
+        });
     },
     setTravelInfo: (state, actions: PayloadAction<TravelState>) => {
       let data: sendAxiosState = {

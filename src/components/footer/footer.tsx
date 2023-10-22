@@ -2,8 +2,9 @@ import './footer.scss';
 import { ReactComponent as FINEDITION } from '../../assets/svg/logo_letter.svg';
 import { useNavigate } from 'react-router';
 import _ from 'lodash';
-import { useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { selectUserInfo } from '../../redux/slices/userInfoSlice';
+import { setLoginFormTrue } from '../../redux/slices/loginSlice';
 
 const FOOTERMENU = [
   /*   [
@@ -48,6 +49,7 @@ interface Footer_TYPE {
 
 export default function Footer({ type }: Footer_TYPE) {
   const nav = useNavigate();
+  const dispatch = useAppDispatch();
   const user = useAppSelector(selectUserInfo);
 
   const onClickHandlerFooter = (to: string | null) => {
@@ -69,7 +71,9 @@ export default function Footer({ type }: Footer_TYPE) {
                 return (
                   <button
                     onClick={() => {
-                      user.userid && onClickHandlerFooter(o.to);
+                      user.userid !== null
+                        ? onClickHandlerFooter(o.to)
+                        : dispatch(setLoginFormTrue());
                     }}
                     style={{ color: type ? '#000' : '#fff' }}
                     key={`${o.name}_${index}`}

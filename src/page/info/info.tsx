@@ -82,7 +82,8 @@ export default function Info() {
   useEffect(() => {
     getAPIDataCommon(apidata);
     getInfoData(param.id);
-    getLikeBookmark(user.userid as number, parseInt(param.id as string));
+    if (user.userid)
+      getLikeBookmark(user.userid as number, parseInt(param.id as string));
   }, []);
 
   const getInfoData = (id: string | undefined) => {
@@ -139,7 +140,7 @@ export default function Info() {
       url: `https://apis.data.go.kr/B551011/EngService1/detailInfo1?serviceKey=${process.env.REACT_APP_TOUR_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&contentId=${param.id}&contentTypeId=${param.typeid}&_type=json`,
       callback: (o: any) => {
         const response = o.data.response.body.items.item;
-        response.forEach((o: INFO_TYPE, index: number) => {
+        _.forEach(response, (o: INFO_TYPE, index: number) => {
           if (o.infoname === 'Admission Fees') {
             temp.fee = o;
             return;
@@ -231,7 +232,7 @@ export default function Info() {
               </div>
               <div>
                 <Tele />
-                <p>{apidata.infocenter}</p>
+                <p>{apidata.infocenter.replaceAll('<br />', '')}</p>
               </div>
             </div>
             <ImgBox img={apidata.title.match(new RegExp(/[가-힣]+\s?/))} />

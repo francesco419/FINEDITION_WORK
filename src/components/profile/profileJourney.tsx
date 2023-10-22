@@ -4,12 +4,13 @@ import { ReactComponent as PlaneBig } from '../../assets/profile/image/svg/airpl
 import { ReactComponent as Setting } from '../../assets/profile/image/svg/settting.svg';
 import './profileJourney.scss';
 import { useNavigate } from 'react-router';
-import { useAppSelector } from '../../redux/hooks';
+import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import { selectUserInfo } from '../../redux/slices/userInfoSlice';
 import { selectTravel } from '../../redux/slices/travelSlice';
 import { useState, useEffect } from 'react';
 import moment from 'moment';
 import TravelPlan from '../../page/profile/components/travelPlan';
+import { setLoginFormTrue } from '../../redux/slices/loginSlice';
 
 type ProfileJourneyType = {
   type: boolean;
@@ -19,6 +20,7 @@ export default function ProfileJourney({ type }: ProfileJourneyType) {
   const nav = useNavigate();
   const user = useAppSelector(selectUserInfo);
   const travel = useAppSelector(selectTravel);
+  const dispatch = useAppDispatch();
   const [fullDate, setFullDate] = useState<string>();
   const [travelSetting, setTravelSetting] = useState<boolean>(false);
   //false는 메인의 작은 형태
@@ -31,8 +33,8 @@ export default function ProfileJourney({ type }: ProfileJourneyType) {
   }, []);
 
   const navTo = () => {
-    if (user.id === null) {
-      return;
+    if (user.userid === null) {
+      dispatch(setLoginFormTrue());
     } else {
       nav(`/profile/${user.id}`);
     }

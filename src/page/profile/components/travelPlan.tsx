@@ -11,6 +11,7 @@ import { selectUserInfo } from '../../../redux/slices/userInfoSlice';
 import { useState } from 'react';
 import { AxiosResponse } from 'axios';
 import TravelDate from './traveldate';
+import { getTravel } from '../../../func/func';
 
 type TravelPlan_Type = {
   exit: () => void;
@@ -32,6 +33,22 @@ export default function TravelPlan({ exit }: TravelPlan_Type) {
     setEnd((end) => num);
   };
 
+  const checkValid = () => {
+    if (start > 99999999 || start < 9999999) {
+      wrongHandler();
+      return;
+    }
+    if (end > 99999999 || end < 9999999) {
+      wrongHandler();
+      return;
+    }
+    setTravelData();
+  };
+
+  const wrongHandler = () => {
+    setWrong((wrong) => true);
+  };
+
   const setTravelData = () => {
     let data: sendAxiosState = {
       url: `${process.env.REACT_APP_PROXY}/posttravel`,
@@ -43,15 +60,12 @@ export default function TravelPlan({ exit }: TravelPlan_Type) {
         modify: end
       },
       callback: (e: AxiosResponse) => {
-        console.log(e.data);
-        dispatch(getTravelInfo(e.data.result[0]));
-        exit();
-        getInterceptor({
-          url: `${process.env.REACT_APP_PROXY}/get`,
-          data: { userid: user.userid },
-          callback: (o: any) => {
-            console.log(o);
+        getTravel(user.userid as number, (e) => {
+          console.log(e.data.result[0]);
+          if (e.data.result[0]) {
+            dispatch(getTravelInfo(e.data.result[0]));
           }
+          exit();
         });
       }
     };
@@ -74,17 +88,7 @@ export default function TravelPlan({ exit }: TravelPlan_Type) {
           }}
         />
       </div>
-      <button
-        onClick={() => {
-          if (start > 99999999 || end > 99999999) {
-            setWrong((wrong) => true);
-          } else {
-            setTravelData();
-          }
-        }}
-      >
-        Submit
-      </button>
+      <button onClick={checkValid}>Submit</button>
       {wrong && (
         <label
           style={{ color: '#ff0000', fontSize: '10px', marginLeft: '10px' }}

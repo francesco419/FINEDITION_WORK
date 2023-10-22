@@ -69,7 +69,7 @@ export default function SearchDropDown() {
                 }}
               />
             </div>
-            <div className='searchbar_searchbar-history'>
+            {/* <div className='searchbar_searchbar-history'>
               <div className='searchbar_searchbar-history-b'>
                 <button>Recent</button>
                 <span>l</span>
@@ -102,7 +102,7 @@ export default function SearchDropDown() {
                   })
                 )}
               </div>
-            </div>
+            </div> */}
           </div>
           {/* <div className='searchbar_edition'>
             {_.map(EDITION, (o) => {

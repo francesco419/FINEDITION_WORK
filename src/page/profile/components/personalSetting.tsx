@@ -205,7 +205,13 @@ export default function PersonalSetting({ cb }: PersonalSetting_Type) {
             width={135}
             option={['Male', 'Female']}
           />
-          <ConfirmButton children={'Confirm'} cb={postHandler} />
+          <ConfirmButton
+            children={'Confirm'}
+            cb={() => {
+              postHandler();
+              cb();
+            }}
+          />
         </div>
       </div>
     </div>

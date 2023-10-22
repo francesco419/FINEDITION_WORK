@@ -34,7 +34,7 @@
       flex-wrap: wrap;
       gap: 10px 14px;
       margin: 0 0 16px;
-      a {
+      button {
         text-decoration-line: underline;
         @include font-style(14, $System-White-0, Mabry Pro Reg, 1.4);
       }

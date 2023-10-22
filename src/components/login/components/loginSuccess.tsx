@@ -21,9 +21,6 @@ export default function LoginFormSuccess() {
           and seek out new experiences.
         </p>
       </div>
-      <div className='optional2'>
-        <p>Already has a journey plan?</p>
-      </div>
       <button type='button' onClick={changeLoginForm}>
         Discover
       </button>

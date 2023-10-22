@@ -175,7 +175,7 @@ export const storyData: storyData_Type[] = [
     upperTheme: 'Culture',
     upperWhy:
       'Learning about Hanji can procide insight into Korean heritage and artistic traditions.',
-    upperTitle: 'Hanji - Korean traditional\nPaper & Where to find them',
+    upperTitle: 'Hanji - Korean traditional Paper\n& Where to find them',
     upperTime: '10min',
     upperImg: hanji1,
     tagline: ['Historical', 'Recommend', 'Good with Kids'],
@@ -242,7 +242,7 @@ export const storyData: storyData_Type[] = [
     upperTheme: 'Cuisine',
     upperWhy:
       "If you're not sure what snacks to try, take a look at the list above and give one a shot. These snacks have been popular in Korea for quite some time, so I'm confident you'll enjoy them too.",
-    upperTitle: 'Classic never goes out of style: About Korean Snacks',
+    upperTitle: 'Classic never goes out of style:\nAbout Korean Snacks',
     upperTime: '10min',
     upperImg: snack1,
     tagline: ['Interesting', 'Shooper’sheaven', 'Fun&joy'],
@@ -499,7 +499,7 @@ export const storyData: storyData_Type[] = [
     upperTheme: 'Info',
     upperWhy:
       'Understanding how public transport works in a foreign country helps you navigate the system more efficiently. This can save you time and reduce the stress of getting lost or missing connections.',
-    upperTitle: 'Useful tips in using public transport in Korea',
+    upperTitle: 'Useful tips in using\npublic transport in Korea',
     upperTime: '12min',
     upperImg: transportupper,
     tagline: ['Recommend', 'Strollfriendly'],
@@ -513,7 +513,7 @@ export const storyData: storyData_Type[] = [
         individual_image: '',
         individual_Text:
           "South Korea's T-Money card is the ultimate travel companion. This rechargeable transportation card works seamlessly on buses, subways, and even taxis in most Korean cities. You can purchase a T-Money card at convenience stores or subway stations, and it's easy to recharge as you go. Not only does this card offer convenience, but it can also save you money with discounts over cash fares.",
-        individual_ListText: [''],
+        individual_ListText: [],
         individual_CardID: ''
       },
       {
@@ -604,7 +604,7 @@ export const storyData: storyData_Type[] = [
     upperTheme: 'Cuisine',
     upperWhy:
       'This is your gateway to the vibrant and diverse world of Korean cuisine. Each dish is a symphony of flavors, a medley of textures, and a rich tapestry of dishes that captivate the senses. Understanding the Korean dishes will enhance your travel experience!',
-    upperTitle: 'What a Culinary adventure! 6 Most loved K-foods',
+    upperTitle: 'What a Culinary adventure!\n6 Most loved K-foods',
     upperTime: '15min',
     upperImg: culinaryupper,
     tagline: ['Recommend', 'Interesting', 'fun&joy'],
@@ -709,7 +709,7 @@ export const storyData: storyData_Type[] = [
     upperTheme: 'Explore',
     upperWhy:
       'If you have to visit royal palaces, and hesitate to know which one to visit? Here’s our suggestion about royal palaces for foreign travelers. We estimated time for duration and your interest, and based on that, we curated some itineries for you to check out!',
-    upperTitle: 'Royal palaces in Seoul & Which one to visit',
+    upperTitle: 'Royal palaces in Seoul\n& Which one to visit',
     upperTime: '10min',
     upperImg: palaceupper,
     tagline: ['Traditional', 'Highlight', 'Recommend'],
@@ -895,7 +895,7 @@ export const storyData: storyData_Type[] = [
     upperTheme: 'Explore',
     upperWhy:
       "Immerse yourself in South Korea's rich heritage, and enhance your journey through the heart of Seoul by exploring the wonders held within these unique museums.",
-    upperTitle: 'A Journey Through the National Museums',
+    upperTitle: 'A Journey Through\nthe National Museums',
     upperTime: '10min',
     upperImg: museumupper,
     tagline: ['Historical', 'Recommend', 'Interesting'],
@@ -991,7 +991,7 @@ export const storyData: storyData_Type[] = [
     upperTheme: 'Explore',
     upperWhy:
       " These markets offer a genuine and vibrant experience, providing a deeper understanding of Seoul's rich heritage and contemporary lifestyle.",
-    upperTitle: 'Which markets are famous to locals in Seoul?',
+    upperTitle: 'Which markets are famous\nto locals in Seoul?',
     upperTime: '10min',
     upperImg: marketupper,
     tagline: ['Historical', 'Recommend', 'Interesting'],
