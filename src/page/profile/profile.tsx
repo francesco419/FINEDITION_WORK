@@ -7,9 +7,18 @@ import _ from 'lodash';
 import { useAppSelector } from '../../redux/hooks';
 import { selectUserInfo } from '../../redux/slices/userInfoSlice';
 import TravelPlan from './components/travelPlan';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
 
 export default function Profile() {
   const user = useAppSelector(selectUserInfo);
+  const nav = useNavigate();
+
+  useEffect(() => {
+    if (!user.userid) {
+      nav('/');
+    }
+  }, []);
 
   return (
     <div className='profilePage'>

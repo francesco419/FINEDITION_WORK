@@ -6,6 +6,8 @@ import {
 import _ from 'lodash';
 import '../header.scss';
 import { useNavigate } from 'react-router';
+import { resetState } from '../../../redux/slices/bookmarklikeSlice';
+import { resetTravel } from '../../../redux/slices/travelSlice';
 
 export default function MenuDropList() {
   const user = useAppSelector(selectUserInfo);
@@ -44,7 +46,11 @@ export default function MenuDropList() {
   ];
 
   const logOutHandler = () => {
-    if (user.userid !== null) dispatch(setDefault());
+    if (user.userid !== null) {
+      dispatch(resetState());
+      dispatch(resetTravel());
+      dispatch(setDefault());
+    }
   };
 
   const onClickHandler = (str: string) => {

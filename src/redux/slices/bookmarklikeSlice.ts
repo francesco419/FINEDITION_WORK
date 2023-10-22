@@ -33,11 +33,17 @@ export const bookmarkSlice = createSlice({
     },
     getLike: (state, actions: PayloadAction<number[]>) => {
       state.like = actions.payload;
+    },
+    resetState: (state) => {
+      if (initialState !== undefined)
+        _.forEach(state, (value, key) => {
+          state[key] = initialState[key];
+        });
     }
   }
 });
 
-export const { getBookmark, getLike } = bookmarkSlice.actions;
+export const { getBookmark, getLike, resetState } = bookmarkSlice.actions;
 
 export const selectBookmark = (state: RootState) => state.bookmark;
 

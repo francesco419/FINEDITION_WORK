@@ -43,11 +43,18 @@ export const TravelSlice = createSlice({
           console.log(e);
         }
       };
+    },
+    resetTravel: (state) => {
+      if (initialState !== undefined)
+        _.forEach(state, (value, key) => {
+          state[key] = initialState[key];
+        });
     }
   }
 });
 
-export const { setTravelInfo, getTravelInfo } = TravelSlice.actions;
+export const { setTravelInfo, getTravelInfo, resetTravel } =
+  TravelSlice.actions;
 
 export const selectTravel = (state: RootState) => state.travel;
 
