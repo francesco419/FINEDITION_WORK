@@ -5,6 +5,8 @@ import { postInterceptor, sendAxiosState } from '../../func/interceptor';
 import { AxiosResponse } from 'axios';
 import { useState, useEffect } from 'react';
 import _ from 'lodash';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { setLoginFormTrue } from '../../redux/slices/loginSlice';
 
 type bookmark_Type = {
   userid: number;
@@ -21,6 +23,7 @@ export default function BookmarkButton({
 }: bookmark_Type) {
   const [like, setLike] = useState<boolean>();
   const [bookmark, setBookmark] = useState<boolean>();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     setLike((like) => likeBool);
@@ -60,10 +63,14 @@ export default function BookmarkButton({
   };
 
   const likeHandler = () => {
-    if (!like) {
-      likeAddHandler();
+    if (userid) {
+      if (!like) {
+        likeAddHandler();
+      } else {
+        likeDeleteHandler();
+      }
     } else {
-      likeDeleteHandler();
+      dispatch(setLoginFormTrue());
     }
   };
 
@@ -104,10 +111,14 @@ export default function BookmarkButton({
   };
 
   const bookmarkHandler = () => {
-    if (!bookmark) {
-      bookmarkAddHandler();
+    if (userid) {
+      if (!bookmark) {
+        bookmarkAddHandler();
+      } else {
+        bookmarkDeleteHandler();
+      }
     } else {
-      bookmarkDeleteHandler();
+      dispatch(setLoginFormTrue());
     }
   };
 
