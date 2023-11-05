@@ -30,6 +30,8 @@ export default function ProfileKeyword() {
   const user = useAppSelector(selectUserInfo);
   const dispatch = useAppDispatch();
 
+  useEffect(() => {}, []);
+
   const onClicAddkHandler = (taste: string) => {
     // setKeyword((keyword) => [...keyword, taste]);
   };
@@ -68,16 +70,21 @@ export default function ProfileKeyword() {
           </button>
         </div>
         <ul className='profileKeyword_keyword-keywordlist'>
-          {_.map(user.userkeyword, (o, index) => {
-            return (
-              <TasteComp
-                str={o}
-                del={onClickDeleteHandler}
-                add={onClicAddkHandler}
-                key={`${o}_${index}`}
-              />
-            );
-          })}
+          {_.map(
+            typeof user.userkeyword === 'string'
+              ? JSON.parse(user.userkeyword)
+              : user.userkeyword,
+            (o, index) => {
+              return (
+                <TasteComp
+                  str={o}
+                  del={onClickDeleteHandler}
+                  add={onClicAddkHandler}
+                  key={`${o}_${index}`}
+                />
+              );
+            }
+          )}
         </ul>
       </div>
       <DownloadComponent name="Traveler's Pledge" download={plegeHandlerTrue} />

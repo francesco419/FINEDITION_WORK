@@ -68,6 +68,12 @@
   padding: 60px 0 70px;
   border-bottom: 1px solid $Brand-Purple-1;
   height: max-content;
+  &_imgText {
+    margin: 60px 0 0;
+    p {
+      @include font-style(18, $System-Black-0, Mabry Pro Reg, 1.6);
+    }
+  }
   &_left {
     width: 910px;
     &-text {
@@ -225,12 +231,5 @@
     display: flex;
     gap: 87px;
     margin: 24px 0 0;
-  }
-}
-
-.aaaa {
-  margin: 60px 0 0;
-  p {
-    @include font-style(18, $System-Black-0, Mabry Pro Reg, 1.6);
   }
 }

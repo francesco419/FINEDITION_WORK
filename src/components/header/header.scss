@@ -19,8 +19,8 @@
   &_locate {
     display: flex;
     margin: 0 0 0 40px;
-    gap: 24px;
     button {
+      margin: 0 24px 0 0;
       padding: 2px 0 0;
       @include font-style(16, $System-White-0, Mabry Pro Reg, 1);
     }

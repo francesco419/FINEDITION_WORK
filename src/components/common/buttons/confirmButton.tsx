@@ -13,7 +13,13 @@ export default function ConfirmButton({
   style
 }: ConfirmButton_Type) {
   return (
-    <button style={style} className='confirmButton' onClick={cb}>
+    <button
+      style={style}
+      className='confirmButton'
+      onClick={() => {
+        cb();
+      }}
+    >
       {children}
     </button>
   );
