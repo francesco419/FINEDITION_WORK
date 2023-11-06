@@ -21,7 +21,7 @@ export default function ProfileJourney({ type }: ProfileJourneyType) {
   const user = useAppSelector(selectUserInfo);
   const travel = useAppSelector(selectTravel);
   const dispatch = useAppDispatch();
-  const [fullDate, setFullDate] = useState<string>();
+  const [fullDate, setFullDate] = useState<string>(moment().format('DDMMYYYY'));
   const [travelSetting, setTravelSetting] = useState<boolean>(false);
   //false는 메인의 작은 형태
   //true는 profile페이지의 큰 형태
@@ -29,7 +29,7 @@ export default function ProfileJourney({ type }: ProfileJourneyType) {
   const style = type ? 'journey-big' : 'journey-small';
 
   useEffect(() => {
-    getFullDate();
+    //getFullDate();
   }, []);
 
   const navTo = () => {
@@ -40,13 +40,13 @@ export default function ProfileJourney({ type }: ProfileJourneyType) {
     }
   };
 
-  const getFullDate = () => {
+  /*  const getFullDate = () => {
     let today = new Date();
     let daySet = `${today.getDate()}${setMonth(
       today.getMonth() + 1
     )}${today.getFullYear()}`;
     setFullDate((fullDate) => daySet);
-  };
+  }; */
 
   const calculateDday = (now: string, start: string) => {
     const time1 = moment(now, 'DDMMYYYY');
@@ -86,7 +86,7 @@ export default function ProfileJourney({ type }: ProfileJourneyType) {
         return 'Fri';
       case 6:
         return 'Sat';
-      case 7:
+      case 0:
         return 'Sun';
     }
   };

@@ -12,6 +12,7 @@ import { useState } from 'react';
 import { AxiosResponse } from 'axios';
 import TravelDate from './traveldate';
 import { getTravel } from '../../../func/func';
+import moment from 'moment';
 
 type TravelPlan_Type = {
   exit: () => void;
@@ -34,11 +35,11 @@ export default function TravelPlan({ exit }: TravelPlan_Type) {
   };
 
   const checkValid = () => {
-    if (start > 99999999 || start < 9999999) {
+    if (start > 99999999 || start < 999999) {
       wrongHandler();
       return;
     }
-    if (end > 99999999 || end < 9999999) {
+    if (end > 99999999 || end < 999999) {
       wrongHandler();
       return;
     }
@@ -57,7 +58,7 @@ export default function TravelPlan({ exit }: TravelPlan_Type) {
         start: start,
         end: end,
         reason: reason,
-        modify: end
+        modify: moment().format('YYYY-MM-DD hh:mm:ss')
       },
       callback: (e: AxiosResponse) => {
         getTravel(user.userid as number, (e) => {
