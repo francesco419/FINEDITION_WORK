@@ -32,7 +32,6 @@ export const UserInfoSlice = createSlice({
     setUserInfo: (state, actions: PayloadAction<UserInfoState>) => {
       _.forEach(actions.payload, (value, key) => {
         const isValueExist = actions.payload[key];
-        console.log(key, isValueExist);
         if (isValueExist !== null) {
           if (key === 'userkeyword' && typeof isValueExist === 'string') {
             state[key] = JSON.parse(isValueExist);
@@ -45,7 +44,6 @@ export const UserInfoSlice = createSlice({
     setUpdateInfo: (state, actions: PayloadAction<any>) => {
       _.forEach(state, (value, key) => {
         const isValueExist = actions.payload[key];
-        console.log(key);
         if (isValueExist !== null) {
           if (key in actions.payload) {
             state[key] = isValueExist;
@@ -54,7 +52,6 @@ export const UserInfoSlice = createSlice({
           }
         }
       });
-      console.log(current(state));
     },
     setDefault: (state) => {
       _.forEach(state, (value, key) => {

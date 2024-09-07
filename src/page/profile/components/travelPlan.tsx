@@ -62,7 +62,7 @@ export default function TravelPlan({ exit }: TravelPlan_Type) {
       },
       callback: (e: AxiosResponse) => {
         getTravel(user.userid as number, (e) => {
-          console.log(e.data.result[0]);
+          //console.log(e.data.result[0]);
           if (e.data.result[0]) {
             dispatch(getTravelInfo(e.data.result[0]));
           }

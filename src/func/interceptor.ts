@@ -87,12 +87,9 @@ export const postInterceptor = async (data: sendAxiosState) => {
 };
 
 export const deleteInterceptor = async (data: sendAxiosState) => {
-  console.log(data);
   return instance
     .delete(data.url, { data: data })
-    .then((response: AxiosResponse) => {
-      console.log(response);
-    })
+    .then((response: AxiosResponse) => {})
     .catch((e) => {
       console.log(e);
     });

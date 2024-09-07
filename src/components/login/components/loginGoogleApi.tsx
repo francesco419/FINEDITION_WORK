@@ -71,7 +71,6 @@ export default function LoginFormGoogleAPI({
 
   const loginSuccess = (userInfo: UserInfoState) => {
     if (userInfo.userid) getTravel(userInfo.userid, getTravelCallback);
-    console.log(userInfo);
     dispatch(setUserInfo(userInfo));
     dispatch(setLoginFormFalse());
   };

@@ -52,7 +52,7 @@ export default function InfoDetail({
   let titl = title.split('(');
   let addr = addr1.split(',').reverse();
   useEffect(() => {
-    console.log(overview);
+    //console.log(overview);
     let editedOverview: string = overview;
     _.map(DELETEFROMSTRING, (o) => {
       editedOverview = editedOverview.replaceAll(o.del, o.replace);

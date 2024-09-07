@@ -50,7 +50,7 @@ export default function PersonalSetting({ cb }: PersonalSetting_Type) {
   };
 
   const postHandler = () => {
-    console.log('postHandler');
+    //console.log('postHandler');
     let data = {
       username: name !== '' ? name : user.username,
       usernation: nation !== '' ? nation : user.usernation,
@@ -67,7 +67,7 @@ export default function PersonalSetting({ cb }: PersonalSetting_Type) {
       data: { userid: id },
       callback: (e: AxiosResponse) => {
         if (e.data.result && e.data.result.length > 0) {
-          console.log(e.data.result[0]);
+          //console.log(e.data.result[0]);
           dispatch(setUpdateInfo(e.data.result[0]));
           cb();
         } else {

@@ -16,8 +16,6 @@ export const sendFilesPost = (
     return false;
   }
 
-  console.log('formdata pass');
-
   let file = createFormData(data, files, func);
 
   if (axios === 'put') {

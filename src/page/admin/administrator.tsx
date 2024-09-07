@@ -105,7 +105,7 @@ export default function Administrator() {
   const getExcel = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files)
       readXlsxFile(e.target.files[0]).then((rows) => {
-        console.log(rows);
+        //console.log(rows);
       });
   };
 
@@ -113,13 +113,13 @@ export default function Administrator() {
     if (e.target.files) {
       let file = e.target.files[0];
       let fileReader = new FileReader();
-      console.log(file);
+      //console.log(file);
       fileReader.onload = () => {
         setAnything((anything: any) => fileReader.result);
-        console.log(anything);
+        //console.log(anything);
       };
       fileReader.readAsText(file);
-      console.log(anything);
+      //console.log(anything);
     }
   };
 
@@ -305,7 +305,7 @@ export default function Administrator() {
               <input type='file' onChange={(e) => onFileChange(e)} />
               <button
                 onClick={() => {
-                  console.log(JSON.parse(anything));
+                  //console.log(JSON.parse(anything));
                 }}
               >
                 CONSOLE
@@ -313,7 +313,7 @@ export default function Administrator() {
               <button onClick={storyIntoData}>test api</button>
               <button
                 onClick={() => {
-                  console.log(anything2);
+                  //console.log(anything2);
                 }}
               >
                 Console anything2
